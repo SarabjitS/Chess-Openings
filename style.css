@@ -1,0 +1,44 @@
+:root{
+    --light-color: #EEEED2;
+    --dark-color: #769656;
+}
+* {
+    box-sizing:border block;
+}
+
+
+
+.container {
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    margin-top: 1rem;
+    padding: 0.5rem;
+}
+
+.sq {
+    background-color: var(--light-color);
+    width: 65px;
+    height: 65px;
+}
+
+
+.board {
+    display: grid;
+    border-radius: 3px;
+    grid-template-columns: repeat(8, 1fr);
+    height: 520px;
+    width: 520px;
+    overflow: hidden;
+    margin: 8rem;
+}
+
+.files:nth-of-type(odd) .sq:nth-of-type(even), .files:nth-of-type(even) .sq:nth-of-type(odd) {
+    background-color: var(--dark-color);
+}
+
+img {
+    width: 100%;
+}
