@@ -3,25 +3,22 @@
   --dark-color: #769656;
 }
 * {
-  box-sizing: border block;
+  box-sizing: border-box;
 }
 
 body {
   line-height: 1;
 }
 
-.board {
+.mega-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin: 0;
-  padding: 0;
-  justify-content: center;
+  grid-template-columns: 1fr 520px 2fr;
+  grid-template-rows: 1fr 3fr;
   margin-top: 1rem;
   padding: 0.5rem;
 }
 
 .sq {
-  background-color: var(--light-color);
   width: 65px;
   height: 65px;
 }
@@ -29,64 +26,30 @@ body {
 .board {
   display: grid;
   border-radius: 3px;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(8, 65px);
+  grid-template-rows: repeat(8, 65px);
   height: 520px;
   width: 520px;
   overflow: hidden;
   margin: 4rem;
+  grid-column: 3span;
 }
 
-.files:nth-of-type(odd) .sq:nth-of-type(even),
-.files:nth-of-type(even) .sq:nth-of-type(odd) {
+.board div {
+  background-color: var(--light-color);
+}
+
+.board :nth-child(n + 1):nth-child(even):nth-child(-n + 8),
+.board :nth-child(n + 9):nth-child(odd):nth-child(-n + 16),
+.board :nth-child(n + 17):nth-child(even):nth-child(-n + 24),
+.board :nth-child(n + 25):nth-child(odd):nth-child(-n + 32),
+.board :nth-child(n + 33):nth-child(even):nth-child(-n + 40),
+.board :nth-child(n + 41):nth-child(odd):nth-child(-n + 48),
+.board :nth-child(n + 49):nth-child(even):nth-child(-n + 56),
+.board :nth-child(n + 57):nth-child(odd):nth-child(-n + 64) {
   background-color: var(--dark-color);
 }
 
 img {
   width: 100%;
-}
-
-.mega-container {
-  display: flex;
-}
-
-.accordian {
-  width: 100px auto;
-  flex: 1;
-}
-
-.icon {
-  width: 24px;
-  height: 24px;
-  stroke: #087f5b;
-}
-
-.number,
-.text {
-  font-size: 24px;
-  font-weight: 500;
-  color: #087f5b;
-}
-
-.hidden-box p {
-  line-height: 1.6;
-  margin-bottom: 16px;
-}
-
-.hidden-box ol {
-  color: #868e96;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.items {
-  box-shadow: 0 0 32px rgba(0, 0, 0, 0.1);
-  padding: 24px;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  column-gap: 20px;
-}
-
-.hidden-box {
-  grid-column: 2;
 }
