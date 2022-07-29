@@ -25,17 +25,17 @@ body {
 }
 
 .sq {
-  width: 65px;
-  height: 65px;
+  width: 6.5rem;
+  height: 6.5rem;
 }
 
 .board {
   display: grid;
-  border-radius: px;
+  border-radius: 0.5rem;
   grid-template-columns: repeat(8, 6.5rem);
   grid-template-rows: repeat(8, 6.5rem);
-  max-height: 520px;
-  max-width: 520px;
+  max-height: 52rem;
+  max-width: 52rem;
   overflow: hidden;
   margin: 4rem;
 }
@@ -73,14 +73,17 @@ img {
   font-size: 2rem;
 }
 
+/* For increasing size of button */
 .bi {
   font-size: 3rem;
 }
 
+/* Does'nt work, accordion has padding of 7.5 using cal formula */
 .accordion {
   padding: 2rem;
 }
 
+/* For increasing size of accordion */
 .accordion-button,
 .accordion-body {
   font-size: 2rem;
