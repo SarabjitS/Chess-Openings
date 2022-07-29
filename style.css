@@ -6,18 +6,22 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+}
+/* Conversion of px to rem */
+
 body {
   line-height: 1;
 }
 
 .mega-container {
   display: grid;
-  grid-template-columns: 1fr 520px 2fr;
-  grid-template-rows: 1fr 3fr;
+  grid-template-columns: 1fr 600px 1fr;
   margin-top: 1rem;
-  padding: 0.5rem;
-  justify-content: center;
+  padding: 1rem;
   align-items: center;
+  justify-content: center;
 }
 
 .sq {
@@ -27,14 +31,13 @@ body {
 
 .board {
   display: grid;
-  border-radius: 3px;
-  grid-template-columns: repeat(8, 65px);
-  grid-template-rows: repeat(8, 65px);
-  height: 520px;
-  width: 520px;
+  border-radius: px;
+  grid-template-columns: repeat(8, 6.5rem);
+  grid-template-rows: repeat(8, 6.5rem);
+  max-height: 520px;
+  max-width: 520px;
   overflow: hidden;
   margin: 4rem;
-  grid-column: 3span;
 }
 
 .board div {
@@ -54,4 +57,31 @@ body {
 
 img {
   width: 100%;
+}
+
+.play-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.tutorial {
+  /* border: 0.3rem solid; */
+  font-size: 2rem;
+}
+
+.bi {
+  font-size: 3rem;
+}
+
+.accordion {
+  padding: 2rem;
+}
+
+.accordion-button,
+.accordion-body {
+  font-size: 2rem;
 }
