@@ -17,7 +17,8 @@ body {
 
 .mega-container {
   display: grid;
-  grid-template-columns: 1fr 600px 1fr;
+  grid-template-columns: 1fr 60rem 1fr;
+  grid-template-rows: 1fr 2fr;
   margin-top: 1rem;
   padding: 1rem;
   align-items: center;
@@ -59,18 +60,19 @@ img {
   width: 100%;
 }
 
-.play-controls {
+/* .play-controls {
   display: flex;
   flex-direction: column;
   gap: 4rem;
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-}
+} */
 
 .tutorial {
   /* border: 0.3rem solid; */
   font-size: 2rem;
+  grid-row: 2/3;
 }
 
 /* For increasing size of button */
@@ -87,4 +89,9 @@ img {
 .accordion-button,
 .accordion-body {
   font-size: 2rem;
+}
+
+.accordion,
+.board {
+  grid-row: 1/3;
 }
