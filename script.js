@@ -1,3 +1,6 @@
+"use strict"; //enabling strict mode
+
+// Declaring constants
 const item1 = document.querySelector("#opening1");
 const item2 = document.querySelector("#opening2");
 const item3 = document.querySelector("#opening3");
@@ -7,13 +10,25 @@ const chessBoard = document.getElementById("chess-board");
 const squareE2 = document.getElementById("sq-e2");
 const squareE4 = document.getElementById("sq-e4");
 
-let moves = 0;
+// let moves = 0;
+
+const toiletVariation = [
+  ["E2", "E4"],
+  ["c2", "c5"],
+  ["f2", "f4"],
+  ["g7", "f6"],
+  ["b2", "c3"],
+  ["d2", "d5"],
+];
 
 item1.addEventListener("click", playButton);
 
 function playButton() {
   // prevBtn.addEventListener("click", prevHandler);
-  nextBtn.addEventListener("click", nextHandler);
+  nextBtn.addEventListener("click", function () {
+    nextHandler(`$toiletVariation[0][0]`, `toiletVariation[0][1]`);
+    console.log(toiletVariation[0][0]);
+  });
 }
 
 function nextHandler() {
