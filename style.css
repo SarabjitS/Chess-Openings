@@ -13,6 +13,7 @@ html {
 
 body {
   line-height: 1;
+  background-image: linear-gradient(to right, #0099f7, #f11712);
 }
 
 .mega-container {
@@ -30,7 +31,7 @@ body {
   height: 6.5rem;
 }
 
-.board {
+.chess-board {
   display: grid;
   border-radius: 0.5rem;
   grid-template-columns: repeat(8, 6.5rem);
@@ -39,20 +40,21 @@ body {
   max-width: 52rem;
   overflow: hidden;
   margin: 4rem;
+  position: none;
 }
 
-.board div {
+.chess-board div {
   background-color: var(--light-color);
 }
 
-.board :nth-child(n + 1):nth-child(even):nth-child(-n + 8),
-.board :nth-child(n + 9):nth-child(odd):nth-child(-n + 16),
-.board :nth-child(n + 17):nth-child(even):nth-child(-n + 24),
-.board :nth-child(n + 25):nth-child(odd):nth-child(-n + 32),
-.board :nth-child(n + 33):nth-child(even):nth-child(-n + 40),
-.board :nth-child(n + 41):nth-child(odd):nth-child(-n + 48),
-.board :nth-child(n + 49):nth-child(even):nth-child(-n + 56),
-.board :nth-child(n + 57):nth-child(odd):nth-child(-n + 64) {
+.chess-board :nth-child(n + 1):nth-child(even):nth-child(-n + 8),
+.chess-board :nth-child(n + 9):nth-child(odd):nth-child(-n + 16),
+.chess-board :nth-child(n + 17):nth-child(even):nth-child(-n + 24),
+.chess-board :nth-child(n + 25):nth-child(odd):nth-child(-n + 32),
+.chess-board :nth-child(n + 33):nth-child(even):nth-child(-n + 40),
+.chess-board :nth-child(n + 41):nth-child(odd):nth-child(-n + 48),
+.chess-board :nth-child(n + 49):nth-child(even):nth-child(-n + 56),
+.chess-board :nth-child(n + 57):nth-child(odd):nth-child(-n + 64) {
   background-color: var(--dark-color);
 }
 
@@ -61,19 +63,15 @@ img {
 }
 
 .tutorial {
-  /* border: 0.3rem solid; */
+  border: 0.3rem solid;
   font-size: 2rem;
-  margin: 2rem;
+  padding: 2rem;
+  color: white;
 }
 
 /* For increasing size of button */
 .bi {
-  font-size: 3rem;
-}
-
-/* Does'nt work, accordion has padding of 7.5 using cal formula */
-.accordion {
-  padding: 2rem;
+  font-size: 5rem;
 }
 
 /* For increasing size of accordion */
@@ -83,10 +81,16 @@ img {
 }
 
 .accordion,
-.board {
+.chess-board {
   grid-row: 1/3;
 }
 
-.move1.active {
-  grid-template-rows: 32.5rem;
+.play-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.h2-tutorial {
+  text-align: center;
 }
