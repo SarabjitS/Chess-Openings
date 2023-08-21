@@ -13,10 +13,10 @@ const squareE4 = document.getElementById("sq-e4");
 // let moves = 0;
 
 const toiletVariation = [
-  ["E2", "E4"],
-  ["c2", "c5"],
-  ["f2", "f4"],
-  ["g7", "f6"],
+  ["squareE2", "squareE4"],
+  ["squarec2", "squarec5"],
+  ["squaref2", "sqauref4"],
+  ["squareg7", "squaref6"],
   ["b2", "c3"],
   ["d2", "d5"],
 ];
@@ -26,13 +26,13 @@ item1.addEventListener("click", playButton);
 function playButton() {
   // prevBtn.addEventListener("click", prevHandler);
   nextBtn.addEventListener("click", function () {
-    nextHandler(`$toiletVariation[0][0]`, `toiletVariation[0][1]`);
+    nextHandler(toiletVariation[0][0], toiletVariation[0][1]);
     console.log(toiletVariation[0][0]);
   });
 }
 
-function nextHandler() {
-  squareE4.append(squareE2.childNodes[1]);
+function nextHandler(sourceMove, destinationMove) {
+  // sourceMove.append(destinationMove.childNodes[1]);
 }
 
 // function nextHandler() {
