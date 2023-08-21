@@ -9,16 +9,26 @@ const nextBtn = document.querySelector("#next");
 const chessBoard = document.getElementById("chess-board");
 const squareE2 = document.getElementById("sq-e2");
 const squareE4 = document.getElementById("sq-e4");
+const squareC2 = document.getElementById("sq-c2");
+const squareC5 = document.getElementById("sq-c5");
+const squareG7 = document.getElementById("sq-g7");
+const squareB2 = document.getElementById("sq-b2");
+const squareD2 = document.getElementById("sq-d2");
+const squareF2 = document.getElementById("sq-f2");
+const squareF4 = document.getElementById("sq-f4");
+const squareD5 = document.getElementById("sq-d5");
+const squareF6 = document.getElementById("sq-f6");
+const squareC3 = document.getElementById("sq-c3");
 
 // let moves = 0;
 
 const toiletVariation = [
-  ["squareE2", "squareE4"],
-  ["squarec2", "squarec5"],
-  ["squaref2", "sqauref4"],
-  ["squareg7", "squaref6"],
-  ["b2", "c3"],
-  ["d2", "d5"],
+  [squareE2, squareE4],
+  [squareC2, squareC5],
+  [squareF2, squareF4],
+  [squareG7, squareF6],
+  [squareB2, squareC3],
+  [squareD2, squareD5],
 ];
 
 item1.addEventListener("click", playButton);
@@ -27,12 +37,11 @@ function playButton() {
   // prevBtn.addEventListener("click", prevHandler);
   nextBtn.addEventListener("click", function () {
     nextHandler(toiletVariation[0][0], toiletVariation[0][1]);
-    console.log(toiletVariation[0][0]);
   });
 }
 
 function nextHandler(sourceMove, destinationMove) {
-  // sourceMove.append(destinationMove.childNodes[1]);
+  destinationMove.append(sourceMove.childNodes[1]);
 }
 
 // function nextHandler() {
