@@ -32,14 +32,16 @@ const toiletVariation = [
 item1.addEventListener("click", playButton);
 
 function playButton() {
-  for (let i = 0; i < toiletVariation.length; i++) {
-    nextBtn.addEventListener("click", function () {
-      nextHandler(toiletVariation[i][0], toiletVariation[i][1]);
+  // for (let i = 0; i < toiletVariation.length; i++) {
+  let i = 0;
+  nextBtn.addEventListener("click", function () {
+    nextHandler(toiletVariation[i][0], toiletVariation[i][1]);
 
-      console.log(toiletVariation[i][0], toiletVariation[i][1]);
-    });
-  }
+    console.log(toiletVariation[i][0], toiletVariation[i][1]);
+    i++;
+  });
 }
+// }
 
 function nextHandler(sourceMove, destinationMove) {
   destinationMove.append(sourceMove.childNodes[1]);
