@@ -38,6 +38,12 @@ function playButton() {
     nextHandler(toiletVariation[i][0], toiletVariation[i][1]);
 
     console.log(toiletVariation[i][0], toiletVariation[i][1]);
+
+    prevBtn.addEventListener("click", function () {
+      i--;
+      Handler(toiletVariation[i][1], toiletVariation[i][0]);
+      console.log(toiletVariation[i][1], toiletVariation[i][0]);
+    });
     i++;
   });
 }
