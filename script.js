@@ -7,48 +7,37 @@ const item3 = document.querySelector("#opening3");
 const prevBtn = document.querySelector("#prev");
 const nextBtn = document.querySelector("#next");
 const chessBoard = document.getElementById("chess-board");
-const squareE2 = document.getElementById("sq-e2");
-const squareE4 = document.getElementById("sq-e4");
-const squareC7 = document.getElementById("sq-c7");
-const squareC5 = document.getElementById("sq-c5");
-const squareG8 = document.getElementById("sq-g8");
-const squareB1 = document.getElementById("sq-b1");
-const squareD7 = document.getElementById("sq-d7");
-const squareF2 = document.getElementById("sq-f2");
-const squareF4 = document.getElementById("sq-f4");
-const squareD5 = document.getElementById("sq-d5");
-const squareF6 = document.getElementById("sq-f6");
-const squareC3 = document.getElementById("sq-c3");
 
 const toiletVariation = [
-  [squareE2, squareE4],
-  [squareC7, squareC5],
-  [squareF2, squareF4],
-  [squareG8, squareF6],
-  [squareB1, squareC3],
-  [squareD7, squareD5],
+  ["e2", "e4"],
+  ["c7", "c5"],
+  ["f2", "f4"],
+  ["g8", "f6"],
+  ["b1", "c3"],
+  ["d7", "d5"],
 ];
 
 item1.addEventListener("click", playButton);
 
 function playButton() {
-  // for (let i = 0; i < toiletVariation.length; i++) {
   let i = 0;
   nextBtn.addEventListener("click", function () {
     nextHandler(toiletVariation[i][0], toiletVariation[i][1]);
 
     console.log(toiletVariation[i][0], toiletVariation[i][1]);
 
-    prevBtn.addEventListener("click", function () {
-      i--;
-      Handler(toiletVariation[i][1], toiletVariation[i][0]);
-      console.log(toiletVariation[i][1], toiletVariation[i][0]);
-    });
+    // prevBtn.addEventListener("click", function () {
+    //   i--;
+    //   Handler(toiletVariation[i][1], toiletVariation[i][0]);
+    //   console.log(toiletVariation[i][1], toiletVariation[i][0]);
+    // });
     i++;
   });
 }
 // }
 
 function nextHandler(sourceMove, destinationMove) {
-  destinationMove.append(sourceMove.childNodes[1]);
+  document
+    .getElementById(destinationMove)
+    .append(document.getElementById(sourceMove).childNodes[1]);
 }
