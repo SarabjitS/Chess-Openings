@@ -94,3 +94,7 @@ img {
 .h2-tutorial {
   text-align: center;
 }
+
+.disabled {
+  color: grey;
+}

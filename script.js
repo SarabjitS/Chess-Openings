@@ -49,10 +49,19 @@ function playButton() {
 
   nextBtn.addEventListener("click", function () {
     nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
-    console.log(opening[moveIndex][0], opening[moveIndex][1]);
+    // console.log(opening[moveIndex][0], opening[moveIndex][1]);
 
+    prevBtn.addEventListener("click", function () {
+      prevHandler(opening[moveIndex - 1][0], opening[moveIndex - 1][1]);
+      // console.log(opening[moveIndex - 1][0], opening[moveIndex - 1][1]);
+      moveIndex--;
+      console.log(moveIndex);
+    });
     if (moveIndex < opening.length - 1) {
       moveIndex++;
+      console.log(moveIndex);
+    } else {
+      nextBtn.classList.add("disabled");
     }
   });
 }
@@ -68,4 +77,8 @@ function nextHandler(sourceMove, destinationMove) {
     .append(document.getElementById(sourceMove).children[0]);
 }
 
-function prevHandler(destinationMove,sourceMove)
+function prevHandler(destinationMove, sourceMove) {
+  document
+    .getElementById(destinationMove)
+    .append(document.getElementById(sourceMove).children[0]);
+}
