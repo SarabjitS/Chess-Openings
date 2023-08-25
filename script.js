@@ -17,27 +17,55 @@ const toiletVariation = [
   ["d7", "d5"],
 ];
 
+const monkeysbumVariation = [
+  ["e2", "e4"],
+  ["g7", "g6"],
+  ["f1", "c4"],
+  ["f8", "g7"],
+  ["d1", "f3"],
+  ["e7", "e6"],
+  ["d2", "d4"],
+  ["g7", "d4"],
+];
+
 item1.addEventListener("click", playButton);
+item2.addEventListener("click", playButton);
 
 function playButton() {
-  let i = 0;
+  let title = arguments[0].target.innerText;
+  let opening = [];
+  let moveIndex = 0;
+
+  switch (title) {
+    case "The Toilet Variation":
+      opening = toiletVariation;
+      break;
+    case "The Monkey's Bum":
+      opening = monkeysbumVariation;
+      break;
+    default:
+      alert(title + " is not ready yet");
+  }
+
   nextBtn.addEventListener("click", function () {
-    nextHandler(toiletVariation[i][0], toiletVariation[i][1]);
+    nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
+    console.log(opening[moveIndex][0], opening[moveIndex][1]);
 
-    console.log(toiletVariation[i][0], toiletVariation[i][1]);
-
-    // prevBtn.addEventListener("click", function () {
-    //   i--;
-    //   Handler(toiletVariation[i][1], toiletVariation[i][0]);
-    //   console.log(toiletVariation[i][1], toiletVariation[i][0]);
-    // });
-    i++;
+    if (moveIndex < opening.length - 1) {
+      moveIndex++;
+    }
   });
 }
 // }
 
 function nextHandler(sourceMove, destinationMove) {
+  if (document.getElementById(destinationMove).children[0]) {
+    document.getElementById(destinationMove).children[0].style.display = "None";
+  }
+
   document
     .getElementById(destinationMove)
-    .append(document.getElementById(sourceMove).childNodes[1]);
+    .append(document.getElementById(sourceMove).children[0]);
 }
+
+function prevHandler(destinationMove,sourceMove)
