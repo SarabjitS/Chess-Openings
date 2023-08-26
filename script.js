@@ -8,13 +8,16 @@ const prevBtn = document.querySelector("#prev");
 const nextBtn = document.querySelector("#next");
 const chessBoard = document.getElementById("chess-board");
 
+renderBoard();
+
+//Different Chess Variations
 const toiletVariation = [
-  ["e2", "e4"],
-  ["c7", "c5"],
-  ["f2", "f4"],
-  ["g8", "f6"],
-  ["b1", "c3"],
-  ["d7", "d5"],
+  ["e2", "e4", "White moves pawn from e2 to e4"],
+  ["c7", "c5", "Black moves pawn from c7 to c5"],
+  ["f2", "f4", "White moves pawn from f2 to f4"],
+  ["g8", "f6", "Black moves knight from g8 to f6"],
+  ["b1", "c3", "White moves knight from b1 to c3"],
+  ["d7", "d5", "Black moves pawn from d7 to d5"],
 ];
 
 const monkeysbumVariation = [
@@ -28,11 +31,13 @@ const monkeysbumVariation = [
   ["g7", "d4"],
 ];
 
+// Adding Event Listeners
+
 item1.addEventListener("click", playButton);
 item2.addEventListener("click", playButton);
 
 function playButton() {
-  let title = arguments[0].target.innerText;
+  let title = document.querySelector(".accordion-button").innerText;
   let opening = [];
   let moveIndex = 0;
 
@@ -49,11 +54,14 @@ function playButton() {
 
   nextBtn.addEventListener("click", function () {
     nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
-    // console.log(opening[moveIndex][0], opening[moveIndex][1]);
+    console.log(opening[moveIndex][0], opening[moveIndex][1]);
+
+    generateTutorial(opening[moveIndex][2]);
+    console.log(opening[moveIndex][2]);
 
     prevBtn.addEventListener("click", function () {
       prevHandler(opening[moveIndex - 1][0], opening[moveIndex - 1][1]);
-      // console.log(opening[moveIndex - 1][0], opening[moveIndex - 1][1]);
+      console.log(opening[moveIndex - 1][0], opening[moveIndex - 1][1]);
       moveIndex--;
       console.log(moveIndex);
     });
@@ -81,4 +89,188 @@ function prevHandler(destinationMove, sourceMove) {
   document
     .getElementById(destinationMove)
     .append(document.getElementById(sourceMove).children[0]);
+}
+
+// check for saved 'darkMode' in localStorage
+let darkMode = localStorage.getItem("darkMode");
+
+const darkModeToggle = document.querySelector("#dark-mode-toggle");
+
+const enableDarkMode = () => {
+  // 1. Add the class to the body
+  document.body.classList.add("darkmode");
+  document.querySelector(".accordion-item").classList.add("darkmode");
+  // 2. Update darkMode in localStorage
+  localStorage.setItem("darkMode", "enabled");
+};
+
+const disableDarkMode = () => {
+  // 1. Remove the class from the body
+  document.body.classList.remove("darkmode");
+  document.querySelector(".accordion-item").classList.remove("darkmode");
+
+  // 2. Update darkMode in localStorage
+  localStorage.setItem("darkMode", null);
+};
+
+// If the user already visited and enabled darkMode
+// start things off with it on
+if (darkMode === "enabled") {
+  enableDarkMode();
+}
+
+// When someone clicks the button
+darkModeToggle.addEventListener("click", () => {
+  // get their darkMode setting
+  darkMode = localStorage.getItem("darkMode");
+
+  // if it not current enabled, enable it
+  if (darkMode !== "enabled") {
+    enableDarkMode();
+    // if it has been enabled, turn it off
+  } else {
+    disableDarkMode();
+  }
+});
+
+function renderBoard() {
+  chessBoard.innerHTML += `<div class="sq" id="a8">
+          <img src="./images/pieces/black/rook.png" alt="" />
+        </div>
+        <div class="sq" id="b8">
+          <img src="./images/pieces/black/knight.png" alt="" />
+        </div>
+        <div class="sq" id="c8">
+          <img src="./images/pieces/black/bishop.png" alt="" />
+        </div>
+        <div class="sq" id="d8">
+          <img src="./images/pieces/black/queen.png" alt="" />
+        </div>
+        <div class="sq" id=" sqe8">
+          <img src="./images/pieces/black/king.png" alt="" />
+        </div>
+        <div class="sq" id="f8">
+          <img src="./images/pieces/black/bishop.png" alt="" />
+        </div>
+        <div class="sq" id="g8">
+          <img src="./images/pieces/black/knight.png" alt="" />
+        </div>
+        <div class="sq" id="h8">
+          <img src="./images/pieces/black/rook.png" alt="" />
+        </div>
+
+        <div class="sq" id="a7">
+          <img src="./images/pieces/black/pawn.png" alt="" />
+        </div>
+        <div class="sq" id="b7">
+          <img src="./images/pieces/black/pawn.png" alt="" />
+        </div>
+        <div class="sq" id="c7">
+          <img src="./images/pieces/black/pawn.png" alt="" />
+        </div>
+        <div class="sq" id="d7">
+          <img src="./images/pieces/black/pawn.png" alt="" />
+        </div>
+        <div class="sq" id="e7">
+          <img src="./images/pieces/black/pawn.png" alt="" />
+        </div>
+        <div class="sq" id="f7">
+          <img src="./images/pieces/black/pawn.png" alt="" />
+        </div>
+        <div class="sq" id="g7">
+          <img src="./images/pieces/black/pawn.png" alt="" />
+        </div>
+        <div class="sq" id="h7">
+          <img src="./images/pieces/black/pawn.png" alt="" />
+        </div>
+
+        <div class="sq" id="a6"></div>
+        <div class="sq" id="b6"></div>
+        <div class="sq" id="c6"></div>
+        <div class="sq" id="d6"></div>
+        <div class="sq" id="e6"></div>
+        <div class="sq" id="f6"></div>
+        <div class="sq" id="g6"></div>
+        <div class="sq" id="h6"></div>
+
+        <div class="sq" id="a5"></div>
+        <div class="sq" id="b5"></div>
+        <div class="sq" id="c5"></div>
+        <div class="sq" id="d5"></div>
+        <div class="sq" id="e5"></div>
+        <div class="sq" id="f5"></div>
+        <div class="sq" id="g5"></div>
+        <div class="sq" id="h5"></div>
+
+        <div class="sq" id="a4"></div>
+        <div class="sq" id="b4"></div>
+        <div class="sq" id="c4"></div>
+        <div class="sq" id="d4"></div>
+        <div class="sq move1" id="e4"></div>
+        <div class="sq" id="f4"></div>
+        <div class="sq" id="g4"></div>
+        <div class="sq" id="h4"></div>
+
+        <div class="sq" id="a3"></div>
+        <div class="sq" id="b3"></div>
+        <div class="sq" id="c3"></div>
+        <div class="sq" id="d3"></div>
+        <div class="sq" id="e3"></div>
+        <div class="sq" id="f3"></div>
+        <div class="sq" id="g3"></div>
+        <div class="sq" id="h3"></div>
+
+        <div class="sq" id="a2">
+          <img src="./images/pieces/white/pawn.png" alt="" />
+        </div>
+        <div class="sq" id="b2">
+          <img src="./images/pieces/white/pawn.png" alt="" />
+        </div>
+        <div class="sq" id="c2">
+          <img src="./images/pieces/white/pawn.png" alt="" />
+        </div>
+        <div class="sq" id="d2">
+          <img src="./images/pieces/white/pawn.png" alt="" />
+        </div>
+        <div class="sq" id="e2">
+          <img src="./images/pieces/white/pawn.png" alt="" />
+        </div>
+        <div class="sq" id="f2">
+          <img src="./images/pieces/white/pawn.png" alt="" />
+        </div>
+        <div class="sq" id="g2">
+          <img src="./images/pieces/white/pawn.png" alt="" />
+        </div>
+        <div class="sq" id="h2">
+          <img src="./images/pieces/white/pawn.png" alt="" />
+        </div>
+
+        <div class="sq" id="a1">
+          <img src="./images/pieces/white/rook.png  " alt="" />
+        </div>
+        <div class="sq" id="b1">
+          <img src="./images/pieces/white/knight.png" alt="" />
+        </div>
+        <div class="sq" id="c1">
+          <img src="./images/pieces/white/bishop.png" alt="" />
+        </div>
+        <div class="sq" id="d1">
+          <img src="./images/pieces/white/queen.png" alt="" />
+        </div>
+        <div class="sq" id="e1">
+          <img src="./images/pieces/white/king.png" alt="" />
+        </div>
+        <div class="sq" id="f1">
+          <img src="./images/pieces/white/bishop.png" alt="" />
+        </div>
+        <div class="sq" id="g1">
+          <img src="./images/pieces/white/knight.png" alt="" />
+        </div>
+        <div class="sq" id="h1">
+          <img src="./images/pieces/white/rook.png" alt="" />
+        </div>`;
+}
+
+function generateTutorial(text) {
+  document.getElementById("tutorial-text").innerHTML += `<li>${text}</li>`;
 }

@@ -25,6 +25,20 @@
       crossorigin="anonymous"
     ></script>
 
+    <button id="dark-mode-toggle" class="dark-mode-toggle">
+      <svg
+        width="100%"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 496 496"
+      >
+        <path
+          fill="currentColor"
+          d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z"
+          transform="translate(-8 -8)"
+        />
+      </svg>
+    </button>
+
     <div class="mega-container">
       <div class="container accordion">
         <div class="accordion-flush" id="accordionFlushExample">
@@ -115,143 +129,7 @@
         </div>
       </div>
 
-      <div class="chess-board" id="chess-board"">
-        <div class="sq" id="a8">
-          <img src="./images/pieces/black/rook.png" alt="" />
-        </div>
-        <div class="sq" id="b8">
-          <img src="./images/pieces/black/knight.png" alt="" />
-        </div>
-        <div class="sq" id="c8">
-          <img src="./images/pieces/black/bishop.png" alt="" />
-        </div>
-        <div class="sq" id="d8">
-          <img src="./images/pieces/black/queen.png" alt="" />
-        </div>
-        <div class="sq" id=" sqe8">
-          <img src="./images/pieces/black/king.png" alt="" />
-        </div>
-        <div class="sq" id="f8">
-          <img src="./images/pieces/black/bishop.png" alt="" />
-        </div>
-        <div class="sq" id="g8">
-          <img src="./images/pieces/black/knight.png" alt="" />
-        </div>
-        <div class="sq" id="h8">
-          <img src="./images/pieces/black/rook.png" alt="" />
-        </div>
-
-        <div class="sq" id="a7">
-          <img src="./images/pieces/black/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="b7">
-          <img src="./images/pieces/black/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="c7">
-          <img src="./images/pieces/black/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="d7">
-          <img src="./images/pieces/black/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="e7">
-          <img src="./images/pieces/black/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="f7">
-          <img src="./images/pieces/black/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="g7">
-          <img src="./images/pieces/black/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="h7">
-          <img src="./images/pieces/black/pawn.png" alt="" />
-        </div>
-
-        <div class="sq" id="a6"></div>
-        <div class="sq" id="b6"></div>
-        <div class="sq" id="c6"></div>
-        <div class="sq" id="d6"></div>
-        <div class="sq" id="e6"></div>
-        <div class="sq" id="f6"></div>
-        <div class="sq" id="g6"></div>
-        <div class="sq" id="h6"></div>
-
-        <div class="sq" id="a5"></div>
-        <div class="sq" id="b5"></div>
-        <div class="sq" id="c5"></div>
-        <div class="sq" id="d5"></div>
-        <div class="sq" id="e5"></div>
-        <div class="sq" id="f5"></div>
-        <div class="sq" id="g5"></div>
-        <div class="sq" id="h5"></div>
-
-        <div class="sq" id="a4"></div>
-        <div class="sq" id="b4"></div>
-        <div class="sq" id="c4"></div>
-        <div class="sq" id="d4"></div>
-        <div class="sq move1" id="e4"></div>
-        <div class="sq" id="f4"></div>
-        <div class="sq" id="g4"></div>
-        <div class="sq" id="h4"></div>
-
-        <div class="sq" id="a3"></div>
-        <div class="sq" id="b3"></div>
-        <div class="sq" id="c3"></div>
-        <div class="sq" id="d3"></div>
-        <div class="sq" id="e3"></div>
-        <div class="sq" id="f3"></div>
-        <div class="sq" id="g3"></div>
-        <div class="sq" id="h3"></div>
-
-        <div class="sq" id="a2">
-          <img src="./images/pieces/white/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="b2">
-          <img src="./images/pieces/white/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="c2">
-          <img src="./images/pieces/white/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="d2">
-          <img src="./images/pieces/white/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="e2">
-          <img src="./images/pieces/white/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="f2">
-          <img src="./images/pieces/white/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="g2">
-          <img src="./images/pieces/white/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="h2">
-          <img src="./images/pieces/white/pawn.png" alt="" />
-        </div>
-
-        <div class="sq" id="a1">
-          <img src="./images/pieces/white/rook.png  " alt="" />
-        </div>
-        <div class="sq" id="b1">
-          <img src="./images/pieces/white/knight.png" alt="" />
-        </div>
-        <div class="sq" id="c1">
-          <img src="./images/pieces/white/bishop.png" alt="" />
-        </div>
-        <div class="sq" id="d1">
-          <img src="./images/pieces/white/queen.png" alt="" />
-        </div>
-        <div class="sq" id="e1">
-          <img src="./images/pieces/white/king.png" alt="" />
-        </div>
-        <div class="sq" id="f1">
-          <img src="./images/pieces/white/bishop.png" alt="" />
-        </div>
-        <div class="sq" id="g1">
-          <img src="./images/pieces/white/knight.png" alt="" />
-        </div>
-        <div class="sq" id="h1">
-          <img src="./images/pieces/white/rook.png" alt="" />
-        </div>
-      </div>
+      <div class="chess-board" id="chess-board"></div>
 
       <div class="container play-controls">
         <div class="btn-group" role="group">
@@ -266,14 +144,7 @@
       </div>
       <article class="tutorial border border-warning">
         <h2 class="h2-tutorial">Tutorial</h2>
-        <span class="tutorial-text"
-          >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci,
-          unde consectetur optio ipsam magnam ipsum necessitatibus. Veniam
-          eligendi impedit consequatur facere tenetur fugit quidem odit unde
-          enim accusamus velit qui, dolore sit nihil maxime, dolores, officiis
-          suscipit quaerat error eaque culpa! Nemo non dolor vero, libero
-          reiciendis consectetur possimus tempora.</span
-        >
+        <span><ul id="tutorial-text"></ul></span>
       </article>
     </div>
     <script src="./script.js"></script>
