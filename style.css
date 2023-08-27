@@ -100,13 +100,13 @@ img {
   border: 0.3rem solid;
   font-size: 2rem;
   padding: 2rem;
-  height: 20rem;
+  height: 30rem;
   width: 40rem;
 }
 
 /* For increasing size of button */
 .bi {
-  font-size: 5rem;
+  font-size: 4rem;
 }
 
 /* For increasing size of accordion */

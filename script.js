@@ -21,23 +21,32 @@ const toiletVariation = [
 ];
 
 const monkeysbumVariation = [
-  ["e2", "e4"],
-  ["g7", "g6"],
-  ["f1", "c4"],
-  ["f8", "g7"],
-  ["d1", "f3"],
-  ["e7", "e6"],
-  ["d2", "d4"],
-  ["g7", "d4"],
+  ["e2", "e4", "White moves pawn from e2 to e4"],
+  ["g7", "g6", "Black moves pawn from g7 to g6"],
+  ["f1", "c4", "White moves bishop from f1 to c4"],
+  ["f8", "g7", "Black moves bishop from f8 to g7"],
+  ["d1", "f3", "White moves queen from d1 to f3"],
+  ["e7", "e6", "Black moves pawn from e7 to e6"],
+  ["d2", "d4", "White moves pawn from d2 to d4"],
+  ["g7", "d4", "Black moves bishop from g7 to d4"],
 ];
 
+const frankesteindraculaVariation = [
+  ["e2", "e4", "White moves pawn from e2 to e4"],
+  ["e7", "e5", "Black moves pawn from e7 to e5"],
+  ["b1", "c3", "White moves knight from b1 to c3"],
+  ["g8", "f6", "Black moves knight from g8 to f6"],
+  ["f1", "c4", "White moves bishop from f1 to c4"],
+  ["f6", "e4", "Black moves knight from f6 to e4"],
+];
 // Adding Event Listeners
 
 item1.addEventListener("click", playButton);
 item2.addEventListener("click", playButton);
+item3.addEventListener("click", playButton);
 
 function playButton() {
-  let title = document.querySelector(".accordion-button").innerText;
+  let title = arguments[0].target.innerText;
   let opening = [];
   let moveIndex = 0;
 
@@ -48,44 +57,67 @@ function playButton() {
     case "The Monkey's Bum":
       opening = monkeysbumVariation;
       break;
+    case "The Frankenstein-Dracula Variation":
+      opening = frankesteindraculaVariation;
+      break;
     default:
       alert(title + " is not ready yet");
   }
 
   nextBtn.addEventListener("click", function () {
-    nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
+    nextHandler(opening[moveIndex][0], opening[moveIndex][1], moveIndex);
     console.log(opening[moveIndex][0], opening[moveIndex][1]);
-
+    console.log("move index value -> next" + moveIndex);
     generateTutorial(opening[moveIndex][2]);
-    console.log(opening[moveIndex][2]);
 
-    prevBtn.addEventListener("click", function () {
-      prevHandler(opening[moveIndex - 1][0], opening[moveIndex - 1][1]);
-      console.log(opening[moveIndex - 1][0], opening[moveIndex - 1][1]);
-      moveIndex--;
-      console.log(moveIndex);
-    });
     if (moveIndex < opening.length - 1) {
       moveIndex++;
-      console.log(moveIndex);
     } else {
       nextBtn.classList.add("disabled");
     }
   });
-}
-// }
 
-function nextHandler(sourceMove, destinationMove) {
-  if (document.getElementById(destinationMove).children[0]) {
-    document.getElementById(destinationMove).children[0].style.display = "None";
+  prevBtn.addEventListener("click", function () {
+    console.log(moveIndex + " value");
+    prevHandler(opening[moveIndex][0], opening[moveIndex][1]);
+    console.log(opening[moveIndex][0], opening[moveIndex][1]);
+    console.log("move index value -> prev" + moveIndex);
+
+    if (moveIndex > 0) {
+      moveIndex--;
+    } else if (moveIndex == 0) {
+      prevBtn.classList.add("disabled");
+    }
+  });
+}
+
+function nextHandler(sourceMove, destinationMove, moveIndex) {
+  if (document.getElementById(destinationMove).children[1]) {
+    document.getElementById(destinationMove).children[1].style.display = "None";
   }
 
   document
     .getElementById(destinationMove)
     .append(document.getElementById(sourceMove).children[0]);
+
+  if (document.getElementById(destinationMove).children[1]) {
+    let x = document
+      .getElementById(destinationMove)
+      .children[1].getAttribute("src");
+    let y = document
+      .getElementById(destinationMove)
+      .children[0].getAttribute("src");
+    document.getElementById(destinationMove).children[0].setAttribute("src", x);
+    document.getElementById(destinationMove).children[1].setAttribute("src", y);
+  }
 }
 
 function prevHandler(destinationMove, sourceMove) {
+  if (document.getElementById(sourceMove).children[0]) {
+    document.getElementById(sourceMove).children[0].style.display = "inline";
+  }
+  console.log(destinationMove + " destination move");
+  console.log(sourceMove + " source move");
   document
     .getElementById(destinationMove)
     .append(document.getElementById(sourceMove).children[0]);
