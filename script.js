@@ -91,7 +91,7 @@ function playButton() {
   });
 }
 
-function nextHandler(sourceMove, destinationMove, moveIndex) {
+function nextHandler(sourceMove, destinationMove) {
   if (document.getElementById(destinationMove).children[1]) {
     document.getElementById(destinationMove).children[1].style.display = "None";
   }
