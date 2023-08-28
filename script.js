@@ -73,19 +73,19 @@ function playMove() {
 
     if (moveIndex < opening.length - 1) {
       moveIndex++;
+      prevBtn.classList.remove("disabled");
     } else {
       nextBtn.classList.add("disabled");
     }
   });
 
   prevBtn.addEventListener("click", function () {
-    console.log(moveIndex + " value");
+    // removeTutorial(opening[moveIndex][2]);
+    console.log("clicked" + moveIndex);
     prevHandler(opening[moveIndex][0], opening[moveIndex][1]);
-    console.log(opening[moveIndex][0], opening[moveIndex][1]);
-    console.log("move index value -> prev" + moveIndex);
-
     if (moveIndex > 0) {
       moveIndex--;
+      nextBtn.classList.remove("disabled");
     } else if (moveIndex == 0) {
       prevBtn.classList.add("disabled");
     }
@@ -119,12 +119,18 @@ function prevHandler(destinationMove, sourceMove) {
   if (document.getElementById(sourceMove).children[0]) {
     document.getElementById(sourceMove).children[0].style.display = "inline";
   }
-  console.log(destinationMove + " destination move");
-  console.log(sourceMove + " source move");
+  // console.log(destinationMove + " destination move");
+  // console.log(sourceMove + " source move");
   document
     .getElementById(destinationMove)
     .append(document.getElementById(sourceMove).children[0]);
 }
+
+function generateTutorial(text) {
+  document.getElementById("tutorial-text").innerHTML += `<li>${text}</li>`;
+}
+
+// function removeTutorial(text) {}
 
 // check for saved 'darkMode' in localStorage
 let darkMode = localStorage.getItem("darkMode");
@@ -304,8 +310,4 @@ function renderBoard() {
         <div class="sq" id="h1">
           <img src="./images/pieces/white/rook.png" alt="" />
         </div>`;
-}
-
-function generateTutorial(text) {
-  document.getElementById("tutorial-text").innerHTML += `<li>${text}</li>`;
 }
