@@ -7,6 +7,7 @@ const item3 = document.querySelector("#opening3");
 const prevBtn = document.querySelector("#prev");
 const nextBtn = document.querySelector("#next");
 const chessBoard = document.getElementById("chess-board");
+const playBtn = document.getElementById("play");
 
 renderBoard();
 
@@ -41,11 +42,11 @@ const frankesteindraculaVariation = [
 ];
 // Adding Event Listeners
 
-item1.addEventListener("click", playButton);
-item2.addEventListener("click", playButton);
-item3.addEventListener("click", playButton);
+item1.addEventListener("click", playMove);
+item2.addEventListener("click", playMove);
+item3.addEventListener("click", playMove);
 
-function playButton() {
+function playMove() {
   let title = arguments[0].target.innerText;
   let opening = [];
   let moveIndex = 0;
@@ -90,6 +91,8 @@ function playButton() {
     }
   });
 }
+
+playBtn.addEventListener("click", function () {});
 
 function nextHandler(sourceMove, destinationMove) {
   if (document.getElementById(destinationMove).children[1]) {

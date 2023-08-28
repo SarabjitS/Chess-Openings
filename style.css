@@ -143,3 +143,7 @@ img {
   background-color: var(--clr-accent);
   color: var(--foreground);
 }
+
+.btn {
+  margin: 5px;
+}
