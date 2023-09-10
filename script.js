@@ -10,6 +10,7 @@ const chessBoard = document.getElementById("chess-board");
 const playBtn = document.getElementById("play");
 
 renderBoard();
+let defaultDomState = document.body.innerHTML;
 
 //Different Chess Variations
 const toiletVariation = [
@@ -46,8 +47,9 @@ item1.addEventListener("click", playMove);
 item2.addEventListener("click", playMove);
 item3.addEventListener("click", playMove);
 
-function playMove() {
-  let title = arguments[0].target.innerText;
+function playMove(e) {
+  let title = e.target.innerText;
+  console.log(e.target);
   let opening = [];
   let moveIndex = 0;
 
@@ -57,6 +59,7 @@ function playMove() {
       break;
     case "The Monkey's Bum":
       opening = monkeysbumVariation;
+      // resetBoard();
       break;
     case "The Frankenstein-Dracula Variation":
       opening = frankesteindraculaVariation;
@@ -66,9 +69,8 @@ function playMove() {
   }
 
   nextBtn.addEventListener("click", function () {
-    nextHandler(opening[moveIndex][0], opening[moveIndex][1], moveIndex);
+    nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
     console.log(opening[moveIndex][0], opening[moveIndex][1]);
-    console.log("move index value -> next" + moveIndex);
     generateTutorial(opening[moveIndex][2]);
 
     if (moveIndex < opening.length - 1) {
@@ -77,10 +79,11 @@ function playMove() {
     } else {
       nextBtn.classList.add("disabled");
     }
+    console.log("move index value -> next" + moveIndex);
   });
 
   prevBtn.addEventListener("click", function () {
-    // removeTutorial(opening[moveIndex][2]);
+    removeTutorial();
     console.log("clicked" + moveIndex);
     prevHandler(opening[moveIndex][0], opening[moveIndex][1]);
     if (moveIndex > 0) {
@@ -104,14 +107,18 @@ function nextHandler(sourceMove, destinationMove) {
     .append(document.getElementById(sourceMove).children[0]);
 
   if (document.getElementById(destinationMove).children[1]) {
-    let x = document
+    let nowPiece = document
       .getElementById(destinationMove)
       .children[1].getAttribute("src");
-    let y = document
+    let originalPiece = document
       .getElementById(destinationMove)
       .children[0].getAttribute("src");
-    document.getElementById(destinationMove).children[0].setAttribute("src", x);
-    document.getElementById(destinationMove).children[1].setAttribute("src", y);
+    document
+      .getElementById(destinationMove)
+      .children[0].setAttribute("src", nowPiece);
+    document
+      .getElementById(destinationMove)
+      .children[1].setAttribute("src", originalPiece);
   }
 }
 
@@ -130,7 +137,9 @@ function generateTutorial(text) {
   document.getElementById("tutorial-text").innerHTML += `<li>${text}</li>`;
 }
 
-// function removeTutorial(text) {}
+function removeTutorial() {
+  console.log(document.getElementById("tutorial-text"));
+}
 
 // check for saved 'darkMode' in localStorage
 let darkMode = localStorage.getItem("darkMode");
@@ -173,6 +182,10 @@ darkModeToggle.addEventListener("click", () => {
     disableDarkMode();
   }
 });
+
+// function resetBoard() {
+//   document.body.innerHTML = defaultDomState;
+// }
 
 function renderBoard() {
   chessBoard.innerHTML += `<div class="sq" id="a8">
