@@ -10,6 +10,7 @@ const chessBoard = document.getElementById("chess-board");
 const playBtn = document.getElementById("play");
 
 renderBoard();
+
 let defaultDomState = document.body.innerHTML;
 
 //Different Chess Variations
@@ -49,17 +50,16 @@ item3.addEventListener("click", playMove);
 
 function playMove(e) {
   let title = e.target.innerText;
-  console.log(e.target);
   let opening = [];
-  let moveIndex = 0;
-
+  let moveIndex = -1;
+  renderBoard();
   switch (title) {
     case "The Toilet Variation":
       opening = toiletVariation;
       break;
     case "The Monkey's Bum":
       opening = monkeysbumVariation;
-      // resetBoard();
+
       break;
     case "The Frankenstein-Dracula Variation":
       opening = frankesteindraculaVariation;
@@ -69,28 +69,31 @@ function playMove(e) {
   }
 
   nextBtn.addEventListener("click", function () {
-    nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
-    console.log(opening[moveIndex][0], opening[moveIndex][1]);
-    generateTutorial(opening[moveIndex][2]);
-
     if (moveIndex < opening.length - 1) {
       moveIndex++;
       prevBtn.classList.remove("disabled");
-    } else {
+      nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
+      generateTutorial(opening[moveIndex][2]);
+    }
+    if (moveIndex == opening.length - 1) {
       nextBtn.classList.add("disabled");
     }
-    console.log("move index value -> next" + moveIndex);
+    // console.log(moveIndex);
+
+    // console.log("move index value -> next" + moveIndex);
   });
 
   prevBtn.addEventListener("click", function () {
-    removeTutorial();
-    console.log("clicked" + moveIndex);
+    console.log(moveIndex);
+
     prevHandler(opening[moveIndex][0], opening[moveIndex][1]);
+    removeTutorial();
     if (moveIndex > 0) {
       moveIndex--;
       nextBtn.classList.remove("disabled");
     } else if (moveIndex == 0) {
       prevBtn.classList.add("disabled");
+      moveIndex--;
     }
   });
 }
@@ -98,36 +101,37 @@ function playMove(e) {
 playBtn.addEventListener("click", function () {});
 
 function nextHandler(sourceMove, destinationMove) {
-  if (document.getElementById(destinationMove).children[1]) {
-    document.getElementById(destinationMove).children[1].style.display = "None";
-  }
+  // if (document.getElementById(destinationMove).children[1]) {
+  //   document.getElementById(destinationMove).children[0].hidden = "True";
+  // }
 
   document
     .getElementById(destinationMove)
     .append(document.getElementById(sourceMove).children[0]);
 
   if (document.getElementById(destinationMove).children[1]) {
-    let nowPiece = document
+    let originalPiece = document
       .getElementById(destinationMove)
       .children[1].getAttribute("src");
-    let originalPiece = document
+    let nowPiece = document
       .getElementById(destinationMove)
       .children[0].getAttribute("src");
     document
       .getElementById(destinationMove)
-      .children[0].setAttribute("src", nowPiece);
+      .children[0].setAttribute("src", originalPiece);
     document
       .getElementById(destinationMove)
-      .children[1].setAttribute("src", originalPiece);
+      .children[1].setAttribute("src", nowPiece);
   }
 }
 
 function prevHandler(destinationMove, sourceMove) {
-  if (document.getElementById(sourceMove).children[0]) {
-    document.getElementById(sourceMove).children[0].style.display = "inline";
-  }
-  // console.log(destinationMove + " destination move");
-  // console.log(sourceMove + " source move");
+  console.log(" destination move", destinationMove);
+  console.log(" source move", sourceMove);
+  // if (document.getElementById(sourceMove).children[0]) {
+  //   document.getElementById(sourceMove).children[0].style.display = "inline";
+  // }
+
   document
     .getElementById(destinationMove)
     .append(document.getElementById(sourceMove).children[0]);
@@ -138,7 +142,12 @@ function generateTutorial(text) {
 }
 
 function removeTutorial() {
-  console.log(document.getElementById("tutorial-text"));
+  const list = document.querySelectorAll("ul li");
+  const lastItem = list[list.length - 1];
+  if (lastItem) {
+    lastItem.parentNode.removeChild(lastItem);
+    // console.log(list);
+  }
 }
 
 // check for saved 'darkMode' in localStorage
@@ -183,9 +192,9 @@ darkModeToggle.addEventListener("click", () => {
   }
 });
 
-// function resetBoard() {
-//   document.body.innerHTML = defaultDomState;
-// }
+function resetBoard() {
+  document.body.innerHTML = defaultDomState;
+}
 
 function renderBoard() {
   chessBoard.innerHTML += `<div class="sq" id="a8">
