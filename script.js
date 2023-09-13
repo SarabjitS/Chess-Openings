@@ -1,13 +1,13 @@
 "use strict"; //enabling strict mode
 
 // Declaring constants
-const item1 = document.querySelector("#opening1");
-const item2 = document.querySelector("#opening2");
-const item3 = document.querySelector("#opening3");
-const prevBtn = document.querySelector("#prev");
-const nextBtn = document.querySelector("#next");
+// const item1 = document.querySelector("#opening1");
+// const item2 = document.querySelector("#opening2");
+// const item3 = document.querySelector("#opening3");
+const prevBtn = document.querySelector("#prev-button");
+const nextBtn = document.querySelector("#next-button");
 const chessBoard = document.getElementById("chess-board");
-const playBtn = document.getElementById("play");
+const playBtn = document.getElementById("play-button");
 
 renderBoard();
 
@@ -44,15 +44,26 @@ const frankesteindraculaVariation = [
 ];
 // Adding Event Listeners
 
-item1.addEventListener("click", playMove);
-item2.addEventListener("click", playMove);
-item3.addEventListener("click", playMove);
+document.addEventListener("click", function (e) {
+  if (
+    e.target.dataset.name == "opening1" ||
+    e.target.dataset.name == "opening2" ||
+    e.target.dataset.name == "opening3"
+  ) {
+    playMove(e.target.innerText);
+  }
+});
 
-function playMove(e) {
-  let title = e.target.innerText;
+// item1.addEventListener("click", playMove);
+// item2.addEventListener("click", playMove);
+// item3.addEventListener("click", playMove);
+
+function playMove(title) {
+  // let title = e.target.innerText;
+  // console.log(e.target);
+  console.log(title);
   let opening = [];
   let moveIndex = -1;
-  renderBoard();
   switch (title) {
     case "The Toilet Variation":
       opening = toiletVariation;
@@ -64,8 +75,8 @@ function playMove(e) {
     case "The Frankenstein-Dracula Variation":
       opening = frankesteindraculaVariation;
       break;
-    default:
-      alert(title + " is not ready yet");
+    // default:
+    //   alert(title + " is not ready yet");
   }
 
   nextBtn.addEventListener("click", function () {
@@ -98,13 +109,22 @@ function playMove(e) {
   });
 }
 
-playBtn.addEventListener("click", function () {});
+playBtn.addEventListener("click", function () {
+  // setInterval(function () {
+  //   if (moveIndex < opening.length - 1) {
+  //     moveIndex++;
+  //     prevBtn.classList.remove("disabled");
+  //     nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
+  //     generateTutorial(opening[moveIndex][2]);
+  //   }
+  //   if (moveIndex == opening.length - 1) {
+  //     nextBtn.classList.add("disabled");
+  //   }
+  // }, 3000);
+  setInterval(nextBtn, 1000);
+});
 
 function nextHandler(sourceMove, destinationMove) {
-  // if (document.getElementById(destinationMove).children[1]) {
-  //   document.getElementById(destinationMove).children[0].hidden = "True";
-  // }
-
   document
     .getElementById(destinationMove)
     .append(document.getElementById(sourceMove).children[0]);
@@ -126,12 +146,8 @@ function nextHandler(sourceMove, destinationMove) {
 }
 
 function prevHandler(destinationMove, sourceMove) {
-  console.log(" destination move", destinationMove);
-  console.log(" source move", sourceMove);
-  // if (document.getElementById(sourceMove).children[0]) {
-  //   document.getElementById(sourceMove).children[0].style.display = "inline";
-  // }
-
+  // console.log(" destination move", destinationMove);
+  // console.log(" source move", sourceMove);
   document
     .getElementById(destinationMove)
     .append(document.getElementById(sourceMove).children[0]);
