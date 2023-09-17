@@ -11,8 +11,6 @@ const playBtn = document.getElementById("play-button");
 
 renderBoard();
 
-let defaultDomState = document.body.innerHTML;
-
 //Different Chess Variations
 const toiletVariation = [
   ["e2", "e4", "White moves pawn from e2 to e4"],
@@ -50,6 +48,7 @@ document.addEventListener("click", function (e) {
     e.target.dataset.name == "opening2" ||
     e.target.dataset.name == "opening3"
   ) {
+    renderBoard();
     playMove(e.target.innerText);
   }
 });
@@ -61,16 +60,17 @@ document.addEventListener("click", function (e) {
 function playMove(title) {
   // let title = e.target.innerText;
   // console.log(e.target);
+
   console.log(title);
   let opening = [];
   let moveIndex = -1;
+  console.log(moveIndex);
   switch (title) {
     case "The Toilet Variation":
       opening = toiletVariation;
       break;
     case "The Monkey's Bum":
       opening = monkeysbumVariation;
-
       break;
     case "The Frankenstein-Dracula Variation":
       opening = frankesteindraculaVariation;
@@ -89,9 +89,6 @@ function playMove(title) {
     if (moveIndex == opening.length - 1) {
       nextBtn.classList.add("disabled");
     }
-    // console.log(moveIndex);
-
-    // console.log("move index value -> next" + moveIndex);
   });
 
   prevBtn.addEventListener("click", function () {
@@ -107,22 +104,24 @@ function playMove(title) {
       moveIndex--;
     }
   });
-}
 
-playBtn.addEventListener("click", function () {
-  // setInterval(function () {
-  //   if (moveIndex < opening.length - 1) {
-  //     moveIndex++;
-  //     prevBtn.classList.remove("disabled");
-  //     nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
-  //     generateTutorial(opening[moveIndex][2]);
-  //   }
-  //   if (moveIndex == opening.length - 1) {
-  //     nextBtn.classList.add("disabled");
-  //   }
-  // }, 3000);
-  setInterval(nextBtn, 1000);
-});
+  playBtn.addEventListener("click", function () {
+    const id = setInterval(moveIndexChange, 2000);
+    // nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
+    function moveIndexChange() {
+      if (moveIndex < opening.length - 1) {
+        moveIndex++;
+        prevBtn.classList.remove("disabled");
+        nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
+        if (moveIndex == opening.length - 1) {
+          nextBtn.classList.add("disabled");
+          clearInterval(id);
+        }
+      }
+      generateTutorial(opening[moveIndex][2]);
+    }
+  });
+}
 
 function nextHandler(sourceMove, destinationMove) {
   document
@@ -146,8 +145,6 @@ function nextHandler(sourceMove, destinationMove) {
 }
 
 function prevHandler(destinationMove, sourceMove) {
-  // console.log(" destination move", destinationMove);
-  // console.log(" source move", sourceMove);
   document
     .getElementById(destinationMove)
     .append(document.getElementById(sourceMove).children[0]);
@@ -208,12 +205,8 @@ darkModeToggle.addEventListener("click", () => {
   }
 });
 
-function resetBoard() {
-  document.body.innerHTML = defaultDomState;
-}
-
 function renderBoard() {
-  chessBoard.innerHTML += `<div class="sq" id="a8">
+  chessBoard.innerHTML = `<div class="sq" id="a8">
           <img src="./images/pieces/black/rook.png" alt="" />
         </div>
         <div class="sq" id="b8">
