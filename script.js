@@ -49,6 +49,7 @@ document.addEventListener("click", function (e) {
     e.target.dataset.name == "opening3"
   ) {
     renderBoard();
+    console.log(e.target.dataset);
     playMove(e.target.innerText);
   }
 });
@@ -59,12 +60,11 @@ document.addEventListener("click", function (e) {
 
 function playMove(title) {
   // let title = e.target.innerText;
-  // console.log(e.target);
 
-  console.log(title);
+  // console.log(title);
   let opening = [];
   let moveIndex = -1;
-  console.log(moveIndex);
+  console.log(title, moveIndex);
   switch (title) {
     case "The Toilet Variation":
       opening = toiletVariation;
@@ -79,7 +79,9 @@ function playMove(title) {
     //   alert(title + " is not ready yet");
   }
 
-  nextBtn.addEventListener("click", function () {
+  nextBtn.addEventListener("click", function next(event) {
+    console.log(event);
+    console.log(title, moveIndex, opening);
     if (moveIndex < opening.length - 1) {
       moveIndex++;
       prevBtn.classList.remove("disabled");
@@ -92,7 +94,7 @@ function playMove(title) {
   });
 
   prevBtn.addEventListener("click", function () {
-    console.log(moveIndex);
+    console.log("nextBtn", moveIndex);
 
     prevHandler(opening[moveIndex][0], opening[moveIndex][1]);
     removeTutorial();
