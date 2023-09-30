@@ -82,6 +82,11 @@ function playMove(title) {
   nextBtn.addEventListener("click", function next(event) {
     console.log(event);
     console.log(title, moveIndex, opening);
+    function playSound() {
+      let audio = new Audio("move.mp3");
+      audio.play();
+    }
+    playSound();
     if (moveIndex < opening.length - 1) {
       moveIndex++;
       prevBtn.classList.remove("disabled");
