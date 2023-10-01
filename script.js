@@ -133,12 +133,9 @@ function playMove(title) {
     case "The Frankenstein-Dracula Variation":
       opening = frankesteindraculaVariation;
       break;
-    // Handle other cases as needed
   }
 
   moveIndex = -1; // Reset moveIndex when playMove is called
-
-  // Perform other actions based on the title as needed
 }
 
 function nextHandler(sourceMove, destinationMove) {
