@@ -43,14 +43,23 @@ const frankesteindraculaVariation = [
 // Adding Event Listeners
 
 document.addEventListener("click", function (e) {
-  if (
-    e.target.dataset.name == "opening1" ||
-    e.target.dataset.name == "opening2" ||
-    e.target.dataset.name == "opening3"
-  ) {
-    renderBoard();
-    console.log(e.target.dataset);
-    playMove(e.target.innerText);
+  // Check if the clicked element or its ancestor has the desired data-name attribute
+  const targetElement = e.target.closest("[data-name]");
+
+  if (targetElement) {
+    // You can access the data-name attribute of the clicked element
+    const dataName = targetElement.getAttribute("data-name");
+
+    // Perform actions based on the data-name attribute
+    if (
+      dataName === "opening1" ||
+      dataName === "opening2" ||
+      dataName === "opening3"
+    ) {
+      renderBoard();
+      console.log(targetElement.dataset);
+      playMove(targetElement.innerText);
+    }
   }
 });
 
@@ -58,13 +67,62 @@ document.addEventListener("click", function (e) {
 // item2.addEventListener("click", playMove);
 // item3.addEventListener("click", playMove);
 
-function playMove(title) {
-  // let title = e.target.innerText;
+let opening = [];
+let moveIndex = -1;
 
-  // console.log(title);
-  let opening = [];
-  let moveIndex = -1;
-  console.log(title, moveIndex);
+nextBtn.addEventListener("click", function next(event) {
+  function playSound() {
+    let audio = new Audio("move.mp3");
+    audio.play();
+  }
+
+  playSound();
+
+  if (moveIndex < opening.length - 1) {
+    moveIndex++;
+    prevBtn.classList.remove("disabled");
+    nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
+    generateTutorial(opening[moveIndex][2]);
+  }
+
+  if (moveIndex == opening.length - 1) {
+    nextBtn.classList.add("disabled");
+  }
+});
+
+prevBtn.addEventListener("click", function () {
+  prevHandler(opening[moveIndex][0], opening[moveIndex][1]);
+  removeTutorial();
+
+  if (moveIndex > 0) {
+    moveIndex--;
+    nextBtn.classList.remove("disabled");
+  } else if (moveIndex == 0) {
+    prevBtn.classList.add("disabled");
+    moveIndex--;
+  }
+});
+
+playBtn.addEventListener("click", function () {
+  const id = setInterval(moveIndexChange, 2000);
+
+  function moveIndexChange() {
+    if (moveIndex < opening.length - 1) {
+      moveIndex++;
+      prevBtn.classList.remove("disabled");
+      nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
+
+      if (moveIndex == opening.length - 1) {
+        nextBtn.classList.add("disabled");
+        clearInterval(id);
+      }
+    }
+
+    generateTutorial(opening[moveIndex][2]);
+  }
+});
+
+function playMove(title) {
   switch (title) {
     case "The Toilet Variation":
       opening = toiletVariation;
@@ -75,59 +133,12 @@ function playMove(title) {
     case "The Frankenstein-Dracula Variation":
       opening = frankesteindraculaVariation;
       break;
-    // default:
-    //   alert(title + " is not ready yet");
+    // Handle other cases as needed
   }
 
-  nextBtn.addEventListener("click", function next(event) {
-    console.log(event);
-    console.log(title, moveIndex, opening);
-    function playSound() {
-      let audio = new Audio("move.mp3");
-      audio.play();
-    }
-    playSound();
-    if (moveIndex < opening.length - 1) {
-      moveIndex++;
-      prevBtn.classList.remove("disabled");
-      nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
-      generateTutorial(opening[moveIndex][2]);
-    }
-    if (moveIndex == opening.length - 1) {
-      nextBtn.classList.add("disabled");
-    }
-  });
+  moveIndex = -1; // Reset moveIndex when playMove is called
 
-  prevBtn.addEventListener("click", function () {
-    console.log("nextBtn", moveIndex);
-
-    prevHandler(opening[moveIndex][0], opening[moveIndex][1]);
-    removeTutorial();
-    if (moveIndex > 0) {
-      moveIndex--;
-      nextBtn.classList.remove("disabled");
-    } else if (moveIndex == 0) {
-      prevBtn.classList.add("disabled");
-      moveIndex--;
-    }
-  });
-
-  playBtn.addEventListener("click", function () {
-    const id = setInterval(moveIndexChange, 2000);
-    // nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
-    function moveIndexChange() {
-      if (moveIndex < opening.length - 1) {
-        moveIndex++;
-        prevBtn.classList.remove("disabled");
-        nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
-        if (moveIndex == opening.length - 1) {
-          nextBtn.classList.add("disabled");
-          clearInterval(id);
-        }
-      }
-      generateTutorial(opening[moveIndex][2]);
-    }
-  });
+  // Perform other actions based on the title as needed
 }
 
 function nextHandler(sourceMove, destinationMove) {
