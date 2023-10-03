@@ -51,10 +51,6 @@ body {
 }
 
 .dark-mode-toggle {
-  position: absolute;
-  z-index: 100;
-  top: 1em;
-  right: 1em;
   color: var(--foreground);
   border: 2px solid currentColor;
   padding: 4px;
@@ -146,4 +142,24 @@ img {
 
 .btn {
   margin: 5px;
+}
+
+.header {
+  background-color: orchid;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem 1rem 1rem 1rem;
+}
+
+.extra-options {
+  font-size: 2rem;
+  background-color: inherit;
+  cursor: pointer;
+  position: absolute;
+  z-index: 100;
+  top: 1rem;
+  right: 6rem;
+  padding: 1rem;
+  border: none;
 }
