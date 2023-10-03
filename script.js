@@ -8,8 +8,15 @@ const prevBtn = document.querySelector("#prev-button");
 const nextBtn = document.querySelector("#next-button");
 const chessBoard = document.getElementById("chess-board");
 const playBtn = document.getElementById("play-button");
+let isPlayer = "white";
+let opening = [];
+let moveIndex = -1;
 
-renderBoard();
+if (isPlayer === "white") {
+  renderBoard();
+} else {
+  flipBoard();
+}
 
 //Different Chess Variations
 const toiletVariation = [
@@ -62,8 +69,7 @@ function playMove(title) {
   // let title = e.target.innerText;
 
   // console.log(title);
-  let opening = [];
-  let moveIndex = -1;
+
   console.log(title, moveIndex);
   switch (title) {
     case "The Toilet Variation":
@@ -78,57 +84,53 @@ function playMove(title) {
     // default:
     //   alert(title + " is not ready yet");
   }
+}
 
-  nextBtn.addEventListener("click", function next(event) {
-    console.log(event);
-    console.log(title, moveIndex, opening);
-    function playSound() {
-      let audio = new Audio("move.mp3");
-      audio.play();
-    }
-    playSound();
+nextBtn.addEventListener("click", function next(event) {
+  console.log(event);
+
+  playSound();
+  if (moveIndex < opening.length - 1) {
+    moveIndex++;
+    prevBtn.classList.remove("disabled");
+    nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
+    generateTutorial(opening[moveIndex][2]);
+  }
+  if (moveIndex == opening.length - 1) {
+    nextBtn.classList.add("disabled");
+  }
+});
+
+prevBtn.addEventListener("click", function () {
+  playSound();
+  prevHandler(opening[moveIndex][0], opening[moveIndex][1]);
+  removeTutorial();
+  if (moveIndex > 0) {
+    moveIndex--;
+    nextBtn.classList.remove("disabled");
+  } else if (moveIndex == 0) {
+    prevBtn.classList.add("disabled");
+    moveIndex--;
+  }
+});
+
+playBtn.addEventListener("click", function () {
+  const id = setInterval(moveIndexChange, 2000);
+  // nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
+  function moveIndexChange() {
     if (moveIndex < opening.length - 1) {
       moveIndex++;
       prevBtn.classList.remove("disabled");
       nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
-      generateTutorial(opening[moveIndex][2]);
-    }
-    if (moveIndex == opening.length - 1) {
-      nextBtn.classList.add("disabled");
-    }
-  });
-
-  prevBtn.addEventListener("click", function () {
-    console.log("nextBtn", moveIndex);
-
-    prevHandler(opening[moveIndex][0], opening[moveIndex][1]);
-    removeTutorial();
-    if (moveIndex > 0) {
-      moveIndex--;
-      nextBtn.classList.remove("disabled");
-    } else if (moveIndex == 0) {
-      prevBtn.classList.add("disabled");
-      moveIndex--;
-    }
-  });
-
-  playBtn.addEventListener("click", function () {
-    const id = setInterval(moveIndexChange, 2000);
-    // nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
-    function moveIndexChange() {
-      if (moveIndex < opening.length - 1) {
-        moveIndex++;
-        prevBtn.classList.remove("disabled");
-        nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
-        if (moveIndex == opening.length - 1) {
-          nextBtn.classList.add("disabled");
-          clearInterval(id);
-        }
+      playSound();
+      if (moveIndex == opening.length - 1) {
+        nextBtn.classList.add("disabled");
+        clearInterval(id);
       }
-      generateTutorial(opening[moveIndex][2]);
     }
-  });
-}
+    generateTutorial(opening[moveIndex][2]);
+  }
+});
 
 function nextHandler(sourceMove, destinationMove) {
   document
@@ -168,6 +170,11 @@ function removeTutorial() {
     lastItem.parentNode.removeChild(lastItem);
     // console.log(list);
   }
+}
+
+function playSound() {
+  let audio = new Audio("move.mp3");
+  audio.play();
 }
 
 // check for saved 'darkMode' in localStorage
@@ -213,6 +220,7 @@ darkModeToggle.addEventListener("click", () => {
 });
 
 function renderBoard() {
+  moveIndex = -1;
   chessBoard.innerHTML = `<div class="sq" id="a8">
           <img src="./images/pieces/black/rook.png" alt="" />
         </div>
@@ -285,7 +293,7 @@ function renderBoard() {
         <div class="sq" id="b4"></div>
         <div class="sq" id="c4"></div>
         <div class="sq" id="d4"></div>
-        <div class="sq move1" id="e4"></div>
+        <div class="sq" id="e4"></div>
         <div class="sq" id="f4"></div>
         <div class="sq" id="g4"></div>
         <div class="sq" id="h4"></div>
