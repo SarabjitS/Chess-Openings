@@ -53,11 +53,18 @@ document.addEventListener("click", function (e) {
   if (
     e.target.dataset.name == "opening1" ||
     e.target.dataset.name == "opening2" ||
-    e.target.dataset.name == "opening3"
+    e.target.dataset.name == "opening3" ||
+    e.target.dataset.name == "opening4" ||
+    e.target.dataset.name == "opening5" ||
+    e.target.dataset.name == "opening6"
   ) {
     renderBoard();
-    console.log(e.target.dataset);
-    playMove(e.target.innerText);
+    console.log(e.target.classList);
+    if (!e.target.classList.contains("collapsed")) {
+      playMove(e.target.innerText);
+      console.log("play move");
+    }
+    // playMove(e.target.innerText);
   }
 });
 
@@ -86,49 +93,60 @@ function playMove(title) {
   }
 }
 
-nextBtn.addEventListener("click", function next(event) {
-  console.log(event);
-
-  playSound();
-  if (moveIndex < opening.length - 1) {
-    moveIndex++;
-    prevBtn.classList.remove("disabled");
-    nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
-    generateTutorial(opening[moveIndex][2]);
-  }
-  if (moveIndex == opening.length - 1) {
-    nextBtn.classList.add("disabled");
-  }
-});
-
-prevBtn.addEventListener("click", function () {
-  playSound();
-  prevHandler(opening[moveIndex][0], opening[moveIndex][1]);
-  removeTutorial();
-  if (moveIndex > 0) {
-    moveIndex--;
-    nextBtn.classList.remove("disabled");
-  } else if (moveIndex == 0) {
-    prevBtn.classList.add("disabled");
-    moveIndex--;
-  }
-});
-
-playBtn.addEventListener("click", function () {
-  const id = setInterval(moveIndexChange, 2000);
-  // nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
-  function moveIndexChange() {
+nextBtn.addEventListener("click", function () {
+  // console.log(event);
+  if (opening.length == 0) {
+    console.log("Choose opening first");
+  } else {
+    playSound();
     if (moveIndex < opening.length - 1) {
       moveIndex++;
       prevBtn.classList.remove("disabled");
       nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
-      playSound();
-      if (moveIndex == opening.length - 1) {
-        nextBtn.classList.add("disabled");
-        clearInterval(id);
+      generateTutorial(opening[moveIndex][2]);
+    }
+    if (moveIndex == opening.length - 1) {
+      nextBtn.classList.add("disabled");
+    }
+  }
+});
+
+prevBtn.addEventListener("click", function () {
+  if (opening.length == 0) {
+    console.log("Choose opening first");
+  } else {
+    playSound();
+    prevHandler(opening[moveIndex][0], opening[moveIndex][1]);
+    removeTutorial();
+    if (moveIndex > 0) {
+      moveIndex--;
+      nextBtn.classList.remove("disabled");
+    } else if (moveIndex == 0) {
+      prevBtn.classList.add("disabled");
+      moveIndex--;
+    }
+  }
+});
+
+playBtn.addEventListener("click", function () {
+  if (opening.length == 0) {
+    console.log("Choose opening first");
+  } else {
+    const id = setInterval(moveIndexChange, 2000);
+    // nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
+    function moveIndexChange() {
+      if (moveIndex < opening.length - 1) {
+        moveIndex++;
+        prevBtn.classList.remove("disabled");
+        nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
+        playSound();
+        generateTutorial(opening[moveIndex][2]);
+        if (moveIndex == opening.length - 1) {
+          nextBtn.classList.add("disabled");
+          clearInterval(id);
+        }
       }
     }
-    generateTutorial(opening[moveIndex][2]);
   }
 });
 
@@ -170,6 +188,11 @@ function removeTutorial() {
     lastItem.parentNode.removeChild(lastItem);
     // console.log(list);
   }
+}
+
+function resetTutorial() {
+  console.log("reset tutorial");
+  document.getElementById("tutorial-text").innerHTML = "";
 }
 
 function playSound() {
@@ -221,6 +244,7 @@ darkModeToggle.addEventListener("click", () => {
 
 function renderBoard() {
   moveIndex = -1;
+  resetTutorial();
   chessBoard.innerHTML = `<div class="sq" id="a8">
           <img src="./images/pieces/black/rook.png" alt="" />
         </div>
