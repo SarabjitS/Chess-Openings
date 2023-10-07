@@ -213,7 +213,6 @@ img {
   display: grid;
   grid-template-columns: repeat(2, max-content);
   gap: 2rem;
-  font-size: 1.5rem;
 }
 
 .header {
@@ -239,11 +238,10 @@ img {
   color: #777;
 }
 
-.chess-piece {
-  font-size: 4rem;
-  margin: 0px;
-  padding: 0px;
-  border: 1px solid yellow;
+.size3 {
+  font-size: 3rem;
+  border: none;
+  background: none;
 }
 
 .header2 {
@@ -252,4 +250,16 @@ img {
   align-items: center;
   justify-content: center;
   margin: 0px 2rem 0px 0px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.rotate {
+  rotate: 180deg;
+}
+
+.material-symbols-outlined-fill {
+  font-variation-settings: "FILL" 100, "wght" 400, "GRAD" 0, "opsz" 24;
 }

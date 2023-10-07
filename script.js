@@ -5,9 +5,11 @@ const prevBtn = document.querySelector("#prev-button");
 const nextBtn = document.querySelector("#next-button");
 const chessBoard = document.getElementById("chess-board");
 const playBtn = document.getElementById("play-button");
+const orientationBtn = document.getElementById("orientation-button");
 let isPlayer = "white";
 let opening = [];
 let moveIndex = -1;
+let isRotated = false;
 
 if (isPlayer === "white") {
   renderBoard();
@@ -408,3 +410,29 @@ document.addEventListener("click", (e) => {
     dropdown.classList.remove("active");
   });
 });
+
+orientationBtn.addEventListener("click", function () {
+  isRotated = !isRotated;
+  if (isRotated) {
+    rotateBoard();
+  } else {
+    rotateBoardAgain();
+  }
+});
+
+function rotateBoard() {
+  orientationBtn.classList.add("material-symbols-outlined-fill");
+  chessBoard.classList.add("rotate");
+  document.querySelectorAll(".sq").forEach((piece) => {
+    piece.classList.add("rotate");
+  });
+}
+
+function rotateBoardAgain() {
+  orientationBtn.classList.remove("material-symbols-outlined-fill");
+
+  chessBoard.classList.remove("rotate");
+  document.querySelectorAll(".sq").forEach((piece) => {
+    piece.classList.remove("rotate");
+  });
+}
