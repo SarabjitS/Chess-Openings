@@ -1,9 +1,6 @@
 "use strict"; //enabling strict mode
 
-// Declaring constants
-// const item1 = document.querySelector("#opening1");
-// const item2 = document.querySelector("#opening2");
-// const item3 = document.querySelector("#opening3");
+const testBtn = document.getElementById("test-yourself");
 const prevBtn = document.querySelector("#prev-button");
 const nextBtn = document.querySelector("#next-button");
 const chessBoard = document.getElementById("chess-board");
@@ -115,15 +112,19 @@ prevBtn.addEventListener("click", function () {
   if (opening.length == 0) {
     console.log("Choose opening first");
   } else {
-    playSound();
-    prevHandler(opening[moveIndex][0], opening[moveIndex][1]);
-    removeTutorial();
-    if (moveIndex > 0) {
-      moveIndex--;
-      nextBtn.classList.remove("disabled");
-    } else if (moveIndex == 0) {
-      prevBtn.classList.add("disabled");
-      moveIndex--;
+    if (moveIndex >= 0) {
+      playSound();
+      prevHandler(opening[moveIndex][0], opening[moveIndex][1]);
+      removeTutorial();
+      if (moveIndex > 0) {
+        moveIndex--;
+        nextBtn.classList.remove("disabled");
+      } else if (moveIndex == 0) {
+        prevBtn.classList.add("disabled");
+        moveIndex--;
+      }
+    } else {
+      console.log("Please make a move first by clicking on next button");
     }
   }
 });
@@ -244,7 +245,15 @@ darkModeToggle.addEventListener("click", () => {
 
 function renderBoard() {
   moveIndex = -1;
+  opening = [];
   resetTutorial();
+  if (nextBtn.classList.contains("disabled")) {
+    nextBtn.classList.remove("disabled");
+  }
+
+  if (prevBtn.classList.contains("disabled")) {
+    prevBtn.classList.remove("disabled");
+  }
   chessBoard.innerHTML = `<div class="sq" id="a8">
           <img src="./images/pieces/black/rook.png" alt="" />
         </div>
@@ -381,3 +390,21 @@ function renderBoard() {
           <img src="./images/pieces/white/rook.png" alt="" />
         </div>`;
 }
+
+// testBtn.addEventListener("click", function () {});
+
+document.addEventListener("click", (e) => {
+  const isDropdownButton = e.target.matches("[data-dropdown-button]");
+  if (!isDropdownButton && e.target.closest("[data-dropdown]") != null) return;
+
+  let currentDropdown;
+  if (isDropdownButton) {
+    currentDropdown = e.target.closest("[data-dropdown]");
+    currentDropdown.classList.toggle("active");
+  }
+
+  document.querySelectorAll("[data-dropdown].active").forEach((dropdown) => {
+    if (dropdown === currentDropdown) return;
+    dropdown.classList.remove("active");
+  });
+});

@@ -16,7 +16,10 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
     />
 
+    <!-- Favicon -->
     <link rel="stylesheet" href="style.css" />
+          <link rel="shortcut icon" href="#">
+
   </head>
   <body>
     <script
@@ -25,8 +28,32 @@
       crossorigin="anonymous"
     ></script>
     <header class="header">
+
       <h1>Chess Openings</h1>
-      <button id="extra-options" class="extra-options">Extra Options</button>
+      
+      <div class="header2">
+      <div class="dropdown" data-dropdown>
+      <button class="link" data-dropdown-button>Extra Options</button>
+      <div class="dropdown-menu information-grid">
+        <div class="chess-piece">&#9812;</div>
+          
+          <!-- <div class="dropdown-heading">Orientation</div>
+          <div class="dropdown-links">
+            <a href="#" class="link option-selected">White</a>
+            <a href="#" class="link">Black</a>
+          </div> -->
+        <!-- <div>
+          <div class="dropdown-heading">Sound</div>
+          <div class="dropdown-links">
+            <a href="#" class="link option-selected">ON</a>
+            <a href="#" class="link">OFF</a>
+          </div> -->
+          <i style = "color:#0d6efd" class="bi bi-volume-up-fill"></i>
+        </div>
+        
+      </div>
+
+
       <button id="dark-mode-toggle" class="dark-mode-toggle">
         <svg
           width="100%"
@@ -40,6 +67,7 @@
           />
         </svg>
       </button>
+      </div>
     </header>
     <main>
 
@@ -218,6 +246,7 @@
 
       <div class="chess-board" id="chess-board"></div>
 
+      <div class = "container3">
       <div class="container play-controls">
         <div class="btn-group" role="group">
           <a class="btn btn-primary" href="#" id="prev-button" role="button">
@@ -233,6 +262,9 @@
           </a>
         </div>
       </div>
+      <button class="test-yourself">Test Yourself</button>
+      </div>
+
       <article class="tutorial">
         <h2 class="h2-tutorial">Tutorial</h2>
         <span><ul id="tutorial-text"></ul></span>

@@ -99,6 +99,7 @@ img {
   padding: 2rem;
   height: 30rem;
   width: 40rem;
+  margin: auto;
 }
 
 /* For increasing size of button */
@@ -151,9 +152,10 @@ img {
   flex-direction: row;
   justify-content: space-between;
   padding: 1rem 1rem 1rem 1rem;
+  font-size: 2rem;
 }
 
-.extra-options {
+/* .extra-options {
   font-size: 2rem;
   background-color: inherit;
   cursor: pointer;
@@ -163,11 +165,91 @@ img {
   right: 6rem;
   padding: 1rem;
   border: none;
-}
+} */
 
 .choose-opening {
   font-size: 2rem;
   position: absolute;
   top: 80px;
   left: 200px;
+}
+
+.container3 {
+  display: flex;
+  flex-direction: column;
+}
+
+.test-yourself {
+  width: 10rem;
+  margin: 2rem auto;
+  font-size: 2rem;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 0.25rem);
+  background-color: white;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+.dropdown.active > .link + .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.information-grid {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: 2rem;
+  font-size: 1.5rem;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  padding: 0.5rem;
+  gap: 1rem;
+}
+
+.link {
+  background: none;
+  border: none;
+  text-decoration: none;
+  color: black;
+  font-family: inherit;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.dropdown.active > .link,
+.link:hover {
+  color: #777;
+}
+
+.chess-piece {
+  font-size: 4rem;
+  margin: 0px;
+  padding: 0px;
+  border: 1px solid yellow;
+}
+
+.header2 {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 2rem 0px 0px;
 }
