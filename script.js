@@ -6,10 +6,13 @@ const nextBtn = document.querySelector("#next-button");
 const chessBoard = document.getElementById("chess-board");
 const playBtn = document.getElementById("play-button");
 const orientationBtn = document.getElementById("orientation-button");
+// const soundBtn = document.getElementById("sound-button");
+
 let isPlayer = "white";
 let opening = [];
 let moveIndex = -1;
 let isRotated = false;
+let isAudio = true;
 
 if (isPlayer === "white") {
   renderBoard();
@@ -199,8 +202,10 @@ function resetTutorial() {
 }
 
 function playSound() {
-  let audio = new Audio("move.mp3");
-  audio.play();
+  if (isAudio) {
+    let audio = new Audio("move.mp3");
+    audio.play();
+  }
 }
 
 // check for saved 'darkMode' in localStorage
