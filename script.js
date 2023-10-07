@@ -6,19 +6,17 @@ const nextBtn = document.querySelector("#next-button");
 const chessBoard = document.getElementById("chess-board");
 const playBtn = document.getElementById("play-button");
 const orientationBtn = document.getElementById("orientation-button");
-// const soundBtn = document.getElementById("sound-button");
+const soundBtn = document.getElementById("sound-button");
+const chooseBtn = document.getElementById("choose-opening");
 
 let isPlayer = "white";
 let opening = [];
 let moveIndex = -1;
 let isRotated = false;
 let isAudio = true;
+let isTraditional = true;
 
-if (isPlayer === "white") {
-  renderBoard();
-} else {
-  flipBoard();
-}
+renderBoard();
 
 //Different Chess Variations
 const toiletVariation = [
@@ -66,34 +64,40 @@ document.addEventListener("click", function (e) {
       playMove(e.target.innerText);
       console.log("play move");
     }
-    // playMove(e.target.innerText);
   }
 });
 
-// item1.addEventListener("click", playMove);
-// item2.addEventListener("click", playMove);
-// item3.addEventListener("click", playMove);
-
-function playMove(title) {
-  // let title = e.target.innerText;
-
-  // console.log(title);
-
-  console.log(title, moveIndex);
-  switch (title) {
-    case "The Toilet Variation":
-      opening = toiletVariation;
-      break;
-    case "The Monkey's Bum":
-      opening = monkeysbumVariation;
-      break;
-    case "The Frankenstein-Dracula Variation":
-      opening = frankesteindraculaVariation;
-      break;
-    // default:
-    //   alert(title + " is not ready yet");
+soundBtn.addEventListener("click", function () {
+  isAudio = !isAudio;
+  if (!isAudio) {
+    soundBtn.textContent = "volume_off";
+  } else {
+    soundBtn.textContent = "volume_up";
   }
-}
+});
+
+chooseBtn.addEventListener("click", function () {
+  console.log("clicked");
+  isTraditional = !isTraditional;
+  if (!isTraditional) {
+    chooseBtn.textContent = "Funny Openings";
+    document.querySelectorAll(".traditional").forEach((opening) => {
+      opening.classList.add("hidden");
+    });
+    document.querySelectorAll(".funny").forEach((opening) => {
+      opening.classList.remove("hidden");
+    });
+  } else {
+    chooseBtn.textContent = "Traditional Openings";
+
+    document.querySelectorAll(".funny").forEach((opening) => {
+      opening.classList.add("hidden");
+    });
+    document.querySelectorAll(".traditional").forEach((opening) => {
+      opening.classList.remove("hidden");
+    });
+  }
+});
 
 nextBtn.addEventListener("click", function () {
   // console.log(event);
@@ -155,6 +159,28 @@ playBtn.addEventListener("click", function () {
     }
   }
 });
+
+function playMove(title) {
+  console.log(title, moveIndex);
+  switch (title) {
+    case "The Toilet Variation":
+      opening = toiletVariation;
+      break;
+    case "The Monkey's Bum":
+      opening = monkeysbumVariation;
+      break;
+    case "The Frankenstein-Dracula Variation":
+      opening = frankesteindraculaVariation;
+      break;
+  }
+}
+
+function playSound() {
+  if (isAudio) {
+    let audio = new Audio("move.mp3");
+    audio.play();
+  }
+}
 
 function nextHandler(sourceMove, destinationMove) {
   document
