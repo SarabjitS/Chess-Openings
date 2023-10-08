@@ -8,6 +8,7 @@ const playBtn = document.getElementById("play-button");
 const orientationBtn = document.getElementById("orientation-button");
 const soundBtn = document.getElementById("sound-button");
 const chooseBtn = document.getElementById("choose-opening");
+const dialog = document.querySelector("dialog");
 
 let isPlayer = "white";
 let opening = [];
@@ -63,6 +64,8 @@ document.addEventListener("click", function (e) {
     if (!e.target.classList.contains("collapsed")) {
       playMove(e.target.innerText);
       console.log("play move");
+    } else {
+      opening = [];
     }
   }
 });
@@ -102,7 +105,7 @@ chooseBtn.addEventListener("click", function () {
 nextBtn.addEventListener("click", function () {
   // console.log(event);
   if (opening.length == 0) {
-    console.log("Choose opening first");
+    selectOpeningModal();
   } else {
     playSound();
     if (moveIndex < opening.length - 1) {
@@ -119,7 +122,7 @@ nextBtn.addEventListener("click", function () {
 
 prevBtn.addEventListener("click", function () {
   if (opening.length == 0) {
-    console.log("Choose opening first");
+    selectOpeningModal();
   } else {
     if (moveIndex >= 0) {
       playSound();
@@ -138,9 +141,34 @@ prevBtn.addEventListener("click", function () {
   }
 });
 
+document.addEventListener("click", (e) => {
+  const isDropdownButton = e.target.matches("[data-dropdown-button]");
+  if (!isDropdownButton && e.target.closest("[data-dropdown]") != null) return;
+
+  let currentDropdown;
+  if (isDropdownButton) {
+    currentDropdown = e.target.closest("[data-dropdown]");
+    currentDropdown.classList.toggle("active");
+  }
+
+  document.querySelectorAll("[data-dropdown].active").forEach((dropdown) => {
+    if (dropdown === currentDropdown) return;
+    dropdown.classList.remove("active");
+  });
+});
+
+orientationBtn.addEventListener("click", function () {
+  isRotated = !isRotated;
+  if (isRotated) {
+    rotateBoard();
+  } else {
+    rotateBoardAgain();
+  }
+});
+
 playBtn.addEventListener("click", function () {
   if (opening.length == 0) {
-    console.log("Choose opening first");
+    selectOpeningModal();
   } else {
     const id = setInterval(moveIndexChange, 2000);
     // nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
@@ -160,6 +188,30 @@ playBtn.addEventListener("click", function () {
   }
 });
 
+testBtn.addEventListener("click", function () {
+  renderBoard();
+
+  if (opening.length == 0) {
+    selectOpeningModal();
+  } else {
+    document.getElementById("h2-tutorial").textContent =
+      "Where will this piece move to?";
+  }
+});
+
+// Close the modal
+dialog.addEventListener("click", (e) => {
+  const dialogDimensions = dialog.getBoundingClientRect();
+  if (
+    e.clientX < dialogDimensions.left ||
+    e.clientX > dialogDimensions.right ||
+    e.clientY < dialogDimensions.top ||
+    e.clientY > dialogDimensions.bottom
+  ) {
+    dialog.close();
+  }
+});
+
 function playMove(title) {
   console.log(title, moveIndex);
   switch (title) {
@@ -173,6 +225,10 @@ function playMove(title) {
       opening = frankesteindraculaVariation;
       break;
   }
+}
+
+function selectOpeningModal() {
+  dialog.showModal();
 }
 
 function playSound() {
@@ -234,6 +290,23 @@ function playSound() {
   }
 }
 
+function rotateBoard() {
+  orientationBtn.classList.add("material-symbols-outlined-fill");
+  chessBoard.classList.add("rotate");
+  document.querySelectorAll(".sq").forEach((piece) => {
+    piece.classList.add("rotate");
+  });
+}
+
+function rotateBoardAgain() {
+  orientationBtn.classList.remove("material-symbols-outlined-fill");
+
+  chessBoard.classList.remove("rotate");
+  document.querySelectorAll(".sq").forEach((piece) => {
+    piece.classList.remove("rotate");
+  });
+}
+
 // check for saved 'darkMode' in localStorage
 let darkMode = localStorage.getItem("darkMode");
 
@@ -278,7 +351,7 @@ darkModeToggle.addEventListener("click", () => {
 
 function renderBoard() {
   moveIndex = -1;
-  opening = [];
+  // opening = [];
   resetTutorial();
   if (nextBtn.classList.contains("disabled")) {
     nextBtn.classList.remove("disabled");
@@ -287,6 +360,7 @@ function renderBoard() {
   if (prevBtn.classList.contains("disabled")) {
     prevBtn.classList.remove("disabled");
   }
+
   chessBoard.innerHTML = `<div class="sq" id="a8">
           <img src="./images/pieces/black/rook.png" alt="" />
         </div>
@@ -422,48 +496,4 @@ function renderBoard() {
         <div class="sq" id="h1">
           <img src="./images/pieces/white/rook.png" alt="" />
         </div>`;
-}
-
-// testBtn.addEventListener("click", function () {});
-
-document.addEventListener("click", (e) => {
-  const isDropdownButton = e.target.matches("[data-dropdown-button]");
-  if (!isDropdownButton && e.target.closest("[data-dropdown]") != null) return;
-
-  let currentDropdown;
-  if (isDropdownButton) {
-    currentDropdown = e.target.closest("[data-dropdown]");
-    currentDropdown.classList.toggle("active");
-  }
-
-  document.querySelectorAll("[data-dropdown].active").forEach((dropdown) => {
-    if (dropdown === currentDropdown) return;
-    dropdown.classList.remove("active");
-  });
-});
-
-orientationBtn.addEventListener("click", function () {
-  isRotated = !isRotated;
-  if (isRotated) {
-    rotateBoard();
-  } else {
-    rotateBoardAgain();
-  }
-});
-
-function rotateBoard() {
-  orientationBtn.classList.add("material-symbols-outlined-fill");
-  chessBoard.classList.add("rotate");
-  document.querySelectorAll(".sq").forEach((piece) => {
-    piece.classList.add("rotate");
-  });
-}
-
-function rotateBoardAgain() {
-  orientationBtn.classList.remove("material-symbols-outlined-fill");
-
-  chessBoard.classList.remove("rotate");
-  document.querySelectorAll(".sq").forEach((piece) => {
-    piece.classList.remove("rotate");
-  });
 }

@@ -155,20 +155,8 @@ img {
   font-size: 2rem;
 }
 
-/* .extra-options {
-  font-size: 2rem;
-  background-color: inherit;
-  cursor: pointer;
-  position: absolute;
-  z-index: 100;
-  top: 1rem;
-  right: 6rem;
-  padding: 1rem;
-  border: none;
-} */
-
 .choose-opening {
-  font-size: 2rem;
+  font-size: 2.5rem;
   position: absolute;
   top: 80px;
   left: 200px;
@@ -266,4 +254,17 @@ img {
 
 .hidden {
   display: none;
+}
+
+.highlight {
+  border: 1px solid blue;
+}
+
+dialog {
+  z-index: 10;
+  background: grey;
+  border: none;
+  border-radius: 1rem;
+  font-size: 2rem;
+  color: white;
 }
