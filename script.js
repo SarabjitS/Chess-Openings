@@ -16,6 +16,8 @@ let moveIndex = -1;
 let isRotated = false;
 let isAudio = true;
 let isTraditional = true;
+let isHighlighted = false;
+let square;
 
 renderBoard();
 
@@ -48,6 +50,15 @@ const frankesteindraculaVariation = [
   ["f1", "c4", "White moves bishop from f1 to c4"],
   ["f6", "e4", "Black moves knight from f6 to e4"],
 ];
+
+const italianGame = [
+  ["e2", "e4", "White moves pawn from e2 to e4"],
+  ["e7", "e5", "Black moves pawn from e7 to e5"],
+  ["g1", "f3", "White moves knight from g1 to f3"],
+  ["b8", "c6", "Black moves knight from b8 to c6"],
+  ["f1", "c4", "White moves bishop from f1 to c4"],
+];
+
 // Adding Event Listeners
 
 document.addEventListener("click", function (e) {
@@ -60,7 +71,6 @@ document.addEventListener("click", function (e) {
     e.target.dataset.name == "opening6"
   ) {
     renderBoard();
-    console.log(e.target.classList);
     if (!e.target.classList.contains("collapsed")) {
       playMove(e.target.innerText);
       console.log("play move");
@@ -80,7 +90,6 @@ soundBtn.addEventListener("click", function () {
 });
 
 chooseBtn.addEventListener("click", function () {
-  console.log("clicked");
   isTraditional = !isTraditional;
   if (!isTraditional) {
     chooseBtn.textContent = "Funny Openings";
@@ -159,11 +168,7 @@ document.addEventListener("click", (e) => {
 
 orientationBtn.addEventListener("click", function () {
   isRotated = !isRotated;
-  if (isRotated) {
-    rotateBoard();
-  } else {
-    rotateBoardAgain();
-  }
+  rotateBoard();
 });
 
 playBtn.addEventListener("click", function () {
@@ -197,7 +202,15 @@ testBtn.addEventListener("click", function () {
     document.getElementById("h2-tutorial").textContent =
       "Where will this piece move to?";
   }
+  testStart();
+  let selectedMove = selectMove();
+  console.log(selectedMove, "selectedMove");
 });
+
+function testStart() {
+  let firstMove = opening.slice(0, 3);
+  console.log(firstMove);
+}
 
 // Close the modal
 dialog.addEventListener("click", (e) => {
@@ -224,6 +237,9 @@ function playMove(title) {
     case "The Frankenstein-Dracula Variation":
       opening = frankesteindraculaVariation;
       break;
+    case "The Italian Game":
+      opening = italianGame;
+      break;
   }
 }
 
@@ -239,6 +255,8 @@ function playSound() {
 }
 
 function nextHandler(sourceMove, destinationMove) {
+  // console.log(sourceMove);
+  // document.getElementById(sourceMove).classList.add("highlight");
   document
     .getElementById(destinationMove)
     .append(document.getElementById(sourceMove).children[0]);
@@ -291,19 +309,56 @@ function playSound() {
 }
 
 function rotateBoard() {
-  orientationBtn.classList.add("material-symbols-outlined-fill");
-  chessBoard.classList.add("rotate");
-  document.querySelectorAll(".sq").forEach((piece) => {
-    piece.classList.add("rotate");
-  });
+  if (isRotated) {
+    orientationBtn.classList.add("material-symbols-outlined-fill");
+    chessBoard.classList.add("rotate");
+  } else {
+    orientationBtn.classList.remove("material-symbols-outlined-fill");
+
+    chessBoard.classList.remove("rotate");
+  }
+  console.log(isRotated);
+
+  // chessBoard.style.transform = "rotate(180deg)";
+
+  rotatePieces();
 }
 
-function rotateBoardAgain() {
-  orientationBtn.classList.remove("material-symbols-outlined-fill");
+function rotatePieces() {
+  if (isRotated) {
+    document.querySelectorAll(".sq").forEach((piece) => {
+      piece.classList.add("rotate");
+      // piece.style.transform = `rotate(180deg)`;
+    });
+  } else {
+    document.querySelectorAll(".sq").forEach((piece) => {
+      piece.classList.remove("rotate");
+    });
+  }
+}
 
-  chessBoard.classList.remove("rotate");
-  document.querySelectorAll(".sq").forEach((piece) => {
-    piece.classList.remove("rotate");
+//Find the square clicked
+function selectMove() {
+  document.addEventListener("click", function (e) {
+    // console.log(e.target.closest(".highlight"));
+    // console.log(document.querySelector(".sq").classList);
+    // if (e.target.closest(".highlight")) {
+    //   e.target.closest(".highlight").classList.remove("highlight");
+    // }
+    if (square) {
+      square.classList.remove("highlight");
+    }
+
+    if (e.target.closest(".sq")) {
+      square = e.target.closest(".sq");
+      // square.style.border = "1px solid blue";
+      square.classList.add("highlight");
+      console.log(square.getAttribute("id"));
+      isHighlighted = true;
+    }
+    // else {
+    //   console.log("outside Board");
+    // }
   });
 }
 
@@ -353,6 +408,10 @@ function renderBoard() {
   moveIndex = -1;
   // opening = [];
   resetTutorial();
+  if (isRotated) {
+    rotatePieces();
+  }
+
   if (nextBtn.classList.contains("disabled")) {
     nextBtn.classList.remove("disabled");
   }
@@ -373,7 +432,7 @@ function renderBoard() {
         <div class="sq" id="d8">
           <img src="./images/pieces/black/queen.png" alt="" />
         </div>
-        <div class="sq" id=" sqe8">
+        <div class="sq" id=" e8">
           <img src="./images/pieces/black/king.png" alt="" />
         </div>
         <div class="sq" id="f8">
@@ -472,7 +531,7 @@ function renderBoard() {
           <img src="./images/pieces/white/pawn.png" alt="" />
         </div>
 
-        <div class="sq" id="a1">
+        <div class="sq highlight " id="a1">
           <img src="./images/pieces/white/rook.png  " alt="" />
         </div>
         <div class="sq" id="b1">
