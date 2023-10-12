@@ -59,6 +59,13 @@ const italianGame = [
   ["f1", "c4", "White moves bishop from f1 to c4"],
 ];
 
+const ruyLopezOpening = [
+  ["e2", "e4", "White moves pawn from e2 to e4"],
+  ["e7", "e5", "Black moves pawn from e7 to e5"],
+  ["g1", "f3", "White moves knight from g1 to f3"],
+  ["b8", "c6", "Black moves knight from b8 to c6"],
+  ["f1", "b5", "White moves bishop from f1 to b5"],
+];
 // Adding Event Listeners
 
 document.addEventListener("click", function (e) {
@@ -240,6 +247,8 @@ function playMove(title) {
     case "The Italian Game":
       opening = italianGame;
       break;
+    case "Ruy López Opening":
+      opening = ruyLopezOpening;
   }
 }
 
@@ -531,7 +540,7 @@ function renderBoard() {
           <img src="./images/pieces/white/pawn.png" alt="" />
         </div>
 
-        <div class="sq highlight " id="a1">
+        <div class="sq " id="a1">
           <img src="./images/pieces/white/rook.png  " alt="" />
         </div>
         <div class="sq" id="b1">
