@@ -406,9 +406,6 @@ function rotateBoard() {
     chessBoard.classList.remove("rotate");
   }
   console.log(isRotated);
-
-  // chessBoard.style.transform = "rotate(180deg)";
-
   rotatePieces();
 }
 
