@@ -18,6 +18,10 @@ let isAudio = true;
 let isTraditional = true;
 let isHighlighted = false;
 let square;
+let selectedMove;
+let openingSourceMoves = [];
+let openingDestinationMoves = [];
+let isFlag = false;
 
 renderBoard();
 
@@ -66,6 +70,12 @@ const ruyLopezOpening = [
   ["b8", "c6", "Black moves knight from b8 to c6"],
   ["f1", "b5", "White moves bishop from f1 to b5"],
 ];
+
+const sicilianDefense = [
+  ["e2", "e4", "White moves pawn from e2 to e4"],
+  ["c7", "c5", "Black moves pawn from c7 to c5"],
+];
+
 // Adding Event Listeners
 
 document.addEventListener("click", function (e) {
@@ -80,7 +90,6 @@ document.addEventListener("click", function (e) {
     renderBoard();
     if (!e.target.classList.contains("collapsed")) {
       playMove(e.target.innerText);
-      console.log("play move");
     } else {
       opening = [];
     }
@@ -208,15 +217,84 @@ testBtn.addEventListener("click", function () {
   } else {
     document.getElementById("h2-tutorial").textContent =
       "Where will this piece move to?";
+    testStart();
   }
-  testStart();
-  let selectedMove = selectMove();
-  console.log(selectedMove, "selectedMove");
 });
 
+// function findSourceMove(moves) {
+//   openingMove.push(moves.slice(0, 1));
+// }
+
 function testStart() {
-  let firstMove = opening.slice(0, 3);
-  console.log(firstMove);
+  // let move;
+  // opening.forEach(findSourceMove);
+  opening.forEach((moves) =>
+    openingSourceMoves.push(moves.slice(0, 1).toString())
+  );
+
+  opening.forEach((moves) =>
+    openingDestinationMoves.push(moves.slice(1, -1).toString())
+  );
+
+  console.log(openingDestinationMoves);
+
+  for (let i = 0; i < openingSourceMoves.length; i++) {
+    // console.log(openingMove[i]);
+
+    document.getElementById(openingSourceMoves[i]).style.border =
+      "2px solid red";
+    selectMove();
+  }
+  // (moves) => (move = moves.slice(0, 1));
+  // isFlag = true;
+  // if (isFlag) {
+  //   // console.log(move, "move");
+  //   document.addEventListener("click", function (e) {
+  //     // console.log(e.target.closest(".highlight"));
+  //     // console.log(document.querySelector(".sq").classList);
+  //     // if (e.target.closest(".highlight")) {
+  //     //   e.target.closest(".highlight").classList.remove("highlight");
+  //     // }
+  //     if (square) {
+  //       square.classList.remove("highlight");
+  //     }
+  //     if (e.target.closest(".sq")) {
+  //       square = e.target.closest(".sq");
+  //       // square.style.border = "1px solid blue";
+  //       square.classList.add("highlight");
+  //       // console.log(square.getAttribute("id"));
+  //       isHighlighted = true;
+  //       selectedMove = square.getAttribute("id");
+  //     } else {
+  //       console.log("outside Board");
+  //     }
+  //   });
+  // }
+  // console.log(selectedMove + " sel");
+}
+
+// Find the square clicked
+function selectMove() {
+  document.addEventListener("click", function (e) {
+    // console.log(e.target.closest(".highlight"));
+    // console.log(document.querySelector(".sq").classList);
+    // if (e.target.closest(".highlight")) {
+    //   e.target.closest(".highlight").classList.remove("highlight");
+    // }
+    if (square) {
+      square.classList.remove("highlight");
+    }
+    if (e.target.closest(".sq")) {
+      square = e.target.closest(".sq");
+      // square.style.border = "1px solid blue";
+      square.classList.add("highlight");
+      console.log(square.getAttribute("id"));
+      isHighlighted = true;
+      // square.getAttribute("id");
+    } else {
+      console.log("outside Board");
+    }
+  });
 }
 
 // Close the modal
@@ -233,7 +311,6 @@ dialog.addEventListener("click", (e) => {
 });
 
 function playMove(title) {
-  console.log(title, moveIndex);
   switch (title) {
     case "The Toilet Variation":
       opening = toiletVariation;
@@ -249,6 +326,9 @@ function playMove(title) {
       break;
     case "Ruy López Opening":
       opening = ruyLopezOpening;
+      break;
+    case "The Sicilian Defense":
+      opening = sicilianDefense;
   }
 }
 
@@ -306,7 +386,6 @@ function removeTutorial() {
 }
 
 function resetTutorial() {
-  console.log("reset tutorial");
   document.getElementById("tutorial-text").innerHTML = "";
 }
 
@@ -344,31 +423,6 @@ function rotatePieces() {
       piece.classList.remove("rotate");
     });
   }
-}
-
-//Find the square clicked
-function selectMove() {
-  document.addEventListener("click", function (e) {
-    // console.log(e.target.closest(".highlight"));
-    // console.log(document.querySelector(".sq").classList);
-    // if (e.target.closest(".highlight")) {
-    //   e.target.closest(".highlight").classList.remove("highlight");
-    // }
-    if (square) {
-      square.classList.remove("highlight");
-    }
-
-    if (e.target.closest(".sq")) {
-      square = e.target.closest(".sq");
-      // square.style.border = "1px solid blue";
-      square.classList.add("highlight");
-      console.log(square.getAttribute("id"));
-      isHighlighted = true;
-    }
-    // else {
-    //   console.log("outside Board");
-    // }
-  });
 }
 
 // check for saved 'darkMode' in localStorage
