@@ -268,3 +268,7 @@ dialog {
   font-size: 2rem;
   color: white;
 }
+
+.question {
+  border: 3px solid red;
+}

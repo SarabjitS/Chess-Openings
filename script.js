@@ -226,8 +226,6 @@ testBtn.addEventListener("click", function () {
 // }
 
 function testStart() {
-  // let move;
-  // opening.forEach(findSourceMove);
   opening.forEach((moves) =>
     openingSourceMoves.push(moves.slice(0, 1).toString())
   );
@@ -239,54 +237,23 @@ function testStart() {
   console.log(openingDestinationMoves);
 
   for (let i = 0; i < openingSourceMoves.length; i++) {
-    // console.log(openingMove[i]);
-
-    document.getElementById(openingSourceMoves[i]).style.border =
-      "2px solid red";
-    selectMove();
+    document.getElementById(openingSourceMoves[i]).classList.add("question");
+    checkSolution(i);
   }
-  // (moves) => (move = moves.slice(0, 1));
-  // isFlag = true;
-  // if (isFlag) {
-  //   // console.log(move, "move");
-  //   document.addEventListener("click", function (e) {
-  //     // console.log(e.target.closest(".highlight"));
-  //     // console.log(document.querySelector(".sq").classList);
-  //     // if (e.target.closest(".highlight")) {
-  //     //   e.target.closest(".highlight").classList.remove("highlight");
-  //     // }
-  //     if (square) {
-  //       square.classList.remove("highlight");
-  //     }
-  //     if (e.target.closest(".sq")) {
-  //       square = e.target.closest(".sq");
-  //       // square.style.border = "1px solid blue";
-  //       square.classList.add("highlight");
-  //       // console.log(square.getAttribute("id"));
-  //       isHighlighted = true;
-  //       selectedMove = square.getAttribute("id");
-  //     } else {
-  //       console.log("outside Board");
-  //     }
-  //   });
-  // }
-  // console.log(selectedMove + " sel");
+}
+
+function checkSolution(i) {
+  selectMove();
 }
 
 // Find the square clicked
 function selectMove() {
   document.addEventListener("click", function (e) {
-    // console.log(e.target.closest(".highlight"));
-    // console.log(document.querySelector(".sq").classList);
-    // if (e.target.closest(".highlight")) {
-    //   e.target.closest(".highlight").classList.remove("highlight");
-    // }
     if (square) {
       square.classList.remove("highlight");
     }
     if (e.target.closest(".sq")) {
       square = e.target.closest(".sq");
-      // square.style.border = "1px solid blue";
       square.classList.add("highlight");
       console.log(square.getAttribute("id"));
       isHighlighted = true;
@@ -344,8 +311,6 @@ function playSound() {
 }
 
 function nextHandler(sourceMove, destinationMove) {
-  // console.log(sourceMove);
-  // document.getElementById(sourceMove).classList.add("highlight");
   document
     .getElementById(destinationMove)
     .append(document.getElementById(sourceMove).children[0]);
