@@ -8,6 +8,7 @@ import {
   italianGame,
   ruyLopezOpening,
   sicilianDefense,
+  bongcloudAttackVariation,
 } from "./variations.js";
 
 import { chessBoardHTML } from "./chessBoard.js";
@@ -73,7 +74,8 @@ document.addEventListener("click", function (e) {
     e.target.dataset.name == "opening3" ||
     e.target.dataset.name == "opening4" ||
     e.target.dataset.name == "opening5" ||
-    e.target.dataset.name == "opening6"
+    e.target.dataset.name == "opening6" ||
+    e.target.dataset.name == "opening7"
   ) {
     renderBoard();
     if (!e.target.classList.contains("collapsed")) {
@@ -244,6 +246,9 @@ function playMove(title) {
       break;
     case "The Sicilian Defense":
       opening = sicilianDefense;
+      break;
+    case "The Bongcloud Attack":
+      opening = bongcloudAttackVariation;
   }
 }
 

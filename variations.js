@@ -50,6 +50,12 @@ const sicilianDefense = [
   ["c7", "c5", "Black moves pawn from c7 to c5"],
 ];
 
+const bongcloudAttackVariation = [
+  ["e2", "e4", "White moves pawn from e2 to e4"],
+  ["e7", "e5", "Black moves pawn from e7 to e5"],
+  ["e1", "e2", "White moves king from e1 to e2"],
+];
+
 export {
   toiletVariation,
   monkeysbumVariation,
@@ -57,4 +63,5 @@ export {
   italianGame,
   ruyLopezOpening,
   sicilianDefense,
+  bongcloudAttackVariation,
 };
