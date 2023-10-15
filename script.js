@@ -1,5 +1,18 @@
-"use strict"; //enabling strict mode
+//enabling strict mode
+"use strict";
 
+import {
+  toiletVariation,
+  monkeysbumVariation,
+  frankesteindraculaVariation,
+  italianGame,
+  ruyLopezOpening,
+  sicilianDefense,
+} from "./variations.js";
+
+import { chessBoardHTML } from "./chessBoard.js";
+
+//const defined
 const testBtn = document.getElementById("test-yourself");
 const prevBtn = document.querySelector("#prev-button");
 const nextBtn = document.querySelector("#next-button");
@@ -10,6 +23,7 @@ const soundBtn = document.getElementById("sound-button");
 const chooseBtn = document.getElementById("choose-opening");
 const dialog = document.querySelector("dialog");
 
+//variables defined
 let isPlayer = "white";
 let opening = [];
 let moveIndex = -1;
@@ -23,61 +37,35 @@ let openingSourceMoves = [];
 let openingDestinationMoves = [];
 let isFlag = false;
 
+//Creating chess board
 renderBoard();
-
-//Different Chess Variations
-const toiletVariation = [
-  ["e2", "e4", "White moves pawn from e2 to e4"],
-  ["c7", "c5", "Black moves pawn from c7 to c5"],
-  ["f2", "f4", "White moves pawn from f2 to f4"],
-  ["g8", "f6", "Black moves knight from g8 to f6"],
-  ["b1", "c3", "White moves knight from b1 to c3"],
-  ["d7", "d5", "Black moves pawn from d7 to d5"],
-];
-
-const monkeysbumVariation = [
-  ["e2", "e4", "White moves pawn from e2 to e4"],
-  ["g7", "g6", "Black moves pawn from g7 to g6"],
-  ["f1", "c4", "White moves bishop from f1 to c4"],
-  ["f8", "g7", "Black moves bishop from f8 to g7"],
-  ["d1", "f3", "White moves queen from d1 to f3"],
-  ["e7", "e6", "Black moves pawn from e7 to e6"],
-  ["d2", "d4", "White moves pawn from d2 to d4"],
-  ["g7", "d4", "Black moves bishop from g7 to d4"],
-];
-
-const frankesteindraculaVariation = [
-  ["e2", "e4", "White moves pawn from e2 to e4"],
-  ["e7", "e5", "Black moves pawn from e7 to e5"],
-  ["b1", "c3", "White moves knight from b1 to c3"],
-  ["g8", "f6", "Black moves knight from g8 to f6"],
-  ["f1", "c4", "White moves bishop from f1 to c4"],
-  ["f6", "e4", "Black moves knight from f6 to e4"],
-];
-
-const italianGame = [
-  ["e2", "e4", "White moves pawn from e2 to e4"],
-  ["e7", "e5", "Black moves pawn from e7 to e5"],
-  ["g1", "f3", "White moves knight from g1 to f3"],
-  ["b8", "c6", "Black moves knight from b8 to c6"],
-  ["f1", "c4", "White moves bishop from f1 to c4"],
-];
-
-const ruyLopezOpening = [
-  ["e2", "e4", "White moves pawn from e2 to e4"],
-  ["e7", "e5", "Black moves pawn from e7 to e5"],
-  ["g1", "f3", "White moves knight from g1 to f3"],
-  ["b8", "c6", "Black moves knight from b8 to c6"],
-  ["f1", "b5", "White moves bishop from f1 to b5"],
-];
-
-const sicilianDefense = [
-  ["e2", "e4", "White moves pawn from e2 to e4"],
-  ["c7", "c5", "Black moves pawn from c7 to c5"],
-];
 
 // Adding Event Listeners
 
+//Listen for click on extra-options button
+document.addEventListener("click", (e) => {
+  const isDropdownButton = e.target.matches("[data-dropdown-button]");
+  if (!isDropdownButton && e.target.closest("[data-dropdown]") != null) return;
+
+  let currentDropdown;
+  if (isDropdownButton) {
+    currentDropdown = e.target.closest("[data-dropdown]");
+    currentDropdown.classList.toggle("active");
+  }
+
+  document.querySelectorAll("[data-dropdown].active").forEach((dropdown) => {
+    if (dropdown === currentDropdown) return;
+    dropdown.classList.remove("active");
+  });
+});
+
+//Listen for click on orientation button
+orientationBtn.addEventListener("click", function () {
+  isRotated = !isRotated;
+  rotateBoard();
+});
+
+//Listen for the opening selected
 document.addEventListener("click", function (e) {
   if (
     e.target.dataset.name == "opening1" ||
@@ -96,6 +84,7 @@ document.addEventListener("click", function (e) {
   }
 });
 
+//Listen for sound button clicked on/off
 soundBtn.addEventListener("click", function () {
   isAudio = !isAudio;
   if (!isAudio) {
@@ -105,6 +94,7 @@ soundBtn.addEventListener("click", function () {
   }
 });
 
+//Choose between the traditional and funny openings
 chooseBtn.addEventListener("click", function () {
   isTraditional = !isTraditional;
   if (!isTraditional) {
@@ -127,8 +117,8 @@ chooseBtn.addEventListener("click", function () {
   }
 });
 
+//Listen for next button click
 nextBtn.addEventListener("click", function () {
-  // console.log(event);
   if (opening.length == 0) {
     selectOpeningModal();
   } else {
@@ -145,6 +135,7 @@ nextBtn.addEventListener("click", function () {
   }
 });
 
+//Listen for previous button click
 prevBtn.addEventListener("click", function () {
   if (opening.length == 0) {
     selectOpeningModal();
@@ -166,27 +157,7 @@ prevBtn.addEventListener("click", function () {
   }
 });
 
-document.addEventListener("click", (e) => {
-  const isDropdownButton = e.target.matches("[data-dropdown-button]");
-  if (!isDropdownButton && e.target.closest("[data-dropdown]") != null) return;
-
-  let currentDropdown;
-  if (isDropdownButton) {
-    currentDropdown = e.target.closest("[data-dropdown]");
-    currentDropdown.classList.toggle("active");
-  }
-
-  document.querySelectorAll("[data-dropdown].active").forEach((dropdown) => {
-    if (dropdown === currentDropdown) return;
-    dropdown.classList.remove("active");
-  });
-});
-
-orientationBtn.addEventListener("click", function () {
-  isRotated = !isRotated;
-  rotateBoard();
-});
-
+//Listen for play button click
 playBtn.addEventListener("click", function () {
   if (opening.length == 0) {
     selectOpeningModal();
@@ -209,6 +180,7 @@ playBtn.addEventListener("click", function () {
   }
 });
 
+//Listen for test yourself button click
 testBtn.addEventListener("click", function () {
   renderBoard();
 
@@ -221,10 +193,20 @@ testBtn.addEventListener("click", function () {
   }
 });
 
-// function findSourceMove(moves) {
-//   openingMove.push(moves.slice(0, 1));
-// }
+// Close the modal
+dialog.addEventListener("click", (e) => {
+  const dialogDimensions = dialog.getBoundingClientRect();
+  if (
+    e.clientX < dialogDimensions.left ||
+    e.clientX > dialogDimensions.right ||
+    e.clientY < dialogDimensions.top ||
+    e.clientY > dialogDimensions.bottom
+  ) {
+    dialog.close();
+  }
+});
 
+//Starts the test
 function testStart() {
   opening.forEach((moves) =>
     openingSourceMoves.push(moves.slice(0, 1).toString())
@@ -242,41 +224,7 @@ function testStart() {
   }
 }
 
-function checkSolution(i) {
-  selectMove();
-}
-
-// Find the square clicked
-function selectMove() {
-  document.addEventListener("click", function (e) {
-    if (square) {
-      square.classList.remove("highlight");
-    }
-    if (e.target.closest(".sq")) {
-      square = e.target.closest(".sq");
-      square.classList.add("highlight");
-      console.log(square.getAttribute("id"));
-      isHighlighted = true;
-      // square.getAttribute("id");
-    } else {
-      console.log("outside Board");
-    }
-  });
-}
-
-// Close the modal
-dialog.addEventListener("click", (e) => {
-  const dialogDimensions = dialog.getBoundingClientRect();
-  if (
-    e.clientX < dialogDimensions.left ||
-    e.clientX > dialogDimensions.right ||
-    e.clientY < dialogDimensions.top ||
-    e.clientY > dialogDimensions.bottom
-  ) {
-    dialog.close();
-  }
-});
-
+//Changes the value of opening based on accordian option selected
 function playMove(title) {
   switch (title) {
     case "The Toilet Variation":
@@ -299,10 +247,35 @@ function playMove(title) {
   }
 }
 
+//Checks the solution
+function checkSolution(i) {
+  selectMove();
+}
+
+// Find the square clicked
+function selectMove() {
+  document.addEventListener("click", function (e) {
+    if (square) {
+      square.classList.remove("highlight");
+    }
+    if (e.target.closest(".sq")) {
+      square = e.target.closest(".sq");
+      square.classList.add("highlight");
+      console.log(square.getAttribute("id"));
+      isHighlighted = true;
+      // square.getAttribute("id");
+    } else {
+      console.log("outside Board");
+    }
+  });
+}
+
+// Shows the modal to select opening
 function selectOpeningModal() {
   dialog.showModal();
 }
 
+// Plays sound if isAudio is true
 function playSound() {
   if (isAudio) {
     let audio = new Audio("move.mp3");
@@ -310,11 +283,13 @@ function playSound() {
   }
 }
 
+// Makes the next move
 function nextHandler(sourceMove, destinationMove) {
   document
     .getElementById(destinationMove)
     .append(document.getElementById(sourceMove).children[0]);
 
+  // The most recent piece of square displays
   if (document.getElementById(destinationMove).children[1]) {
     let originalPiece = document
       .getElementById(destinationMove)
@@ -338,7 +313,9 @@ function prevHandler(destinationMove, sourceMove) {
 }
 
 function generateTutorial(text) {
-  document.getElementById("tutorial-text").innerHTML += `<li>${text}</li>`;
+  const listItem = document.createElement("li");
+  listItem.textContent = text;
+  document.getElementById("tutorial-text").appendChild(listItem);
 }
 
 function removeTutorial() {
@@ -351,14 +328,7 @@ function removeTutorial() {
 }
 
 function resetTutorial() {
-  document.getElementById("tutorial-text").innerHTML = "";
-}
-
-function playSound() {
-  if (isAudio) {
-    let audio = new Audio("move.mp3");
-    audio.play();
-  }
+  document.getElementById("tutorial-text").textContent = "";
 }
 
 function rotateBoard() {
@@ -444,140 +414,5 @@ function renderBoard() {
   if (prevBtn.classList.contains("disabled")) {
     prevBtn.classList.remove("disabled");
   }
-
-  chessBoard.innerHTML = `<div class="sq" id="a8">
-          <img src="./images/pieces/black/rook.png" alt="" />
-        </div>
-        <div class="sq" id="b8">
-          <img src="./images/pieces/black/knight.png" alt="" />
-        </div>
-        <div class="sq" id="c8">
-          <img src="./images/pieces/black/bishop.png" alt="" />
-        </div>
-        <div class="sq" id="d8">
-          <img src="./images/pieces/black/queen.png" alt="" />
-        </div>
-        <div class="sq" id=" e8">
-          <img src="./images/pieces/black/king.png" alt="" />
-        </div>
-        <div class="sq" id="f8">
-          <img src="./images/pieces/black/bishop.png" alt="" />
-        </div>
-        <div class="sq" id="g8">
-          <img src="./images/pieces/black/knight.png" alt="" />
-        </div>
-        <div class="sq" id="h8">
-          <img src="./images/pieces/black/rook.png" alt="" />
-        </div>
-
-        <div class="sq" id="a7">
-          <img src="./images/pieces/black/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="b7">
-          <img src="./images/pieces/black/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="c7">
-          <img src="./images/pieces/black/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="d7">
-          <img src="./images/pieces/black/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="e7">
-          <img src="./images/pieces/black/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="f7">
-          <img src="./images/pieces/black/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="g7">
-          <img src="./images/pieces/black/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="h7">
-          <img src="./images/pieces/black/pawn.png" alt="" />
-        </div>
-
-        <div class="sq" id="a6"></div>
-        <div class="sq" id="b6"></div>
-        <div class="sq" id="c6"></div>
-        <div class="sq" id="d6"></div>
-        <div class="sq" id="e6"></div>
-        <div class="sq" id="f6"></div>
-        <div class="sq" id="g6"></div>
-        <div class="sq" id="h6"></div>
-
-        <div class="sq" id="a5"></div>
-        <div class="sq" id="b5"></div>
-        <div class="sq" id="c5"></div>
-        <div class="sq" id="d5"></div>
-        <div class="sq" id="e5"></div>
-        <div class="sq" id="f5"></div>
-        <div class="sq" id="g5"></div>
-        <div class="sq" id="h5"></div>
-
-        <div class="sq" id="a4"></div>
-        <div class="sq" id="b4"></div>
-        <div class="sq" id="c4"></div>
-        <div class="sq" id="d4"></div>
-        <div class="sq" id="e4"></div>
-        <div class="sq" id="f4"></div>
-        <div class="sq" id="g4"></div>
-        <div class="sq" id="h4"></div>
-
-        <div class="sq" id="a3"></div>
-        <div class="sq" id="b3"></div>
-        <div class="sq" id="c3"></div>
-        <div class="sq" id="d3"></div>
-        <div class="sq" id="e3"></div>
-        <div class="sq" id="f3"></div>
-        <div class="sq" id="g3"></div>
-        <div class="sq" id="h3"></div>
-
-        <div class="sq" id="a2">
-          <img src="./images/pieces/white/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="b2">
-          <img src="./images/pieces/white/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="c2">
-          <img src="./images/pieces/white/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="d2">
-          <img src="./images/pieces/white/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="e2">
-          <img src="./images/pieces/white/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="f2">
-          <img src="./images/pieces/white/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="g2">
-          <img src="./images/pieces/white/pawn.png" alt="" />
-        </div>
-        <div class="sq" id="h2">
-          <img src="./images/pieces/white/pawn.png" alt="" />
-        </div>
-
-        <div class="sq " id="a1">
-          <img src="./images/pieces/white/rook.png  " alt="" />
-        </div>
-        <div class="sq" id="b1">
-          <img src="./images/pieces/white/knight.png" alt="" />
-        </div>
-        <div class="sq" id="c1">
-          <img src="./images/pieces/white/bishop.png" alt="" />
-        </div>
-        <div class="sq" id="d1">
-          <img src="./images/pieces/white/queen.png" alt="" />
-        </div>
-        <div class="sq" id="e1">
-          <img src="./images/pieces/white/king.png" alt="" />
-        </div>
-        <div class="sq" id="f1">
-          <img src="./images/pieces/white/bishop.png" alt="" />
-        </div>
-        <div class="sq" id="g1">
-          <img src="./images/pieces/white/knight.png" alt="" />
-        </div>
-        <div class="sq" id="h1">
-          <img src="./images/pieces/white/rook.png" alt="" />
-        </div>`;
+  chessBoard.innerHTML = chessBoardHTML;
 }
