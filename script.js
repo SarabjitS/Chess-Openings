@@ -259,7 +259,7 @@ function checkSolution(i) {
 
 // Find the square clicked
 function selectMove() {
-  document.addEventListener("click", function (e) {
+  chessBoard.addEventListener("click", function (e) {
     if (square) {
       square.classList.remove("highlight");
     }
@@ -269,8 +269,6 @@ function selectMove() {
       console.log(square.getAttribute("id"));
       isHighlighted = true;
       // square.getAttribute("id");
-    } else {
-      console.log("outside Board");
     }
   });
 }
