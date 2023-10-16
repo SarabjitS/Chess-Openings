@@ -193,16 +193,22 @@ playBtn.addEventListener("click", function () {
 
 //Listen for test yourself button click
 testBtn.addEventListener("click", function () {
-  renderBoard();
-  isTestMode = true;
-  buttonsOnTestMode();
-
   if (opening.length == 0) {
     selectOpeningModal();
   } else {
-    makeTutorialHeading();
-    testStart();
-    document.getElementById("h2-tutorial").appendChild(para);
+    renderBoard();
+    isTestMode = !isTestMode;
+
+    if (isTestMode) {
+      testBtn.classList.add("btn-danger");
+      makeTutorialHeading();
+      testStart();
+      document.getElementById("h2-tutorial").appendChild(para);
+      buttonsOnTestMode();
+    } else {
+      isTestMode = false;
+      testBtn.classList.remove("btn-danger");
+    }
   }
 });
 
@@ -263,6 +269,7 @@ chessBoard.addEventListener("click", function (e) {
           isTestMode = false;
           makeTutorialHeading();
           buttonsOnTestMode();
+          testBtn.classList.remove("btn-danger");
         }
       } else {
         square.classList.add("highlight");
@@ -452,6 +459,10 @@ function renderBoard() {
   if (prevBtn.classList.contains("disabled")) {
     enableButton(prevBtn);
   }
+
+  if (playBtn.classList.contains("disabled")) {
+    enableButton(playBtn);
+  }
   chessBoard.innerHTML = chessBoardHTML;
   if (isRotated) {
     rotatePieces();
@@ -476,7 +487,7 @@ function buttonsOnTestMode() {
     }
   } else {
     for (const child of document.querySelector(".btn-group").children) {
-      //Not including next button as there are no moves left
+      // Not including next button as there are no moves left
       if (child == document.getElementById("next-button")) {
         continue;
       }
@@ -487,7 +498,6 @@ function buttonsOnTestMode() {
 
 function disableButton(btn) {
   btn.classList.add("disabled");
-  console.log(btn);
   btn.setAttribute("aria-disabled", true);
 }
 
