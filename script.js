@@ -200,17 +200,13 @@ testBtn.addEventListener("click", function () {
   if (opening.length == 0) {
     selectOpeningModal();
   } else {
-    // const heading = document.createElement("h2");
-    // document.getElementById("h2-tutorial").textContent =
-    //   "Where will this piece move to?";
     makeTutorialHeading();
     testStart();
-    // document.getElementById("h2-tutorial").replaceChild(heading);
     document.getElementById("h2-tutorial").appendChild(para);
   }
 });
 
-// Close the modal
+// Close the dialogue
 dialog.addEventListener("click", (e) => {
   const dialogDimensions = dialog.getBoundingClientRect();
   if (
