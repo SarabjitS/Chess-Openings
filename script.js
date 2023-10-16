@@ -23,6 +23,7 @@ const orientationBtn = document.getElementById("orientation-button");
 const soundBtn = document.getElementById("sound-button");
 const chooseBtn = document.getElementById("choose-opening");
 const dialog = document.querySelector("dialog");
+const para = document.createElement("p");
 
 //variables defined
 let isPlayer = "white";
@@ -37,6 +38,9 @@ let selectedMove;
 let openingSourceMoves = [];
 let openingDestinationMoves = [];
 let isFlag = false;
+let isCorrect = false;
+let isTestMode = false;
+let i;
 
 //Creating chess board
 renderBoard();
@@ -123,8 +127,10 @@ chooseBtn.addEventListener("click", function () {
 nextBtn.addEventListener("click", function () {
   if (opening.length == 0) {
     selectOpeningModal();
+  } else if (isTestMode) {
+    console.log("Test Mode - no cheating");
   } else {
-    playSound();
+    // playSound();
     if (moveIndex < opening.length - 1) {
       moveIndex++;
       prevBtn.classList.remove("disabled");
@@ -141,6 +147,8 @@ nextBtn.addEventListener("click", function () {
 prevBtn.addEventListener("click", function () {
   if (opening.length == 0) {
     selectOpeningModal();
+  } else if (isTestMode) {
+    console.log("Test Mode - no cheating");
   } else {
     if (moveIndex >= 0) {
       playSound();
@@ -163,6 +171,8 @@ prevBtn.addEventListener("click", function () {
 playBtn.addEventListener("click", function () {
   if (opening.length == 0) {
     selectOpeningModal();
+  } else if (isTestMode) {
+    console.log("Test Mode - no cheating");
   } else {
     const id = setInterval(moveIndexChange, 2000);
     // nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
@@ -185,13 +195,16 @@ playBtn.addEventListener("click", function () {
 //Listen for test yourself button click
 testBtn.addEventListener("click", function () {
   renderBoard();
-
+  isTestMode = true;
   if (opening.length == 0) {
     selectOpeningModal();
   } else {
+    // const heading = document.createElement("h2");
     document.getElementById("h2-tutorial").textContent =
       "Where will this piece move to?";
     testStart();
+    // document.getElementById("h2-tutorial").replaceChild(heading);
+    document.getElementById("h2-tutorial").appendChild(para);
   }
 });
 
@@ -217,13 +230,57 @@ function testStart() {
   opening.forEach((moves) =>
     openingDestinationMoves.push(moves.slice(1, -1).toString())
   );
-
+  console.log(openingSourceMoves);
   console.log(openingDestinationMoves);
+  i = 0;
+  // document.getElementById(openingSourceMoves[i]).classList.add("question");
+  makeSourceMoveHighlight(i);
+  // for (let i = 0; i < openingSourceMoves.length; i++) {
 
-  for (let i = 0; i < openingSourceMoves.length; i++) {
-    document.getElementById(openingSourceMoves[i]).classList.add("question");
-    checkSolution(i);
-  }
+  chessBoard.addEventListener("click", function (e) {
+    if (i < openingSourceMoves.length) {
+      if (square) {
+        square.classList.remove("highlight");
+      }
+      // console.log(e.target.closest(".sq").getAttribute("id"));
+      if (e.target.closest(".sq")) {
+        square = e.target.closest(".sq");
+
+        if (square.getAttribute("id") == openingDestinationMoves[i]) {
+          // isHighlighted = true;
+          // square.classList.add("correct");
+          removeSourceMoveHighlight(i);
+          moveIndex++;
+          prevBtn.classList.remove("disabled");
+          nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
+          generateTutorial(opening[moveIndex][2]);
+          i++;
+          para.textContent = "correct";
+          if (i <= openingSourceMoves.length - 1) {
+            makeSourceMoveHighlight(i);
+          } else {
+            console.log("Congratuations");
+            para.textContent = "  ";
+          }
+        } else {
+          square.classList.add("highlight");
+          para.textContent = "Incorrect";
+        }
+        // console.log(square.getAttribute("id"), "selectMove");
+        // selectedMove = square.getAttribute("id");
+        // console.log(square);
+      }
+    }
+  });
+  // }
+}
+
+function makeSourceMoveHighlight(i) {
+  document.getElementById(openingSourceMoves[i]).classList.add("question");
+}
+
+function removeSourceMoveHighlight(i) {
+  document.getElementById(openingSourceMoves[i]).classList.remove("question");
 }
 
 //Changes the value of opening based on accordian option selected
@@ -252,27 +309,6 @@ function playMove(title) {
   }
 }
 
-//Checks the solution
-function checkSolution(i) {
-  selectMove();
-}
-
-// Find the square clicked
-function selectMove() {
-  chessBoard.addEventListener("click", function (e) {
-    if (square) {
-      square.classList.remove("highlight");
-    }
-    if (e.target.closest(".sq")) {
-      square = e.target.closest(".sq");
-      square.classList.add("highlight");
-      console.log(square.getAttribute("id"));
-      isHighlighted = true;
-      // square.getAttribute("id");
-    }
-  });
-}
-
 // Shows the modal to select opening
 function selectOpeningModal() {
   dialog.showModal();
@@ -288,6 +324,7 @@ function playSound() {
 
 // Makes the next move
 function nextHandler(sourceMove, destinationMove) {
+  playSound();
   document
     .getElementById(destinationMove)
     .append(document.getElementById(sourceMove).children[0]);
@@ -406,6 +443,9 @@ function renderBoard() {
   moveIndex = -1;
   // opening = [];
   resetTutorial();
+  openingSourceMoves = [];
+  openingDestinationMoves = [];
+  i = 0;
   if (isRotated) {
     rotatePieces();
   }

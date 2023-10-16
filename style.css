@@ -294,3 +294,7 @@ dialog {
   background-repeat: no-repeat;
   background-size: cover;
 } */
+
+.correct {
+  border: 3px solid green;
+}
