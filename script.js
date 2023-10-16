@@ -14,13 +14,15 @@ import {
 import { chessBoardHTML } from "./chessBoard.js";
 
 //const defined
-const testBtn = document.getElementById("test-yourself");
-const prevBtn = document.querySelector("#prev-button");
-const nextBtn = document.querySelector("#next-button");
-const chessBoard = document.getElementById("chess-board");
-const playBtn = document.getElementById("play-button");
 const orientationBtn = document.getElementById("orientation-button");
 const soundBtn = document.getElementById("sound-button");
+const prevBtn = document.querySelector("#prev-button");
+const playBtn = document.getElementById("play-button");
+const nextBtn = document.querySelector("#next-button");
+const testBtn = document.getElementById("test-yourself");
+
+const chessBoard = document.getElementById("chess-board");
+
 const chooseBtn = document.getElementById("choose-opening");
 const dialog = document.querySelector("dialog");
 const para = document.createElement("p");
@@ -193,21 +195,22 @@ playBtn.addEventListener("click", function () {
 
 //Listen for test yourself button click
 testBtn.addEventListener("click", function () {
+  //If no opening selected
   if (opening.length == 0) {
     selectOpeningModal();
   } else {
     renderBoard();
     isTestMode = !isTestMode;
-
     if (isTestMode) {
       testBtn.classList.add("btn-danger");
       makeTutorialHeading();
       testStart();
-      document.getElementById("h2-tutorial").appendChild(para);
+      tutorialHeading.appendChild(para);
       buttonsOnTestMode();
     } else {
       isTestMode = false;
       testBtn.classList.remove("btn-danger");
+      renderBoard();
     }
   }
 });
@@ -234,11 +237,10 @@ function testStart() {
   opening.forEach((moves) =>
     openingDestinationMoves.push(moves.slice(1, -1).toString())
   );
-  console.log(openingSourceMoves);
-  console.log(openingDestinationMoves);
   makeSourceMoveHighlight(i);
 }
 
+//Listens for clicks on chess board after testStart() has started
 chessBoard.addEventListener("click", function (e) {
   if (i < openingSourceMoves.length) {
     if (square) {
@@ -246,17 +248,9 @@ chessBoard.addEventListener("click", function (e) {
     }
     if (e.target.closest(".sq")) {
       square = e.target.closest(".sq");
-      console.log(
-        "square = " +
-          square.getAttribute("id") +
-          " openingDestinationMoves[i] = " +
-          openingDestinationMoves[i]
-      );
-
       if (square.getAttribute("id") == openingDestinationMoves[i]) {
         removeSourceMoveHighlight(i);
         moveIndex++;
-        // prevBtn.classList.remove("disabled");
         nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
         generateTutorial(opening[moveIndex][2]);
         i++;
@@ -488,7 +482,7 @@ function buttonsOnTestMode() {
   } else {
     for (const child of document.querySelector(".btn-group").children) {
       // Not including next button as there are no moves left
-      if (child == document.getElementById("next-button")) {
+      if (child == nextBtn) {
         continue;
       }
       enableButton(child);
