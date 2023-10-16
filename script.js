@@ -126,8 +126,6 @@ chooseBtn.addEventListener("click", function () {
 nextBtn.addEventListener("click", function () {
   if (opening.length == 0) {
     selectOpeningModal();
-  } else if (isTestMode) {
-    console.log("Test Mode - no cheating");
   } else {
     // playSound();
     if (moveIndex < opening.length - 1) {
@@ -138,8 +136,6 @@ nextBtn.addEventListener("click", function () {
     }
     if (moveIndex == opening.length - 1) {
       disableButton(nextBtn);
-      // nextBtn.classList.add("disabled");
-      // console.log(nextBtn.classList);
     }
   }
 });
@@ -148,8 +144,6 @@ nextBtn.addEventListener("click", function () {
 prevBtn.addEventListener("click", function () {
   if (opening.length == 0) {
     selectOpeningModal();
-  } else if (isTestMode) {
-    console.log("Test Mode - no cheating");
   } else {
     if (moveIndex >= 0) {
       playSound();
@@ -172,8 +166,6 @@ prevBtn.addEventListener("click", function () {
 playBtn.addEventListener("click", function () {
   if (opening.length == 0) {
     selectOpeningModal();
-  } else if (isTestMode) {
-    console.log("Test Mode - no cheating");
   } else {
     const id = setInterval(moveIndexChange, 2000);
     // nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
@@ -377,13 +369,11 @@ function rotateBoard() {
 
     chessBoard.classList.remove("rotate");
   }
-  console.log(isRotated);
   rotatePieces();
 }
 
 function rotatePieces() {
   if (isRotated) {
-    console.log("rotated pieces");
     document.querySelectorAll(".sq").forEach((piece) => {
       piece.classList.add("rotate");
       // piece.style.transform = `rotate(180deg)`;
@@ -449,11 +439,7 @@ function renderBoard() {
   if (nextBtn.classList.contains("disabled")) {
     enableButton(nextBtn);
   }
-
-  if (prevBtn.classList.contains("disabled")) {
-    enableButton(prevBtn);
-  }
-
+  disableButton(prevBtn);
   if (playBtn.classList.contains("disabled")) {
     enableButton(playBtn);
   }
