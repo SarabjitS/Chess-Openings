@@ -476,6 +476,10 @@ function buttonsOnTestMode() {
     }
   } else {
     for (const child of document.querySelector(".btn-group").children) {
+      //Not including next button as there are no moves left
+      if (child == document.getElementById("next-button")) {
+        continue;
+      }
       enableButton(child);
     }
   }
@@ -489,6 +493,5 @@ function disableButton(btn) {
 
 function enableButton(btn) {
   btn.classList.remove("disabled");
-  console.log(btn);
   btn.setAttribute("aria-disabled", false);
 }
