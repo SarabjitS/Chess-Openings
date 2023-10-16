@@ -27,18 +27,14 @@ const para = document.createElement("p");
 const tutorialHeading = document.getElementById("h2-tutorial");
 
 //variables defined
-let isPlayer = "white";
 let opening = [];
 let moveIndex = -1;
 let isRotated = false;
 let isAudio = true;
 let isTraditional = true;
-let isHighlighted = false;
 let square;
-let selectedMove;
 let openingSourceMoves = [];
 let openingDestinationMoves = [];
-let isFlag = false;
 let isSucessful = false;
 let isTestMode = false;
 let i = 0;
@@ -134,12 +130,14 @@ nextBtn.addEventListener("click", function () {
     // playSound();
     if (moveIndex < opening.length - 1) {
       moveIndex++;
-      prevBtn.classList.remove("disabled");
+      enableButton(prevBtn);
       nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
       generateTutorial(opening[moveIndex][2]);
     }
     if (moveIndex == opening.length - 1) {
-      nextBtn.classList.add("disabled");
+      disableButton(nextBtn);
+      // nextBtn.classList.add("disabled");
+      // console.log(nextBtn.classList);
     }
   }
 });
@@ -157,9 +155,9 @@ prevBtn.addEventListener("click", function () {
       removeTutorial();
       if (moveIndex > 0) {
         moveIndex--;
-        nextBtn.classList.remove("disabled");
+        enableButton(nextBtn);
       } else if (moveIndex == 0) {
-        prevBtn.classList.add("disabled");
+        disableButton(prevBtn);
         moveIndex--;
       }
     } else {
@@ -180,12 +178,12 @@ playBtn.addEventListener("click", function () {
     function moveIndexChange() {
       if (moveIndex < opening.length - 1) {
         moveIndex++;
-        prevBtn.classList.remove("disabled");
+        enableButton(prevBtn);
         nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
         playSound();
         generateTutorial(opening[moveIndex][2]);
         if (moveIndex == opening.length - 1) {
-          nextBtn.classList.add("disabled");
+          disableButton(nextBtn);
           clearInterval(id);
         }
       }
@@ -197,6 +195,8 @@ playBtn.addEventListener("click", function () {
 testBtn.addEventListener("click", function () {
   renderBoard();
   isTestMode = true;
+  buttonsOnTestMode();
+
   if (opening.length == 0) {
     selectOpeningModal();
   } else {
@@ -262,6 +262,7 @@ chessBoard.addEventListener("click", function (e) {
           isSucessful = true;
           isTestMode = false;
           makeTutorialHeading();
+          buttonsOnTestMode();
         }
       } else {
         square.classList.add("highlight");
@@ -440,15 +441,16 @@ function renderBoard() {
   isSucessful = false;
   makeTutorialHeading();
   resetTutorial();
+  buttonsOnTestMode();
   openingSourceMoves = [];
   openingDestinationMoves = [];
   i = 0;
   if (nextBtn.classList.contains("disabled")) {
-    nextBtn.classList.remove("disabled");
+    enableButton(nextBtn);
   }
 
   if (prevBtn.classList.contains("disabled")) {
-    prevBtn.classList.remove("disabled");
+    enableButton(prevBtn);
   }
   chessBoard.innerHTML = chessBoardHTML;
   if (isRotated) {
@@ -464,4 +466,29 @@ function makeTutorialHeading() {
   } else {
     tutorialHeading.textContent = "Tutorial";
   }
+}
+
+//Target all buttons of btn-group; ie, playBtn, nextBtn and prevBtn
+function buttonsOnTestMode() {
+  if (isTestMode) {
+    for (const child of document.querySelector(".btn-group").children) {
+      disableButton(child);
+    }
+  } else {
+    for (const child of document.querySelector(".btn-group").children) {
+      enableButton(child);
+    }
+  }
+}
+
+function disableButton(btn) {
+  btn.classList.add("disabled");
+  console.log(btn);
+  btn.setAttribute("aria-disabled", true);
+}
+
+function enableButton(btn) {
+  btn.classList.remove("disabled");
+  console.log(btn);
+  btn.setAttribute("aria-disabled", false);
 }

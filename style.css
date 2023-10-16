@@ -144,9 +144,9 @@ img {
   text-align: center;
 }
 
-.disabled {
+/* .disabled {
   color: grey;
-}
+} */
 
 .accordion-item {
   color: var(--foreground);
