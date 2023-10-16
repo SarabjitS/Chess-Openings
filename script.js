@@ -48,7 +48,7 @@ renderBoard();
 // Adding Event Listeners
 
 //Listen for click on extra-options button
-document.addEventListener("click", (e) => {
+document.addEventListener("mouseover", (e) => {
   const isDropdownButton = e.target.matches("[data-dropdown-button]");
   if (!isDropdownButton && e.target.closest("[data-dropdown]") != null) return;
 
@@ -261,6 +261,7 @@ function testStart() {
           } else {
             console.log("Congratuations");
             para.textContent = "  ";
+            isTestMode = false;
           }
         } else {
           square.classList.add("highlight");
@@ -446,8 +447,10 @@ function renderBoard() {
   openingSourceMoves = [];
   openingDestinationMoves = [];
   i = 0;
-  if (isRotated) {
-    rotatePieces();
+  isRotated = false;
+  if (!isRotated) {
+    orientationBtn.classList.remove("material-symbols-outlined-fill");
+    chessBoard.classList.remove("rotate");
   }
 
   if (nextBtn.classList.contains("disabled")) {
