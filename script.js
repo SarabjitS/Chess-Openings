@@ -24,6 +24,7 @@ const soundBtn = document.getElementById("sound-button");
 const chooseBtn = document.getElementById("choose-opening");
 const dialog = document.querySelector("dialog");
 const para = document.createElement("p");
+const tutorialHeading = document.getElementById("h2-tutorial");
 
 //variables defined
 let isPlayer = "white";
@@ -38,9 +39,9 @@ let selectedMove;
 let openingSourceMoves = [];
 let openingDestinationMoves = [];
 let isFlag = false;
-let isCorrect = false;
+let isSucessful = false;
 let isTestMode = false;
-let i;
+let i = 0;
 
 //Creating chess board
 renderBoard();
@@ -48,7 +49,7 @@ renderBoard();
 // Adding Event Listeners
 
 //Listen for click on extra-options button
-document.addEventListener("mouseover", (e) => {
+document.addEventListener("click", (e) => {
   const isDropdownButton = e.target.matches("[data-dropdown-button]");
   if (!isDropdownButton && e.target.closest("[data-dropdown]") != null) return;
 
@@ -200,8 +201,9 @@ testBtn.addEventListener("click", function () {
     selectOpeningModal();
   } else {
     // const heading = document.createElement("h2");
-    document.getElementById("h2-tutorial").textContent =
-      "Where will this piece move to?";
+    // document.getElementById("h2-tutorial").textContent =
+    //   "Where will this piece move to?";
+    makeTutorialHeading();
     testStart();
     // document.getElementById("h2-tutorial").replaceChild(heading);
     document.getElementById("h2-tutorial").appendChild(para);
@@ -232,49 +234,46 @@ function testStart() {
   );
   console.log(openingSourceMoves);
   console.log(openingDestinationMoves);
-  i = 0;
-  // document.getElementById(openingSourceMoves[i]).classList.add("question");
   makeSourceMoveHighlight(i);
-  // for (let i = 0; i < openingSourceMoves.length; i++) {
+}
 
-  chessBoard.addEventListener("click", function (e) {
-    if (i < openingSourceMoves.length) {
-      if (square) {
-        square.classList.remove("highlight");
-      }
-      // console.log(e.target.closest(".sq").getAttribute("id"));
-      if (e.target.closest(".sq")) {
-        square = e.target.closest(".sq");
+chessBoard.addEventListener("click", function (e) {
+  if (i < openingSourceMoves.length) {
+    if (square) {
+      square.classList.remove("highlight");
+    }
+    if (e.target.closest(".sq")) {
+      square = e.target.closest(".sq");
+      console.log(
+        "square = " +
+          square.getAttribute("id") +
+          " openingDestinationMoves[i] = " +
+          openingDestinationMoves[i]
+      );
 
-        if (square.getAttribute("id") == openingDestinationMoves[i]) {
-          // isHighlighted = true;
-          // square.classList.add("correct");
-          removeSourceMoveHighlight(i);
-          moveIndex++;
-          prevBtn.classList.remove("disabled");
-          nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
-          generateTutorial(opening[moveIndex][2]);
-          i++;
-          para.textContent = "correct";
-          if (i <= openingSourceMoves.length - 1) {
-            makeSourceMoveHighlight(i);
-          } else {
-            console.log("Congratuations");
-            para.textContent = "  ";
-            isTestMode = false;
-          }
+      if (square.getAttribute("id") == openingDestinationMoves[i]) {
+        removeSourceMoveHighlight(i);
+        moveIndex++;
+        // prevBtn.classList.remove("disabled");
+        nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
+        generateTutorial(opening[moveIndex][2]);
+        i++;
+        para.textContent = "correct";
+        if (i <= openingSourceMoves.length - 1) {
+          makeSourceMoveHighlight(i);
         } else {
-          square.classList.add("highlight");
-          para.textContent = "Incorrect";
+          para.textContent = " ";
+          isSucessful = true;
+          isTestMode = false;
+          makeTutorialHeading();
         }
-        // console.log(square.getAttribute("id"), "selectMove");
-        // selectedMove = square.getAttribute("id");
-        // console.log(square);
+      } else {
+        square.classList.add("highlight");
+        para.textContent = "Incorrect";
       }
     }
-  });
-  // }
-}
+  }
+});
 
 function makeSourceMoveHighlight(i) {
   document.getElementById(openingSourceMoves[i]).classList.add("question");
@@ -364,7 +363,6 @@ function removeTutorial() {
   const lastItem = list[list.length - 1];
   if (lastItem) {
     lastItem.parentNode.removeChild(lastItem);
-    // console.log(list);
   }
 }
 
@@ -387,6 +385,7 @@ function rotateBoard() {
 
 function rotatePieces() {
   if (isRotated) {
+    console.log("rotated pieces");
     document.querySelectorAll(".sq").forEach((piece) => {
       piece.classList.add("rotate");
       // piece.style.transform = `rotate(180deg)`;
@@ -442,17 +441,12 @@ darkModeToggle.addEventListener("click", () => {
 
 function renderBoard() {
   moveIndex = -1;
-  // opening = [];
+  isSucessful = false;
+  makeTutorialHeading();
   resetTutorial();
   openingSourceMoves = [];
   openingDestinationMoves = [];
   i = 0;
-  isRotated = false;
-  if (!isRotated) {
-    orientationBtn.classList.remove("material-symbols-outlined-fill");
-    chessBoard.classList.remove("rotate");
-  }
-
   if (nextBtn.classList.contains("disabled")) {
     nextBtn.classList.remove("disabled");
   }
@@ -461,4 +455,17 @@ function renderBoard() {
     prevBtn.classList.remove("disabled");
   }
   chessBoard.innerHTML = chessBoardHTML;
+  if (isRotated) {
+    rotatePieces();
+  }
+}
+
+function makeTutorialHeading() {
+  if (isTestMode) {
+    tutorialHeading.textContent = "Where will this piece move to?";
+  } else if (isSucessful) {
+    tutorialHeading.textContent = "Congratulations";
+  } else {
+    tutorialHeading.textContent = "Tutorial";
+  }
 }
