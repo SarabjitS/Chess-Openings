@@ -226,36 +226,41 @@ dialog.addEventListener("click", (e) => {
 
 //Starts the test
 function testStart() {
+  //Makes an array of only the opening source moves
   opening.forEach((moves) =>
     openingSourceMoves.push(moves.slice(0, 1).toString())
   );
 
+  //Makes an array of only the opening source moves
   opening.forEach((moves) =>
     openingDestinationMoves.push(moves.slice(1, -1).toString())
   );
+
+  //Highlights the first source move piece
   makeSourceMoveHighlight(i);
 }
 
+//Listens to hintBtn
 hintBtn.addEventListener("click", function () {
+  //To toggle the hint button on/off
   isHint = !isHint;
+
   if (isHint) {
-    // if (!isTestMode) {
-    //   disableButton(hintBtn);
-    // } else {
     para.textContent = "Hint";
     moveIndex++;
     resetTutorial();
-    generateTutorial(opening[moveIndex][2]);
+    generateTutorial(opening[moveIndex][2]); //Provides the hint text
     tutorialHeading.textContent = "Hint";
     disableButton(testBtn);
     hintBtn.textContent = "Go Back";
   } else {
-    removeTutorial();
+    removeTutorial(); //Clears the hint text
     enableButton(testBtn);
     makeTutorialHeading();
     moveIndex--;
     isHint = false;
     hintBtn.textContent = "Hint ";
+    //Creates the tutorial section again (upto the moves already made)
     for (let i = 0; i <= moveIndex; i++) {
       generateTutorial(opening[i][2]);
     }
