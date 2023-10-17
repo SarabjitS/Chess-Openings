@@ -131,15 +131,20 @@ nextBtn.addEventListener("click", function () {
   if (opening.length == 0) {
     showModal("Please select an opening first");
   } else {
+    if (isPlay) {
+      clearInterval(id);
+      replacePauseToPlay();
+      isPlay = !isPlay;
+    }
     // playSound();
     if (moveIndex < opening.length - 1) {
       moveIndex++;
       enableButton(prevBtn);
       nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
       generateTutorial(opening[moveIndex][2]);
-    }
-    if (moveIndex == opening.length - 1) {
+    } else {
       disableButton(nextBtn);
+      disableButton(playBtn);
     }
   }
 });
@@ -149,6 +154,11 @@ prevBtn.addEventListener("click", function () {
   if (opening.length == 0) {
     showModal("Please select an opening first");
   } else {
+    if (isPlay) {
+      clearInterval(id);
+      replacePauseToPlay();
+      isPlay = !isPlay;
+    }
     // When opening has been selected
     if (moveIndex >= 0) {
       //When move has been played by nextBtn or playBtn
@@ -165,6 +175,7 @@ prevBtn.addEventListener("click", function () {
       }
       moveIndex--;
     } else {
+      // When opening selected but no move has been played
       showModal(
         "Please make a move first by clicking on Next button or Play button"
       );
@@ -188,18 +199,6 @@ playBtn.addEventListener("click", function () {
   }
 });
 
-function replacePauseToPlay() {
-  document
-    .querySelector(".play-btn-icon")
-    .classList.replace("bi-pause-circle-fill", "bi-play-circle-fill");
-}
-
-function replacePlaytoPause() {
-  document
-    .querySelector(".play-btn-icon")
-    .classList.replace("bi-play-circle-fill", "bi-pause-circle-fill");
-}
-
 function playBtnHandler() {
   moveIndex++;
   if (moveIndex <= opening.length - 1) {
@@ -211,8 +210,21 @@ function playBtnHandler() {
       disableButton(nextBtn);
       clearInterval(id);
       replacePauseToPlay();
+      disableButton(playBtn);
     }
   }
+}
+
+function replacePauseToPlay() {
+  document
+    .querySelector(".play-btn-icon")
+    .classList.replace("bi-pause-circle-fill", "bi-play-circle-fill");
+}
+
+function replacePlaytoPause() {
+  document
+    .querySelector(".play-btn-icon")
+    .classList.replace("bi-play-circle-fill", "bi-pause-circle-fill");
 }
 
 //Listen for test yourself button click
