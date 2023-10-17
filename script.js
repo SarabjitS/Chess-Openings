@@ -255,6 +255,9 @@ hintBtn.addEventListener("click", function () {
     moveIndex--;
     isHint = false;
     hintBtn.textContent = "Hint ";
+    for (let i = 0; i <= moveIndex; i++) {
+      generateTutorial(opening[i][2]);
+    }
   }
 });
 
