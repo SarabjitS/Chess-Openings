@@ -530,9 +530,10 @@ function renderBoard() {
     replacePauseToPlay();
   }
 
+  // Renders chess board
   chessBoard.innerHTML = chessBoardHTML;
 
-  //Preserves the orientation of chess pieces
+  // Preserves the orientation of chess pieces
   if (isRotated) {
     rotatePieces();
   }
@@ -548,7 +549,7 @@ function makeTutorialHeading() {
   }
 }
 
-//Target all buttons of btn-group; ie, playBtn, nextBtn and prevBtn
+// Target all buttons of btn-group; ie, playBtn, nextBtn and prevBtn
 function buttonsOnTestMode() {
   if (isTestMode) {
     for (const child of document.querySelector(".btn-group").children) {
