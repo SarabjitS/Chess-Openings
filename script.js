@@ -200,7 +200,6 @@ testBtn.addEventListener("click", function () {
       testBtn.classList.add("btn-danger");
       makeTutorialHeading();
       testStart();
-      tutorialHeading.appendChild(para);
       buttonsOnTestMode();
     } else {
       isTestMode = false;
@@ -238,10 +237,10 @@ function testStart() {
 hintBtn.addEventListener("click", function () {
   isHint = !isHint;
   if (isHint) {
-    if (isTestMode === false) {
+    if (!isTestMode) {
       disableButton(hintBtn);
     } else {
-      para.textContent = " ";
+      para.textContent = "Hint";
       moveIndex++;
       resetTutorial();
       generateTutorial(opening[moveIndex][2]);
@@ -262,6 +261,7 @@ hintBtn.addEventListener("click", function () {
 //Listens for clicks on chess board after testStart() has started
 chessBoard.addEventListener("click", function (e) {
   if (!isHint) {
+    tutorialHeading.appendChild(para);
     if (i < openingSourceMoves.length) {
       if (square) {
         square.classList.remove("highlight");
@@ -278,7 +278,7 @@ chessBoard.addEventListener("click", function (e) {
           if (i <= openingSourceMoves.length - 1) {
             makeSourceMoveHighlight(i);
           } else {
-            para.textContent = " ";
+            para.textContent = "";
             isSucessful = true;
             isTestMode = false;
             makeTutorialHeading();
