@@ -147,7 +147,7 @@ nextBtn.addEventListener("click", function () {
 //Listen for previous button click
 prevBtn.addEventListener("click", function () {
   if (opening.length == 0) {
-    showModal("Please select the opening first");
+    showModal("Please select an opening first");
   } else {
     if (moveIndex >= 0) {
       playSound();
@@ -173,7 +173,7 @@ prevBtn.addEventListener("click", function () {
 playBtn.addEventListener("click", function () {
   isPlay = !isPlay;
   if (opening.length == 0) {
-    showModal("Please select the opening first");
+    showModal("Please select an opening first");
   } else {
     if (isPlay) {
       id = setInterval(playBtnHandler, 2000);
@@ -216,7 +216,7 @@ function playBtnHandler() {
 testBtn.addEventListener("click", function () {
   //If no opening selected
   if (opening.length == 0) {
-    showModal("Please select the opening first");
+    showModal("Please select an opening first");
   } else {
     renderBoard();
     isTestMode = !isTestMode;
@@ -230,7 +230,6 @@ testBtn.addEventListener("click", function () {
     } else {
       // isTestMode = false;
       testBtn.classList.remove("btn-danger");
-      renderBoard();
     }
   }
 });
@@ -361,9 +360,6 @@ function playMove(title) {
   }
 }
 
-// function selectOpeningModal() {
-//   showModal("Please select the opening first");
-// }
 // Shows the modal to select opening
 function showModal(text) {
   dialog.textContent = text;
@@ -401,18 +397,21 @@ function nextHandler(sourceMove, destinationMove) {
   }
 }
 
+// For executing prevBtn moves
 function prevHandler(destinationMove, sourceMove) {
   document
     .getElementById(destinationMove)
     .append(document.getElementById(sourceMove).children[0]);
 }
 
+// For generating tutorial text list item
 function generateTutorial(text) {
   const listItem = document.createElement("li");
   listItem.textContent = text;
   document.getElementById("tutorial-text").appendChild(listItem);
 }
 
+// For removing tutorial text list item
 function removeTutorial() {
   const list = document.querySelectorAll("ul li");
   const lastItem = list[list.length - 1];
@@ -421,10 +420,12 @@ function removeTutorial() {
   }
 }
 
+// For resetting the tutorial text completely
 function resetTutorial() {
   document.getElementById("tutorial-text").textContent = "";
 }
 
+// For rotating the chess board
 function rotateBoard() {
   if (isRotated) {
     orientationBtn.classList.add("material-symbols-outlined-fill");
@@ -437,6 +438,7 @@ function rotateBoard() {
   rotatePieces();
 }
 
+//For rotating the chess board pieces
 function rotatePieces() {
   if (isRotated) {
     document.querySelectorAll(".sq").forEach((piece) => {
@@ -492,6 +494,8 @@ darkModeToggle.addEventListener("click", () => {
   }
 });
 
+// For rendering the chess board at start, when an opening is selected
+// and when  testBtn is turned on/off
 function renderBoard() {
   // Change to default values
   moveIndex = -1;
