@@ -154,13 +154,14 @@ prevBtn.addEventListener("click", function () {
       prevHandler(opening[moveIndex][0], opening[moveIndex][1]);
       removeTutorial();
       if (moveIndex > 0) {
-        moveIndex--;
+        // moveIndex--;
         enableButton(nextBtn);
         enableButton(playBtn);
-      } else if (moveIndex == 0) {
+      } else {
         disableButton(prevBtn);
-        moveIndex--;
+        // moveIndex--;
       }
+      moveIndex--;
     } else {
       showModal(
         "Please make a move first by clicking on Next button or Play button"
@@ -223,13 +224,14 @@ testBtn.addEventListener("click", function () {
     enableButton(hintBtn);
     if (isTestMode) {
       testBtn.classList.add("btn-danger");
-
       makeTutorialHeading();
       testStart();
       buttonsOnTestMode();
     } else {
-      // isTestMode = false;
       testBtn.classList.remove("btn-danger");
+      disableButton(hintBtn);
+      isTestMode = false;
+      renderBoard();
     }
   }
 });
