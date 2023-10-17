@@ -270,7 +270,6 @@ hintBtn.addEventListener("click", function () {
   isHint = !isHint;
 
   if (isHint) {
-    para.textContent = "Hint";
     moveIndex++;
     resetTutorial();
     generateTutorial(opening[moveIndex][2]); //Provides the hint text
@@ -502,7 +501,10 @@ function renderBoard() {
   openingDestinationMoves = [];
   i = 0;
   isPlay = false;
-  clearInterval(id); // To stop the playBtn execution if new opening or testBtn clicked
+  hintBtn.textContent = "Hint ";
+
+  // To stop the playBtn execution if new opening or testBtn clicked
+  clearInterval(id);
 
   //Bring to the original layout
   testBtn.classList.remove("btn-danger");
@@ -510,16 +512,14 @@ function renderBoard() {
   makeTutorialHeading();
   resetTutorial();
   buttonsOnTestMode();
-  if (nextBtn.classList.contains("disabled")) {
-    enableButton(nextBtn);
+
+  // Enable all buttons of btn-group class(playBtn, nextBtn and prevBtn) if disabled
+  for (const child of document.querySelector(".btn-group").children) {
+    if (child.classList.contains("disabled")) enableButton(child);
   }
 
-  if (prevBtn.classList.contains("disabled")) {
-    enableButton(prevBtn);
-  }
-
-  if (playBtn.classList.contains("disabled")) {
-    enableButton(playBtn);
+  if (testBtn.classList.contains("disabled")) {
+    enableButton(testBtn);
   }
 
   if (
