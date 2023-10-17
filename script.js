@@ -82,8 +82,9 @@ document.addEventListener("click", function (e) {
     e.target.dataset.name == "opening6" ||
     e.target.dataset.name == "opening7"
   ) {
-    renderBoard();
     isTestMode = false;
+    renderBoard();
+    //When opening is clicked again to close, Bootstrap adds .collapsed class
     if (!e.target.classList.contains("collapsed")) {
       playMove(e.target.innerText);
     } else {
