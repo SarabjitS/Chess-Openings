@@ -128,7 +128,7 @@ chooseBtn.addEventListener("click", function () {
 //Listen for next button click
 nextBtn.addEventListener("click", function () {
   if (opening.length == 0) {
-    selectOpeningModal();
+    showModal("Please select an opening first");
   } else {
     // playSound();
     if (moveIndex < opening.length - 1) {
@@ -146,7 +146,7 @@ nextBtn.addEventListener("click", function () {
 //Listen for previous button click
 prevBtn.addEventListener("click", function () {
   if (opening.length == 0) {
-    selectOpeningModal();
+    showModal("Please select the opening first");
   } else {
     if (moveIndex >= 0) {
       playSound();
@@ -160,7 +160,9 @@ prevBtn.addEventListener("click", function () {
         moveIndex--;
       }
     } else {
-      console.log("Please make a move first by clicking on next button");
+      showModal(
+        "Please make a move first by clicking on Next button or Play button"
+      );
     }
   }
 });
@@ -168,7 +170,7 @@ prevBtn.addEventListener("click", function () {
 //Listen for play button click
 playBtn.addEventListener("click", function () {
   if (opening.length == 0) {
-    selectOpeningModal();
+    showModal("Please select the opening first");
   } else {
     id = setInterval(playBtnHandler, 2000);
   }
@@ -196,7 +198,7 @@ function playBtnHandler() {
 testBtn.addEventListener("click", function () {
   //If no opening selected
   if (opening.length == 0) {
-    selectOpeningModal();
+    showModal("Please select the opening first");
   } else {
     renderBoard();
     isTestMode = !isTestMode;
@@ -342,8 +344,12 @@ function playMove(title) {
   }
 }
 
+// function selectOpeningModal() {
+//   showModal("Please select the opening first");
+// }
 // Shows the modal to select opening
-function selectOpeningModal() {
+function showModal(text) {
+  dialog.textContent = text;
   dialog.showModal();
 }
 
@@ -470,27 +476,32 @@ darkModeToggle.addEventListener("click", () => {
 });
 
 function renderBoard() {
+  // Change to default values
   moveIndex = -1;
   isSucessful = false;
   isHint = false;
-  // isTestMode = false;
+  openingSourceMoves = [];
+  openingDestinationMoves = [];
+  i = 0;
+  testBtn.classList.remove("btn-danger");
+  clearInterval(id); // To stop the playBtn execution if new opening or testBtn clicked
+  disableButton(hintBtn);
   makeTutorialHeading();
   resetTutorial();
   buttonsOnTestMode();
-  testBtn.classList.remove("btn-danger");
-  openingSourceMoves = [];
-  openingDestinationMoves = [];
-  disableButton(hintBtn);
-  clearInterval(id);
-  i = 0;
   if (nextBtn.classList.contains("disabled")) {
     enableButton(nextBtn);
   }
-  disableButton(prevBtn);
+
+  if (prevBtn.classList.contains("disabled")) {
+    enableButton(prevBtn);
+  }
   if (playBtn.classList.contains("disabled")) {
     enableButton(playBtn);
   }
+
   chessBoard.innerHTML = chessBoardHTML;
+  //Preserves the orientation of chess pieces
   if (isRotated) {
     rotatePieces();
   }
