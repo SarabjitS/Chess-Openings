@@ -41,6 +41,7 @@ let isTestMode = false;
 let i = 0;
 let isHint = false;
 let id;
+let isPlay = false;
 
 //Creating chess board
 renderBoard();
@@ -169,10 +170,21 @@ prevBtn.addEventListener("click", function () {
 
 //Listen for play button click
 playBtn.addEventListener("click", function () {
+  isPlay = !isPlay;
   if (opening.length == 0) {
     showModal("Please select the opening first");
   } else {
-    id = setInterval(playBtnHandler, 2000);
+    if (isPlay) {
+      id = setInterval(playBtnHandler, 2000);
+      document
+        .querySelector(".play-btn")
+        .classList.replace("bi-play-circle-fill", "bi-pause-circle-fill");
+    } else {
+      clearInterval(id);
+      document
+        .querySelector(".play-btn")
+        .classList.replace("bi-pause-circle-fill", "bi-play-circle-fill");
+    }
   }
 });
 
@@ -483,6 +495,7 @@ function renderBoard() {
   openingSourceMoves = [];
   openingDestinationMoves = [];
   i = 0;
+  isPlay = false;
   testBtn.classList.remove("btn-danger");
   clearInterval(id); // To stop the playBtn execution if new opening or testBtn clicked
   disableButton(hintBtn);
@@ -496,8 +509,19 @@ function renderBoard() {
   if (prevBtn.classList.contains("disabled")) {
     enableButton(prevBtn);
   }
+
   if (playBtn.classList.contains("disabled")) {
     enableButton(playBtn);
+  }
+
+  if (
+    document
+      .querySelector(".play-btn")
+      .classList.contains("bi-pause-circle-fill")
+  ) {
+    document
+      .querySelector(".play-btn")
+      .classList.replace("bi-pause-circle-fill", "bi-play-circle-fill");
   }
 
   chessBoard.innerHTML = chessBoardHTML;
