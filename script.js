@@ -21,9 +21,7 @@ const playBtn = document.getElementById("play-button");
 const nextBtn = document.querySelector("#next-button");
 const testBtn = document.getElementById("test-yourself-button");
 const hintBtn = document.getElementById("hint-button");
-
 const chessBoard = document.getElementById("chess-board");
-
 const chooseBtn = document.getElementById("choose-opening");
 const dialog = document.querySelector("dialog");
 const para = document.createElement("p");
@@ -42,6 +40,7 @@ let isSucessful = false;
 let isTestMode = false;
 let i = 0;
 let isHint = false;
+let id;
 
 //Creating chess board
 renderBoard();
@@ -171,23 +170,27 @@ playBtn.addEventListener("click", function () {
   if (opening.length == 0) {
     selectOpeningModal();
   } else {
-    const id = setInterval(moveIndexChange, 2000);
-    // nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
-    function moveIndexChange() {
-      if (moveIndex < opening.length - 1) {
-        moveIndex++;
-        enableButton(prevBtn);
-        nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
-        playSound();
-        generateTutorial(opening[moveIndex][2]);
-        if (moveIndex == opening.length - 1) {
-          disableButton(nextBtn);
-          clearInterval(id);
-        }
-      }
-    }
+    id = setInterval(playBtnHandler, 2000);
   }
 });
+
+function playBtnHandler() {
+  moveIndex++;
+  if (moveIndex <= opening.length - 1) {
+    enableButton(prevBtn);
+    nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
+    playSound();
+    generateTutorial(opening[moveIndex][2]);
+    if (moveIndex == opening.length - 1) {
+      disableButton(nextBtn);
+      clearInterval(id);
+    }
+  }
+  // } else {
+  //   disableButton(nextBtn);
+  //   clearInterval(id);
+  // }
+}
 
 //Listen for test yourself button click
 testBtn.addEventListener("click", function () {
@@ -478,6 +481,7 @@ function renderBoard() {
   openingSourceMoves = [];
   openingDestinationMoves = [];
   disableButton(hintBtn);
+  clearInterval(id);
   i = 0;
   if (nextBtn.classList.contains("disabled")) {
     enableButton(nextBtn);
