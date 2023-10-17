@@ -183,7 +183,17 @@ img {
   flex-direction: column;
 }
 
+.test-group {
+  display: flex;
+  justify-content: center;
+}
 .test-yourself {
+  width: 10rem;
+  margin: 2rem auto;
+  font-size: 2rem;
+}
+
+.hint {
   width: 10rem;
   margin: 2rem auto;
   font-size: 2rem;

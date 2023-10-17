@@ -19,7 +19,8 @@ const soundBtn = document.getElementById("sound-button");
 const prevBtn = document.querySelector("#prev-button");
 const playBtn = document.getElementById("play-button");
 const nextBtn = document.querySelector("#next-button");
-const testBtn = document.getElementById("test-yourself");
+const testBtn = document.getElementById("test-yourself-button");
+const hintBtn = document.getElementById("hint-button");
 
 const chessBoard = document.getElementById("chess-board");
 
@@ -40,6 +41,7 @@ let openingDestinationMoves = [];
 let isSucessful = false;
 let isTestMode = false;
 let i = 0;
+let isHint = false;
 
 //Creating chess board
 renderBoard();
@@ -193,6 +195,7 @@ testBtn.addEventListener("click", function () {
   } else {
     renderBoard();
     isTestMode = !isTestMode;
+    enableButton(hintBtn);
     if (isTestMode) {
       testBtn.classList.add("btn-danger");
       makeTutorialHeading();
@@ -232,34 +235,60 @@ function testStart() {
   makeSourceMoveHighlight(i);
 }
 
+hintBtn.addEventListener("click", function () {
+  isHint = !isHint;
+  if (isHint) {
+    if (isTestMode === false) {
+      disableButton(hintBtn);
+    } else {
+      para.textContent = " ";
+      moveIndex++;
+      resetTutorial();
+      generateTutorial(opening[moveIndex][2]);
+      tutorialHeading.textContent = "Hint";
+      disableButton(testBtn);
+      hintBtn.textContent = "Go Back";
+    }
+  } else {
+    removeTutorial();
+    enableButton(testBtn);
+    makeTutorialHeading();
+    moveIndex--;
+    isHint = false;
+    hintBtn.textContent = "Hint ";
+  }
+});
+
 //Listens for clicks on chess board after testStart() has started
 chessBoard.addEventListener("click", function (e) {
-  if (i < openingSourceMoves.length) {
-    if (square) {
-      square.classList.remove("highlight");
-    }
-    if (e.target.closest(".sq")) {
-      square = e.target.closest(".sq");
-      if (square.getAttribute("id") == openingDestinationMoves[i]) {
-        removeSourceMoveHighlight(i);
-        moveIndex++;
-        nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
-        generateTutorial(opening[moveIndex][2]);
-        i++;
-        para.textContent = "correct";
-        if (i <= openingSourceMoves.length - 1) {
-          makeSourceMoveHighlight(i);
+  if (!isHint) {
+    if (i < openingSourceMoves.length) {
+      if (square) {
+        square.classList.remove("highlight");
+      }
+      if (e.target.closest(".sq")) {
+        square = e.target.closest(".sq");
+        if (square.getAttribute("id") == openingDestinationMoves[i]) {
+          removeSourceMoveHighlight(i);
+          moveIndex++;
+          nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
+          generateTutorial(opening[moveIndex][2]);
+          i++;
+          para.textContent = "correct";
+          if (i <= openingSourceMoves.length - 1) {
+            makeSourceMoveHighlight(i);
+          } else {
+            para.textContent = " ";
+            isSucessful = true;
+            isTestMode = false;
+            makeTutorialHeading();
+            buttonsOnTestMode();
+            testBtn.classList.remove("btn-danger");
+          }
         } else {
-          para.textContent = " ";
-          isSucessful = true;
-          isTestMode = false;
-          makeTutorialHeading();
-          buttonsOnTestMode();
-          testBtn.classList.remove("btn-danger");
+          square.classList.add("highlight");
+          para.textContent = "Incorrect";
         }
-      } else {
-        square.classList.add("highlight");
-        para.textContent = "Incorrect";
       }
     }
   }
@@ -318,7 +347,6 @@ function nextHandler(sourceMove, destinationMove) {
   document
     .getElementById(destinationMove)
     .append(document.getElementById(sourceMove).children[0]);
-
   // The most recent piece of square displays
   if (document.getElementById(destinationMove).children[1]) {
     let originalPiece = document
@@ -435,6 +463,7 @@ function renderBoard() {
   buttonsOnTestMode();
   openingSourceMoves = [];
   openingDestinationMoves = [];
+  disableButton(hintBtn);
   i = 0;
   if (nextBtn.classList.contains("disabled")) {
     enableButton(nextBtn);
@@ -453,7 +482,7 @@ function makeTutorialHeading() {
   if (isTestMode) {
     tutorialHeading.textContent = "Where will this piece move to?";
   } else if (isSucessful) {
-    tutorialHeading.textContent = "Congratulations";
+    tutorialHeading.textContent = "Congratulations!!";
   } else {
     tutorialHeading.textContent = "Tutorial";
   }
