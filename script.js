@@ -202,7 +202,7 @@ testBtn.addEventListener("click", function () {
       testStart();
       buttonsOnTestMode();
     } else {
-      isTestMode = false;
+      // isTestMode = false;
       testBtn.classList.remove("btn-danger");
       renderBoard();
     }
@@ -263,7 +263,7 @@ hintBtn.addEventListener("click", function () {
 
 //Listens for clicks on chess board after testStart() has started
 chessBoard.addEventListener("click", function (e) {
-  if (!isHint) {
+  if (!isHint && isTestMode) {
     tutorialHeading.appendChild(para);
     if (i < openingSourceMoves.length) {
       if (square) {
@@ -287,6 +287,7 @@ chessBoard.addEventListener("click", function (e) {
             makeTutorialHeading();
             buttonsOnTestMode();
             testBtn.classList.remove("btn-danger");
+            disableButton(hintBtn);
           }
         } else {
           square.classList.add("highlight");
@@ -461,9 +462,12 @@ darkModeToggle.addEventListener("click", () => {
 function renderBoard() {
   moveIndex = -1;
   isSucessful = false;
+  isHint = false;
+  isTestMode = false;
   makeTutorialHeading();
   resetTutorial();
   buttonsOnTestMode();
+  testBtn.classList.remove("btn-danger");
   openingSourceMoves = [];
   openingDestinationMoves = [];
   disableButton(hintBtn);
