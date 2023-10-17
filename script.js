@@ -149,17 +149,19 @@ prevBtn.addEventListener("click", function () {
   if (opening.length == 0) {
     showModal("Please select an opening first");
   } else {
+    // When opening has been selected
     if (moveIndex >= 0) {
+      //When move has been played by nextBtn or playBtn
       playSound();
       prevHandler(opening[moveIndex][0], opening[moveIndex][1]);
       removeTutorial();
       if (moveIndex > 0) {
-        // moveIndex--;
+        // When test mode finishes and user clicks prevBtn
         enableButton(nextBtn);
         enableButton(playBtn);
       } else {
+        // When no moves left
         disableButton(prevBtn);
-        // moveIndex--;
       }
       moveIndex--;
     } else {
