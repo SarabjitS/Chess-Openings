@@ -193,7 +193,6 @@ testBtn.addEventListener("click", function () {
   if (opening.length == 0) {
     selectOpeningModal();
   } else {
-    renderBoard();
     isTestMode = !isTestMode;
     enableButton(hintBtn);
     if (isTestMode) {
