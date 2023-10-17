@@ -177,12 +177,12 @@ playBtn.addEventListener("click", function () {
     if (isPlay) {
       id = setInterval(playBtnHandler, 2000);
       document
-        .querySelector(".play-btn")
+        .querySelector(".play-btn-icon")
         .classList.replace("bi-play-circle-fill", "bi-pause-circle-fill");
     } else {
       clearInterval(id);
       document
-        .querySelector(".play-btn")
+        .querySelector(".play-btn-icon")
         .classList.replace("bi-pause-circle-fill", "bi-play-circle-fill");
     }
   }
@@ -200,10 +200,6 @@ function playBtnHandler() {
       clearInterval(id);
     }
   }
-  // } else {
-  //   disableButton(nextBtn);
-  //   clearInterval(id);
-  // }
 }
 
 //Listen for test yourself button click
@@ -516,11 +512,11 @@ function renderBoard() {
 
   if (
     document
-      .querySelector(".play-btn")
+      .querySelector(".play-btn-icon")
       .classList.contains("bi-pause-circle-fill")
   ) {
     document
-      .querySelector(".play-btn")
+      .querySelector(".play-btn-icon")
       .classList.replace("bi-pause-circle-fill", "bi-play-circle-fill");
   }
 
