@@ -156,6 +156,7 @@ prevBtn.addEventListener("click", function () {
       if (moveIndex > 0) {
         moveIndex--;
         enableButton(nextBtn);
+        enableButton(playBtn);
       } else if (moveIndex == 0) {
         disableButton(prevBtn);
         moveIndex--;
@@ -176,17 +177,25 @@ playBtn.addEventListener("click", function () {
   } else {
     if (isPlay) {
       id = setInterval(playBtnHandler, 2000);
-      document
-        .querySelector(".play-btn-icon")
-        .classList.replace("bi-play-circle-fill", "bi-pause-circle-fill");
+      replacePlaytoPause();
     } else {
       clearInterval(id);
-      document
-        .querySelector(".play-btn-icon")
-        .classList.replace("bi-pause-circle-fill", "bi-play-circle-fill");
+      replacePauseToPlay();
     }
   }
 });
+
+function replacePauseToPlay() {
+  document
+    .querySelector(".play-btn-icon")
+    .classList.replace("bi-pause-circle-fill", "bi-play-circle-fill");
+}
+
+function replacePlaytoPause() {
+  document
+    .querySelector(".play-btn-icon")
+    .classList.replace("bi-play-circle-fill", "bi-pause-circle-fill");
+}
 
 function playBtnHandler() {
   moveIndex++;
@@ -198,6 +207,7 @@ function playBtnHandler() {
     if (moveIndex == opening.length - 1) {
       disableButton(nextBtn);
       clearInterval(id);
+      replacePauseToPlay();
     }
   }
 }
@@ -492,8 +502,10 @@ function renderBoard() {
   openingDestinationMoves = [];
   i = 0;
   isPlay = false;
-  testBtn.classList.remove("btn-danger");
   clearInterval(id); // To stop the playBtn execution if new opening or testBtn clicked
+
+  //Bring to the original layout
+  testBtn.classList.remove("btn-danger");
   disableButton(hintBtn);
   makeTutorialHeading();
   resetTutorial();
@@ -515,12 +527,11 @@ function renderBoard() {
       .querySelector(".play-btn-icon")
       .classList.contains("bi-pause-circle-fill")
   ) {
-    document
-      .querySelector(".play-btn-icon")
-      .classList.replace("bi-pause-circle-fill", "bi-play-circle-fill");
+    replacePauseToPlay();
   }
 
   chessBoard.innerHTML = chessBoardHTML;
+
   //Preserves the orientation of chess pieces
   if (isRotated) {
     rotatePieces();
@@ -545,8 +556,8 @@ function buttonsOnTestMode() {
     }
   } else {
     for (const child of document.querySelector(".btn-group").children) {
-      // Not including next button as there are no moves left
-      if (child == nextBtn) {
+      // Not including next button and playBtn as there are no moves left
+      if (child == nextBtn || child == playBtn) {
         continue;
       }
       enableButton(child);
