@@ -83,6 +83,7 @@ document.addEventListener("click", function (e) {
     e.target.dataset.name == "opening7"
   ) {
     renderBoard();
+    isTestMode = false;
     if (!e.target.classList.contains("collapsed")) {
       playMove(e.target.innerText);
     } else {
@@ -193,10 +194,12 @@ testBtn.addEventListener("click", function () {
   if (opening.length == 0) {
     selectOpeningModal();
   } else {
+    renderBoard();
     isTestMode = !isTestMode;
     enableButton(hintBtn);
     if (isTestMode) {
       testBtn.classList.add("btn-danger");
+
       makeTutorialHeading();
       testStart();
       buttonsOnTestMode();
@@ -236,17 +239,16 @@ function testStart() {
 hintBtn.addEventListener("click", function () {
   isHint = !isHint;
   if (isHint) {
-    if (!isTestMode) {
-      disableButton(hintBtn);
-    } else {
-      para.textContent = "Hint";
-      moveIndex++;
-      resetTutorial();
-      generateTutorial(opening[moveIndex][2]);
-      tutorialHeading.textContent = "Hint";
-      disableButton(testBtn);
-      hintBtn.textContent = "Go Back";
-    }
+    // if (!isTestMode) {
+    //   disableButton(hintBtn);
+    // } else {
+    para.textContent = "Hint";
+    moveIndex++;
+    resetTutorial();
+    generateTutorial(opening[moveIndex][2]);
+    tutorialHeading.textContent = "Hint";
+    disableButton(testBtn);
+    hintBtn.textContent = "Go Back";
   } else {
     removeTutorial();
     enableButton(testBtn);
@@ -462,7 +464,7 @@ function renderBoard() {
   moveIndex = -1;
   isSucessful = false;
   isHint = false;
-  isTestMode = false;
+  // isTestMode = false;
   makeTutorialHeading();
   resetTutorial();
   buttonsOnTestMode();
