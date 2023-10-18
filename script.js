@@ -146,9 +146,7 @@ nextBtn.addEventListener("click", function () {
     showModal("Please select an opening first");
   } else {
     if (isPlay) {
-      clearInterval(id);
-      replacePauseToPlay();
-      isPlay = !isPlay;
+      stopPlayBtn();
     }
     // playSound();
 
@@ -165,15 +163,19 @@ nextBtn.addEventListener("click", function () {
   }
 });
 
+function stopPlayBtn() {
+  clearInterval(id);
+  replacePauseToPlay();
+  isPlay = !isPlay;
+}
+
 //Listen for previous button click
 prevBtn.addEventListener("click", function () {
   if (opening.length == 0) {
     showModal("Please select an opening first");
   } else {
     if (isPlay) {
-      clearInterval(id);
-      replacePauseToPlay();
-      isPlay = !isPlay;
+      stopPlayBtn();
     }
     // When opening has been selected
     if (moveIndex >= 0) {
