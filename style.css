@@ -205,7 +205,9 @@ img {
 
 .dropdown-menu {
   position: absolute;
-  left: 0;
+  /* left was defined as 0, changed it to -10px to make the dropdown-menu move a bit left, will have to work on it to get it to center*/
+
+  left: -10px;
   top: calc(100% + 0.25rem);
   background-color: white;
   padding: 0.75rem;
@@ -225,8 +227,8 @@ img {
 
 .information-grid {
   display: grid;
-  grid-template-columns: repeat(2, max-content);
-  gap: 2rem;
+  grid-template-columns: repeat(3, max-content);
+  gap: 0.5rem;
 }
 
 .header {
@@ -307,4 +309,8 @@ dialog {
 
 .correct {
   border: 3px solid green;
+}
+
+.speed {
+  transform: scaleX(-1);
 }

@@ -16,6 +16,7 @@ import { chessBoardHTML } from "./chessBoard.js";
 //const defined
 const orientationBtn = document.getElementById("orientation-button");
 const soundBtn = document.getElementById("sound-button");
+const speedBtn = document.getElementById("speed-button");
 const prevBtn = document.querySelector("#prev-button");
 const playBtn = document.getElementById("play-button");
 const nextBtn = document.querySelector("#next-button");
@@ -42,6 +43,8 @@ let i = 0;
 let isHint = false;
 let id;
 let isPlay = false;
+let speed = 1250;
+let isSpeed = false;
 
 //Creating chess board
 renderBoard();
@@ -103,6 +106,15 @@ soundBtn.addEventListener("click", function () {
   }
 });
 
+speedBtn.addEventListener("click", function () {
+  isSpeed = !isSpeed;
+  if (isSpeed) {
+    speed = 750;
+  } else {
+    speed = 1250;
+  }
+});
+
 //Choose between the traditional and funny openings
 chooseBtn.addEventListener("click", function () {
   isTraditional = !isTraditional;
@@ -128,7 +140,7 @@ chooseBtn.addEventListener("click", function () {
 
 //Listen for next button click
 nextBtn.addEventListener("click", function () {
-  if (opening.length == 0) {
+  if (opening.length === 0) {
     showModal("Please select an opening first");
   } else {
     if (isPlay) {
@@ -137,14 +149,16 @@ nextBtn.addEventListener("click", function () {
       isPlay = !isPlay;
     }
     // playSound();
-    if (moveIndex < opening.length - 1) {
+
+    if (moveIndex <= opening.length - 1) {
       moveIndex++;
       enableButton(prevBtn);
       nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
       generateTutorial(opening[moveIndex][2]);
-    } else {
-      disableButton(nextBtn);
-      disableButton(playBtn);
+      if (moveIndex === opening.length - 1) {
+        disableButton(nextBtn);
+        disableButton(playBtn);
+      }
     }
   }
 });
@@ -190,7 +204,7 @@ playBtn.addEventListener("click", function () {
     showModal("Please select an opening first");
   } else {
     if (isPlay) {
-      id = setInterval(playBtnHandler, 2000);
+      id = setInterval(playBtnHandler, speed);
       replacePlaytoPause();
     } else {
       clearInterval(id);
