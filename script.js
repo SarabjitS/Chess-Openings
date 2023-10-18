@@ -163,6 +163,7 @@ nextBtn.addEventListener("click", function () {
   }
 });
 
+// Stops playBtnHandler() execution if next or prev button is clicked
 function stopPlayBtn() {
   clearInterval(id);
   replacePauseToPlay();
