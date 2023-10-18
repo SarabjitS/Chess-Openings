@@ -109,7 +109,7 @@ soundBtn.addEventListener("click", function () {
 speedBtn.addEventListener("click", function () {
   isSpeed = !isSpeed;
   if (isSpeed) {
-    speed = 750;
+    speed = 500;
     speedBtn.style = "transform: scaleX(1);";
   } else {
     speed = 1250;
@@ -163,13 +163,6 @@ nextBtn.addEventListener("click", function () {
   }
 });
 
-// Stops playBtnHandler() execution if next or prev button is clicked
-function stopPlayBtn() {
-  clearInterval(id);
-  replacePauseToPlay();
-  isPlay = !isPlay;
-}
-
 //Listen for previous button click
 prevBtn.addEventListener("click", function () {
   if (opening.length == 0) {
@@ -217,34 +210,6 @@ playBtn.addEventListener("click", function () {
     }
   }
 });
-
-function playBtnHandler() {
-  moveIndex++;
-  if (moveIndex <= opening.length - 1) {
-    enableButton(prevBtn);
-    nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
-    playSound();
-    generateTutorial(opening[moveIndex][2]);
-    if (moveIndex == opening.length - 1) {
-      disableButton(nextBtn);
-      clearInterval(id);
-      replacePauseToPlay();
-      disableButton(playBtn);
-    }
-  }
-}
-
-function replacePauseToPlay() {
-  document
-    .querySelector(".play-btn-icon")
-    .classList.replace("bi-pause-circle-fill", "bi-play-circle-fill");
-}
-
-function replacePlaytoPause() {
-  document
-    .querySelector(".play-btn-icon")
-    .classList.replace("bi-play-circle-fill", "bi-pause-circle-fill");
-}
 
 //Listen for test yourself button click
 testBtn.addEventListener("click", function () {
@@ -361,6 +326,40 @@ chessBoard.addEventListener("click", function (e) {
   }
 });
 
+function playBtnHandler() {
+  moveIndex++;
+  if (moveIndex <= opening.length - 1) {
+    enableButton(prevBtn);
+    nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
+    playSound();
+    generateTutorial(opening[moveIndex][2]);
+    if (moveIndex == opening.length - 1) {
+      disableButton(nextBtn);
+      clearInterval(id);
+      replacePauseToPlay();
+      disableButton(playBtn);
+    }
+  }
+}
+
+function replacePauseToPlay() {
+  document
+    .querySelector(".play-btn-icon")
+    .classList.replace("bi-pause-circle-fill", "bi-play-circle-fill");
+}
+
+function replacePlaytoPause() {
+  document
+    .querySelector(".play-btn-icon")
+    .classList.replace("bi-play-circle-fill", "bi-pause-circle-fill");
+}
+
+// Stops playBtnHandler() execution if next or prev button is clicked
+function stopPlayBtn() {
+  clearInterval(id);
+  replacePauseToPlay();
+  isPlay = !isPlay;
+}
 function makeSourceMoveHighlight(i) {
   document.getElementById(openingSourceMoves[i]).classList.add("question");
 }
