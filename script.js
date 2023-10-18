@@ -110,8 +110,10 @@ speedBtn.addEventListener("click", function () {
   isSpeed = !isSpeed;
   if (isSpeed) {
     speed = 750;
+    speedBtn.style = "transform: scaleX(1);";
   } else {
     speed = 1250;
+    speedBtn.style = "transform: scaleX(-1);";
   }
 });
 
