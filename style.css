@@ -40,9 +40,8 @@ body {
   background: linear-gradient(120deg, var(--clr-primary), var(--clr-secondary));
   color: var(--foreground);
   font-family: "Roboto", sans-serif;
-  /* background-image: url("./whiteImage.jpg");
-  background-repeat: no-repeat;
-  background-size: cover; */
+  /* The text of the element and its sub-elements is not selectable. */
+  user-select: none;
 }
 
 .mega-container {
