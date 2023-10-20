@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
 :root {
   --light-color: #eeeed2;
   --dark-color: #769656;
@@ -31,6 +33,7 @@ body {
   line-height: 1;
   background: linear-gradient(120deg, var(--clr-primary), var(--clr-secondary));
   color: var(--foreground);
+  font-family: "Roboto", sans-serif;
   /* background-image: url("./whiteImage.jpg");
   background-repeat: no-repeat;
   background-size: cover; */
