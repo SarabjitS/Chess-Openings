@@ -10,8 +10,8 @@
   --brown-board-light: #f0d9b5;
   --light-color-tutorial: #dad8d6;
   --foreground: var(--clr-dark);
-  --background: var(--clr-light);
-  --clr-light: ##fff2d8;
+  --background: var(--body-light);
+  --body-light: url("wood.png");
   --clr-dark: #00332a;
   --clr-accent: #ff7750;
   --shadow-color: 170deg 6% 29%;
@@ -82,6 +82,10 @@ body {
   font-family: "Roboto", sans-serif;
   /* The text of the element and its sub-elements is not selectable. */
   user-select: none;
+  background-image: var(--background);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .mega-container {
