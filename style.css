@@ -2,25 +2,29 @@
 @import url("https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap");
 
 :root {
-  --light-color: #eeeed2;
-  --dark-color: #769656;
+  --light-color-board: var(--brown-board-light);
+  --dark-color-board: var(--brown-board-dark);
+  --green-board-light: #eeeed2;
+  --green-board-dark: #769656;
+  --brown-board-dark: #b58863;
+  --brown-board-light: #f0d9b5;
+  --light-color-tutorial: #dad8d6;
   --foreground: var(--clr-dark);
   --background: var(--clr-light);
-  --clr-light: #fdffc4;
+  --clr-light: ##fff2d8;
   --clr-dark: #00332a;
-  --clr-primary: #dbffa2;
-  --clr-secondary: #c3fcf2;
   --clr-accent: #ff7750;
   --shadow-color: 170deg 6% 29%;
-  --shadow-elevation-high: -0.7px 0.8px 1px hsl(var(--shadow-color) / 0.6),
+  /* --shadow-elevation-high: -0.7px 0.8px 1px hsl(var(--shadow-color) / 0.6),
     -2.4px 2.8px 3.3px -0.6px hsl(var(--shadow-color) / 0.54),
     -5px 5.8px 6.9px -1.1px hsl(var(--shadow-color) / 0.49),
     -9.8px 11.3px 13.6px -1.7px hsl(var(--shadow-color) / 0.43),
     -18.2px 20.9px 25.2px -2.3px hsl(var(--shadow-color) / 0.38),
     -31.5px 36.2px 43.5px -2.8px hsl(var(--shadow-color) / 0.32),
     -51.1px 58.7px 70.6px -3.4px hsl(var(--shadow-color) / 0.27),
-    -78.4px 90px 108.3px -3.9px hsl(var(--shadow-color) / 0.21);
+    -78.4px 90px 108.3px */
 }
+
 * {
   box-sizing: border-box;
 }
@@ -73,7 +77,7 @@ html {
 
 body {
   line-height: 1;
-  background: linear-gradient(120deg, var(--clr-primary), var(--clr-secondary));
+  background: var(--clr-light);
   color: var(--foreground);
   font-family: "Roboto", sans-serif;
   /* The text of the element and its sub-elements is not selectable. */
@@ -98,21 +102,6 @@ body {
 .sq {
   width: 6.5rem;
   height: 6.5rem;
-}
-
-.darkmode {
-  --clr-light: #fdffc4;
-  --clr-dark: #00332a;
-  --clr-primary: #202302;
-  --clr-secondary: #00100d;
-  --clr-accent: #ff7750;
-
-  --foreground: var(--clr-light);
-  --background: var(--clr-dark);
-  /* background-image: url("./blackImage.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed; */
 }
 
 .dark-mode-toggle {
@@ -140,7 +129,7 @@ body {
 }
 
 .chess-board div {
-  background-color: var(--light-color);
+  background-color: var(--light-color-board);
 }
 
 .chess-board :nth-child(n):nth-child(even):nth-child(-n + 8),
@@ -151,7 +140,7 @@ body {
 .chess-board :nth-child(n + 41):nth-child(odd):nth-child(-n + 48),
 .chess-board :nth-child(n + 49):nth-child(even):nth-child(-n + 56),
 .chess-board :nth-child(n + 57):nth-child(odd):nth-child(-n + 64) {
-  background-color: var(--dark-color);
+  background-color: var(--dark-color-board);
 }
 
 img {
@@ -159,12 +148,10 @@ img {
 }
 
 .tutorial {
-  border: 0.3rem solid;
-  font-size: 2rem;
-  padding: 2rem;
   height: 30rem;
   width: 40rem;
   margin: auto;
+  background-color: #fff;
 }
 
 /* For increasing size of button */
@@ -182,7 +169,7 @@ img {
   font-size: 2.5rem;
   grid-area: btn;
   max-width: 25rem;
-  align-self: end;
+  align-self: center;
   justify-self: center;
 }
 
@@ -203,6 +190,9 @@ img {
 
 .h2-tutorial {
   text-align: center;
+  background-color: var(--light-color-tutorial);
+  font-size: 2.5rem;
+  color: #312e2b;
 }
 
 /* .disabled {
@@ -323,4 +313,17 @@ dialog {
 
 .speed {
   transform: scaleX(-1);
+}
+
+.darkmode {
+  --clr-light: whitesmoke;
+  --clr-dark: #00332a;
+  --clr-primary: #202302;
+  --clr-secondary: #00100d;
+  --clr-accent: #ff7750;
+
+  --foreground: var(--clr-light);
+  --background: var(--clr-dark);
+  --light-color-board: var(--green-board-light);
+  --dark-color-board: var(--green-board-dark);
 }
