@@ -83,12 +83,16 @@ body {
 .mega-container {
   display: grid;
   grid-template-columns: 1fr 60rem 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 30rem 30rem 20rem;
   margin-top: 1rem;
   padding: 1rem;
   align-items: center;
   justify-content: center;
   position: relative;
+  grid-template-areas:
+    "btn board controls"
+    "accordian  board testbtn"
+    "accordian  board tutorial";
 }
 
 .sq {
@@ -123,6 +127,7 @@ body {
 }
 
 .chess-board {
+  grid-area: board;
   display: grid;
   border-radius: 0.5rem;
   grid-template-columns: repeat(8, 6.5rem);
@@ -173,9 +178,21 @@ img {
   font-size: 2rem;
 }
 
-.accordion,
-.chess-board {
-  grid-row: 1/3;
+.choose-opening {
+  font-size: 2.5rem;
+  grid-area: btn;
+  max-width: 25rem;
+  align-self: end;
+  justify-self: center;
+}
+
+.accordion {
+  grid-area: accordian;
+  max-width: 50rem;
+  align-self: start;
+  justify-self: center;
+
+  /* grid-row: 1/3; */
 }
 
 .play-controls {
@@ -204,13 +221,6 @@ img {
 
 .btn {
   margin: 5px;
-}
-
-.choose-opening {
-  font-size: 2.5rem;
-  position: absolute;
-  top: 80px;
-  left: 200px;
 }
 
 .container3 {
