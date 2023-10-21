@@ -25,9 +25,45 @@
   box-sizing: border-box;
 }
 
+.header {
+  background-color: orchid;
+  display: flex;
+  /* flex-direction: row; */
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  font-size: 2rem;
+  gap: 2rem;
+}
+
 h1 {
   font-family: "Bebas Neue", sans-serif;
   letter-spacing: 5px;
+  margin: 0;
+  padding: 0;
+  /* margin: auto; */
+  /* align-self: center; */
+}
+
+.dropdown {
+  position: relative;
+  align-self: center;
+  margin-left: auto;
+}
+
+.dropdown-menu {
+  position: absolute;
+  /* left was defined as 0, changed it to -10px to make the dropdown-menu move a bit left, will have to work on it to get it to center*/
+
+  left: -10px;
+  top: calc(100% + 0.25rem);
+  background-color: white;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
 }
 
 html {
@@ -170,15 +206,6 @@ img {
   margin: 5px;
 }
 
-.header {
-  background-color: orchid;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 1rem 1rem 1rem 1rem;
-  font-size: 2rem;
-}
-
 .choose-opening {
   font-size: 2.5rem;
   position: absolute;
@@ -207,26 +234,6 @@ img {
   font-size: 2rem;
 }
 
-.dropdown {
-  position: relative;
-}
-
-.dropdown-menu {
-  position: absolute;
-  /* left was defined as 0, changed it to -10px to make the dropdown-menu move a bit left, will have to work on it to get it to center*/
-
-  left: -10px;
-  top: calc(100% + 0.25rem);
-  background-color: white;
-  padding: 0.75rem;
-  border-radius: 0.25rem;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-10px);
-  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
-}
-
 .dropdown.active > .link + .dropdown-menu {
   opacity: 1;
   transform: translateY(0);
@@ -237,13 +244,6 @@ img {
   display: grid;
   grid-template-columns: repeat(3, max-content);
   gap: 0.5rem;
-}
-
-.header {
-  display: flex;
-  align-items: baseline;
-  padding: 0.5rem;
-  gap: 1rem;
 }
 
 .link {
@@ -266,14 +266,6 @@ img {
   font-size: 3rem;
   border: none;
   background: none;
-}
-
-.header2 {
-  display: flex;
-  gap: 3rem;
-  align-items: center;
-  justify-content: center;
-  margin: 0px 2rem 0px 0px;
 }
 
 .material-symbols-outlined {
