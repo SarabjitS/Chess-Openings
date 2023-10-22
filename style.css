@@ -89,7 +89,7 @@ body {
 .mega-container {
   display: grid;
   grid-template-columns: 1fr 60rem 1fr;
-  grid-template-rows: 30rem 30rem 20rem;
+  grid-template-rows: 30rem 30rem;
   margin-top: 1rem;
   padding: 1rem;
   gap: 2rem;
@@ -98,7 +98,6 @@ body {
   position: relative;
   grid-template-areas:
     "btn board container"
-    "accordion  board tutorial"
     "accordion  board tutorial";
 }
 
@@ -127,8 +126,10 @@ body {
   max-height: 52rem;
   max-width: 52rem;
   overflow: hidden;
-  margin: 4rem;
+  /* margin: 4rem; */
   box-shadow: var(--shadow-elevation-high);
+  align-self: end;
+  justify-self: center;
 }
 
 .chess-board div {
@@ -187,17 +188,27 @@ img {
 
 .container3 {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   grid-area: container;
   align-self: end;
   justify-self: center;
+  /* flex-grow: 1; */
+  /* justify-content: space-between; */
+  /* row-gap: 1rem; */
 }
 
-/* .play-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
+.test-yourself,
+.hint {
+  /* width: 10rem; */
+  /* margin: 0 0 0 1rem; */
+  font-size: 2rem;
+  width: 10rem;
+  height: 7rem;
+}
+
+.btn {
+  margin-right: 1rem;
+}
 
 .h2-tutorial {
   text-align: center;
@@ -220,20 +231,10 @@ img {
   color: var(--foreground);
 }
 
-.btn {
-  margin: 5px;
-}
-
 /* .test-group {
   display: flex;
   justify-content: center;
 } */
-
-.container {
-  width: 10rem;
-  /* margin: 0 0 0 1rem; */
-  font-size: 2rem;
-}
 
 .dropdown.active > .link + .dropdown-menu {
   opacity: 1;
