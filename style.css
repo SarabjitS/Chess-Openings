@@ -42,11 +42,13 @@
 }
 
 h1 {
-  font-family: "Bebas Neue", sans-serif;
+  /* font-family: "Bebas Neue", sans-serif; */
   font-size: 2.5rem;
   letter-spacing: 5px;
   margin: 0;
   padding: 0;
+  font-weight: 700;
+
   /* margin: auto; */
   /* align-self: center; */
 }
@@ -171,9 +173,11 @@ img {
 }
 
 /* For increasing size of accordion */
-.accordion-button,
+/* .accordion-button, */
 .accordion-body {
   font-size: 2rem;
+  background-color: rgba(240, 217, 181, 1);
+  color: #37261b;
 }
 
 .choose-opening {
@@ -183,7 +187,7 @@ img {
   /* height: 7rem; */
   align-self: start;
   justify-self: center;
-  background-color: rgba(240, 217, 181, 0.5);
+  background-color: rgba(240, 217, 181, 0.7);
   color: #37261b;
 }
 
@@ -225,9 +229,9 @@ img {
 
 .h2-tutorial {
   text-align: center;
-  background-color: var(--light-color-tutorial);
+  background-color: #9e6d40;
   font-size: 2.5rem;
-  color: #312e2b;
+  color: white;
 }
 
 /* .disabled {
@@ -240,8 +244,9 @@ img {
 }
 
 .accordion-button {
-  background-color: var(--clr-accent);
-  color: var(--foreground);
+  background-color: #9e6d40;
+  color: white;
+  font-size: 2.25rem;
 }
 
 /* .test-group {
@@ -361,6 +366,11 @@ li:nth-child(even) {
 .bi {
   color: #37261b;
   font-size: 5rem;
+}
+
+.test-yourself {
+  background-color: #9e6d40;
+  color: white;
 }
 /* Media queries */
 
