@@ -192,6 +192,7 @@ img {
   grid-area: container;
   align-self: end;
   justify-self: center;
+  row-gap: 1rem;
   /* flex-grow: 1; */
   /* justify-content: space-between; */
   /* row-gap: 1rem; */
