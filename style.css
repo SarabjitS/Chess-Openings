@@ -102,7 +102,7 @@ body {
   position: relative;
   grid-template-areas:
     "accordion board tutorial"
-    "btn  board container";
+    "btn  board tutorial";
 }
 
 .extended-chess-board {
@@ -163,6 +163,7 @@ img {
 }
 
 .tutorial {
+  grid-area: tutorial;
   height: 30rem;
   width: 40rem;
   margin: auto;
@@ -204,8 +205,8 @@ img {
   grid-area: container;
   /* align-self: start; */
   /* justify-self: center; */
-  justify-content: space-between;
-  row-gap: 2rem;
+  /* justify-content: start; */
+  /* row-gap: 20rem; */
   /* flex-grow: 1; */
   /* justify-content: space-between; */
   /* row-gap: 1rem; */
