@@ -494,7 +494,7 @@ const darkModeToggle = document.querySelector("#dark-mode-toggle");
 const enableDarkMode = () => {
   // 1. Add the class to the body
   document.body.classList.add("darkmode");
-  document.querySelector(".accordion-item").classList.add("darkmode");
+  // document.body.style.background = "#302e2b";
   // 2. Update darkMode in localStorage
   localStorage.setItem("darkMode", "enabled");
 };
@@ -539,7 +539,7 @@ function renderBoard() {
   openingDestinationMoves = [];
   i = 0;
   isPlay = false;
-  hintBtn.textContent = "Hint ";
+  hintBtn.textContent = "Hint";
 
   // To stop the playBtn execution if new opening or testBtn clicked
   clearInterval(id);
