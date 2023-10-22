@@ -201,14 +201,16 @@ img {
 
 .container3 {
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
   grid-area: container;
+  /* gap: 5rem; */
   /* align-self: start; */
   /* justify-self: center; */
   /* justify-content: start; */
   /* row-gap: 20rem; */
   /* flex-grow: 1; */
-  /* justify-content: space-between; */
+  justify-content: flex-end;
+  /* align-content: start; */
   /* row-gap: 1rem; */
 }
 
@@ -219,10 +221,6 @@ img {
   font-size: 2rem;
   width: 10rem;
   height: 7rem;
-}
-
-.btn {
-  margin-right: 1rem;
 }
 
 .h2-tutorial {
@@ -354,4 +352,8 @@ dialog {
 
 li:nth-child(even) {
   background-color: red;
+}
+
+.play-controls {
+  margin-right: 0.5rem;
 }
