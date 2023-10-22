@@ -170,11 +170,6 @@ img {
   background-color: #fff;
 }
 
-/* For increasing size of button */
-.bi {
-  font-size: 4rem;
-}
-
 /* For increasing size of accordion */
 .accordion-button,
 .accordion-body {
@@ -188,6 +183,8 @@ img {
   /* height: 7rem; */
   align-self: start;
   justify-self: center;
+  background-color: rgba(240, 217, 181, 0.5);
+  color: #37261b;
 }
 
 .accordion {
@@ -211,7 +208,8 @@ img {
   /* row-gap: 20rem; */
   /* flex-grow: 1; */
   justify-content: space-between;
-  /* align-content: start; */
+
+  align-items: center;
   /* row-gap: 1rem; */
 }
 
@@ -358,4 +356,61 @@ li:nth-child(even) {
 
 .play-controls {
   margin-right: 0.5rem;
+}
+
+.bi {
+  color: #37261b;
+  font-size: 5rem;
+}
+/* Media queries */
+
+/* 2xl */
+@media (max-width: 1536px) {
+  /* .container {
+    max-width: 1280px;
+  } */
+}
+
+/* xl */
+@media (max-width: 1280px) {
+  /* .container {
+    max-width: 1024px;
+  } */
+}
+
+/* lg */
+@media (max-width: 1024px) {
+  /* .container {
+    max-width: 768px;
+  } */
+}
+
+/* md */
+@media (max-width: 768px) {
+  /* .container {
+    max-width: 640px;
+  } */
+}
+
+/* sm */
+@media (max-width: 640px) {
+  /* .container {
+    max-width: 475px;
+  } */
+}
+
+/* xs */
+@media (max-width: 475px) {
+  .mega-container {
+    /* max-width: 360px; */
+    grid-template-columns: 1fr;
+    grid-template-rows: 20rem 1fr 1fr;
+    grid-template-areas:
+      "accordion "
+      "board";
+  }
+
+  /* .container {
+    width: 100%;
+  } */
 }
