@@ -447,7 +447,7 @@ function generateTutorial(text) {
 
 // For removing tutorial text list item
 function removeTutorial() {
-  const list = document.querySelectorAll("ul li");
+  const list = document.querySelectorAll("ol li");
   const lastItem = list[list.length - 1];
   if (lastItem) {
     lastItem.parentNode.removeChild(lastItem);
