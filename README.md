@@ -9,3 +9,4 @@ Other functionalities include-
 - Dark mode
 - Sound on/off
 - Changing orientation from white to black side of board or vice versa
+- Testing the user on their knowledge of selected opening
