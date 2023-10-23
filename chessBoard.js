@@ -1,5 +1,7 @@
 const chessBoardHTML = `<div class="sq" id="a8">
           <img src="./images/pieces/black/rook.png" alt="" />
+                    <div class="sq-notation number">8</div>
+
         </div>
         <div class="sq" id="b8">
           <img src="./images/pieces/black/knight.png" alt="" />
@@ -25,6 +27,8 @@ const chessBoardHTML = `<div class="sq" id="a8">
 
         <div class="sq" id="a7">
           <img src="./images/pieces/black/pawn.png" alt="" />
+                    <div class="sq-notation number">7</div>
+
         </div>
         <div class="sq" id="b7">
           <img src="./images/pieces/black/pawn.png" alt="" />
@@ -48,7 +52,9 @@ const chessBoardHTML = `<div class="sq" id="a8">
           <img src="./images/pieces/black/pawn.png" alt="" />
         </div>
 
-        <div class="sq" id="a6"></div>
+        <div class="sq" id="a6">
+                  <div class="sq-notation number">6</div>
+</div>
         <div class="sq" id="b6"></div>
         <div class="sq" id="c6"></div>
         <div class="sq" id="d6"></div>
@@ -57,7 +63,9 @@ const chessBoardHTML = `<div class="sq" id="a8">
         <div class="sq" id="g6"></div>
         <div class="sq" id="h6"></div>
 
-        <div class="sq" id="a5"></div>
+        <div class="sq" id="a5">
+                  <div class="sq-notation number">5</div>
+</div>
         <div class="sq" id="b5"></div>
         <div class="sq" id="c5"></div>
         <div class="sq" id="d5"></div>
@@ -66,7 +74,9 @@ const chessBoardHTML = `<div class="sq" id="a8">
         <div class="sq" id="g5"></div>
         <div class="sq" id="h5"></div>
 
-        <div class="sq" id="a4"></div>
+        <div class="sq" id="a4">
+                  <div class="sq-notation number">4</div>
+</div>
         <div class="sq" id="b4"></div>
         <div class="sq" id="c4"></div>
         <div class="sq" id="d4"></div>
@@ -75,7 +85,9 @@ const chessBoardHTML = `<div class="sq" id="a8">
         <div class="sq" id="g4"></div>
         <div class="sq" id="h4"></div>
 
-        <div class="sq" id="a3"></div>
+        <div class="sq" id="a3">
+                  <div class="sq-notation number">3</div>
+</div>
         <div class="sq" id="b3"></div>
         <div class="sq" id="c3"></div>
         <div class="sq" id="d3"></div>
@@ -86,6 +98,8 @@ const chessBoardHTML = `<div class="sq" id="a8">
 
         <div class="sq" id="a2">
           <img src="./images/pieces/white/pawn.png" alt="" />
+                    <div class="sq-notation number">2</div>
+
         </div>
         <div class="sq" id="b2">
           <img src="./images/pieces/white/pawn.png" alt="" />
@@ -109,8 +123,9 @@ const chessBoardHTML = `<div class="sq" id="a8">
           <img src="./images/pieces/white/pawn.png" alt="" />
         </div>
 
-        <div class="sq " id="a1">
-          <img src="./images/pieces/white/rook.png  " alt="" />
+        <div class="sq" id="a1">
+          <img src="./images/pieces/white/rook.png " alt="picture of white rook" />
+          <div class="sq-notation number">1</div>
         </div>
         <div class="sq" id="b1">
           <img src="./images/pieces/white/knight.png" alt="" />
