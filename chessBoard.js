@@ -126,27 +126,42 @@ const chessBoardHTML = `<div class="sq" id="a8">
         <div class="sq" id="a1">
           <img src="./images/pieces/white/rook.png " alt="picture of white rook" />
           <div class="sq-notation number">1</div>
+          <div class="sq-notation character">a</div>
         </div>
         <div class="sq" id="b1">
           <img src="./images/pieces/white/knight.png" alt="" />
+                    <div class="sq-notation character">b</div>
+
         </div>
         <div class="sq" id="c1">
           <img src="./images/pieces/white/bishop.png" alt="" />
+                    <div class="sq-notation character">c</div>
+
         </div>
         <div class="sq" id="d1">
           <img src="./images/pieces/white/queen.png" alt="" />
+                    <div class="sq-notation character">d</div>
+
         </div>
         <div class="sq" id="e1">
           <img src="./images/pieces/white/king.png" alt="" />
+                    <div class="sq-notation character">e</div>
+
         </div>
         <div class="sq" id="f1">
           <img src="./images/pieces/white/bishop.png" alt="" />
+                    <div class="sq-notation character">f</div>
+
         </div>
         <div class="sq" id="g1">
           <img src="./images/pieces/white/knight.png" alt="" />
+                    <div class="sq-notation character">g</div>
+
         </div>
         <div class="sq" id="h1">
           <img src="./images/pieces/white/rook.png" alt="" />
+                    <div class="sq-notation character">h</div>
+
         </div>`;
 
 export { chessBoardHTML };

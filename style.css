@@ -126,10 +126,19 @@ body {
 
 .sq-notation {
   position: absolute;
-  top: 1px;
-  left: 1px;
+
   font-size: 1.5em;
   font-weight: 700;
+}
+
+.number {
+  top: 1px;
+  left: 1px;
+}
+
+.character {
+  bottom: 1px;
+  right: 1px;
 }
 
 .dark-mode-toggle {
