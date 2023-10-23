@@ -136,6 +136,12 @@ body {
   left: 1px;
 }
 
+div.sq-notation.number,
+div.sq-notation.character {
+  background-color: inherit !important;
+  color: rgba(0, 0, 0, 0.6);
+}
+
 .character {
   bottom: 1px;
   right: 1px;
