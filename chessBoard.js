@@ -1,30 +1,44 @@
 const chessBoardHTML = `<div class="sq" id="a8">
           <img src="./images/pieces/black/rook.png" alt="" />
                     <div class="sq-notation-white number">8</div>
+                                        <div class="sq-notation-black character">a</div>
+
 
         </div>
         <div class="sq" id="b8">
           <img src="./images/pieces/black/knight.png" alt="" />
+                              <div class="sq-notation-black character">b</div>
+
         </div>
         <div class="sq" id="c8">
           <img src="./images/pieces/black/bishop.png" alt="" />
+                              <div class="sq-notation-black character">c</div>
+
         </div>
         <div class="sq" id="d8">
           <img src="./images/pieces/black/queen.png" alt="" />
+                              <div class="sq-notation-black character">d</div>
+
         </div>
         <div class="sq" id=" e8">
           <img src="./images/pieces/black/king.png" alt="" />
+                              <div class="sq-notation-black character">e</div>
+
         </div>
         <div class="sq" id="f8">
+                            <div class="sq-notation-black character">f</div>
+
           <img src="./images/pieces/black/bishop.png" alt="" />
         </div>
         <div class="sq" id="g8">
           <img src="./images/pieces/black/knight.png" alt="" />
+                              <div class="sq-notation-black character">g</div>
+
         </div>
         <div class="sq" id="h8">
           <img src="./images/pieces/black/rook.png" alt="" />
           <div class="sq-notation-black number">8</div>
-                    <div class="sq-notation-white character">h</div>
+                    <div class="sq-notation-black character">h</div>
 
 
         </div>
