@@ -362,6 +362,7 @@ li:nth-child(even) {
 
 .play-controls {
   margin-right: 0.5rem;
+  border: none;
 }
 
 .bi {
