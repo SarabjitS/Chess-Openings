@@ -139,7 +139,7 @@ body {
 div.sq-notation.number,
 div.sq-notation.character {
   background-color: inherit !important;
-  color: rgba(0, 0, 0, 0.6);
+  color: #37261b;
 }
 
 .character {

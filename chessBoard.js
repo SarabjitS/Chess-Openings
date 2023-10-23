@@ -125,7 +125,7 @@ const chessBoardHTML = `<div class="sq" id="a8">
 
         <div class="sq" id="a1">
           <img src="./images/pieces/white/rook.png " alt="picture of white rook" />
-          <div class="sq-notation number">1</div>
+          <div class="sq-notation number dark-square">1</div>
           <div class="sq-notation character">a</div>
         </div>
         <div class="sq" id="b1">
