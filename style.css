@@ -124,7 +124,8 @@ body {
   position: relative;
 }
 
-.sq-notation-white {
+.sq-notation-white,
+.sq-notation-black {
   position: absolute;
 
   font-size: 1.5em;
@@ -137,7 +138,9 @@ body {
 }
 
 div.sq-notation-white.number,
-div.sq-notation-white.character {
+div.sq-notation-white.character,
+div.sq-notation-black.number,
+div.sq-notation-black.character {
   background-color: inherit !important;
   color: #37261b;
 }
