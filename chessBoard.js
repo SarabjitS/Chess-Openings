@@ -1,44 +1,44 @@
 const chessBoardHTML = `<div class="sq" id="a8">
           <img src="./images/pieces/black/rook.png" alt="" />
                     <div class="sq-notation-white number">8</div>
-                                        <div class="sq-notation-black character">a</div>
+                                        <div class="sq-notation-black hidden character">a</div>
 
 
         </div>
         <div class="sq" id="b8">
           <img src="./images/pieces/black/knight.png" alt="" />
-                              <div class="sq-notation-black character">b</div>
+                              <div class="sq-notation-black hidden character">b</div>
 
         </div>
         <div class="sq" id="c8">
           <img src="./images/pieces/black/bishop.png" alt="" />
-                              <div class="sq-notation-black character">c</div>
+                              <div class="sq-notation-black hidden character">c</div>
 
         </div>
         <div class="sq" id="d8">
           <img src="./images/pieces/black/queen.png" alt="" />
-                              <div class="sq-notation-black character">d</div>
+                              <div class="sq-notation-black hidden character">d</div>
 
         </div>
         <div class="sq" id=" e8">
           <img src="./images/pieces/black/king.png" alt="" />
-                              <div class="sq-notation-black character">e</div>
+                              <div class="sq-notation-black hidden character">e</div>
 
         </div>
         <div class="sq" id="f8">
-                            <div class="sq-notation-black character">f</div>
+                            <div class="sq-notation-black hidden character">f</div>
 
           <img src="./images/pieces/black/bishop.png" alt="" />
         </div>
         <div class="sq" id="g8">
           <img src="./images/pieces/black/knight.png" alt="" />
-                              <div class="sq-notation-black character">g</div>
+                              <div class="sq-notation-black hidden character">g</div>
 
         </div>
         <div class="sq" id="h8">
           <img src="./images/pieces/black/rook.png" alt="" />
-          <div class="sq-notation-black number">8</div>
-                    <div class="sq-notation-black character">h</div>
+          <div class="sq-notation-black hidden number">8</div>
+                    <div class="sq-notation-black hidden character">h</div>
 
 
         </div>
@@ -68,7 +68,7 @@ const chessBoardHTML = `<div class="sq" id="a8">
         </div>
         <div class="sq" id="h7">
           <img src="./images/pieces/black/pawn.png" alt="" />
-                              <div class="sq-notation-black number">7</div>
+                              <div class="sq-notation-black hidden number">7</div>
 
         </div>
 
@@ -82,7 +82,7 @@ const chessBoardHTML = `<div class="sq" id="a8">
         <div class="sq" id="f6"></div>
         <div class="sq" id="g6"></div>
         <div class="sq" id="h6">
-                                      <div class="sq-notation-black number">6</div>
+                                      <div class="sq-notation-black hidden number">6</div>
 </div>
 
         <div class="sq" id="a5">
@@ -95,7 +95,7 @@ const chessBoardHTML = `<div class="sq" id="a8">
         <div class="sq" id="f5"></div>
         <div class="sq" id="g5"></div>
         <div class="sq" id="h5">
-                                      <div class="sq-notation-black number">5</div>
+                                      <div class="sq-notation-black hidden number">5</div>
 </div>
 
         <div class="sq" id="a4">
@@ -108,7 +108,7 @@ const chessBoardHTML = `<div class="sq" id="a8">
         <div class="sq" id="f4"></div>
         <div class="sq" id="g4"></div>
         <div class="sq" id="h4">
-                                      <div class="sq-notation-black number">4</div>
+                                      <div class="sq-notation-black hidden number">4</div>
 </div>
 
         <div class="sq" id="a3">
@@ -121,7 +121,7 @@ const chessBoardHTML = `<div class="sq" id="a8">
         <div class="sq" id="f3"></div>
         <div class="sq" id="g3"></div>
         <div class="sq" id="h3">
-                                      <div class="sq-notation-black number">3</div>
+                                      <div class="sq-notation-black hidden number">3</div>
 </div>
 
         <div class="sq" id="a2">
@@ -149,7 +149,7 @@ const chessBoardHTML = `<div class="sq" id="a8">
         </div>
         <div class="sq" id="h2">
           <img src="./images/pieces/white/pawn.png" alt="" />
-                                        <div class="sq-notation-black number">2</div>
+                                        <div class="sq-notation-black hidden number">2</div>
 
         </div>
 
@@ -191,7 +191,7 @@ const chessBoardHTML = `<div class="sq" id="a8">
         <div class="sq" id="h1">
           <img src="./images/pieces/white/rook.png" alt="" />
                     <div class="sq-notation-white character">h</div>
-                    <div class="sq-notation-black number">1</div>
+                    <div class="sq-notation-black hidden number">1</div>
 
 
         </div>`;

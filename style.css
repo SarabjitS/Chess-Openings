@@ -145,10 +145,6 @@ div.sq-notation-black.character {
   color: #37261b;
 }
 
-.sq-notation-white {
-  display: none;
-}
-
 .character {
   bottom: 1px;
   right: 1px;
