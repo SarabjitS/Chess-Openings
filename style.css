@@ -227,13 +227,6 @@ img {
   margin-left: 1.5rem;
 }
 
-.h2-tutorial {
-  text-align: center;
-  background-color: #9e6d40;
-  font-size: 2.5rem;
-  color: white;
-}
-
 /* .disabled {
   color: grey;
 } */
@@ -349,14 +342,30 @@ dialog {
 #tutorial-text {
   font-size: 2rem;
   display: flex;
-  /* list-style-type: none; */
+  list-style-type: none;
   flex-direction: column;
-  gap: 0.75rem;
-  margin: 2rem 0 0 1rem;
+  /* gap: 1rem; */
+  /* padding: 0 0 2rem 2rem; */
+  color: #37261b;
+  /* justify-content: center; */
+  align-items: start;
+}
+
+li {
+  padding: 1rem 0 1rem 0;
 }
 
 li:nth-child(even) {
-  background-color: red;
+  background-color: rgba(240, 217, 181, 0.5);
+}
+
+.h2-tutorial {
+  text-align: center;
+  background-color: #9e6d40;
+  font-size: 2.5rem;
+  color: white;
+  padding: 1rem;
+  margin-bottom: 2rem;
 }
 
 .play-controls {
