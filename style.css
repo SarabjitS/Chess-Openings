@@ -204,18 +204,9 @@ img {
 
 .container3 {
   display: flex;
-  /* flex-direction: row; */
   grid-area: container;
-  /* gap: 5rem; */
-  /* align-self: start; */
-  /* justify-self: center; */
-  /* justify-content: start; */
-  /* row-gap: 20rem; */
-  /* flex-grow: 1; */
   justify-content: space-between;
-
   align-items: center;
-  /* row-gap: 1rem; */
 }
 
 .test-yourself,
@@ -376,6 +367,7 @@ li:nth-child(even) {
 .bi {
   color: #37261b;
   font-size: 5.67rem;
+  /* border: none; */
 }
 
 .test-yourself {
