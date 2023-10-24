@@ -411,27 +411,33 @@ function playSound() {
 // Makes the next move
 function nextHandler(sourceMove, destinationMove) {
   playSound();
-  console.log(document.getElementById(destinationMove).children);
-  console.log(sourceMove, destinationMove);
+  // console.log(document.getElementById(destinationMove).children);
+  // console.log(sourceMove, destinationMove);
 
+  // document
+  //   .getElementById(destinationMove)
+  //   .append(document.getElementById(sourceMove).children[0]);
+  // // The most recent piece of square displays
+  // if (document.getElementById(destinationMove).children[1]) {
+  //   let originalPiece = document
+  //     .getElementById(destinationMove)
+  //     .children[1].getAttribute("src");
+  //   let nowPiece = document
+  //     .getElementById(destinationMove)
+  //     .children[0].getAttribute("src");
+  //   document
+  //     .getElementById(destinationMove)
+  //     .children[0].setAttribute("src", originalPiece);
+  //   document
+  //     .getElementById(destinationMove)
+  //     .children[1].setAttribute("src", nowPiece);
+  // }
   document
     .getElementById(destinationMove)
-    .append(document.getElementById(sourceMove).children[0]);
-  // The most recent piece of square displays
-  if (document.getElementById(destinationMove).children[1]) {
-    let originalPiece = document
-      .getElementById(destinationMove)
-      .children[1].getAttribute("src");
-    let nowPiece = document
-      .getElementById(destinationMove)
-      .children[0].getAttribute("src");
-    document
-      .getElementById(destinationMove)
-      .children[0].setAttribute("src", originalPiece);
-    document
-      .getElementById(destinationMove)
-      .children[1].setAttribute("src", nowPiece);
-  }
+    .insertBefore(
+      document.getElementById(sourceMove).children[0],
+      document.getElementById(destinationMove).firstChild
+    );
 }
 
 // For executing prevBtn moves

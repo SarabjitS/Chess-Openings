@@ -25,7 +25,7 @@ const chessBoardHTML = `
   <div class="sq-notation-black hidden character">d</div>
 </div>
 <div class="sq-block">
-  <div class="sq" id=" e8">
+  <div class="sq" id="e8">
     <img src="./images/pieces/black/king.png" alt="" />
   </div>
   <div class="sq-notation-black hidden character">e</div>
