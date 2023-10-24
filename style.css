@@ -14,6 +14,17 @@
   --body-dark: #302e2b;
   --clr-accent: #ff7750;
   --shadow-color: 170deg 6% 29%;
+  --light-board-dark-brown: #37261b;
+  /* Dark Shades HSL */
+  --jet: hsla(40, 4%, 16%, 1);
+  --eerie-black: hsla(60, 5%, 12%, 1);
+  --battleship-gray: hsla(30, 1%, 59%, 1);
+  --jet-2: hsla(75, 4%, 19%, 1);
+  --battleship-gray-2: hsla(60, 1%, 56%, 1);
+  --silver: hsla(60, 1%, 76%, 1);
+  --accordion-black: hsla(36, 7%, 14%, 1);
+  --eerie-black-3: hsla(45, 6%, 14%, 1);
+
   /* --shadow-elevation-high: -0.7px 0.8px 1px hsl(var(--shadow-color) / 0.6),
     -2.4px 2.8px 3.3px -0.6px hsl(var(--shadow-color) / 0.54),
     -5px 5.8px 6.9px -1.1px hsl(var(--shadow-color) / 0.49),
@@ -32,7 +43,7 @@
   background-color: rgba(240, 217, 181, 0.5);
   /* box-shadow: 0 0 0 1px; */
   /* opacity: 0.5; */
-  color: #37261b;
+  color: var(--light-board-dark-brown);
   display: flex;
   /* flex-direction: row; */
   justify-content: space-between;
@@ -137,7 +148,7 @@ body {
 div.sq-notation-white,
 div.sq-notation-black {
   background-color: inherit !important;
-  color: #37261b;
+  color: var(--light-board-dark-brown);
 }
 
 .character {
@@ -200,7 +211,7 @@ img {
 .accordion-body {
   font-size: 2rem;
   background-color: rgba(240, 217, 181, 1);
-  color: #37261b;
+  color: var(--light-board-dark-brown);
 }
 
 .choose-opening {
@@ -341,7 +352,7 @@ dialog {
   display: flex;
   list-style-type: none;
   flex-direction: column;
-  color: #37261b;
+  color: var(--light-board-dark-brown);
   align-items: start;
 }
 
@@ -368,7 +379,7 @@ li:nth-child(even) {
 }
 
 .bi {
-  color: #37261b;
+  color: var(--light-board-dark-brown);
   font-size: 5.67rem;
   /* border: none; */
 }
