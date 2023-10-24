@@ -464,10 +464,9 @@ function rotateBoard() {
   if (isRotated) {
     orientationBtn.classList.add("material-symbols-outlined-fill");
     chessBoard.classList.add("rotate");
-    // removeWhiteNotations();
   } else {
     orientationBtn.classList.remove("material-symbols-outlined-fill");
-    // removeBlackNotations();
+
     chessBoard.classList.remove("rotate");
   }
   rotatePieces();
@@ -478,32 +477,13 @@ function rotatePieces() {
   if (isRotated) {
     document.querySelectorAll(".sq").forEach((piece) => {
       piece.classList.add("rotate");
+      // piece.style.transform = `rotate(180deg)`;
     });
-    removeWhiteNotations();
   } else {
     document.querySelectorAll(".sq").forEach((piece) => {
       piece.classList.remove("rotate");
     });
-    removeBlackNotations();
   }
-}
-
-function removeBlackNotations() {
-  document.querySelectorAll(".sq-notation-black ").forEach((piece) => {
-    piece.classList.add("hidden");
-  });
-  document.querySelectorAll(".sq-notation-white ").forEach((piece) => {
-    piece.classList.remove("hidden");
-  });
-}
-
-function removeWhiteNotations() {
-  document.querySelectorAll(".sq-notation-white ").forEach((piece) => {
-    piece.classList.add("hidden");
-  });
-  document.querySelectorAll(".sq-notation-black ").forEach((piece) => {
-    piece.classList.remove("hidden");
-  });
 }
 
 // check for saved 'darkMode' in localStorage
