@@ -89,9 +89,7 @@ const chessBoardHTML = `
   <div class="sq" id="h7">
     <img src="./images/pieces/black/pawn.png" alt="" />
   </div>
-  <div class="sq-block">
-    <div class="sq-notation-black hidden number">7</div>
-  </div>
+  <div class="sq-notation-black hidden number">7</div>
 </div>
 <div class="sq-block">
   <div class="sq" id="a6">
