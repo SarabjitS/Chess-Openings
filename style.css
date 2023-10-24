@@ -123,6 +123,33 @@ body {
   height: 6.5rem;
 }
 
+.sq-block {
+  position: relative;
+}
+
+.sq-notation-white,
+.sq-notation-black {
+  position: absolute;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.number {
+  top: 1px;
+  left: 1px;
+}
+
+div.sq-notation-white,
+div.sq-notation-black {
+  background-color: inherit !important;
+  color: #37261b;
+}
+
+.character {
+  bottom: 1px;
+  right: 1px;
+}
+
 .dark-mode-toggle {
   color: var(--foreground);
   border: 2px solid currentColor;
@@ -146,7 +173,7 @@ body {
   box-shadow: var(--shadow-elevation-high);
 }
 
-.chess-board div {
+.chess-board {
   background-color: var(--light-color-board);
 }
 
