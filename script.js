@@ -411,6 +411,9 @@ function playSound() {
 // Makes the next move
 function nextHandler(sourceMove, destinationMove) {
   playSound();
+  console.log(document.getElementById(destinationMove).children);
+  console.log(sourceMove, destinationMove);
+
   document
     .getElementById(destinationMove)
     .append(document.getElementById(sourceMove).children[0]);
