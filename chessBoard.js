@@ -136,7 +136,9 @@ const chessBoardHTML = `
 </div>
 <div class="sq" id="b3"></div>
 <div class="sq" id="c3"></div>
+<div class="sq-block">
   <div class="sq" id="d3"></div>
+</div>
 <div class="sq" id="e3"></div>
 <div class="sq" id="f3"></div>
 <div class="sq" id="g3"></div>
