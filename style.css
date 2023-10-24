@@ -8,13 +8,17 @@
   --green-board-dark: #769656;
   --brown-board-dark: #b58863;
   --brown-board-light: #f0d9b5;
-  --light-color-tutorial: #dad8d6;
   --background: var(--body-light);
   --body-light: url("wood.png");
   --body-dark: #302e2b;
   --clr-accent: #ff7750;
-  --shadow-color: 170deg 6% 29%;
-  --light-board-dark-brown: #37261b;
+  /* --shadow-color: 170deg 6% 29%; */
+  --light-board-darkest-brown: #37261b;
+  --light-board-dark-brown: rgb(158, 109, 64, 1);
+
+  --accordion-button: var(--light-board-dark-brown);
+  --tutorial-heading: var(--light-board-dark-brown);
+  --test-yourself: var(--light-board-dark-brown);
   /* Dark Shades HSL */
   --jet: hsla(40, 4%, 16%, 1);
   --eerie-black: hsla(60, 5%, 12%, 1);
@@ -43,7 +47,7 @@
   background-color: rgba(240, 217, 181, 0.5);
   /* box-shadow: 0 0 0 1px; */
   /* opacity: 0.5; */
-  color: var(--light-board-dark-brown);
+  color: var(--light-board-darkest-brown);
   display: flex;
   /* flex-direction: row; */
   justify-content: space-between;
@@ -148,7 +152,7 @@ body {
 div.sq-notation-white,
 div.sq-notation-black {
   background-color: inherit !important;
-  color: var(--light-board-dark-brown);
+  color: var(--light-board-darkest-brown);
 }
 
 .character {
@@ -211,7 +215,7 @@ img {
 .accordion-body {
   font-size: 2rem;
   background-color: rgba(240, 217, 181, 1);
-  color: var(--light-board-dark-brown);
+  color: var(--light-board-darkest-brown);
 }
 
 .choose-opening {
@@ -250,16 +254,34 @@ img {
   margin-left: 1.5rem;
 }
 
-.accordion-item {
-  color: var(--foreground);
-  background: linear-gradient(120deg, var(--clr-primary), var(--clr-secondary));
-}
-
 .accordion-button {
-  background-color: #9e6d40;
+  background-color: var(--accordion-button);
   color: white;
   font-size: 2.25rem;
 }
+
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: rgba(0, 0, 0, 0.125);
+}
+
+.accordion-button:link,
+.accordion-button:visited,
+.accordion-button:hover,
+.accordion-button:active {
+  background-color: rgb(158, 109, 64, 0.9) !important;
+  /* color: #fff !important; */
+  /* text-decoration: none !important; */
+  /* border: hidden !important;
+  border-color: #fff !important;
+  box-shadow: 0px !important; */
+}
+
+/* For changing svg icons of accordion */
+/* .accordion-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230c63e4'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  transform: rotate(180deg);
+} */
 
 .dropdown.active > .link + .dropdown-menu {
   opacity: 1;
@@ -345,6 +367,7 @@ dialog {
   background: var(--body-dark);
   --light-color-board: var(--green-board-light);
   --dark-color-board: var(--green-board-dark);
+  --accordion-button: var(--accordion-black);
 }
 
 #tutorial-text {
@@ -352,7 +375,7 @@ dialog {
   display: flex;
   list-style-type: none;
   flex-direction: column;
-  color: var(--light-board-dark-brown);
+  color: var(--light-board-darkest-brown);
   align-items: start;
 }
 
@@ -366,7 +389,7 @@ li:nth-child(even) {
 
 .h2-tutorial {
   text-align: center;
-  background-color: #9e6d40;
+  background-color: var(--tutorial-heading);
   font-size: 2.5rem;
   color: white;
   padding: 1rem;
@@ -379,13 +402,13 @@ li:nth-child(even) {
 }
 
 .bi {
-  color: var(--light-board-dark-brown);
+  color: var(--light-board-darkest-brown);
   font-size: 5.67rem;
   /* border: none; */
 }
 
 .test-yourself {
-  background-color: #9e6d40;
+  background-color: var(--test-yourself);
   color: white;
 }
 /* Media queries */
