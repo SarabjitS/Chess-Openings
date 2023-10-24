@@ -20,6 +20,7 @@
   --tutorial-heading: var(--light-board-dark-brown);
   --test-yourself: var(--light-board-dark-brown);
   --accordion-hover: rgb(158, 109, 64, 0.8);
+  --accordion-border: #7f5539;
   /* Dark Shades HSL */
   --jet: hsla(40, 4%, 16%, 1);
   --eerie-black: hsla(60, 5%, 12%, 1);
@@ -218,7 +219,7 @@ img {
   /* height: 7rem; */
   align-self: start;
   justify-self: center;
-  background-color: rgba(240, 217, 181, 0.7);
+  background-color: #ddb892;
   color: #37261b;
 }
 
@@ -274,6 +275,10 @@ img {
   /* border: hidden !important;
   border-color: #fff !important;
   box-shadow: 0px !important; */
+}
+
+.accordion-item {
+  border-bottom: 1px solid var(--accordion-border) !important;
 }
 
 /* For changing svg icons of accordion */
@@ -360,14 +365,13 @@ dialog {
 .darkmode {
   --clr-light: whitesmoke;
   --clr-dark: #00332a;
-  /* --clr-primary: #202302;
-  --clr-secondary: #00100d; */
   --clr-accent: #ff7750;
   background: var(--body-dark);
   --light-color-board: var(--green-board-light);
   --dark-color-board: var(--green-board-dark);
   --accordion-button: var(--accordion-black);
   --accordion-hover: #21201f;
+  --accordion-border: var(--body-dark);
 }
 
 #tutorial-text {
