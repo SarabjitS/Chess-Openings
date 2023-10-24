@@ -55,23 +55,35 @@ const chessBoardHTML = `
   </div>
   <div class="sq-notation-white number">7</div>
 </div>
-<div class="sq" id="b7">
-  <img src="./images/pieces/black/pawn.png" alt="" />
+<div class="sq-block">
+  <div class="sq" id="b7">
+    <img src="./images/pieces/black/pawn.png" alt="" />
+  </div>
 </div>
-<div class="sq" id="c7">
-  <img src="./images/pieces/black/pawn.png" alt="" />
+<div class="sq-block">
+  <div class="sq" id="c7">
+    <img src="./images/pieces/black/pawn.png" alt="" />
+  </div>
 </div>
-<div class="sq" id="d7">
-  <img src="./images/pieces/black/pawn.png" alt="" />
+<div class="sq-block">
+  <div class="sq" id="d7">
+    <img src="./images/pieces/black/pawn.png" alt="" />
+  </div>
 </div>
-<div class="sq" id="e7">
-  <img src="./images/pieces/black/pawn.png" alt="" />
+<div class="sq-block">
+  <div class="sq" id="e7">
+    <img src="./images/pieces/black/pawn.png" alt="" />
+  </div>
 </div>
-<div class="sq" id="f7">
-  <img src="./images/pieces/black/pawn.png" alt="" />
+<div class="sq-block">
+  <div class="sq" id="f7">
+    <img src="./images/pieces/black/pawn.png" alt="" />
+  </div>
 </div>
-<div class="sq" id="g7">
-  <img src="./images/pieces/black/pawn.png" alt="" />
+<div class="sq-block">
+  <div class="sq" id="g7">
+    <img src="./images/pieces/black/pawn.png" alt="" />
+  </div>
 </div>
 <div class="sq-block">
   <div class="sq" id="h7">
@@ -86,12 +98,24 @@ const chessBoardHTML = `
     <div class="sq-notation-white number">6</div>
   </div>
 </div>
-<div class="sq" id="b6"></div>
-<div class="sq" id="c6"></div>
-<div class="sq" id="d6"></div>
-<div class="sq" id="e6"></div>
-<div class="sq" id="f6"></div>
-<div class="sq" id="g6"></div>
+<div class="sq-block">
+  <div class="sq" id="b6"></div>
+</div>
+<div class="sq-block">
+  <div class="sq" id="c6"></div>
+</div>
+<div class="sq-block">
+  <div class="sq" id="d6"></div>
+</div>
+<div class="sq-block">
+  <div class="sq" id="e6"></div>
+</div>
+<div class="sq-block">
+  <div class="sq" id="f6"></div>
+</div>
+<div class="sq-block">
+  <div class="sq" id="g6"></div>
+</div>
 <div class="sq-block">
   <div class="sq" id="h6">
     <div class="sq-notation-black hidden number">6</div>
@@ -102,14 +126,26 @@ const chessBoardHTML = `
     <div class="sq-notation-white number">5</div>
   </div>
 </div>
-<div class="sq" id="b5"></div>
-<div class="sq" id="c5"></div>
-<div class="sq" id="d5"></div>
-<div class="sq" id="e5"></div>
-<div class="sq" id="f5"></div>
-<div class="sq" id="g5"></div>
-<div class="sq" id="h5">
-  <div class="sq-block">
+<div class="sq-block">
+  <div class="sq" id="b5"></div>
+</div>
+<div class="sq-block">
+  <div class="sq" id="c5"></div>
+</div>
+<div class="sq-block">
+  <div class="sq" id="d5"></div>
+</div>
+<div class="sq-block">
+  <div class="sq" id="e5"></div>
+</div>
+<div class="sq-block">
+  <div class="sq" id="f5"></div>
+</div>
+<div class="sq-block">
+  <div class="sq" id="g5"></div>
+</div>
+<div class="sq-block">
+  <div class="sq" id="h5">
     <div class="sq-notation-black hidden number">5</div>
   </div>
 </div>
@@ -118,12 +154,24 @@ const chessBoardHTML = `
     <div class="sq-notation-white number">4</div>
   </div>
 </div>
-<div class="sq" id="b4"></div>
-<div class="sq" id="c4"></div>
+<div class="sq-block">
+  <div class="sq" id="b4"></div>
+</div>
+<div class="sq-block">
+  <div class="sq" id="c4"></div>
+</div>
+<div class="sq-block">
   <div class="sq" id="d4"></div>
-<div class="sq" id="e4"></div>
-<div class="sq" id="f4"></div>
-<div class="sq" id="g4"></div>
+</div>
+<div class="sq-block">
+  <div class="sq" id="e4"></div>
+</div>
+<div class="sq-block">
+  <div class="sq" id="f4"></div>
+</div>
+<div class="sq-block">
+  <div class="sq" id="g4"></div>
+</div>
 <div class="sq-block">
   <div class="sq" id="h4">
     <div class="sq-notation-black hidden number">4</div>
@@ -134,14 +182,24 @@ const chessBoardHTML = `
     <div class="sq-notation-white number">3</div>
   </div>
 </div>
-<div class="sq" id="b3"></div>
-<div class="sq" id="c3"></div>
+<div class="sq-block">
+  <div class="sq" id="b3"></div>
+</div>
+<div class="sq-block">
+  <div class="sq" id="c3"></div>
+</div>
 <div class="sq-block">
   <div class="sq" id="d3"></div>
 </div>
-<div class="sq" id="e3"></div>
-<div class="sq" id="f3"></div>
-<div class="sq" id="g3"></div>
+<div class="sq-block">
+  <div class="sq" id="e3"></div>
+</div>
+<div class="sq-block">
+  <div class="sq" id="f3"></div>
+</div>
+<div class="sq-block">
+  <div class="sq" id="g3"></div>
+</div>
 <div class="sq-block">
   <div class="sq" id="h3">
     <div class="sq-notation-black hidden number">3</div>
@@ -153,23 +211,35 @@ const chessBoardHTML = `
   </div>
   <div class="sq-notation-white number">2</div>
 </div>
-<div class="sq" id="b2">
-  <img src="./images/pieces/white/pawn.png" alt="" />
+<div class="sq-block">
+  <div class="sq" id="b2">
+    <img src="./images/pieces/white/pawn.png" alt="" />
+  </div>
 </div>
-<div class="sq" id="c2">
-  <img src="./images/pieces/white/pawn.png" alt="" />
+<div class="sq-block">
+  <div class="sq" id="c2">
+    <img src="./images/pieces/white/pawn.png" alt="" />
+  </div>
 </div>
-<div class="sq" id="d2">
-  <img src="./images/pieces/white/pawn.png" alt="" />
+<div class="sq-block">
+  <div class="sq" id="d2">
+    <img src="./images/pieces/white/pawn.png" alt="" />
+  </div>
 </div>
-<div class="sq" id="e2">
-  <img src="./images/pieces/white/pawn.png" alt="" />
+<div class="sq-block">
+  <div class="sq" id="e2">
+    <img src="./images/pieces/white/pawn.png" alt="" />
+  </div>
 </div>
-<div class="sq" id="f2">
-  <img src="./images/pieces/white/pawn.png" alt="" />
+<div class="sq-block">
+  <div class="sq" id="f2">
+    <img src="./images/pieces/white/pawn.png" alt="" />
+  </div>
 </div>
-<div class="sq" id="g2">
-  <img src="./images/pieces/white/pawn.png" alt="" />
+<div class="sq-block">
+  <div class="sq" id="g2">
+    <img src="./images/pieces/white/pawn.png" alt="" />
+  </div>
 </div>
 <div class="sq-block">
   <div class="sq" id="h2">
@@ -227,7 +297,6 @@ const chessBoardHTML = `
   <div class="sq-notation-white character">h</div>
   <div class="sq-notation-black hidden number">1</div>
 </div>
-
 
 `;
 
