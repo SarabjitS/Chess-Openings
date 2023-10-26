@@ -143,7 +143,7 @@ chooseBtn.addEventListener("click", function () {
 //Listen for next button click
 nextBtn.addEventListener("click", function () {
   if (opening.length === 0) {
-    showModal("Please select an opening first");
+    showDialog("Please select an opening first");
   } else {
     if (isPlay) {
       stopPlayBtn();
@@ -166,7 +166,7 @@ nextBtn.addEventListener("click", function () {
 //Listen for previous button click
 prevBtn.addEventListener("click", function () {
   if (opening.length == 0) {
-    showModal("Please select an opening first");
+    showDialog("Please select an opening first");
   } else {
     if (isPlay) {
       stopPlayBtn();
@@ -188,7 +188,7 @@ prevBtn.addEventListener("click", function () {
       moveIndex--;
     } else {
       // When opening selected but no move has been played
-      showModal(
+      showDialog(
         "Please make a move first by clicking on Next button or Play button"
       );
     }
@@ -199,7 +199,7 @@ prevBtn.addEventListener("click", function () {
 playBtn.addEventListener("click", function () {
   isPlay = !isPlay;
   if (opening.length == 0) {
-    showModal("Please select an opening first");
+    showDialog("Please select an opening first");
   } else {
     if (isPlay) {
       id = setInterval(playBtnHandler, speed);
@@ -215,7 +215,7 @@ playBtn.addEventListener("click", function () {
 testBtn.addEventListener("click", function () {
   //If no opening selected
   if (opening.length == 0) {
-    showModal("Please select an opening first");
+    showDialog("Please select an opening first");
   } else {
     renderBoard();
     isTestMode = !isTestMode;
@@ -397,7 +397,7 @@ function playMove(title) {
 }
 
 // Shows the modal to select opening
-function showModal(text) {
+function showDialog(text) {
   dialog.textContent = text;
   dialog.showModal();
 }
@@ -413,24 +413,6 @@ function playSound() {
 // Makes the next move
 function nextHandler(sourceMove, destinationMove) {
   playSound();
-  // document
-  //   .getElementById(destinationMove)
-  //   .append(document.getElementById(sourceMove).children[0]);
-  // The most recent piece of square displays
-  // if (document.getElementById(destinationMove).children[1]) {
-  //   let originalPiece = document
-  //     .getElementById(destinationMove)
-  //     .children[1].getAttribute("src");
-  //   let nowPiece = document
-  //     .getElementById(destinationMove)
-  //     .children[0].getAttribute("src");
-  //   document
-  //     .getElementById(destinationMove)
-  //     .children[0].setAttribute("src", originalPiece);
-  //   document
-  //     .getElementById(destinationMove)
-  //     .children[1].setAttribute("src", nowPiece);
-  // }
   document
     .getElementById(destinationMove)
     .insertBefore(
