@@ -234,6 +234,7 @@ img {
   /* height: 7rem; */
   align-self: start;
   justify-self: center;
+  border-radius: 0.5rem;
 }
 
 .container3 {
@@ -295,8 +296,16 @@ img {
   border: 0;
 }
 
-.accordion-item {
+.accordion-item,
+.choose-opening {
   border-bottom: 1px solid var(--accordion-border) !important;
+}
+
+.accordion-item,
+.accordion-button,
+.choose-opening,
+.tutorial .h2-tutorial {
+  border-radius: 0.5rem !important;
 }
 
 .accordion-button:not(.collapsed) {
