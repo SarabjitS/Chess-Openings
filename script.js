@@ -269,6 +269,7 @@ hintBtn.addEventListener("click", function () {
   isHint = !isHint;
 
   if (isHint) {
+    showDialog("Please click on Go Back button to go back to test");
     moveIndex++;
     resetTutorial();
     generateTutorial(opening[moveIndex][2]); //Provides the hint text
