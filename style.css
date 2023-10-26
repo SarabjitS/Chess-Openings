@@ -133,7 +133,7 @@ body {
   /* align-items: center; */
 }
 
-.sq {
+.sq-block {
   width: 6.5rem;
   height: 6.5rem;
 }
@@ -205,7 +205,7 @@ div.sq-notation-black {
 
 img {
   width: 100%;
-  display: block;
+  /* display: block; */
 }
 
 .tutorial {
@@ -469,16 +469,56 @@ li:nth-child(even) {
 
 /* xs */
 @media (max-width: 475px) {
+  /* body {
+    font-size: 0.8rem;
+  } */
   .mega-container {
-    /* max-width: 360px; */
-    grid-template-columns: 1fr;
-    grid-template-rows: 20rem 1fr 1fr;
+    padding: 0rem;
+    align-content: center;
+    max-width: 200px;
+    grid-template-columns: 40rem;
+    grid-template-rows: 10rem 50rem 60rem 45rem;
     grid-template-areas:
+      "btn"
       "accordion "
-      "board";
+      "board"
+      "tutorial";
   }
 
+  .accordion {
+    min-width: 30rem;
+    align-self: start;
+    margin: auto;
+  }
+
+  .extended-chess-board {
+    max-width: 40rem;
+  }
+
+  .chess-board {
+    display: grid;
+    border-radius: 0.5rem;
+    grid-template-columns: repeat(8, 4.5rem);
+    grid-template-rows: repeat(8, 4.5rem);
+    max-height: 360rem;
+    max-width: 360rem;
+    overflow: hidden;
+  }
+
+  .sq-block {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  img {
+    width: 88.9%;
+  }
   /* .container {
     width: 100%;
   } */
+
+  .tutorial {
+    width: 80%;
+    height: 40rem;
+  }
 }

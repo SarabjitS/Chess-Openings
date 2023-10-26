@@ -435,7 +435,7 @@ function nextHandler(sourceMove, destinationMove) {
       document.getElementById(sourceMove).children[0],
       document.getElementById(destinationMove).firstChild
     );
-  // console.log(document.getElementById(destinationMove).children[1]);
+  console.log(document.getElementById(destinationMove).children[1]);
   if (document.getElementById(destinationMove).children[1]) {
     document.getElementById(destinationMove).children[1].style.display = "none";
   }
