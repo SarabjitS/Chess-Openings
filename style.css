@@ -303,7 +303,7 @@ img {
 .accordion-button:active {
   background-color: var(--hover-light) !important;
   color: white !important;
-  border: 0;
+  border-style: none;
 }
 
 .accordion-item,
