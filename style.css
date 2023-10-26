@@ -17,7 +17,7 @@
   --accordion-button: var(--light-board-dark-brown);
   --tutorial-heading: var(--light-board-dark-brown);
   --test-yourself: var(--light-board-dark-brown);
-  --accordion-hover: rgb(158, 109, 64, 0.8);
+  --hover-light: rgb(158, 109, 64, 0.8);
   --accordion-border: rgb(55, 38, 27, 0.9);
   --accordion-not-collapsed-color: white;
   --accordion-not-collapsed-bg: rgb(158, 109, 64, 0.95);
@@ -216,6 +216,8 @@ img {
   align-self: start;
   justify-self: center;
   background-color: #fff;
+  /* To make the border-radius work */
+  overflow: hidden;
 }
 
 .h2-tutorial {
@@ -283,15 +285,20 @@ img {
 }
 
 .accordion-button:link,
+.test-yourself:link,
 .choose-opening:link,
 .choose-opening:target,
+.test-yourself:target,
 .choose-opening:visited,
+.test-yourself:visited,
+.test-yourself:active,
 .choose-opening:active,
 .accordion-button:visited,
 .accordion-button:hover,
+.test-yourself:hover,
 .choose-opening:hover,
 .accordion-button:active {
-  background-color: var(--accordion-hover) !important;
+  background-color: var(--hover-light) !important;
   color: white !important;
   border: 0;
 }
@@ -304,7 +311,7 @@ img {
 .accordion-item,
 .accordion-button,
 .choose-opening,
-.tutorial .h2-tutorial {
+.tutorial {
   border-radius: 0.5rem !important;
 }
 
@@ -389,9 +396,9 @@ dialog {
   border: 3px solid red;
 }
 
-.correct {
+/* .correct {
   border: 3px solid green;
-}
+} */
 
 .speed {
   transform: scaleX(-1);
@@ -405,7 +412,8 @@ dialog {
   --light-color-board: var(--green-board-light);
   --dark-color-board: var(--green-board-dark);
   --accordion-button: var(--accordion-black);
-  --accordion-hover: #21201f;
+  /* Needs work on this */
+  --hover-light: #21201f;
   --accordion-border: var(--body-dark);
 }
 
