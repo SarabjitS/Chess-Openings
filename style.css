@@ -480,7 +480,7 @@ li:nth-child(even) {
     align-content: center;
     max-width: 38rem;
     grid-template-columns: 37rem;
-    grid-template-rows: 7rem 1fr 60rem 45rem;
+    grid-template-rows: 5rem 1fr 60rem 45rem;
     grid-template-areas:
       "btn"
       "accordion "
@@ -489,8 +489,8 @@ li:nth-child(even) {
   }
 
   .accordion {
-    min-width: 34rem;
-    max-width: 34rem;
+    min-width: 36rem;
+    max-width: 36rem;
     justify-self: center;
     /* min-width: 30rem; */
     align-self: start;
@@ -500,6 +500,7 @@ li:nth-child(even) {
 
   .extended-chess-board {
     max-width: 36rem;
+    margin-top: 5rem;
   }
 
   .chess-board {
