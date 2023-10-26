@@ -10,7 +10,9 @@
   --brown-board-light: #f0d9b5;
   --background: var(--body-light);
   --body-light: url("wood.png");
+  /* For the dark mode */
   --body-dark: #302e2b;
+
   --light-board-darkest-brown: rgb(55, 38, 27);
   --light-board-dark-brown: rgb(158, 109, 64, 1);
 
@@ -18,7 +20,9 @@
   --tutorial-heading: var(--light-board-dark-brown);
   --test-yourself: var(--light-board-dark-brown);
   --hover-light: rgb(158, 109, 64, 0.8);
-  --accordion-border: rgb(55, 38, 27, 0.9);
+  --darkest-brown-light-shade: rgb(55, 38, 27, 0.8);
+  --hover-btn-group: var(--darkest-brown-light-shade);
+  --accordion-border: var(--darkest-brown-light-shade);
   --accordion-not-collapsed-color: white;
   --accordion-not-collapsed-bg: rgb(158, 109, 64, 0.95);
   /* Dark Shades HSL */
@@ -443,6 +447,10 @@ li:nth-child(even) {
   color: var(--light-board-darkest-brown);
   font-size: 5.67rem;
   /* border: none; */
+}
+
+.bi:hover {
+  color: var(--hover-btn-group);
 }
 
 .test-yourself {
