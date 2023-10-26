@@ -234,8 +234,6 @@ img {
   /* height: 7rem; */
   align-self: start;
   justify-self: center;
-  background-color: #ddb892;
-  color: #37261b;
 }
 
 .container3 {
@@ -269,28 +267,32 @@ img {
   min-width: 53rem;
 }
 
-.accordion-button {
+.accordion-button,
+.choose-opening {
   background-color: var(--accordion-button);
   color: white;
   font-size: 2.25rem;
 }
 
-.accordion-button:focus {
+.accordion-button:focus,
+.choose-opening:focus {
+  /* color: red; */
   box-shadow: none;
   border-color: rgba(0, 0, 0, 0.125);
 }
 
 .accordion-button:link,
+.choose-opening:link,
+.choose-opening:target,
+.choose-opening:visited,
+.choose-opening:active,
 .accordion-button:visited,
 .accordion-button:hover,
+.choose-opening:hover,
 .accordion-button:active {
   background-color: var(--accordion-hover) !important;
-
-  /* color: #fff !important; */
-  /* text-decoration: none !important; */
-  /* border: hidden !important;
-  border-color: #fff !important;
-  box-shadow: 0px !important; */
+  color: white !important;
+  border: 0;
 }
 
 .accordion-item {
