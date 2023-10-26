@@ -51,15 +51,15 @@
 }
 
 .header {
-  background-color: rgba(240, 217, 181, 0.5);
+  background-color: rgba(240, 217, 181, 0.6);
   /* box-shadow: 0 0 0 1px; */
   /* opacity: 0.5; */
   color: var(--light-board-darkest-brown);
   display: flex;
   /* flex-direction: row; */
-  justify-content: space-between;
+  justify-content: center;
   padding: 1rem 1.25rem;
-  font-size: 2rem;
+  /* font-size: 2rem; */
   gap: 2rem;
 }
 
