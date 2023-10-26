@@ -291,6 +291,8 @@ hintBtn.addEventListener("click", function () {
 
 //Listens for clicks on chess board after testStart() has started
 chessBoard.addEventListener("click", function (e) {
+  console.log("started");
+
   if (!isHint && isTestMode) {
     tutorialHeading.appendChild(para);
     if (i < openingSourceMoves.length) {

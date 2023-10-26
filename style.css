@@ -133,7 +133,7 @@ body {
   /* align-items: center; */
 }
 
-.sq-block {
+.sq {
   width: 6.5rem;
   height: 6.5rem;
 }
@@ -469,15 +469,18 @@ li:nth-child(even) {
 
 /* xs */
 @media (max-width: 475px) {
-  /* body {
+  body {
     font-size: 0.8rem;
-  } */
+  }
   .mega-container {
+    margin: 5rem auto;
+    justify-self: center;
+
     padding: 0rem;
     align-content: center;
-    max-width: 200px;
-    grid-template-columns: 40rem;
-    grid-template-rows: 10rem 50rem 60rem 45rem;
+    max-width: 38rem;
+    grid-template-columns: 37rem;
+    grid-template-rows: 7rem 1fr 60rem 45rem;
     grid-template-areas:
       "btn"
       "accordion "
@@ -486,13 +489,17 @@ li:nth-child(even) {
   }
 
   .accordion {
-    min-width: 30rem;
+    min-width: 34rem;
+    max-width: 34rem;
+    justify-self: center;
+    /* min-width: 30rem; */
     align-self: start;
-    margin: auto;
+    /* margin: auto; */
+    padding: 2rem;
   }
 
   .extended-chess-board {
-    max-width: 40rem;
+    max-width: 36rem;
   }
 
   .chess-board {
@@ -500,25 +507,28 @@ li:nth-child(even) {
     border-radius: 0.5rem;
     grid-template-columns: repeat(8, 4.5rem);
     grid-template-rows: repeat(8, 4.5rem);
-    max-height: 360rem;
-    max-width: 360rem;
+    max-height: 36rem;
+    max-width: 36rem;
     overflow: hidden;
   }
 
-  .sq-block {
+  .sq {
     width: 4.5rem;
     height: 4.5rem;
   }
 
-  img {
+  /* img {
     width: 88.9%;
-  }
-  /* .container {
-    width: 100%;
   } */
-
+  .container {
+    width: 100%;
+  }
   .tutorial {
-    width: 80%;
+    width: 36rem;
     height: 40rem;
+  }
+
+  h1 {
+    font-size: 2rem;
   }
 }
