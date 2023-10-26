@@ -188,7 +188,7 @@ div.sq-notation-black {
   box-shadow: var(--shadow-elevation-high);
 }
 
-.chess-board .sq-block {
+.sq-block {
   background-color: var(--light-color-board);
 }
 
@@ -265,7 +265,7 @@ img {
   /* width: 85%; */
   align-self: start;
   justify-self: center;
-  min-width: 23rem;
+  min-width: 53rem;
 }
 
 .accordion-button {

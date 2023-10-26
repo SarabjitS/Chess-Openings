@@ -413,14 +413,39 @@ function nextHandler(sourceMove, destinationMove) {
   playSound();
   document
     .getElementById(destinationMove)
+    .append(document.getElementById(sourceMove).children[0]);
+  // The most recent piece of square displays
+  // if (document.getElementById(destinationMove).children[1]) {
+  //   let originalPiece = document
+  //     .getElementById(destinationMove)
+  //     .children[1].getAttribute("src");
+  //   let nowPiece = document
+  //     .getElementById(destinationMove)
+  //     .children[0].getAttribute("src");
+  //   document
+  //     .getElementById(destinationMove)
+  //     .children[0].setAttribute("src", originalPiece);
+  //   document
+  //     .getElementById(destinationMove)
+  //     .children[1].setAttribute("src", nowPiece);
+  // }
+  document
+    .getElementById(destinationMove)
     .insertBefore(
       document.getElementById(sourceMove).children[0],
       document.getElementById(destinationMove).firstChild
     );
+  // console.log(document.getElementById(destinationMove).children[1]);
+  // if (document.getElementById(destinationMove).children[1]) {
+  //   document.getElementById(destinationMove).children[1].style.display = "none";
+  // }
 }
 
 // For executing prevBtn moves
 function prevHandler(destinationMove, sourceMove) {
+  // if (document.getElementById(sourceMove).children[1]) {
+  //   document.getElementById(sourceMove).children[1].style.display = "block";
+  // }
   document
     .getElementById(destinationMove)
     .append(document.getElementById(sourceMove).children[0]);
