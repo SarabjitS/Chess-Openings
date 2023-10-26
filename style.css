@@ -205,6 +205,7 @@ div.sq-notation-black {
 
 img {
   width: 100%;
+  display: block;
 }
 
 .tutorial {

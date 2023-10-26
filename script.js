@@ -411,9 +411,9 @@ function playSound() {
 // Makes the next move
 function nextHandler(sourceMove, destinationMove) {
   playSound();
-  document
-    .getElementById(destinationMove)
-    .append(document.getElementById(sourceMove).children[0]);
+  // document
+  //   .getElementById(destinationMove)
+  //   .append(document.getElementById(sourceMove).children[0]);
   // The most recent piece of square displays
   // if (document.getElementById(destinationMove).children[1]) {
   //   let originalPiece = document
@@ -436,16 +436,16 @@ function nextHandler(sourceMove, destinationMove) {
       document.getElementById(destinationMove).firstChild
     );
   // console.log(document.getElementById(destinationMove).children[1]);
-  // if (document.getElementById(destinationMove).children[1]) {
-  //   document.getElementById(destinationMove).children[1].style.display = "none";
-  // }
+  if (document.getElementById(destinationMove).children[1]) {
+    document.getElementById(destinationMove).children[1].style.display = "none";
+  }
 }
 
 // For executing prevBtn moves
 function prevHandler(destinationMove, sourceMove) {
-  // if (document.getElementById(sourceMove).children[1]) {
-  //   document.getElementById(sourceMove).children[1].style.display = "block";
-  // }
+  if (document.getElementById(sourceMove).children[1]) {
+    document.getElementById(sourceMove).children[1].style.display = "block";
+  }
   document
     .getElementById(destinationMove)
     .append(document.getElementById(sourceMove).children[0]);
@@ -492,6 +492,7 @@ function rotatePieces() {
     document.querySelectorAll(".sq-block").forEach((piece) => {
       piece.classList.add("rotate");
     });
+
     removeWhiteNotations();
   } else {
     document.querySelectorAll(".sq-block").forEach((piece) => {
