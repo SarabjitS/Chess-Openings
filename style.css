@@ -463,9 +463,9 @@ li:nth-child(even) {
   /* transform: scale(1.2); */
 }
 
-.play-controls:hover {
+/* .play-controls:hover {
   transform: scale(1.1);
-}
+} */
 
 .test-yourself {
   background-color: var(--test-yourself);
