@@ -287,16 +287,8 @@ img {
   border-color: rgba(0, 0, 0, 0.125);
 }
 
-.accordion-button:link,
-.test-yourself:link,
-.choose-opening:link,
-.choose-opening:target,
-.test-yourself:target,
-.choose-opening:visited,
-.test-yourself:visited,
 .test-yourself:active,
 .choose-opening:active,
-.accordion-button:visited,
 .accordion-button:hover,
 .test-yourself:hover,
 .choose-opening:hover,
