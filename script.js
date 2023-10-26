@@ -221,12 +221,10 @@ testBtn.addEventListener("click", function () {
     isTestMode = !isTestMode;
     enableButton(hintBtn);
     if (isTestMode) {
-      testBtn.classList.add("btn-danger");
       makeTutorialHeading();
       testStart();
       buttonsOnTestMode();
     } else {
-      testBtn.classList.remove("btn-danger");
       disableButton(hintBtn);
       isTestMode = false;
       renderBoard();

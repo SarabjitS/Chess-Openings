@@ -369,8 +369,8 @@ img {
   color: rgba(0, 0, 0, 0.54);
 }
 
-.material-symbols-outlined:hover {
-  transform: scale(1.1);
+.speed {
+  transform: scaleX(-1);
 }
 
 /* .material-icons.md-48 {
@@ -417,10 +417,6 @@ dialog {
   border: 3px solid green;
 } */
 
-.speed {
-  transform: scaleX(-1);
-}
-
 .darkmode {
   --clr-light: whitesmoke;
   --clr-dark: #00332a;
@@ -464,7 +460,7 @@ li:nth-child(even) {
 
 .bi:hover {
   color: var(--hover-btn-group);
-  transform: scale(1.2);
+  /* transform: scale(1.2); */
 }
 
 .play-controls:hover {
