@@ -17,6 +17,7 @@
 
   --dark-board-base-green: #81b64c;
   --dark-board-hover-green: #a3d160;
+  --dark-board-accordion-bottom-green: #45753c;
 
   --accordion-button: var(--light-board-dark-brown);
   --tutorial-heading: var(--light-board-dark-brown);
@@ -303,7 +304,7 @@ img {
 
 .accordion-item,
 .choose-opening {
-  border-bottom: 1px solid var(--accordion-border) !important;
+  border-bottom: 0.5rem solid var(--accordion-border) !important;
 }
 
 .accordion-item,
@@ -419,10 +420,11 @@ dialog {
   background: var(--body-dark);
   --light-color-board: var(--green-board-light);
   --dark-color-board: var(--green-board-dark);
-  --accordion-button: var(--accordion-black);
+  --accordion-button: var(--dark-board-base-green);
   /* Needs work on this */
   --hover-light: #21201f;
-  --accordion-border: var(--body-dark);
+  --accordion-border: var(--dark-board-accordion-bottom-green);
+  --hover-light: var(--dark-board-hover-green);
 }
 
 #tutorial-text {
