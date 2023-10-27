@@ -15,9 +15,9 @@
   --light-board-darkest-brown: rgb(55, 38, 27);
   --light-board-dark-brown: rgb(158, 109, 64, 1);
 
-  --dark-board-base-green: #81b64c;
-  --dark-board-hover-green: #a3d160;
-  --dark-board-accordion-bottom-green: #45753c;
+  --dark-board-base-green: rgb(129, 182, 76);
+  --dark-board-hover-green: rgb(163, 209, 96);
+  --dark-board-accordion-bottom-green: rgb(69, 117, 60);
 
   --accordion-button: var(--light-board-dark-brown);
   --tutorial-heading: var(--light-board-dark-brown);
@@ -347,7 +347,7 @@ img {
   background: none;
   border: none;
   text-decoration: none;
-  /* color: black; */
+  color: var(--header-text);
   font-family: inherit;
   font-size: 2rem;
   cursor: pointer;
@@ -434,6 +434,7 @@ dialog {
   --header-background: var(--dark-board-accordion-bottom-green);
   --header-text: white;
   --test-yourself: var(--dark-board-base-green);
+  /* --hover-btn-group: */
 }
 
 #tutorial-text {
