@@ -501,7 +501,73 @@ li:nth-child(even) {
 }
 
 /* xs */
-@media (max-width: 475px) {
+/* @media (max-width: 475px) { */
+/* body {
+    font-size: 0.8rem;
+  }
+  .mega-container {
+    margin: 5rem auto;
+    justify-self: center;
+
+    padding: 0rem;
+    align-content: center;
+    max-width: 38rem;
+    grid-template-columns: 37rem;
+    grid-template-rows: 5rem 1fr 60rem 45rem;
+    grid-template-areas:
+      "btn"
+      "accordion "
+      "board"
+      "tutorial";
+  }
+
+  .accordion {
+    min-width: 36rem;
+    max-width: 36rem; */
+/* justify-self: center; */
+/* min-width: 30rem; */
+/* align-self: start; */
+/* margin: auto; */
+/* padding: 2rem; */
+/* } */
+
+/* .extended-chess-board {
+    max-width: 36rem;
+    margin-top: 5rem;
+  }
+
+  .chess-board {
+    display: grid;
+    border-radius: 0.5rem;
+    grid-template-columns: repeat(8, 4.5rem);
+    grid-template-rows: repeat(8, 4.5rem);
+    max-height: 36rem;
+    max-width: 36rem;
+    overflow: hidden;
+  }
+
+  .sq {
+    width: 4.5rem;
+    height: 4.5rem;
+  } */
+
+/* img {
+    width: 88.9%;
+  } */
+/* .container {
+    width: 100%;
+  }
+  .tutorial {
+    width: 36rem;
+    height: 40rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  } */
+/* } */
+
+@media only screen and (max-width: 767px) {
   body {
     font-size: 0.8rem;
   }
