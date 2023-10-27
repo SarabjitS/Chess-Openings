@@ -424,16 +424,18 @@ dialog {
   background: var(--body-dark);
   --light-color-board: var(--green-board-light);
   --dark-color-board: var(--green-board-dark);
-  --accordion-button: var(--dark-board-base-green);
+  /* --accordion-button: var(--dark-board-base-green); */
+  --accordion-button: var(--dark-board-accordion-bottom-green);
+
   /* Needs work on this */
   --hover-light: #21201f;
   --accordion-border: var(--dark-board-accordion-bottom-green);
-  --hover-light: var(--dark-board-hover-green);
-  --tutorial-heading: var(--dark-board-base-green);
-  --grp-btn: var(--dark-board-accordion-bottom-green);
+  --hover-light: var(--dark-board-base-green);
+  --tutorial-heading: var(--dark-board-accordion-bottom-green);
+  --grp-btn: var(--dark-board-base-green);
   --header-background: var(--dark-board-accordion-bottom-green);
   --header-text: white;
-  --test-yourself: var(--dark-board-base-green);
+  --test-yourself: var(--dark-board-accordion-bottom-green);
   --hover-btn-group: rgba(69, 117, 60, 0.8);
 }
 
