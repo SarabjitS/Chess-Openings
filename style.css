@@ -15,6 +15,9 @@
   --light-board-darkest-brown: rgb(55, 38, 27);
   --light-board-dark-brown: rgb(158, 109, 64, 1);
 
+  --dark-board-base-green: #81b64c;
+  --dark-board-hover-green: #a3d160;
+
   --accordion-button: var(--light-board-dark-brown);
   --tutorial-heading: var(--light-board-dark-brown);
   --test-yourself: var(--light-board-dark-brown);
