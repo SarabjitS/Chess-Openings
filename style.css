@@ -434,7 +434,7 @@ dialog {
   --header-background: var(--dark-board-accordion-bottom-green);
   --header-text: white;
   --test-yourself: var(--dark-board-base-green);
-  /* --hover-btn-group: */
+  --hover-btn-group: rgba(69, 117, 60, 0.8);
 }
 
 #tutorial-text {
@@ -462,17 +462,11 @@ li:nth-child(even) {
 .bi {
   color: var(--grp-btn);
   font-size: 5.67rem;
-  /* border: none; */
 }
 
 .bi:hover {
   color: var(--hover-btn-group);
-  /* transform: scale(1.2); */
 }
-
-/* .play-controls:hover {
-  transform: scale(1.1);
-} */
 
 .test-yourself {
   background-color: var(--test-yourself);
