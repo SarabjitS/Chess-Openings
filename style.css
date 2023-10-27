@@ -28,6 +28,10 @@
   --accordion-border: var(--darkest-brown-light-shade);
   --accordion-not-collapsed-color: white;
   --accordion-not-collapsed-bg: rgb(158, 109, 64, 0.95);
+  --grp-btn: var(--light-board-darkest-brown);
+  --header-background: rgba(240, 217, 181, 0.6);
+  --header-text: var(--light-board-darkest-brown);
+
   /* Dark Shades HSL */
   --jet: hsla(40, 4%, 16%, 1);
   --eerie-black: hsla(60, 5%, 12%, 1);
@@ -54,10 +58,10 @@
 }
 
 .header {
-  background-color: rgba(240, 217, 181, 0.6);
+  background-color: var(--header-background);
   /* box-shadow: 0 0 0 1px; */
   /* opacity: 0.5; */
-  color: var(--light-board-darkest-brown);
+  color: var(--header-text);
   display: flex;
   /* flex-direction: row; */
   justify-content: center;
@@ -425,6 +429,11 @@ dialog {
   --hover-light: #21201f;
   --accordion-border: var(--dark-board-accordion-bottom-green);
   --hover-light: var(--dark-board-hover-green);
+  --tutorial-heading: var(--dark-board-base-green);
+  --grp-btn: var(--dark-board-accordion-bottom-green);
+  --header-background: var(--dark-board-accordion-bottom-green);
+  --header-text: white;
+  --test-yourself: var(--dark-board-base-green);
 }
 
 #tutorial-text {
@@ -450,7 +459,7 @@ li:nth-child(even) {
 }
 
 .bi {
-  color: var(--light-board-darkest-brown);
+  color: var(--grp-btn);
   font-size: 5.67rem;
   /* border: none; */
 }
