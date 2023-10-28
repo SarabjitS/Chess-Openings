@@ -576,10 +576,16 @@ function renderBoard() {
 
   // Enable all buttons of btn-group class(playBtn, nextBtn and prevBtn) if disabled
   for (const child of document.querySelector(".btn-group").children) {
-    if (child.classList.contains("disabled")) enableButton(child);
+    // if (child.classList.contains("disabled")) enableButton(child);
+    if (child.hasAttribute("disabled")) {
+      enableButton(child);
+    }
   }
 
-  if (testBtn.classList.contains("disabled")) {
+  // if (testBtn.classList.contains("disabled")) {
+  //   enableButton(testBtn);
+  // }
+  if (testBtn.hasAttribute("disabled")) {
     enableButton(testBtn);
   }
 
