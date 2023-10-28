@@ -5,9 +5,10 @@
   --green-board-dark: #769656;
   --brown-board-dark: #b58863;
   --brown-board-light: #f0d9b5;
-  --dark-board-base-green: #166534;
+  --dark-board-base-green: rgb(22, 101, 52);
   --dark-board-hover-green: rgba(101, 163, 13);
   --dark-board-darkest-green: #052e16;
+  --dark-board-lightest-green: #f0fdf4;
 
   /* For the dark mode */
 
@@ -35,6 +36,7 @@
   --header-text: var(--light-board-darkest-brown);
   --acc-body-bkg: var(--light-board-acc-body-brown);
   --light-board-dropdown-bkg: var(--light-board-acc-body-brown);
+  --acc-body-color: var(--dark-board-darkest-green);
 
   /* Dark Shades HSL */
   --jet: hsla(40, 4%, 16%, 1);
@@ -284,7 +286,7 @@ img {
 .accordion-body {
   font-size: 2rem;
   background-color: var(--acc-body-bkg);
-  color: var(--light-board-darkest-brown);
+  color: var(--acc-body-color);
   overflow: hidden !important;
 }
 
@@ -336,8 +338,8 @@ img {
 .accordion-button:not(.collapsed) {
   color: var(--accordion-not-collapsed-color);
   background-color: var(--accordion-not-collapsed-bg);
-  box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0
-    var(--accordion-border);
+  /* box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0
+    var(--accordion-border); */
 }
 
 /* For changing svg icons of accordion */
@@ -428,35 +430,27 @@ dialog {
   border: 3px solid red;
 }
 
-/* .correct {
-  border: 3px solid green;
-} */
-
 .darkmode {
-  --clr-light: whitesmoke;
-  --clr-dark: #00332a;
-  --clr-accent: #ff7750;
   background: var(--body-dark);
   --light-color-board: var(--green-board-light);
   --dark-color-board: var(--green-board-dark);
   --accordion-button: var(--dark-board-base-green);
-  /* --accordion-button: var(--dark-board-base-green); */
-  /* --accordion-button: var(--dark-board-darkest-green); */
-
+  /* --accordion-not-collapsed-color: var(--dark-board-base-green); */
+  --accordion-not-collapsed-bg: var(--dark-board-base-green);
   /* Needs work on this */
-  /* --hover-light: #21201f; */
   --accordion-border: var(--dark-board-darkest-green);
   --hover-light: rgba(101, 163, 13);
-  /* --tutorial-heading: var(--dark-board-base-green); */
   --tutorial-heading: var(--dark-board-base-green);
   --grp-btn: var(--dark-board-btn-grp);
-  /* --header-background: var(--dark-board-darkest-green); */
   --header-background: var(--dark-board-darkest-green);
   --header-text: white;
-  /* --test-yourself: var(--dark-board-base-green); */
   --test-yourself: var(--dark-board-base-green);
   --hover-btn-group: rgba(101, 163, 13, 0.9);
-  --tutorial-list-item: #f0fdf4;
+  --tutorial-list-item: var(--dark-board-lightest-green);
+  /* --acc-body-bkg: var(--dark-board-lightest-green); */
+  --acc-body-bkg: rgb(22, 101, 52, 0.2);
+  --acc-body-color: var(--dark-board-darkest-green);
+  --light-board-dropdown-bkg: var(--dark-board-lightest-green);
 }
 
 #tutorial-text {
