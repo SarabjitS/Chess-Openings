@@ -431,10 +431,6 @@ img {
   display: none;
 }
 
-.highlight {
-  border: 3px solid blue;
-}
-
 dialog {
   z-index: 10;
   background: grey;
@@ -448,6 +444,11 @@ dialog {
 .question {
   /* border: 3px solid red; */
   box-shadow: 0px 0px 0px 4px red inset;
+}
+
+.highlight {
+  /* border: 3px solid blue; */
+  box-shadow: 0px 0px 0px 4px blue inset;
 }
 
 .darkmode {
