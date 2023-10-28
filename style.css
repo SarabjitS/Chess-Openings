@@ -1,27 +1,26 @@
 /* @import url("https://fonts.googleapis.com/css?family=Roboto:wght@400;700&display=swap"); */
 
 :root {
-  --light-color-board: var(--brown-board-light);
-  --dark-color-board: var(--brown-board-dark);
   --green-board-light: #eeeed2;
   --green-board-dark: #769656;
   --brown-board-dark: #b58863;
   --brown-board-light: #f0d9b5;
-  --background: var(--body-light);
-  --body-light: url("wood.png");
+
   /* For the dark mode */
 
   --light-board-darkest-brown: rgb(55, 38, 27);
   --light-board-dark-brown: rgb(158, 109, 64, 1);
+  --light-board-acc-body-brown: rgba(240, 217, 181, 1);
 
-  /* --dark-board-base-green: rgb(129, 182, 76); */
+  --background: var(--body-light);
+  --body-light: url("wood.png");
   --dark-board-base-green: #166534;
   --dark-board-accordion-bottom-green: rgb(69, 117, 60);
-  --dark-board-hover-green: rgb(163, 209, 96);
-  --dark-board-hover-green: #65a30d;
+  --dark-board-hover-green: rgba(101, 163, 13);
   --dark-board-accordion-bottom-green: #052e16;
   --dark-board-btn-grp: var(--dark-board-hover-green);
-
+  --light-color-board: var(--brown-board-light);
+  --dark-color-board: var(--brown-board-dark);
   --accordion-button: var(--light-board-dark-brown);
   --tutorial-heading: var(--light-board-dark-brown);
   --test-yourself: var(--light-board-dark-brown);
@@ -33,8 +32,10 @@
   --accordion-not-collapsed-bg: rgb(158, 109, 64, 0.95);
   --grp-btn: var(--light-board-darkest-brown);
   --header-background: rgba(240, 217, 181, 0.6);
-  --tutorial-list-item: rgba(240, 217, 181, 0.5);
+  --tutorial-list-item: rgba(240, 217, 181, 0.6);
   --header-text: var(--light-board-darkest-brown);
+  --light-board-acc-body-bkg: var(--light-board-acc-body-brown);
+  --light-board-dropdown-bkg: var(--light-board-acc-body-brown);
 
   /* Dark Shades HSL */
   --jet: hsla(40, 4%, 16%, 1);
@@ -97,7 +98,7 @@ h1 {
 
   left: -10px;
   top: calc(100% + 0.25rem);
-  background-color: rgba(240, 217, 181, 1);
+  background-color: var(--light-board-dropdown-bkg);
   padding: 0.75rem;
   border-radius: 0.5rem;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
@@ -283,7 +284,7 @@ img {
 /* .accordion-button, */
 .accordion-body {
   font-size: 2rem;
-  background-color: rgba(240, 217, 181, 1);
+  background-color: var(--light-board-acc-body-bkg);
   color: var(--light-board-darkest-brown);
   overflow: hidden !important;
 }
@@ -330,7 +331,7 @@ img {
 
 .accordion-item,
 .choose-opening {
-  border-bottom: 0.5rem solid var(--accordion-border) !important;
+  border-bottom: 0.2rem solid var(--accordion-border) !important;
 }
 
 .accordion-button:not(.collapsed) {
@@ -439,20 +440,24 @@ dialog {
   background: var(--body-dark);
   --light-color-board: var(--green-board-light);
   --dark-color-board: var(--green-board-dark);
-  /* --accordion-button: var(--dark-board-base-green); */
   --accordion-button: var(--dark-board-base-green);
+  /* --accordion-button: var(--dark-board-base-green); */
+  /* --accordion-button: var(--dark-board-accordion-bottom-green); */
 
   /* Needs work on this */
-  --hover-light: #21201f;
-  --accordion-border: var(--dark-board-accordion-bottom-green);
-  --hover-light: var(--dark-board-hover-green);
+  /* --hover-light: #21201f; */
+  --accordion-border: black;
+  --hover-light: rgba(101, 163, 13);
+  /* --tutorial-heading: var(--dark-board-base-green); */
   --tutorial-heading: var(--dark-board-base-green);
   --grp-btn: var(--dark-board-btn-grp);
+  /* --header-background: var(--dark-board-accordion-bottom-green); */
   --header-background: var(--dark-board-accordion-bottom-green);
   --header-text: white;
-  --test-yourself: var(--dark-board-base-green);
-  --hover-btn-group: var(--dark-board-hover-green);
-  --tutorial-list-item: #a7f3d0;
+  /* --test-yourself: var(--dark-board-base-green); */
+  --test-yourself: var(--dark-board-accordion-bottom-green);
+  --hover-btn-group: rgba(101, 163, 13, 0.9);
+  --tutorial-list-item: #f0fdf4;
 }
 
 #tutorial-text {
@@ -528,72 +533,6 @@ li:nth-child(even) {
 }
 
 /* xs */
-/* @media (max-width: 475px) { */
-/* body {
-    font-size: 0.8rem;
-  }
-  .mega-container {
-    margin: 5rem auto;
-    justify-self: center;
-
-    padding: 0rem;
-    align-content: center;
-    max-width: 38rem;
-    grid-template-columns: 37rem;
-    grid-template-rows: 5rem 1fr 60rem 45rem;
-    grid-template-areas:
-      "btn"
-      "accordion "
-      "board"
-      "tutorial";
-  }
-
-  .accordion {
-    min-width: 36rem;
-    max-width: 36rem; */
-/* justify-self: center; */
-/* min-width: 30rem; */
-/* align-self: start; */
-/* margin: auto; */
-/* padding: 2rem; */
-/* } */
-
-/* .extended-chess-board {
-    max-width: 36rem;
-    margin-top: 5rem;
-  }
-
-  .chess-board {
-    display: grid;
-    border-radius: 0.5rem;
-    grid-template-columns: repeat(8, 4.5rem);
-    grid-template-rows: repeat(8, 4.5rem);
-    max-height: 36rem;
-    max-width: 36rem;
-    overflow: hidden;
-  }
-
-  .sq {
-    width: 4.5rem;
-    height: 4.5rem;
-  } */
-
-/* img {
-    width: 88.9%;
-  } */
-/* .container {
-    width: 100%;
-  }
-  .tutorial {
-    width: 36rem;
-    height: 40rem;
-  }
-
-  h1 {
-    font-size: 2rem;
-  } */
-/* } */
-
 @media only screen and (max-width: 767px) {
   body {
     font-size: 0.8rem;
