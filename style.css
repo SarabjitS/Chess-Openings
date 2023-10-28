@@ -27,7 +27,7 @@
   --hover-light: rgb(158, 109, 64, 0.8);
   --darkest-brown-light-shade: rgb(55, 38, 27, 0.8);
   --hover-btn-group: var(--darkest-brown-light-shade);
-  --accordion-border: var(--darkest-brown-light-shade);
+  --accordion-border: var(--light-board-darkest-brown);
   --accordion-not-collapsed-color: white;
   --accordion-not-collapsed-bg: rgb(158, 109, 64, 0.95);
   --grp-btn: var(--light-board-darkest-brown);
@@ -37,6 +37,9 @@
   --acc-body-bkg: var(--light-board-acc-body-brown);
   --light-board-dropdown-bkg: var(--light-board-acc-body-brown);
   --acc-body-color: var(--dark-board-darkest-green);
+  --notation-clr: var(--light-board-darkest-brown);
+  --tutorial-text: var(--dark-board-darkest-green);
+  --dropdown-hover: var(--darkest-brown-light-shade);
 
   /* Dark Shades HSL */
   --jet: hsla(40, 4%, 16%, 1);
@@ -150,7 +153,18 @@ body {
   align-self: start;
   justify-self: center;
   gap: 2rem;
+  position: relative;
   /* align-items: center; */
+}
+
+.para {
+  font-size: 2.5rem;
+  max-width: 10rem;
+  padding: 1rem 1rem;
+  align-self: center;
+  /* position: absolute;
+  top: 0;
+  right: 0; */
 }
 
 .sq {
@@ -177,7 +191,7 @@ body {
 div.sq-notation-white,
 div.sq-notation-black {
   background-color: inherit !important;
-  color: var(--light-board-darkest-brown);
+  color: var(--notation-clr);
 }
 
 .character {
@@ -250,18 +264,16 @@ img {
 }
 
 .choose-opening {
-  font-size: 2.5rem;
   grid-area: btn;
   width: 25rem;
   /* height: 7rem; */
   align-self: start;
   justify-self: center;
-  border-radius: 0.5rem;
 }
 
 .container3 {
   display: flex;
-  grid-area: container;
+  /* grid-area: container; */
   justify-content: space-between;
   align-items: center;
 }
@@ -276,6 +288,7 @@ img {
 
 .choose-opening,
 .tutorial,
+.para,
 #accordionFlushExample .accordion-item {
   border-radius: 0.5rem !important;
   overflow: hidden !important;
@@ -305,11 +318,11 @@ img {
 }
 
 .accordion-button,
-.choose-opening {
+.choose-opening,
+.para {
   background-color: var(--accordion-button);
   color: white;
   font-size: 2.25rem;
-  overflow: hidden !important;
 }
 
 .accordion-button:focus,
@@ -330,8 +343,14 @@ img {
   border-style: none;
 }
 
+/* .test-yourself .box {
+  color: red;
+} */
+
 .accordion-item,
-.choose-opening {
+.choose-opening,
+.para,
+.h2-tutorial {
   border-bottom: 0.2rem solid var(--accordion-border) !important;
 }
 
@@ -373,7 +392,7 @@ img {
 
 .dropdown.active > .link,
 .link:hover {
-  color: #d1d5db;
+  color: var(--dropdown-hover);
 }
 
 .size3 {
@@ -451,6 +470,8 @@ dialog {
   --acc-body-bkg: rgb(22, 101, 52, 0.2);
   --acc-body-color: var(--dark-board-darkest-green);
   --light-board-dropdown-bkg: var(--dark-board-lightest-green);
+  --notation-clr: var(--dark-board-darkest-green);
+  --dropdown-hover: var(--dark-board-lightest-green);
 }
 
 #tutorial-text {
@@ -458,7 +479,7 @@ dialog {
   display: flex;
   list-style-type: none;
   flex-direction: column;
-  color: var(--light-board-darkest-brown);
+  color: var(--tutorial-text);
   align-items: start;
 }
 

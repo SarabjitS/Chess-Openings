@@ -293,7 +293,7 @@ chessBoard.addEventListener("click", function (e) {
   console.log("started");
 
   if (!isHint && isTestMode) {
-    tutorialHeading.appendChild(para);
+    // tutorialHeading.appendChild(para);
     if (i < openingSourceMoves.length) {
       if (square) {
         square.classList.remove("highlight");
@@ -306,7 +306,8 @@ chessBoard.addEventListener("click", function (e) {
           nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
           generateTutorial(opening[moveIndex][2]);
           i++;
-          para.textContent = "correct";
+          tutorialHeading.textContent = "correct";
+          // para.textContent = "correct";
           if (i <= openingSourceMoves.length - 1) {
             makeSourceMoveHighlight(i);
           } else {
@@ -320,7 +321,8 @@ chessBoard.addEventListener("click", function (e) {
           }
         } else {
           square.classList.add("highlight");
-          para.textContent = "Incorrect";
+          tutorialHeading.textContent = "Incorrect";
+          // para.textContent = "Incorrect";
         }
       }
     }
@@ -600,7 +602,7 @@ function renderBoard() {
 
 function makeTutorialHeading() {
   if (isTestMode) {
-    tutorialHeading.textContent = "Where will this piece move to?";
+    tutorialHeading.textContent = "Where should the highlighted piece go?";
   } else if (isSucessful) {
     tutorialHeading.textContent = "Congratulations!!";
   } else {
@@ -626,11 +628,13 @@ function buttonsOnTestMode() {
 }
 
 function disableButton(btn) {
-  btn.classList.add("disabled");
+  // btn.classList.add("disabled");
+  btn.setAttribute("disabled", "");
   btn.setAttribute("aria-disabled", true);
 }
 
 function enableButton(btn) {
-  btn.classList.remove("disabled");
+  // btn.classList.remove("disabled");
+  btn.removeAttribute("disabled");
   btn.setAttribute("aria-disabled", false);
 }
