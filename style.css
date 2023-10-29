@@ -288,7 +288,6 @@ img {
 
 .test-yourself[disabled] {
   background-color: var(--test-yourself-disabled);
-  /* background-color: red; */
   border-style: none;
   color: white;
 }
@@ -474,6 +473,7 @@ dialog {
   --light-board-dropdown-bkg: var(--dark-board-lightest-green);
   --notation-clr: var(--dark-board-darkest-green);
   --dropdown-hover: var(--dark-board-lightest-green);
+  --test-yourself-disabled: var(--hover-light);
 }
 
 #tutorial-text {
