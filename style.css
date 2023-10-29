@@ -553,7 +553,7 @@ li:nth-child(even) {
 }
 
 /* xs */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 450px) {
   body {
     font-size: 0.8rem;
   }
@@ -563,8 +563,8 @@ li:nth-child(even) {
 
     padding: 0rem;
     align-content: center;
-    max-width: 38rem;
-    grid-template-columns: 37rem;
+    max-width: 36rem;
+    grid-template-columns: 36rem;
     grid-template-rows: 5rem 1fr 60rem 45rem;
     grid-template-areas:
       "btn"
