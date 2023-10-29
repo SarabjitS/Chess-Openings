@@ -15,6 +15,7 @@
   --light-board-darkest-brown: rgb(55, 38, 27);
   --light-board-dark-brown: rgb(158, 109, 64, 1);
   --light-board-acc-body-brown: rgba(240, 217, 181, 1);
+  --hover-light: rgb(158, 109, 64, 0.8);
 
   --background: var(--body-light);
   --body-light: url("wood.png");
@@ -24,7 +25,7 @@
   --accordion-button: var(--light-board-dark-brown);
   --tutorial-heading: var(--light-board-dark-brown);
   --test-yourself: var(--light-board-dark-brown);
-  --hover-light: rgb(158, 109, 64, 0.8);
+  --test-yourself-disabled: var(--hover-light);
   --darkest-brown-light-shade: rgb(55, 38, 27, 0.8);
   --hover-btn-group: var(--darkest-brown-light-shade);
   --accordion-border: var(--light-board-darkest-brown);
@@ -188,12 +189,6 @@ body {
   left: 1px;
 }
 
-div.sq-notation-white,
-div.sq-notation-black {
-  background-color: inherit !important;
-  color: var(--notation-clr);
-}
-
 .character {
   bottom: 1px;
   right: 1px;
@@ -235,6 +230,11 @@ div.sq-notation-black {
 .chess-board :nth-child(n + 49):nth-child(even):nth-child(-n + 56),
 .chess-board :nth-child(n + 57):nth-child(odd):nth-child(-n + 64) {
   background-color: var(--dark-color-board);
+}
+
+.sq-block :nth-child(n):nth-child(even):nth-child(-n + 8) {
+  background-color: inherit;
+  color: var(--notation-clr);
 }
 
 img {
@@ -286,12 +286,19 @@ img {
   margin-left: 1.5rem;
 }
 
+.test-yourself[disabled] {
+  background-color: var(--test-yourself-disabled);
+  /* background-color: red; */
+  border-style: none;
+  color: white;
+}
+
 .choose-opening,
 .tutorial,
 .para,
 #accordionFlushExample .accordion-item {
-  border-radius: 0.5rem !important;
-  overflow: hidden !important;
+  border-radius: 0.5rem;
+  overflow: hidden;
 }
 
 /* For increasing size of accordion */
@@ -300,12 +307,6 @@ img {
   font-size: 2rem;
   background-color: var(--acc-body-bkg);
   color: var(--acc-body-color);
-  overflow: hidden !important;
-}
-
-.accordion-flush,
-.accordion-header {
-  overflow: hidden !important;
 }
 
 .accordion {
@@ -332,12 +333,12 @@ img {
   border-color: rgba(0, 0, 0, 0.125);
 }
 
-.test-yourself:active,
-.choose-opening:active,
 .accordion-button:hover,
 .test-yourself:hover,
 .choose-opening:hover,
-.accordion-button:active {
+.accordion-button:active,
+.test-yourself:active,
+.choose-opening:active {
   background-color: var(--hover-light) !important;
   color: white !important;
   border-style: none;
@@ -468,7 +469,6 @@ dialog {
   --test-yourself: var(--dark-board-base-green);
   --hover-btn-group: rgba(101, 163, 13, 0.9);
   --tutorial-list-item: var(--dark-board-lightest-green);
-  /* --acc-body-bkg: var(--dark-board-lightest-green); */
   --acc-body-bkg: rgb(22, 101, 52, 0.2);
   --acc-body-color: var(--dark-board-darkest-green);
   --light-board-dropdown-bkg: var(--dark-board-lightest-green);
