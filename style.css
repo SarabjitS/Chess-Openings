@@ -324,13 +324,16 @@ img {
   font-size: 2.25rem;
 }
 
-/* .accordion-button:focus,
+.dialog {
+  user-select: none;
+}
+
+.accordion-button:focus,
 .choose-opening:focus,
 .test-yourself:focus {
-  color: red;
   box-shadow: none;
   border-color: rgba(0, 0, 0, 0.125);
-} */
+}
 
 .accordion-button:hover,
 .test-yourself:hover,
