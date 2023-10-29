@@ -513,9 +513,6 @@ const darkModeToggle = document.querySelector("#dark-mode-toggle");
 const enableDarkMode = () => {
   // 1. Add the class to the body
   document.body.classList.add("darkmode");
-  document.getElementById("hint-button").classList.remove("btn-success");
-  document.getElementById("hint-button").classList.add("btn-info");
-  // document.body.style.background = "#302e2b";
   // 2. Update darkMode in localStorage
   localStorage.setItem("darkMode", "enabled");
 };
@@ -524,8 +521,6 @@ const disableDarkMode = () => {
   // 1. Remove the class from the body
   document.body.classList.remove("darkmode");
   document.querySelector(".accordion-item").classList.remove("darkmode");
-  document.getElementById("hint-button").classList.add("btn-success");
-  document.getElementById("hint-button").classList.remove("btn-info");
 
   // 2. Update darkMode in localStorage
   localStorage.setItem("darkMode", null);
