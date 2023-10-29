@@ -288,7 +288,6 @@ img {
 
 .test-yourself[disabled] {
   background-color: var(--test-yourself-disabled);
-  border-style: none;
   color: white;
 }
 
@@ -325,12 +324,13 @@ img {
   font-size: 2.25rem;
 }
 
-.accordion-button:focus,
-.choose-opening:focus {
-  /* color: red; */
+/* .accordion-button:focus,
+.choose-opening:focus,
+.test-yourself:focus {
+  color: red;
   box-shadow: none;
   border-color: rgba(0, 0, 0, 0.125);
-}
+} */
 
 .accordion-button:hover,
 .test-yourself:hover,
@@ -510,6 +510,7 @@ li:nth-child(even) {
 .test-yourself {
   background-color: var(--test-yourself);
   color: white;
+  border-style: none;
 }
 /* Media queries */
 
