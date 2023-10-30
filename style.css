@@ -1,26 +1,29 @@
 /* @import url("https://fonts.googleapis.com/css?family=Roboto:wght@400;700&display=swap"); */
 
 :root {
+  /* Chess Board colors */
   --green-board-light: #eeeed2;
   --green-board-dark: #769656;
   --brown-board-dark: #b58863;
   --brown-board-light: #f0d9b5;
+
+  /* Component colors */
   --dark-board-base-green: rgb(22, 101, 52);
   --dark-board-hover-green: rgba(101, 163, 13);
   --dark-board-darkest-green: #052e16;
   --dark-board-lightest-green: #f0fdf4;
-
   --light-board-darkest-brown: rgb(55, 38, 27);
   --light-board-dark-brown: rgb(158, 109, 64, 1);
   --light-board-acc-body-brown: rgba(240, 217, 181, 1);
-  --hover-light: rgb(158, 109, 64, 0.8);
 
-  /* For the dark mode */
+  /* Light mode */
+  --hover-light: rgb(158, 109, 64, 0.8);
   --background: var(--body-light);
   --body-light: url("wood.png");
-  --dark-board-btn-grp: var(--dark-board-hover-green);
   --light-color-board: var(--brown-board-light);
   --dark-color-board: var(--brown-board-dark);
+
+  /* Dark mode */
   --accordion-button: var(--light-board-dark-brown);
   --tutorial-heading: var(--light-board-dark-brown);
   --test-yourself: var(--light-board-dark-brown);
@@ -36,6 +39,7 @@
   --header-text: var(--light-board-darkest-brown);
   --acc-body-bkg: var(--light-board-acc-body-brown);
   --light-board-dropdown-bkg: var(--light-board-acc-body-brown);
+  --dark-board-btn-grp: var(--dark-board-hover-green);
   --acc-body-color: var(--dark-board-darkest-green);
   --notation-clr: var(--light-board-darkest-brown);
   --tutorial-text: var(--dark-board-darkest-green);
