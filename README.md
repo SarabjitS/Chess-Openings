@@ -11,3 +11,4 @@ Other functionalities include-
 - Changing orientation from white to black side of board or vice versa
 - Testing the user on their knowledge of selected opening
 - Added hint button to help recalling a specific move (when in test mode)
+- Added notations for convenience
