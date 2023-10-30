@@ -121,17 +121,23 @@ body {
 
 .mega-container {
   display: grid;
-  grid-template-columns: 1fr 60rem 1fr;
+  grid-template-columns: 1fr 52rem 1fr;
   grid-template-rows: 7rem 53rem;
   margin-top: 10rem;
   padding: 1rem;
-  gap: 2rem;
-  /* align-items: center;
-  justify-content: center; */
+  column-gap: 7rem;
+  row-gap: 2rem;
   position: relative;
   grid-template-areas:
     "btn board tutorial"
     "accordion  board tutorial";
+}
+
+.choose-opening {
+  grid-area: btn;
+  min-width: 20rem;
+  align-self: start;
+  justify-self: center;
 }
 
 .extended-chess-board {
@@ -142,7 +148,17 @@ body {
   justify-self: center;
   gap: 2rem;
   position: relative;
-  /* align-items: center; */
+}
+
+.chess-board {
+  display: grid;
+  border-radius: 0.5rem;
+  grid-template-columns: repeat(8, 6.5rem);
+  grid-template-rows: repeat(8, 6.5rem);
+  max-height: 52rem;
+  max-width: 52rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-elevation-high);
 }
 
 .sq {
@@ -172,18 +188,6 @@ body {
 }
 
 .chess-board {
-  display: grid;
-  border-radius: 0.5rem;
-  grid-template-columns: repeat(8, 6.5rem);
-  grid-template-rows: repeat(8, 6.5rem);
-  max-height: 52rem;
-  max-width: 52rem;
-  overflow: hidden;
-  /* margin: 4rem; */
-  box-shadow: var(--shadow-elevation-high);
-}
-
-.sq-block {
   background-color: var(--light-color-board);
 }
 
@@ -205,7 +209,6 @@ body {
 
 img {
   width: 100%;
-  /* display: block; */
 }
 
 .tutorial {
@@ -234,14 +237,6 @@ img {
   color: white;
   padding: 1rem;
   margin-bottom: 2rem;
-}
-
-.choose-opening {
-  grid-area: btn;
-  width: 25rem;
-  /* height: 7rem; */
-  align-self: start;
-  justify-self: center;
 }
 
 .container3 {
