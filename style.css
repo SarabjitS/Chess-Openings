@@ -94,6 +94,54 @@ h1 {
   transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
 }
 
+/* For changing svg icons of accordion */
+/* .accordion-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230c63e4'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  transform: rotate(180deg);
+} */
+
+.dropdown.active > .link + .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.information-grid {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  gap: 0.5rem;
+}
+
+.link {
+  background: none;
+  border: none;
+  text-decoration: none;
+  color: var(--header-text);
+  font-family: inherit;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.dropdown.active > .link,
+.link:hover {
+  color: var(--dropdown-hover);
+}
+
+.size3 {
+  font-size: 3rem;
+  border: none;
+  background: none;
+}
+
+.material-icons.md-dark {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.speed {
+  transform: scaleX(-1);
+}
+
 .dark-mode-toggle {
   color: var(--foreground);
   border: 0.2rem solid currentColor;
@@ -211,6 +259,45 @@ img {
   width: 100%;
 }
 
+.container3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.test-yourself,
+.hint {
+  font-size: 2rem;
+  width: 10rem;
+  height: 7rem;
+  margin-left: 1.5rem;
+}
+
+.test-yourself[disabled] {
+  background-color: var(--test-yourself-disabled);
+  color: white;
+}
+
+.play-controls {
+  margin-right: 0.5rem;
+  border: none;
+}
+
+.bi {
+  color: var(--grp-btn);
+  font-size: 5.67rem;
+}
+
+.bi:hover {
+  color: var(--hover-btn-group);
+}
+
+.test-yourself {
+  background-color: var(--test-yourself);
+  color: white;
+  border-style: none;
+}
+
 .tutorial {
   grid-area: tutorial;
   height: 62rem;
@@ -238,26 +325,6 @@ img {
   margin-bottom: 2rem;
 }
 
-.container3 {
-  display: flex;
-  /* grid-area: container; */
-  justify-content: space-between;
-  align-items: center;
-}
-
-.test-yourself,
-.hint {
-  font-size: 2rem;
-  width: 10rem;
-  height: 7rem;
-  margin-left: 1.5rem;
-}
-
-.test-yourself[disabled] {
-  background-color: var(--test-yourself-disabled);
-  color: white;
-}
-
 .choose-opening,
 .tutorial,
 .para,
@@ -267,7 +334,6 @@ img {
 }
 
 /* For increasing size of accordion */
-/* .accordion-button, */
 .accordion-body {
   font-size: 2rem;
   background-color: var(--acc-body-bkg);
@@ -293,90 +359,6 @@ img {
 
 .dialog {
   user-select: none;
-}
-
-.accordion-button:focus,
-.choose-opening:focus,
-.test-yourself:focus {
-  box-shadow: none;
-  border-color: rgba(0, 0, 0, 0.125);
-}
-
-.accordion-button:hover,
-.test-yourself:hover,
-.choose-opening:hover,
-.accordion-button:active,
-.test-yourself:active,
-.choose-opening:active {
-  background-color: var(--hover-light) !important;
-  color: white !important;
-  border-style: none;
-}
-
-/* .test-yourself .box {
-  color: red;
-} */
-
-.accordion-item,
-.choose-opening,
-.para,
-.h2-tutorial {
-  border-bottom: 0.2rem solid var(--accordion-border) !important;
-}
-
-.accordion-button:not(.collapsed) {
-  color: var(--accordion-not-collapsed-color);
-  background-color: var(--accordion-not-collapsed-bg);
-  /* box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0
-    var(--accordion-border); */
-}
-
-/* For changing svg icons of accordion */
-/* .accordion-button:not(.collapsed)::after {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230c63e4'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-  transform: rotate(180deg);
-} */
-
-.dropdown.active > .link + .dropdown-menu {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.information-grid {
-  display: grid;
-  grid-template-columns: repeat(3, max-content);
-  gap: 0.5rem;
-}
-
-.link {
-  background: none;
-  border: none;
-  text-decoration: none;
-  color: var(--header-text);
-  font-family: inherit;
-  font-size: 2rem;
-  cursor: pointer;
-  padding: 0;
-}
-
-.dropdown.active > .link,
-.link:hover {
-  color: var(--dropdown-hover);
-}
-
-.size3 {
-  font-size: 3rem;
-  border: none;
-  background: none;
-}
-
-.material-icons.md-dark {
-  color: rgba(0, 0, 0, 0.54);
-}
-
-.speed {
-  transform: scaleX(-1);
 }
 
 /* .material-icons.md-48 {
@@ -463,25 +445,38 @@ li:nth-child(even) {
   background-color: var(--tutorial-list-item);
 }
 
-.play-controls {
-  margin-right: 0.5rem;
-  border: none;
+.accordion-button:focus,
+.choose-opening:focus,
+.test-yourself:focus {
+  box-shadow: none;
+  border-color: rgba(0, 0, 0, 0.125);
 }
 
-.bi {
-  color: var(--grp-btn);
-  font-size: 5.67rem;
-}
-
-.bi:hover {
-  color: var(--hover-btn-group);
-}
-
-.test-yourself {
-  background-color: var(--test-yourself);
-  color: white;
+.accordion-button:hover,
+.test-yourself:hover,
+.choose-opening:hover,
+.accordion-button:active,
+.test-yourself:active,
+.choose-opening:active {
+  background-color: var(--hover-light) !important;
+  color: white !important;
   border-style: none;
 }
+
+.accordion-item,
+.choose-opening,
+.para,
+.h2-tutorial {
+  border-bottom: 0.2rem solid var(--accordion-border) !important;
+}
+
+.accordion-button:not(.collapsed) {
+  color: var(--accordion-not-collapsed-color);
+  background-color: var(--accordion-not-collapsed-bg);
+  /* box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0
+    var(--accordion-border); */
+}
+
 /* Media queries */
 
 /* xl */
