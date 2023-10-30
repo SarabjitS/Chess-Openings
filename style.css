@@ -214,8 +214,7 @@ img {
 .tutorial {
   grid-area: tutorial;
   height: 62rem;
-  width: 40rem;
-  /* margin: auto; */
+  min-width: 40rem;
   align-self: start;
   justify-self: center;
   background-color: #fff;
@@ -514,16 +513,14 @@ li:nth-child(even) {
 }
 
 /* xs */
-@media all and (max-width: 480px) {
+@media only screen and (max-width: 600px) {
   body {
     font-size: 0.8rem;
   }
   .mega-container {
     margin: 5rem auto;
-    justify-self: center;
 
     padding: 0rem;
-    align-content: center;
     max-width: 36rem;
     grid-template-columns: 36rem;
     grid-template-rows: 5rem 1fr 60rem 45rem;
@@ -555,7 +552,7 @@ li:nth-child(even) {
     grid-template-columns: repeat(8, 4.5rem);
     grid-template-rows: repeat(8, 4.5rem);
     max-height: 36rem;
-    max-width: 36rem;
+    min-width: 36rem;
     overflow: hidden;
   }
 
@@ -571,7 +568,7 @@ li:nth-child(even) {
     width: 100%;
   }
   .tutorial {
-    width: 36rem;
+    min-width: 32rem;
     height: 40rem;
   }
 
