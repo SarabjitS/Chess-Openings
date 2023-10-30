@@ -357,10 +357,6 @@ img {
   font-size: 2.25rem;
 }
 
-.dialog {
-  user-select: none;
-}
-
 /* .material-icons.md-48 {
   font-size: 48px;
 } */
@@ -391,6 +387,10 @@ dialog {
   font-size: 2rem;
   color: white;
   margin: auto;
+}
+
+.dialog {
+  user-select: none;
 }
 
 .question {
