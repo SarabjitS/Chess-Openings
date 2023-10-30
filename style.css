@@ -15,6 +15,8 @@
   --light-board-darkest-brown: rgb(55, 38, 27);
   --light-board-dark-brown: rgb(158, 109, 64, 1);
   --light-board-acc-body-brown: rgba(240, 217, 181, 1);
+  --darkest-brown-light-shade: rgb(55, 38, 27, 0.8);
+  --eerie-black: hsla(60, 5%, 12%, 1);
 
   /* Light mode */
   --hover-light: rgb(158, 109, 64, 0.8);
@@ -22,40 +24,27 @@
   --body-light: url("wood.png");
   --light-color-board: var(--brown-board-light);
   --dark-color-board: var(--brown-board-dark);
-
-  /* Dark mode */
-  --accordion-button: var(--light-board-dark-brown);
-  --tutorial-heading: var(--light-board-dark-brown);
-  --test-yourself: var(--light-board-dark-brown);
-  --test-yourself-disabled: var(--hover-light);
-  --darkest-brown-light-shade: rgb(55, 38, 27, 0.8);
-  --hover-btn-group: var(--darkest-brown-light-shade);
-  --accordion-border: var(--light-board-darkest-brown);
-  --accordion-not-collapsed-color: white;
-  --accordion-not-collapsed-bg: rgb(158, 109, 64, 0.95);
-  --grp-btn: var(--light-board-darkest-brown);
   --header-background: rgba(240, 217, 181, 0.6);
   --tutorial-list-item: rgba(240, 217, 181, 0.6);
   --header-text: var(--light-board-darkest-brown);
   --acc-body-bkg: var(--light-board-acc-body-brown);
   --light-board-dropdown-bkg: var(--light-board-acc-body-brown);
-  --dark-board-btn-grp: var(--dark-board-hover-green);
-  --acc-body-color: var(--dark-board-darkest-green);
+  --accordion-not-collapsed-color: white;
+  --accordion-not-collapsed-bg: rgb(158, 109, 64, 0.95);
+  --grp-btn: var(--light-board-darkest-brown);
+  --accordion-button: var(--light-board-dark-brown);
+  --tutorial-heading: var(--light-board-dark-brown);
+  --test-yourself: var(--light-board-dark-brown);
+  --test-yourself-disabled: var(--hover-light);
+  --hover-btn-group: var(--darkest-brown-light-shade);
+  --accordion-border: var(--light-board-darkest-brown);
   --notation-clr: var(--light-board-darkest-brown);
-  --tutorial-text: var(--dark-board-darkest-green);
   --dropdown-hover: var(--darkest-brown-light-shade);
 
-  /* Dark Shades HSL */
-  --jet: hsla(40, 4%, 16%, 1);
-  --eerie-black: hsla(60, 5%, 12%, 1);
-  --battleship-gray: hsla(30, 1%, 59%, 1);
-  --jet-2: hsla(75, 4%, 19%, 1);
-  --battleship-gray-2: hsla(60, 1%, 56%, 1);
-  --silver: hsla(60, 1%, 76%, 1);
-  --accordion-black: hsla(36, 7%, 14%, 1);
-  --eerie-black-3: hsla(45, 6%, 14%, 1);
-
-  /* --body-dark: #302e2b; */
+  /* Dark mode */
+  --dark-board-btn-grp: var(--dark-board-hover-green);
+  --acc-body-color: var(--dark-board-darkest-green);
+  --tutorial-text: var(--dark-board-darkest-green);
   --body-dark: var(--eerie-black);
 
   /* --shadow-elevation-high: -0.7px 0.8px 1px hsl(var(--shadow-color) / 0.6),
