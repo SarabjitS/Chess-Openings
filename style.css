@@ -10,13 +10,12 @@
   --dark-board-darkest-green: #052e16;
   --dark-board-lightest-green: #f0fdf4;
 
-  /* For the dark mode */
-
   --light-board-darkest-brown: rgb(55, 38, 27);
   --light-board-dark-brown: rgb(158, 109, 64, 1);
   --light-board-acc-body-brown: rgba(240, 217, 181, 1);
   --hover-light: rgb(158, 109, 64, 0.8);
 
+  /* For the dark mode */
   --background: var(--body-light);
   --body-light: url("wood.png");
   --dark-board-btn-grp: var(--dark-board-hover-green);
@@ -517,13 +516,6 @@ li:nth-child(even) {
 }
 /* Media queries */
 
-/* 2xl */
-@media (max-width: 1536px) {
-  /* .container {
-    max-width: 1280px;
-  } */
-}
-
 /* xl */
 @media (max-width: 1280px) {
   /* .container {
@@ -553,7 +545,7 @@ li:nth-child(even) {
 }
 
 /* xs */
-@media only screen and (max-width: 450px) {
+@media all and (max-width: 480px) {
   body {
     font-size: 0.8rem;
   }
