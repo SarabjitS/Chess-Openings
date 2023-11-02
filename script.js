@@ -165,6 +165,12 @@ nextBtn.addEventListener("click", function () {
 
 //Listen for previous button click
 prevBtn.addEventListener("click", function () {
+  if (isSucessful) {
+    // isTestMode = !isTestMode;
+    isSucessful = !isSucessful;
+    makeTutorialHeading();
+  }
+
   if (opening.length == 0) {
     showDialog("Please select an opening first");
   } else {
@@ -577,9 +583,6 @@ function renderBoard() {
     }
   }
 
-  // if (testBtn.classList.contains("disabled")) {
-  //   enableButton(testBtn);
-  // }
   if (testBtn.hasAttribute("disabled")) {
     enableButton(testBtn);
   }
