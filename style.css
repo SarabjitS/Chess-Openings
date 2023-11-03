@@ -590,15 +590,11 @@ li:nth-child(even) {
     flex-direction: column;
   }
 
-  .accordion-button,
-  .choose-opening,
-  .h2-tutorial,
-  .test-yourself,
-  .hint {
+  .font-large {
     font-size: 1.75rem;
   }
 
-  .accordion-body {
+  .font-medium {
     font-size: 1.5rem;
   }
 }
