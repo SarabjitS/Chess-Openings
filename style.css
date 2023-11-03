@@ -601,12 +601,25 @@ li:nth-child(even) {
     font-size: 2rem;
   }
 
-  .font-medium {
+  .font-medium,
+  .accordion-body,
+  .accordion-button {
     font-size: 1.75rem;
   }
 
   .sq-notation-white,
   .sq-notation-black {
     font-size: 1.25em;
+  }
+
+  .navbar-right {
+    display: none;
+  }
+
+  .navbar .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
