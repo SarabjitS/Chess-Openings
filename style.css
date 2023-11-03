@@ -74,7 +74,6 @@ html {
 }
 
 h1 {
-  font-size: 2.5rem;
   letter-spacing: 1.5px;
   margin: 0;
   /* padding: 0; */
@@ -129,7 +128,6 @@ h1 {
   text-decoration: none;
   color: var(--header-text);
   font-family: inherit;
-  font-size: 2rem;
   cursor: pointer;
 }
 
@@ -139,7 +137,6 @@ h1 {
 }
 
 .size3 {
-  font-size: 3rem;
   border: none;
   background: none;
 }
@@ -266,7 +263,6 @@ body {
 
 .sq-block :nth-child(n):nth-child(even):nth-child(-n + 8) {
   background-color: inherit;
-  color: var(--notation-clr);
 }
 
 img {
@@ -281,10 +277,20 @@ img {
 
 .test-yourself,
 .hint {
-  font-size: 2rem;
   width: 10rem;
   height: 7rem;
   margin-left: 1.5rem;
+}
+
+.font-large,
+.size3 {
+  font-size: 2.5rem;
+}
+
+.font-medium,
+.accordion-button,
+.accordion-body {
+  font-size: 2rem;
 }
 
 .test-yourself[disabled] {
@@ -299,7 +305,7 @@ img {
 
 .bi {
   color: var(--grp-btn);
-  font-size: 5.67rem;
+  font-size: 5.25rem;
 }
 
 .bi:hover {
@@ -309,6 +315,10 @@ img {
 .test-yourself {
   background-color: var(--test-yourself);
   color: white;
+  border-style: none;
+}
+
+.choose-opening {
   border-style: none;
 }
 
@@ -326,7 +336,6 @@ img {
 .h2-tutorial {
   text-align: center;
   background-color: var(--tutorial-heading);
-  font-size: 2.5rem;
   color: white;
   padding: 1rem;
   margin-bottom: 2rem;
@@ -341,7 +350,6 @@ img {
 
 /* For increasing size of accordion */
 .accordion-body {
-  font-size: 2rem;
   background-color: var(--acc-body-bkg);
   color: var(--acc-body-color);
 }
@@ -358,7 +366,6 @@ img {
 .choose-opening {
   background-color: var(--accordion-button);
   color: white;
-  font-size: 2.25rem;
 }
 
 /* .material-icons.md-48 {
@@ -433,7 +440,6 @@ dialog {
 }
 
 #tutorial-text {
-  font-size: 2rem;
   display: flex;
   list-style-type: none;
   flex-direction: column;
@@ -449,12 +455,12 @@ li:nth-child(even) {
   background-color: var(--tutorial-list-item);
 }
 
-.accordion-button:focus,
+/* .accordion-button:focus,
 .choose-opening:focus,
 .test-yourself:focus {
   box-shadow: none;
   border-color: rgba(0, 0, 0, 0.125);
-}
+} */
 
 .accordion-button:hover,
 .btn.test-yourself:hover,
@@ -463,14 +469,28 @@ li:nth-child(even) {
 .btn.test-yourself:active,
 .btn.choose-opening:active {
   background-color: var(--hover-light);
-  color: white;
+  /* color: white; */
   /* border-style: none; */
+  /* border-bottom: 0.2rem solid var(--accordion-border); */
+}
+
+/* .btn.choose-opening:active {
+  border-style: none;
+} */
+
+.btn.test-yourself:hover,
+.btn.choose-opening:hover,
+.btn.test-yourself:active,
+.btn.choose-opening:active {
+  color: white;
   /* border-bottom: 0.2rem solid var(--accordion-border); */
 }
 
 .accordion-item,
 .choose-opening,
-.h2-tutorial {
+.h2-tutorial,
+.btn.choose-opening:active,
+.btn.choose-opening:hover {
   border-bottom: 0.2rem solid var(--accordion-border);
 }
 
@@ -513,9 +533,6 @@ li:nth-child(even) {
 
 /* xs */
 @media only screen and (max-width: 600px) {
-  body {
-    font-size: 0.8rem;
-  }
   .mega-container {
     margin: 5rem auto 0rem auto;
     padding: 0rem;
@@ -577,5 +594,17 @@ li:nth-child(even) {
 
   .container3 {
     flex-direction: column;
+  }
+
+  .accordion-button,
+  .choose-opening,
+  .h2-tutorial,
+  .test-yourself,
+  .hint {
+    font-size: 1.75rem;
+  }
+
+  .accordion-body {
+    font-size: 1.5rem;
   }
 }
