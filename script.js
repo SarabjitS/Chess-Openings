@@ -25,7 +25,6 @@ const hintBtn = document.getElementById("hint-button");
 const chessBoard = document.getElementById("chess-board");
 const chooseBtn = document.getElementById("choose-opening");
 const dialog = document.querySelector("dialog");
-const para = document.createElement("p");
 const tutorialHeading = document.getElementById("h2-tutorial");
 
 //variables defined
@@ -299,7 +298,6 @@ chessBoard.addEventListener("click", function (e) {
   console.log("started");
 
   if (!isHint && isTestMode) {
-    // tutorialHeading.appendChild(para);
     if (i < openingSourceMoves.length) {
       if (square) {
         square.classList.remove("highlight");
@@ -313,11 +311,9 @@ chessBoard.addEventListener("click", function (e) {
           generateTutorial(opening[moveIndex][2]);
           i++;
           tutorialHeading.textContent = "correct";
-          // para.textContent = "correct";
           if (i <= openingSourceMoves.length - 1) {
             makeSourceMoveHighlight(i);
           } else {
-            para.textContent = "";
             isSucessful = true;
             isTestMode = false;
             makeTutorialHeading();
@@ -328,7 +324,6 @@ chessBoard.addEventListener("click", function (e) {
         } else {
           square.classList.add("highlight");
           tutorialHeading.textContent = "Incorrect";
-          // para.textContent = "Incorrect";
         }
       }
     }

@@ -323,13 +323,6 @@ img {
   overflow: hidden;
 }
 
-.para {
-  font-size: 2.5rem;
-  max-width: 10rem;
-  padding: 1rem 1rem;
-  align-self: center;
-}
-
 .h2-tutorial {
   text-align: center;
   background-color: var(--tutorial-heading);
