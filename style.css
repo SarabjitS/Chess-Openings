@@ -56,14 +56,15 @@ html {
   font-size: 62.5%;
 }
 
-.header {
-  background-color: var(--header-background);
+.navbar {
   color: var(--header-text);
   display: flex;
   justify-content: space-between;
+}
+
+.header {
+  background-color: var(--header-background);
   padding: 1.25rem;
-  /* gap: 2rem; */
-  align-items: end;
 }
 
 .navbar-right {
@@ -571,9 +572,6 @@ li:nth-child(even) {
     height: 4.5rem;
   }
 
-  /* img {
-    width: 88.9%;
-  } */
   .container {
     width: 100%;
   }
@@ -591,10 +589,15 @@ li:nth-child(even) {
   }
 
   .font-large {
-    font-size: 1.75rem;
+    font-size: 2rem;
   }
 
   .font-medium {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
+  }
+
+  .sq-notation-white,
+  .sq-notation-black {
+    font-size: 1.25em;
   }
 }
