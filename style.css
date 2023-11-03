@@ -60,9 +60,6 @@ html {
   color: var(--header-text);
   display: flex;
   justify-content: space-between;
-}
-
-.header {
   background-color: var(--header-background);
   padding: 1.25rem;
 }
@@ -154,6 +151,18 @@ h1 {
   width: 3rem;
   height: 3rem;
 }
+
+.navbar .bar {
+  background-color: black;
+  height: 4px;
+  width: 36px;
+  margin: 3px;
+  border-radius: 10px;
+}
+
+/* .navbar .hamburger {
+  display: none;
+} */
 
 body {
   line-height: 1;
