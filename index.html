@@ -40,40 +40,44 @@
     ></script>
 
     <header class="header">
-      <h1>CHESS OPENINGS</h1>
-      <div class="dropdown" data-dropdown>
-        <button class="link" data-dropdown-button>Extra Options</button>
-        <div class="dropdown-menu information-grid">
-          <button
-            class="material-symbols-outlined size3"
-            id="orientation-button"
-          >
-            chess
-          </button>
-          <button class="material-symbols-outlined size3" id="sound-button">
-            volume_up
-          </button>
-          <button
-            class="speed material-symbols-outlined size3"
-            id="speed-button"
-          >
-            speed
-          </button>
-        </div>
+      <div class="navbar-left">
+        <h1>CHESS OPENINGS</h1>
       </div>
-      <button id="dark-mode-toggle" class="dark-mode-toggle">
-        <svg
-          width="100%"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 496 496"
-        >
-          <path
-            fill="currentColor"
-            d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z"
-            transform="translate(-8 -8)"
-          />
-        </svg>
-      </button>
+      <div class="nacbar-right">
+        <div class="dropdown" data-dropdown>
+          <button class="link" data-dropdown-button>Extra Options</button>
+          <div class="dropdown-menu information-grid">
+            <button
+              class="material-symbols-outlined size3"
+              id="orientation-button"
+            >
+              chess
+            </button>
+            <button class="material-symbols-outlined size3" id="sound-button">
+              volume_up
+            </button>
+            <button
+              class="speed material-symbols-outlined size3"
+              id="speed-button"
+            >
+              speed
+            </button>
+          </div>
+        </div>
+        <button id="dark-mode-toggle" class="dark-mode-toggle">
+          <svg
+            width="100%"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 496 496"
+          >
+            <path
+              fill="currentColor"
+              d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z"
+              transform="translate(-8 -8)"
+            />
+          </svg>
+        </button>
+      </div>
     </header>
     <main>
       <dialog class="dialog" id="dialog"></dialog>
