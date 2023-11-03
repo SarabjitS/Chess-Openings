@@ -574,4 +574,8 @@ li:nth-child(even) {
   h1 {
     font-size: 2rem;
   }
+
+  .container3 {
+    flex-direction: column;
+  }
 }
