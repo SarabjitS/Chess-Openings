@@ -61,28 +61,39 @@ html {
   color: var(--header-text);
   display: flex;
   justify-content: space-between;
-  padding: 1rem 1.25rem;
-  gap: 2rem;
+  padding: 1.25rem;
+  /* gap: 2rem; */
+  align-items: end;
+}
+
+.navbar-right {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  width: 20rem;
 }
 
 h1 {
   font-size: 2.5rem;
   letter-spacing: 1.5px;
-  /* margin: 0;
-  padding: 0; */
+  margin: 0;
+  /* padding: 0; */
   font-weight: 700;
 }
+
+/* .navbar-left {
+  align-self: center;
+} */
 
 .dropdown {
   position: relative;
   align-self: center;
-  margin-left: auto;
 }
 
 .dropdown-menu {
   position: absolute;
   /* left was defined as 0, changed it to -10px to make the dropdown-menu move a bit left, will have to work on it to get it to center*/
-  left: -10px;
+  left: -1rem;
   top: calc(100% + 0.25rem);
   background-color: var(--light-board-dropdown-bkg);
   padding: 0.75rem;
@@ -120,7 +131,6 @@ h1 {
   font-family: inherit;
   font-size: 2rem;
   cursor: pointer;
-  padding: 0;
 }
 
 .dropdown.active > .link,
@@ -145,7 +155,7 @@ h1 {
 .dark-mode-toggle {
   color: var(--foreground);
   border: 0.2rem solid currentColor;
-  padding: 0.4rem;
+  /* padding: 0.4rem; */
   background: transparent;
   cursor: pointer;
   border-radius: 0.5rem;
