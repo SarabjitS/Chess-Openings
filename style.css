@@ -155,7 +155,7 @@ h1 {
 .dark-mode-toggle {
   color: var(--foreground);
   border: 0.2rem solid currentColor;
-  /* padding: 0.4rem; */
+  padding: 0.4rem;
   background: transparent;
   cursor: pointer;
   border-radius: 0.5rem;
@@ -334,7 +334,6 @@ img {
 
 .choose-opening,
 .tutorial,
-.para,
 #accordionFlushExample .accordion-item {
   border-radius: 0.5rem;
   overflow: hidden;
@@ -352,13 +351,11 @@ img {
   /* width: 85%; */
   align-self: start;
   justify-self: center;
-  min-width: 53rem;
-  overflow: hidden !important;
+  width: 100%;
 }
 
 .accordion-button,
-.choose-opening,
-.para {
+.choose-opening {
   background-color: var(--accordion-button);
   color: white;
   font-size: 2.25rem;
@@ -461,18 +458,17 @@ li:nth-child(even) {
 
 .accordion-button:hover,
 .test-yourself:hover,
-.choose-opening:hover,
+.btn.choose-opening:hover,
 .accordion-button:active,
-.test-yourself:active,
-.choose-opening:active {
-  background-color: var(--hover-light) !important;
-  color: white !important;
+.btn.test-yourself:active,
+.btn.choose-opening:active {
+  background-color: var(--hover-light);
+  color: white;
   border-style: none;
 }
 
 .accordion-item,
 .choose-opening,
-.para,
 .h2-tutorial {
   border-bottom: 0.2rem solid var(--accordion-border) !important;
 }
