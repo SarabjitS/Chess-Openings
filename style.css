@@ -457,20 +457,21 @@ li:nth-child(even) {
 }
 
 .accordion-button:hover,
-.test-yourself:hover,
+.btn.test-yourself:hover,
 .btn.choose-opening:hover,
 .accordion-button:active,
 .btn.test-yourself:active,
 .btn.choose-opening:active {
   background-color: var(--hover-light);
   color: white;
-  border-style: none;
+  /* border-style: none; */
+  /* border-bottom: 0.2rem solid var(--accordion-border); */
 }
 
 .accordion-item,
 .choose-opening,
 .h2-tutorial {
-  border-bottom: 0.2rem solid var(--accordion-border) !important;
+  border-bottom: 0.2rem solid var(--accordion-border);
 }
 
 .accordion-button:not(.collapsed) {
