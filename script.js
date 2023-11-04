@@ -26,6 +26,10 @@ const chessBoard = document.getElementById("chess-board");
 const chooseBtn = document.getElementById("choose-opening");
 const dialog = document.querySelector("dialog");
 const tutorialHeading = document.getElementById("h2-tutorial");
+const hamburger = document.querySelector(".hamburger");
+const bar1 = document.querySelector(".bar1");
+const bar2 = document.querySelector(".bar2");
+const bar3 = document.querySelector(".bar3");
 
 //variables defined
 let opening = [];
@@ -114,6 +118,12 @@ speedBtn.addEventListener("click", function () {
     speed = 1250;
     speedBtn.style = "transform: scaleX(-1);";
   }
+});
+
+hamburger.addEventListener("click", () => {
+  bar1.classList.toggle("animateBar1");
+  bar2.classList.toggle("animateBar2");
+  bar3.classList.toggle("animateBar3");
 });
 
 //Choose between the traditional and funny openings
