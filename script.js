@@ -14,7 +14,7 @@ import {
 import { chessBoardHTML } from "./chessBoard.js";
 
 //const defined
-const orientationBtn = document.querySelector(".orientation-button");
+const orientationBtn = document.querySelectorAll(".orientation-button");
 const soundBtn = document.querySelector(".sound-button");
 const speedBtn = document.querySelector(".speed-button");
 const prevBtn = document.querySelector("#prev-button");
@@ -72,10 +72,12 @@ document.addEventListener("click", (e) => {
 });
 
 //Listen for click on orientation button
-orientationBtn.addEventListener("click", function () {
-  isRotated = !isRotated;
-  rotateBoard();
-  console.log("clicked");
+orientationBtn.forEach((orientation) => {
+  orientation.addEventListener("click", function () {
+    isRotated = !isRotated;
+    rotateBoard();
+    console.log("clicked");
+  });
 });
 
 //Listen for the opening selected
@@ -472,11 +474,15 @@ function resetTutorial() {
 // For rotating the chess board
 function rotateBoard() {
   if (isRotated) {
-    orientationBtn.classList.add("material-symbols-outlined-fill");
+    orientationBtn.forEach((orientation) => {
+      orientation.classList.add("material-symbols-outlined-fill");
+    });
     chessBoard.classList.add("rotate");
     // removeWhiteNotations();
   } else {
-    orientationBtn.classList.remove("material-symbols-outlined-fill");
+    orientationBtn.forEach((orientation) => {
+      orientation.classList.remove("material-symbols-outlined-fill");
+    });
     // removeBlackNotations();
     chessBoard.classList.remove("rotate");
   }
