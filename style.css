@@ -442,7 +442,7 @@ img {
 
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
-
+  color: black;
   /* transition: transform 100ms ease-in-out; */
 }
 
@@ -451,7 +451,8 @@ img {
 }
 
 .material-symbols-outlined-fill {
-  font-variation-settings: "FILL" 100, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  color: black;
 }
 
 .hidden {
