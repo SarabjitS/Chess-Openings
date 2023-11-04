@@ -588,6 +588,9 @@ li:nth-child(even) {
 
 /* xs */
 @media only screen and (max-width: 600px) {
+  body {
+    background-attachment: fixed;
+  }
   .mega-container {
     margin: 5rem auto 0rem auto;
     padding: 0rem;
