@@ -98,7 +98,6 @@ body {
 
 .mobileNav {
   width: 80px;
-  background-color: white;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -764,6 +763,17 @@ li:nth-child(even) {
   .tutorial {
     min-width: 50rem;
     height: 50rem;
+  }
+
+  .navbar {
+    /* padding: 16px 24px;
+    box-sizing: border-box; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    /* background-color: white; */
+    width: 100%;
   }
 }
 
