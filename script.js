@@ -54,6 +54,10 @@ let isSpeed = false;
 //Creating chess board
 renderBoard();
 
+//Prevent double click zoom
+document.ondblclick = function (e) {
+  e.preventDefault();
+};
 // Adding Event Listeners
 
 //Listen for click on extra-options button
