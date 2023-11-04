@@ -31,6 +31,7 @@ const bar1 = document.querySelector(".bar1");
 const bar2 = document.querySelector(".bar2");
 const bar3 = document.querySelector(".bar3");
 const mobileNav = document.querySelector(".mobileNav");
+const darkModeToggle = document.querySelectorAll(".dark-mode-toggle");
 
 //variables defined
 let opening = [];
@@ -528,8 +529,6 @@ function removeWhiteNotations() {
 // check for saved 'darkMode' in localStorage
 let darkMode = localStorage.getItem("darkMode");
 
-const darkModeToggle = document.querySelector("#dark-mode-toggle");
-
 const enableDarkMode = () => {
   // 1. Add the class to the body
   document.body.classList.add("darkmode");
@@ -553,17 +552,19 @@ if (darkMode === "enabled") {
 }
 
 // When someone clicks the button
-darkModeToggle.addEventListener("click", () => {
-  // get their darkMode setting
-  darkMode = localStorage.getItem("darkMode");
+darkModeToggle.forEach((darkMode1) => {
+  darkMode1.addEventListener("click", () => {
+    // get their darkMode setting
+    darkMode = localStorage.getItem("darkMode");
 
-  // if it not current enabled, enable it
-  if (darkMode !== "enabled") {
-    enableDarkMode();
-    // if it has been enabled, turn it off
-  } else {
-    disableDarkMode();
-  }
+    // if it not current enabled, enable it
+    if (darkMode !== "enabled") {
+      enableDarkMode();
+      // if it has been enabled, turn it off
+    } else {
+      disableDarkMode();
+    }
+  });
 });
 
 // For rendering the chess board at start, when an opening is selected
