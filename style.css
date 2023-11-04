@@ -64,11 +64,37 @@ html {
   padding: 1.25rem;
 }
 
+.navbar .hamburger:hover {
+  cursor: pointer;
+}
+
 .navbar-right {
   display: flex;
   justify-content: space-between;
   /* align-items: center; */
   width: 20rem;
+}
+
+.mobileNav {
+  width: 80px;
+  background-color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  right: -160px;
+  padding: 16px;
+  gap: 16px;
+  background-color: var(--header-background);
+  transition: transform 0.3s;
+}
+
+.openDrawer {
+  transform: translateX(-160px);
 }
 
 h1 {
@@ -582,7 +608,7 @@ li:nth-child(even) {
 /* xs */
 @media only screen and (max-width: 600px) {
   .mega-container {
-    margin: 5rem auto 0rem auto;
+    margin: 15rem auto 0rem auto;
     padding: 0rem;
     max-width: 100%;
     justify-content: center;
@@ -667,20 +693,14 @@ li:nth-child(even) {
     align-items: center;
   }
 
-  .mobileNav {
-    width: 80px;
-    background-color: white;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  .navbar {
+    /* padding: 16px 24px;
+    box-sizing: border-box; */
     position: fixed;
-    z-index: 2;
     top: 0;
-    right: 0;
-    padding: 16px;
-    gap: 16px;
-    background-color: var(--header-background);
+    left: 0;
+    z-index: 3;
+    /* background-color: white; */
+    width: 100%;
   }
 }
