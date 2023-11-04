@@ -67,7 +67,7 @@ body {
   color: var(--foreground);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  background: #f1f5f9;
+  /* background: #f1f5f9; */
   /* The text of the element and its sub-elements is not selectable. */
   user-select: none;
   background-image: var(--background);
@@ -83,7 +83,7 @@ body:after {
   left: 0;
   right: 0;
   z-index: -1; /* needed to keep in the background */
-  background-image: var(--background) center center;
+  background: url("wood.png") center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -668,12 +668,12 @@ li:nth-child(even) {
     max-width: 100%;
     justify-content: center;
     grid-template-columns: 27rem 40rem;
-    grid-template-rows: 7rem 65rem 50rem;
+    grid-template-rows: 7rem 65rem 70rem;
     grid-template-areas:
       "btn board"
       "accordion board"
       "tutorial tutorial";
-    /* row-gap: 7rem; */
+    row-gap: 2rem;
   }
 
   .choose-opening {
