@@ -573,7 +573,7 @@ li:nth-child(even) {
 /* Media queries */
 
 /* xl */
-@media (max-width: 1340px) {
+@media (max-width: 1280px) {
   body {
     background-image: var(--background);
   }
@@ -583,13 +583,14 @@ li:nth-child(even) {
     padding: 0rem;
     max-width: 100%;
     justify-content: center;
-    grid-template-columns: 40rem 48rem;
-    grid-template-rows: 7rem 84rem 50rem;
+    grid-template-columns: 30rem 56rem;
+    grid-template-rows: 4rem 68rem 40rem;
     grid-template-areas:
       "btn board"
       "accordion board"
       "tutorial tutorial";
     /* row-gap: 7rem; */
+    column-gap: 10rem;
   }
 
   .choose-opening {
@@ -597,7 +598,7 @@ li:nth-child(even) {
   }
 
   .extended-chess-board {
-    min-width: 48rem;
+    min-width: 56rem;
     /* margin-top: 5rem; */
     /* padding: 5rem; */
   }
@@ -605,16 +606,16 @@ li:nth-child(even) {
   .chess-board {
     display: grid;
     border-radius: 0.5rem;
-    grid-template-columns: repeat(8, 6rem);
-    grid-template-rows: repeat(8, 6rem);
-    min-height: 48rem;
-    min-width: 48rem;
+    grid-template-columns: repeat(8, 7rem);
+    grid-template-rows: repeat(8, 7rem);
+    min-height: 56rem;
+    min-width: 56rem;
     overflow: hidden;
   }
 
   .sq {
-    width: 6rem;
-    height: 6rem;
+    width: 7rem;
+    height: 77rem;
   }
 
   .container3 {
@@ -629,29 +630,33 @@ li:nth-child(even) {
   .accordion-body,
   .accordion-button {
     font-size: 1.75rem;
+  }
+
+  .tutorial {
+    min-width: 40rem;
+    height: 100%;
   }
 }
 
 /* lg */
 @media (max-width: 1024px) {
-  body {
-    background-image: var(--background);
-    background-attachment: fixed;
-    background-size: cover;
-  }
-
   .mega-container {
-    margin: 10rem auto 0rem auto;
-    padding: 0rem;
+    margin: 0 auto;
+    padding: 15rem 0;
     max-width: 100%;
     justify-content: center;
-    grid-template-columns: 27rem 40rem;
-    grid-template-rows: 7rem 65rem 70rem;
+    grid-template-columns: 27rem 36rem;
+    grid-template-rows: 4rem 50rem 40rem;
     grid-template-areas:
       "btn board"
       "accordion board"
       "tutorial tutorial";
-    row-gap: 2rem;
+    row-gap: 4rem;
+  }
+
+  .tutorial {
+    min-width: 40rem;
+    height: 100%;
   }
 
   .choose-opening {
@@ -659,152 +664,9 @@ li:nth-child(even) {
   }
 
   .extended-chess-board {
-    min-width: 40rem;
+    min-width: 36rem;
     /* margin-top: 5rem; */
     /* padding: 5rem; */
-  }
-
-  .chess-board {
-    display: grid;
-    border-radius: 0.5rem;
-    grid-template-columns: repeat(8, 5rem);
-    grid-template-rows: repeat(8, 5rem);
-    min-height: 40rem;
-    min-width: 40rem;
-    overflow: hidden;
-  }
-
-  .sq {
-    width: 5rem;
-    height: 5rem;
-  }
-
-  .container3 {
-    flex-direction: column;
-  }
-
-  .font-large {
-    font-size: 3rem;
-  }
-
-  .font-medium,
-  .accordion-body,
-  .accordion-button {
-    font-size: 1.75rem;
-  }
-
-  .navbar {
-    /* padding: 16px 24px;
-    box-sizing: border-box; */
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 3;
-    /* background-color: white; */
-    width: 100%;
-  }
-}
-
-/* md */
-@media (max-width: 768px) {
-  body {
-    background-image: var(--background);
-  }
-
-  .mega-container {
-    margin: 10rem auto 0rem auto;
-    padding: 0rem;
-    max-width: 100%;
-    justify-content: center;
-    grid-template-columns: 50rem;
-    grid-template-rows: 5rem 1fr 65rem 50rem;
-    grid-template-areas:
-      "btn"
-      "accordion "
-      "board"
-      "tutorial";
-    row-gap: 7rem;
-  }
-
-  .accordion {
-    min-width: 50rem;
-    max-width: 50rem;
-    justify-self: center;
-    /* min-width: 30rem; */
-    align-self: start;
-    /* margin: auto; */
-    padding: 2rem;
-  }
-
-  .extended-chess-board {
-    min-width: 50rem;
-    margin-top: 5rem;
-  }
-
-  .chess-board {
-    display: grid;
-    border-radius: 0.5rem;
-    grid-template-columns: repeat(8, 6.25rem);
-    grid-template-rows: repeat(8, 6.25rem);
-    min-height: 50rem;
-    min-width: 50rem;
-    overflow: hidden;
-  }
-
-  .sq {
-    width: 6.25rem;
-    height: 6.25rem;
-  }
-
-  .tutorial {
-    min-width: 50rem;
-    height: 50rem;
-  }
-
-  .navbar {
-    /* padding: 16px 24px;
-    box-sizing: border-box; */
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 3;
-    /* background-color: white; */
-    width: 100%;
-  }
-}
-
-/* xs */
-@media only screen and (max-width: 600px) {
-  body {
-    background-image: var(--background);
-  }
-
-  .mega-container {
-    margin: 15rem auto 0rem auto;
-    padding: 0rem;
-    max-width: 100%;
-    justify-content: center;
-    grid-template-columns: 36rem;
-    grid-template-rows: 5rem 1fr 60rem 45rem;
-    grid-template-areas:
-      "btn"
-      "accordion "
-      "board"
-      "tutorial";
-  }
-
-  .accordion {
-    min-width: 36rem;
-    max-width: 36rem;
-    justify-self: center;
-    /* min-width: 30rem; */
-    align-self: start;
-    /* margin: auto; */
-    padding: 2rem;
-  }
-
-  .extended-chess-board {
-    min-width: 36rem;
   }
 
   .chess-board {
@@ -822,18 +684,6 @@ li:nth-child(even) {
     height: 4.5rem;
   }
 
-  .container {
-    width: 100%;
-  }
-  .tutorial {
-    min-width: 32rem;
-    height: 40rem;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
   .container3 {
     flex-direction: column;
   }
@@ -845,7 +695,176 @@ li:nth-child(even) {
   .font-medium,
   .accordion-body,
   .accordion-button {
+    font-size: 1.75rem;
+  }
+}
+
+/* md */
+@media (max-width: 768px) {
+  .navbar-right {
+    display: none;
+  }
+
+  .navbar .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .font-large {
+    font-size: 3rem;
+  }
+
+  .font-medium,
+  .accordion-button {
     font-size: 2rem;
+  }
+
+  .accordion-body {
+    font-size: 1.75rem;
+  }
+
+  .navbar {
+    /* padding: 16px 24px;
+    box-sizing: border-box; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    /* background-color: white; */
+    width: 100%;
+  }
+
+  .mobileNav {
+    width: 80px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: -160px;
+    padding: 16px;
+    gap: 16px;
+    background-color: var(--light-board-dropdown-bkg);
+    transition: transform 0.3s;
+  }
+
+  .mega-container {
+    justify-content: center;
+    grid-template-columns: 44rem;
+    grid-template-rows: 3.6em 1fr 62rem 50rem;
+    grid-template-areas:
+      "btn"
+      "accordion "
+      "board"
+      "tutorial";
+    row-gap: 7rem;
+  }
+
+  .accordion {
+    min-width: 44rem;
+    /* max-width: 50rem; */
+    justify-self: center;
+    /* min-width: 30rem; */
+    align-self: start;
+    /* margin: auto; */
+  }
+
+  .extended-chess-board {
+    min-width: 44rem;
+  }
+
+  .chess-board {
+    display: grid;
+    border-radius: 0.5rem;
+    grid-template-columns: repeat(8, 5.5rem);
+    grid-template-rows: repeat(8, 5.5rem);
+    min-height: 44rem;
+    min-width: 44rem;
+    overflow: hidden;
+  }
+
+  .sq {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+
+  .tutorial {
+    min-width: 44rem;
+  }
+}
+
+/* xs */
+@media only screen and (max-width: 480px) {
+  .font-large {
+    font-size: 2.5rem;
+  }
+
+  .font-medium,
+  .accordion-button {
+    font-size: 1.75rem;
+  }
+
+  .accordion-body {
+    font-size: 1.5rem;
+  }
+  .mega-container {
+    max-width: 100%;
+    justify-content: center;
+    grid-template-columns: 34rem;
+    grid-template-rows: 3.6rem 1fr 54rem 45rem;
+    grid-template-areas:
+      "btn"
+      "accordion "
+      "board"
+      "tutorial";
+  }
+
+  .accordion {
+    min-width: 34rem;
+    max-width: 34rem;
+    justify-self: center;
+    /* min-width: 30rem; */
+    align-self: start;
+    /* margin: auto; */
+  }
+
+  .extended-chess-board {
+    min-width: 34rem;
+  }
+
+  .chess-board {
+    display: grid;
+    border-radius: 0.5rem;
+    grid-template-columns: repeat(8, 4.25rem);
+    grid-template-rows: repeat(8, 4.25rem);
+    min-height: 34rem;
+    min-width: 34rem;
+    overflow: hidden;
+  }
+
+  .sq {
+    width: 4.25rem;
+    height: 4.25rem;
+  }
+
+  .container {
+    width: 100%;
+  }
+  .tutorial {
+    min-width: 32rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .container3 {
+    flex-direction: column;
   }
 
   .sq-notation-white,
