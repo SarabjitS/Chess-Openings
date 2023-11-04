@@ -14,9 +14,9 @@ import {
 import { chessBoardHTML } from "./chessBoard.js";
 
 //const defined
-const orientationBtn = document.getElementById("orientation-button");
-const soundBtn = document.getElementById("sound-button");
-const speedBtn = document.getElementById("speed-button");
+const orientationBtn = document.querySelector(".orientation-button");
+const soundBtn = document.querySelector(".sound-button");
+const speedBtn = document.querySelector(".speed-button");
 const prevBtn = document.querySelector("#prev-button");
 const playBtn = document.getElementById("play-button");
 const nextBtn = document.querySelector("#next-button");
@@ -75,6 +75,7 @@ document.addEventListener("click", (e) => {
 orientationBtn.addEventListener("click", function () {
   isRotated = !isRotated;
   rotateBoard();
+  console.log("clicked");
 });
 
 //Listen for the opening selected
