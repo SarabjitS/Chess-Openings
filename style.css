@@ -97,26 +97,8 @@ body {
 }
 
 .mobileNav {
-  width: 80px;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  z-index: 2;
-  top: 0;
-  right: -160px;
-  padding: 16px;
-  gap: 16px;
-  background-color: var(--light-board-dropdown-bkg);
-  transition: transform 0.3s;
+  display: none;
 }
-
-/* .mobileNav button {
-  background-color: var(--light-board-dropdown-bkg);
-  border-radius: 0.5rem;
-} */
 
 .openDrawer {
   transform: translateX(-160px);
@@ -890,5 +872,22 @@ li:nth-child(even) {
     z-index: 3;
     /* background-color: white; */
     width: 100%;
+  }
+
+  .mobileNav {
+    width: 80px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: -160px;
+    padding: 16px;
+    gap: 16px;
+    background-color: var(--light-board-dropdown-bkg);
+    transition: transform 0.3s;
   }
 }
