@@ -10,6 +10,7 @@
   --dark-board-hover-green: rgba(101, 163, 13);
   --dark-board-darkest-green: #052e16;
   --dark-board-lightest-green: #f0fdf4;
+  --dark-board-lightest-green-opaque: rgb(240, 253, 244, 0.6);
   --light-board-darkest-brown: rgb(55, 38, 27);
   --light-board-dark-brown: rgb(158, 109, 64, 1);
   --light-board-acc-body-brown: rgba(240, 217, 181, 1);
@@ -26,7 +27,7 @@
   --tutorial-list-item: rgba(240, 217, 181, 0.6);
   --header-text: var(--light-board-darkest-brown);
   --acc-body-bkg: var(--light-board-acc-body-brown);
-  --light-board-dropdown-bkg: var(--light-board-acc-body-brown);
+  --light-board-dropdown-bkg: rgba(240, 217, 181, 0.6);
   --accordion-not-collapsed-color: white;
   --accordion-not-collapsed-bg: rgb(158, 109, 64, 0.95);
   --grp-btn: var(--light-board-darkest-brown);
@@ -54,6 +55,24 @@
 /* Conversion of px to rem, 1rem = 10px */
 html {
   font-size: 62.5%;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  line-height: 1;
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: #f1f5f9;
+  /* The text of the element and its sub-elements is not selectable. */
+  user-select: none;
+  background-image: var(--background);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .navbar {
@@ -90,9 +109,14 @@ html {
   right: -160px;
   padding: 16px;
   gap: 16px;
-  background-color: var(--header-background);
+  background-color: var(--light-board-dropdown-bkg);
   transition: transform 0.3s;
 }
+
+/* .mobileNav button {
+  background-color: var(--light-board-dropdown-bkg);
+  border-radius: 0.5rem;
+} */
 
 .openDrawer {
   transform: translateX(-160px);
@@ -234,25 +258,6 @@ h1 {
   to {
     transform: rotate(-45deg) translate(4px, -10px);
   }
-}
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  line-height: 1;
-  color: var(--foreground);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  background: #f1f5f9;
-  /* The text of the element and its sub-elements is not selectable. */
-  user-select: none;
-  background-image: var(--background);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: auto 100%;
 }
 
 .mega-container {
@@ -514,7 +519,7 @@ dialog {
   --tutorial-list-item: var(--dark-board-lightest-green);
   --acc-body-bkg: rgb(22, 101, 52, 0.2);
   --acc-body-color: var(--dark-board-darkest-green);
-  --light-board-dropdown-bkg: var(--dark-board-lightest-green);
+  --light-board-dropdown-bkg: var(--dark-board-lightest-green-opaque);
   --notation-clr: var(--dark-board-darkest-green);
   --dropdown-hover: var(--dark-board-lightest-green);
   --test-yourself-disabled: var(--hover-light);
