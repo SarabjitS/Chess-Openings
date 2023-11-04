@@ -592,6 +592,10 @@ li:nth-child(even) {
 
 /* xl */
 @media (max-width: 1340px) {
+  body {
+    background-image: var(--background);
+  }
+
   .mega-container {
     margin: 10rem auto 0rem auto;
     padding: 0rem;
@@ -648,6 +652,10 @@ li:nth-child(even) {
 
 /* lg */
 @media (max-width: 1024px) {
+  body {
+    background-image: var(--background);
+  }
+
   .mega-container {
     margin: 10rem auto 0rem auto;
     padding: 0rem;
@@ -704,6 +712,10 @@ li:nth-child(even) {
 
 /* md */
 @media (max-width: 768px) {
+  body {
+    background-image: var(--background);
+  }
+
   .mega-container {
     margin: 10rem auto 0rem auto;
     padding: 0rem;
@@ -757,6 +769,10 @@ li:nth-child(even) {
 
 /* xs */
 @media only screen and (max-width: 600px) {
+  body {
+    background-image: var(--background);
+  }
+
   .mega-container {
     margin: 15rem auto 0rem auto;
     padding: 0rem;
