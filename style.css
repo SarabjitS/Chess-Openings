@@ -662,6 +662,10 @@ li:nth-child(even) {
     font-size: 2rem;
   }
 
+  .accordion {
+    min-width: 44rem;
+  }
+
   .accordion-body {
     font-size: 1.75rem;
   }
@@ -695,9 +699,9 @@ li:nth-child(even) {
   }
 
   .mega-container {
-    justify-content: center;
+    /* justify-content: center; */
     grid-template-columns: 44rem;
-    grid-template-rows: 3.6em 1fr 62rem 50rem;
+    grid-template-rows: 4em 1fr 62rem 50rem;
     grid-template-areas:
       "btn"
       "accordion "
@@ -706,17 +710,8 @@ li:nth-child(even) {
     row-gap: 7rem;
   }
 
-  .accordion {
-    min-width: 44rem;
-    /* max-width: 50rem; */
-    justify-self: center;
-    /* min-width: 30rem; */
-    align-self: start;
-    /* margin: auto; */
-  }
-
-  .extended-chess-board {
-    min-width: 44rem;
+  .tutorial {
+    grid-column-start: 1;
   }
 
   .chess-board {
