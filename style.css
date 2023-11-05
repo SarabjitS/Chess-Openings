@@ -428,7 +428,7 @@ img {
   align-self: start;
   justify-self: center;
   max-width: 48rem;
-  min-width: 36rem;
+  min-width: 100%;
 }
 
 .accordion-button,
@@ -605,8 +605,6 @@ li:nth-child(even) {
 /* lg */
 @media (max-width: 1024px) {
   .mega-container {
-    margin: 0 auto;
-    padding: 15rem 0;
     max-width: 100%;
     justify-content: center;
     grid-template-columns: 27rem 36rem;
@@ -616,6 +614,7 @@ li:nth-child(even) {
       "accordion board"
       "tutorial tutorial";
     row-gap: 4rem;
+    column-gap: 5rem;
   }
 
   .tutorial {
