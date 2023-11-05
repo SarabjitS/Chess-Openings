@@ -39,6 +39,7 @@
   --accordion-border: var(--light-board-darkest-brown);
   --notation-clr: var(--light-board-darkest-brown);
   --dropdown-hover: var(--darkest-brown-light-shade);
+  --symbol-color: var(--acc-body-color);
 
   /* Dark mode */
   --dark-board-btn-grp: var(--dark-board-hover-green);
@@ -436,7 +437,7 @@ img {
 
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
-  color: black;
+  color: var(--symbol-color);
 }
 
 .rotate {
@@ -445,7 +446,7 @@ img {
 
 .material-symbols-outlined-fill {
   font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
-  color: black;
+  color: var(--symbol-color);
 }
 
 .hidden {
@@ -658,7 +659,7 @@ li:nth-child(even) {
   }
 
   .mobileNav {
-    width: 8rem;
+    width: 6rem;
     height: 100vh;
     display: flex;
     flex-direction: column;

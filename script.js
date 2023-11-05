@@ -14,7 +14,7 @@ import {
 import { chessBoardHTML } from "./chessBoard.js";
 
 //const defined
-const orientationBtn = document.querySelectorAll(".orientation-button");
+const orientationBtn = document.querySelector(".orientation-button");
 const soundBtn = document.querySelector(".sound-button");
 const speedBtn = document.querySelector(".speed-button");
 const prevBtn = document.querySelector("#prev-button");
@@ -70,20 +70,6 @@ document.addEventListener("click", (e) => {
     currentDropdown = e.target.closest("[data-dropdown]");
     currentDropdown.classList.toggle("active");
   }
-
-  // document.querySelectorAll("[data-dropdown].active").forEach((dropdown) => {
-  //   if (dropdown === currentDropdown) return;
-  //   dropdown.classList.remove("active");
-  // });
-});
-
-//Listen for click on orientation button
-orientationBtn.forEach((orientation) => {
-  orientation.addEventListener("click", function () {
-    isRotated = !isRotated;
-    rotateBoard();
-    console.log("clicked");
-  });
 });
 
 //Listen for the opening selected
@@ -108,7 +94,17 @@ document.addEventListener("click", function (e) {
   }
 });
 
+//Listen for click on orientation button
+// orientationBtn.forEach((orientation) => {
+orientationBtn.addEventListener("click", function () {
+  isRotated = !isRotated;
+  rotateBoard();
+  console.log("clicked");
+});
+// });
+
 //Listen for sound button clicked on/off
+// soundBtn.forEach((soundBtn) => {
 soundBtn.addEventListener("click", function () {
   isAudio = !isAudio;
   if (!isAudio) {
@@ -116,8 +112,11 @@ soundBtn.addEventListener("click", function () {
   } else {
     soundBtn.textContent = "volume_up";
   }
+  console.log("clicked");
 });
+// });
 
+// speedBtn.forEach((soundBtn) => {
 speedBtn.addEventListener("click", function () {
   isSpeed = !isSpeed;
   if (isSpeed) {
@@ -127,7 +126,9 @@ speedBtn.addEventListener("click", function () {
     speed = 1250;
     speedBtn.style = "transform: scaleX(-1);";
   }
+  console.log("clicked");
 });
+// });
 
 hamburger.addEventListener("click", () => {
   bar1.classList.toggle("animateBar1");
@@ -481,15 +482,15 @@ function resetTutorial() {
 // For rotating the chess board
 function rotateBoard() {
   if (isRotated) {
-    orientationBtn.forEach((orientation) => {
-      orientation.classList.add("material-symbols-outlined-fill");
-    });
+    // orientationBtn.forEach((orientation) => {
+    orientationBtn.classList.add("material-symbols-outlined-fill");
+    // });
     chessBoard.classList.add("rotate");
     // removeWhiteNotations();
   } else {
-    orientationBtn.forEach((orientation) => {
-      orientation.classList.remove("material-symbols-outlined-fill");
-    });
+    // orientationBtn.forEach((orientation) => {
+    orientationBtn.classList.remove("material-symbols-outlined-fill");
+    // });
     // removeBlackNotations();
     chessBoard.classList.remove("rotate");
   }
@@ -546,7 +547,7 @@ const disableDarkMode = () => {
   document.querySelector(".accordion-item").classList.remove("darkmode");
 
   // 2. Update darkMode in localStorage
-  localStorage.setItem("darkMode", null);
+  localStorage.removeItem("darkMode");
 };
 
 // If the user already visited and enabled darkMode
