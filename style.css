@@ -713,8 +713,6 @@ li:nth-child(even) {
     font-size: 1.5rem;
   }
   .mega-container {
-    max-width: 100%;
-    justify-content: center;
     grid-template-columns: 34rem;
     grid-template-rows: 3.6rem 1fr 54rem 45rem;
     grid-template-areas:
@@ -724,107 +722,23 @@ li:nth-child(even) {
       "tutorial";
   }
 
-  .accordion {
-    min-width: 34rem;
-    max-width: 34rem;
-    justify-self: center;
-    /* min-width: 30rem; */
-    align-self: start;
-    /* margin: auto; */
-  }
-
-  .extended-chess-board {
-    min-width: 34rem;
-  }
-
   .chess-board {
-    display: grid;
-    border-radius: 0.5rem;
     grid-template-columns: repeat(8, 4.25rem);
     grid-template-rows: repeat(8, 4.25rem);
-    overflow: hidden;
-  }
-
-  .sq {
-    width: 4.25rem;
-    height: 4.25rem;
-  }
-
-  .container {
-    width: 100%;
-  }
-  .tutorial {
-    min-width: 32rem;
   }
 
   h1 {
     font-size: 2rem;
   }
 
-  .container3 {
-    flex-direction: column;
-  }
-
   .sq-notation-white,
   .sq-notation-black {
     font-size: 1.25em;
   }
-
-  .navbar-right {
-    display: none;
-  }
-
-  .navbar .hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .navbar {
-    /* padding: 16px 24px;
-    box-sizing: border-box; */
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 3;
-    /* background-color: white; */
-    width: 100%;
-  }
-
-  .mobileNav {
-    width: 80px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    z-index: 2;
-    top: 0;
-    right: -160px;
-    padding: 16px;
-    gap: 16px;
-    background-color: var(--light-board-dropdown-bkg);
-    transition: transform 0.3s;
-  }
 }
 
 @media only screen and (max-width: 360px) {
-  .font-large {
-    font-size: 2.5rem;
-  }
-
-  .font-medium,
-  .accordion-button {
-    font-size: 1.75rem;
-  }
-
-  .accordion-body {
-    font-size: 1.5rem;
-  }
   .mega-container {
-    padding: 15rem 0rem 7rem 0;
     grid-template-columns: 30rem;
     grid-template-rows: 3.6rem 1fr 48rem 40rem;
   }
