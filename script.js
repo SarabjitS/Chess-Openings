@@ -75,13 +75,13 @@ document.addEventListener("click", (e) => {
 //Listen for the opening selected
 document.addEventListener("click", function (e) {
   if (
-    e.target.dataset.name == "opening1" ||
-    e.target.dataset.name == "opening2" ||
-    e.target.dataset.name == "opening3" ||
-    e.target.dataset.name == "opening4" ||
-    e.target.dataset.name == "opening5" ||
-    e.target.dataset.name == "opening6" ||
-    e.target.dataset.name == "opening7"
+    e.target.dataset.name === "opening1" ||
+    e.target.dataset.name === "opening2" ||
+    e.target.dataset.name === "opening3" ||
+    e.target.dataset.name === "opening4" ||
+    e.target.dataset.name === "opening5" ||
+    e.target.dataset.name === "opening6" ||
+    e.target.dataset.name === "opening7"
   ) {
     isTestMode = false;
     renderBoard();
@@ -191,7 +191,7 @@ prevBtn.addEventListener("click", function () {
     makeTutorialHeading();
   }
 
-  if (opening.length == 0) {
+  if (opening.length === 0) {
     showDialog("Please select an opening first");
   } else {
     if (isPlay) {
@@ -224,7 +224,7 @@ prevBtn.addEventListener("click", function () {
 //Listen for play button click
 playBtn.addEventListener("click", function () {
   isPlay = !isPlay;
-  if (opening.length == 0) {
+  if (opening.length === 0) {
     showDialog("Please select an opening first");
   } else {
     if (isPlay) {
@@ -240,7 +240,7 @@ playBtn.addEventListener("click", function () {
 //Listen for test yourself button click
 testBtn.addEventListener("click", function () {
   //If no opening selected
-  if (opening.length == 0) {
+  if (opening.length === 0) {
     showDialog("Please select an opening first");
   } else {
     renderBoard();
@@ -325,7 +325,7 @@ chessBoard.addEventListener("click", function (e) {
       }
       if (e.target.closest(".sq")) {
         square = e.target.closest(".sq");
-        if (square.getAttribute("id") == openingDestinationMoves[i]) {
+        if (square.getAttribute("id") === openingDestinationMoves[i]) {
           removeSourceMoveHighlight(i);
           moveIndex++;
           nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
@@ -358,7 +358,7 @@ function playBtnHandler() {
     nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
     playSound();
     generateTutorial(opening[moveIndex][2]);
-    if (moveIndex == opening.length - 1) {
+    if (moveIndex === opening.length - 1) {
       disableButton(nextBtn);
       clearInterval(id);
       replacePauseToPlay();
@@ -643,7 +643,7 @@ function buttonsOnTestMode() {
   } else {
     for (const child of document.querySelector(".btn-group").children) {
       // Not including next button and playBtn as there are no moves left
-      if (child == nextBtn || child == playBtn) {
+      if (child === nextBtn || child === playBtn) {
         continue;
       }
       enableButton(child);

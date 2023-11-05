@@ -283,7 +283,6 @@ h1 {
   border-radius: 0.5rem;
   grid-template-columns: repeat(8, 5.25rem);
   grid-template-rows: repeat(8, 5.25rem);
-  overflow: hidden;
   box-shadow: var(--shadow-elevation-high);
 }
 
