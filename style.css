@@ -244,16 +244,16 @@ h1 {
 
 .mega-container {
   display: grid;
-  grid-template-columns: 1fr 52rem 40rem;
-  grid-template-rows: 7rem 53rem;
-  padding: 1rem;
+  grid-template-columns: 1fr 44rem 32rem;
+  grid-template-rows: 7rem 1fr;
+  padding: 10rem 0rem 7rem 0rem;
   column-gap: 7rem;
   row-gap: 2rem;
   position: relative;
   grid-template-areas:
     "btn board tutorial"
     "accordion  board tutorial";
-  margin: 10rem auto 0rem auto;
+  margin: 0 auto;
 
   max-width: 97.5%;
   /* min-height: 40%; */
@@ -280,15 +280,15 @@ h1 {
 .chess-board {
   display: grid;
   border-radius: 0.5rem;
-  grid-template-columns: repeat(8, 6.5rem);
-  grid-template-rows: repeat(8, 6.5rem);
+  grid-template-columns: repeat(8, 5.5rem);
+  grid-template-rows: repeat(8, 5.5rem);
   overflow: hidden;
   box-shadow: var(--shadow-elevation-high);
 }
 
 .sq {
-  width: 6.5rem;
-  height: 6.5rem;
+  width: 5.5rem;
+  height: 5.5rem;
 }
 
 .sq-block {
@@ -390,8 +390,8 @@ img {
 
 .tutorial {
   grid-area: tutorial;
-  height: 62rem;
-  min-width: 40rem;
+  min-height: 100%;
+  min-width: 100%;
   align-self: start;
   justify-self: center;
   background-color: #fff;
