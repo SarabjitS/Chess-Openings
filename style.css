@@ -743,25 +743,8 @@ li:nth-child(even) {
     grid-template-rows: 3.6rem 1fr 48rem 40rem;
   }
 
-  .accordion {
-    min-width: 30rem;
-  }
-
-  .extended-chess-board {
-    min-width: 30rem;
-  }
-
   .chess-board {
     grid-template-columns: repeat(8, 3.75rem);
     grid-template-rows: repeat(8, 3.75rem);
-  }
-
-  .sq {
-    width: 3.75rem;
-    height: 3.75rem;
-  }
-
-  .tutorial {
-    min-width: 30rem;
   }
 }
