@@ -916,6 +916,7 @@ li:nth-child(even) {
     font-size: 1.5rem;
   }
   .mega-container {
+    padding: 15rem 0rem 7rem 0;
     grid-template-columns: 30rem;
     grid-template-rows: 3.6rem 1fr 48rem 40rem;
   }
