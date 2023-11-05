@@ -254,6 +254,7 @@ h1 {
     "btn board tutorial"
     "accordion  board tutorial";
   margin: 0rem auto;
+  justify-content: center;
 
   max-width: 125rem;
   /* min-height: 40%; */
@@ -574,30 +575,15 @@ li:nth-child(even) {
 
 /* xl */
 @media (max-width: 1280px) {
-  body {
-    background-image: var(--background);
-  }
-
   .mega-container {
-    margin: 0 auto;
-    padding: 15rem 0rem;
     max-width: 100%;
-    justify-content: center;
-    grid-template-columns: 32rem 48rem;
+    grid-template-columns: 36rem 48rem;
     grid-template-rows: 4rem 1fr 40rem;
     grid-template-areas:
       "btn board"
       "accordion board"
       "tutorial tutorial";
-    column-gap: 10rem;
-  }
-
-  .choose-opening {
-    grid-column: 1/2;
-  }
-
-  .extended-chess-board {
-    min-width: 48rem;
+    gap: 10rem;
   }
 
   .chess-board {
@@ -608,20 +594,6 @@ li:nth-child(even) {
   .sq {
     width: 6rem;
     height: 6rem;
-  }
-
-  .container3 {
-    flex-direction: column;
-  }
-
-  .font-large {
-    font-size: 3rem;
-  }
-
-  .font-medium,
-  .accordion-body,
-  .accordion-button {
-    font-size: 1.75rem;
   }
 
   .tutorial {
@@ -653,12 +625,6 @@ li:nth-child(even) {
 
   .choose-opening {
     grid-column: 1/2;
-  }
-
-  .extended-chess-board {
-    min-width: 36rem;
-    /* margin-top: 5rem; */
-    /* padding: 5rem; */
   }
 
   .chess-board {
