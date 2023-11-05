@@ -423,7 +423,6 @@ img {
 
 .accordion {
   grid-area: accordion;
-  /* width: 85%; */
   align-self: start;
   justify-self: center;
   min-width: 100%;
@@ -435,14 +434,9 @@ img {
   color: white;
 }
 
-/* .material-icons.md-48 {
-  font-size: 48px;
-} */
-
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
   color: black;
-  /* transition: transform 100ms ease-in-out; */
 }
 
 .rotate {
@@ -674,13 +668,10 @@ li:nth-child(even) {
   }
 
   .navbar {
-    /* padding: 16px 24px;
-    box-sizing: border-box; */
     position: fixed;
     top: 0;
     left: 0;
     z-index: 3;
-    /* background-color: white; */
     width: 100%;
   }
 
@@ -711,6 +702,8 @@ li:nth-child(even) {
       "board"
       "tutorial";
     row-gap: 7rem;
+    /* Due to navbar being fixed, extra padding required */
+    padding-top: 16.1rem;
   }
 
   .tutorial {
