@@ -597,7 +597,8 @@ li:nth-child(even) {
   }
 
   .tutorial {
-    min-width: 40rem;
+    min-width: 100%;
+    min-height: 100%;
     grid-column-start: 2;
   }
 }
@@ -608,18 +609,12 @@ li:nth-child(even) {
     max-width: 100%;
     justify-content: center;
     grid-template-columns: 27rem 36rem;
-    grid-template-rows: 4rem 50rem 40rem;
+    grid-template-rows: 4rem 45rem 40rem;
     grid-template-areas:
       "btn board"
       "accordion board"
       "tutorial tutorial";
-    row-gap: 4rem;
-    column-gap: 5rem;
-  }
-
-  .tutorial {
-    min-width: 40rem;
-    height: 100%;
+    gap: 5rem;
   }
 
   .choose-opening {
@@ -627,11 +622,8 @@ li:nth-child(even) {
   }
 
   .chess-board {
-    display: grid;
-    border-radius: 0.5rem;
     grid-template-columns: repeat(8, 4.5rem);
     grid-template-rows: repeat(8, 4.5rem);
-    overflow: hidden;
   }
 
   .sq {
@@ -639,12 +631,8 @@ li:nth-child(even) {
     height: 4.5rem;
   }
 
-  .container3 {
-    flex-direction: column;
-  }
-
   .font-large {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .font-medium,
