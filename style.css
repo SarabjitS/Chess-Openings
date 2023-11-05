@@ -426,8 +426,7 @@ img {
   /* width: 85%; */
   align-self: start;
   justify-self: center;
-  /* max-width: 48rem;
-  min-width: 100%; */
+  min-width: 100%;
 }
 
 .accordion-button,
@@ -627,6 +626,10 @@ li:nth-child(even) {
   .sq {
     width: 4.5rem;
     height: 4.5rem;
+  }
+
+  .accordion {
+    min-width: 27rem;
   }
 
   .font-large {
