@@ -282,8 +282,6 @@ h1 {
   border-radius: 0.5rem;
   grid-template-columns: repeat(8, 6.5rem);
   grid-template-rows: repeat(8, 6.5rem);
-  min-height: 52rem;
-  min-width: 52rem;
   overflow: hidden;
   box-shadow: var(--shadow-elevation-high);
 }
@@ -608,8 +606,6 @@ li:nth-child(even) {
     border-radius: 0.5rem;
     grid-template-columns: repeat(8, 7rem);
     grid-template-rows: repeat(8, 7rem);
-    min-height: 56rem;
-    min-width: 56rem;
     overflow: hidden;
   }
 
@@ -674,8 +670,6 @@ li:nth-child(even) {
     border-radius: 0.5rem;
     grid-template-columns: repeat(8, 4.5rem);
     grid-template-rows: repeat(8, 4.5rem);
-    min-height: 36rem;
-    min-width: 36rem;
     overflow: hidden;
   }
 
@@ -783,8 +777,6 @@ li:nth-child(even) {
     border-radius: 0.5rem;
     grid-template-columns: repeat(8, 5.5rem);
     grid-template-rows: repeat(8, 5.5rem);
-    min-height: 44rem;
-    min-width: 44rem;
     overflow: hidden;
   }
 
@@ -842,8 +834,6 @@ li:nth-child(even) {
     border-radius: 0.5rem;
     grid-template-columns: repeat(8, 4.25rem);
     grid-template-rows: repeat(8, 4.25rem);
-    min-height: 34rem;
-    min-width: 34rem;
     overflow: hidden;
   }
 
@@ -909,5 +899,46 @@ li:nth-child(even) {
     gap: 16px;
     background-color: var(--light-board-dropdown-bkg);
     transition: transform 0.3s;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .font-large {
+    font-size: 2.5rem;
+  }
+
+  .font-medium,
+  .accordion-button {
+    font-size: 1.75rem;
+  }
+
+  .accordion-body {
+    font-size: 1.5rem;
+  }
+  .mega-container {
+    grid-template-columns: 30rem;
+    grid-template-rows: 3.6rem 1fr 48rem 40rem;
+  }
+
+  .accordion {
+    min-width: 30rem;
+  }
+
+  .extended-chess-board {
+    min-width: 30rem;
+  }
+
+  .chess-board {
+    grid-template-columns: repeat(8, 3.75rem);
+    grid-template-rows: repeat(8, 3.75rem);
+  }
+
+  .sq {
+    width: 3.75rem;
+    height: 3.75rem;
+  }
+
+  .tutorial {
+    min-width: 30rem;
   }
 }
