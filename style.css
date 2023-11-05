@@ -339,6 +339,7 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: column;
 }
 
 .test-yourself,
@@ -350,7 +351,7 @@ img {
 
 .font-large,
 .size3 {
-  font-size: 2.5rem;
+  font-size: 3rem;
 }
 
 .font-medium,
@@ -614,10 +615,6 @@ li:nth-child(even) {
     height: 77rem;
   }
 
-  .container3 {
-    flex-direction: column;
-  }
-
   .font-large {
     font-size: 3rem;
   }
@@ -676,10 +673,6 @@ li:nth-child(even) {
   .sq {
     width: 4.5rem;
     height: 4.5rem;
-  }
-
-  .container3 {
-    flex-direction: column;
   }
 
   .font-large {
@@ -851,10 +844,6 @@ li:nth-child(even) {
 
   h1 {
     font-size: 2rem;
-  }
-
-  .container3 {
-    flex-direction: column;
   }
 
   .sq-notation-white,
