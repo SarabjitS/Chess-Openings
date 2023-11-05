@@ -244,18 +244,18 @@ h1 {
 
 .mega-container {
   display: grid;
-  grid-template-columns: 1fr 44rem 32rem;
-  grid-template-rows: 7rem 1fr;
+  grid-template-columns: fit-content(40rem) 44rem 32rem;
+  grid-template-rows: 4rem 1fr;
   padding: 10rem 0rem 7rem 0rem;
   column-gap: 7rem;
-  row-gap: 2rem;
+  row-gap: 6rem;
   position: relative;
   grid-template-areas:
     "btn board tutorial"
     "accordion  board tutorial";
-  margin: 0 auto;
+  margin: 0rem auto;
 
-  max-width: 97.5%;
+  max-width: 125rem;
   /* min-height: 40%; */
   /* margin: 20rem; */
 }
@@ -426,7 +426,8 @@ img {
   /* width: 85%; */
   align-self: start;
   justify-self: center;
-  width: 100%;
+  max-width: 48rem;
+  min-width: 36rem;
 }
 
 .accordion-button,
@@ -578,17 +579,16 @@ li:nth-child(even) {
   }
 
   .mega-container {
-    margin: 10rem auto 0rem auto;
-    padding: 0rem;
+    margin: 0 auto;
+    padding: 15rem 0rem;
     max-width: 100%;
     justify-content: center;
-    grid-template-columns: 30rem 56rem;
-    grid-template-rows: 4rem 68rem 40rem;
+    grid-template-columns: 32rem 48rem;
+    grid-template-rows: 4rem 1fr 40rem;
     grid-template-areas:
       "btn board"
       "accordion board"
       "tutorial tutorial";
-    /* row-gap: 7rem; */
     column-gap: 10rem;
   }
 
@@ -597,22 +597,21 @@ li:nth-child(even) {
   }
 
   .extended-chess-board {
-    min-width: 56rem;
-    /* margin-top: 5rem; */
-    /* padding: 5rem; */
+    min-width: 48rem;
   }
 
   .chess-board {
-    display: grid;
-    border-radius: 0.5rem;
-    grid-template-columns: repeat(8, 7rem);
-    grid-template-rows: repeat(8, 7rem);
-    overflow: hidden;
+    grid-template-columns: repeat(8, 6rem);
+    grid-template-rows: repeat(8, 6rem);
   }
 
   .sq {
-    width: 7rem;
-    height: 77rem;
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .container3 {
+    flex-direction: column;
   }
 
   .font-large {
@@ -627,7 +626,7 @@ li:nth-child(even) {
 
   .tutorial {
     min-width: 40rem;
-    height: 100%;
+    grid-column-start: 2;
   }
 }
 
@@ -673,6 +672,10 @@ li:nth-child(even) {
   .sq {
     width: 4.5rem;
     height: 4.5rem;
+  }
+
+  .container3 {
+    flex-direction: column;
   }
 
   .font-large {
@@ -844,6 +847,10 @@ li:nth-child(even) {
 
   h1 {
     font-size: 2rem;
+  }
+
+  .container3 {
+    flex-direction: column;
   }
 
   .sq-notation-white,
