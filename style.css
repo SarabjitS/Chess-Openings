@@ -244,9 +244,9 @@ h1 {
 
 .mega-container {
   display: grid;
-  grid-template-columns: fit-content(40rem) 44rem 32rem;
+  grid-template-columns: minmax(32rem, 38rem) 44rem 32rem;
   grid-template-rows: 4rem 1fr;
-  padding: 10rem 0rem 7rem 0rem;
+  padding: 10rem 5rem 7rem 5rem;
   column-gap: 7rem;
   row-gap: 6rem;
   position: relative;
@@ -256,7 +256,6 @@ h1 {
   margin: 0rem auto;
   justify-content: center;
 
-  max-width: 125rem;
   /* min-height: 40%; */
   /* margin: 20rem; */
 }
@@ -427,8 +426,8 @@ img {
   /* width: 85%; */
   align-self: start;
   justify-self: center;
-  max-width: 48rem;
-  min-width: 100%;
+  /* max-width: 48rem;
+  min-width: 100%; */
 }
 
 .accordion-button,
@@ -577,23 +576,25 @@ li:nth-child(even) {
 @media (max-width: 1280px) {
   .mega-container {
     max-width: 100%;
-    grid-template-columns: 36rem 48rem;
+    grid-template-columns: 32rem 44rem;
     grid-template-rows: 4rem 1fr 40rem;
     grid-template-areas:
       "btn board"
       "accordion board"
       "tutorial tutorial";
     gap: 10rem;
+
+    /* margin: 0 5rem; */
   }
 
   .chess-board {
-    grid-template-columns: repeat(8, 6rem);
-    grid-template-rows: repeat(8, 6rem);
+    grid-template-columns: repeat(8, 5.5rem);
+    grid-template-rows: repeat(8, 5.5rem);
   }
 
   .sq {
-    width: 6rem;
-    height: 6rem;
+    width: 5.5rem;
+    height: 5.5rem;
   }
 
   .tutorial {
@@ -615,10 +616,6 @@ li:nth-child(even) {
       "accordion board"
       "tutorial tutorial";
     gap: 5rem;
-  }
-
-  .choose-opening {
-    grid-column: 1/2;
   }
 
   .chess-board {
