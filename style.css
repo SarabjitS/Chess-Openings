@@ -612,10 +612,6 @@ li:nth-child(even) {
     grid-template-rows: repeat(8, 4.5rem);
   }
 
-  .accordion {
-    min-width: 27rem;
-  }
-
   .font-large {
     font-size: 2.5rem;
   }
@@ -681,7 +677,7 @@ li:nth-child(even) {
   .mega-container {
     /* justify-content: center; */
     grid-template-columns: 40rem;
-    grid-template-rows: 4em 1fr 62rem 50rem;
+    grid-template-rows: 4em 1fr 58rem 50rem;
     grid-template-areas:
       "btn"
       "accordion "
