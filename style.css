@@ -658,7 +658,7 @@ li:nth-child(even) {
   }
 
   .mobileNav {
-    width: 80px;
+    width: 8rem;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -667,9 +667,9 @@ li:nth-child(even) {
     position: fixed;
     z-index: 7;
     top: 0;
-    right: -160px;
-    padding: 16px;
-    gap: 16px;
+    right: -16rem;
+    padding: 2rem;
+    gap: 4rem;
     background-color: var(--light-board-dropdown-bkg);
     transition: transform 0.3s;
   }
