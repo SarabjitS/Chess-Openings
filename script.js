@@ -30,7 +30,7 @@ const bar1 = document.querySelector(".bar1");
 const bar2 = document.querySelector(".bar2");
 const bar3 = document.querySelector(".bar3");
 const mobileNav = document.querySelector(".mobileNav");
-const darkModeToggle = document.querySelectorAll(".dark-mode-toggle");
+const darkModeToggle = document.querySelector(".dark-mode-toggle");
 
 //variables defined
 let opening = [];
@@ -71,19 +71,19 @@ document.ondblclick = function (e) {
 //   }
 // });
 
-const showMenu = (toggleId, navId) => {
-  const toggle = document.getElementById(toggleId);
-  const nav = document.getElementById(navId);
-  toggle.addEventListener("click", () => {
-    // Add show-menu class to nav menu
-    nav.classList.toggle("show-menu");
+// const showMenu = (toggleId, navId) => {
+//   const toggle = document.getElementById(toggleId);
+//   const nav = document.getElementById(navId);
+//   toggle.addEventListener("click", () => {
+//     // Add show-menu class to nav menu
+//     nav.classList.toggle("show-menu");
 
-    // Add show-icon to show and hide the menu icon
-    toggle.classList.toggle("show-icon");
-  });
-};
+//     // Add show-icon to show and hide the menu icon
+//     toggle.classList.toggle("show-icon");
+//   });
+// };
 
-showMenu("nav-toggle", "nav-menu");
+// showMenu("nav-toggle", "nav-menu");
 
 //Listen for the opening selected
 document.addEventListener("click", function (e) {
@@ -557,10 +557,8 @@ const enableDarkMode = () => {
 const disableDarkMode = () => {
   // 1. Remove the class from the body
   document.body.classList.remove("darkmode");
-  document.querySelector(".accordion-item").classList.remove("darkmode");
-
   // 2. Update darkMode in localStorage
-  localStorage.removeItem("darkMode");
+  localStorage.setItem("darkMode", null);
 };
 
 // If the user already visited and enabled darkMode
@@ -573,7 +571,6 @@ if (darkMode === "enabled") {
 darkModeToggle.addEventListener("click", () => {
   // get their darkMode setting
   darkMode = localStorage.getItem("darkMode");
-  console.log("clicked");
 
   // if it not current enabled, enable it
   if (darkMode !== "enabled") {
