@@ -72,9 +72,9 @@ document.ondblclick = function (e) {
 // });
 
 const showMenu = (toggleId, navId) => {
+  const toggle = document.getElementById(toggleId);
+  const nav = document.getElementById(navId);
   toggle.addEventListener("click", () => {
-    const toggle = document.getElementById(toggleId);
-    const nav = document.getElementById(navId);
     // Add show-menu class to nav menu
     nav.classList.toggle("show-menu");
 
@@ -570,19 +570,18 @@ if (darkMode === "enabled") {
 }
 
 // When someone clicks the button
-darkModeToggle.forEach((darkMode1) => {
-  darkMode1.addEventListener("click", () => {
-    // get their darkMode setting
-    darkMode = localStorage.getItem("darkMode");
+darkModeToggle.addEventListener("click", () => {
+  // get their darkMode setting
+  darkMode = localStorage.getItem("darkMode");
+  console.log("clicked");
 
-    // if it not current enabled, enable it
-    if (darkMode !== "enabled") {
-      enableDarkMode();
-      // if it has been enabled, turn it off
-    } else {
-      disableDarkMode();
-    }
-  });
+  // if it not current enabled, enable it
+  if (darkMode !== "enabled") {
+    enableDarkMode();
+    // if it has been enabled, turn it off
+  } else {
+    disableDarkMode();
+  }
 });
 
 // For rendering the chess board at start, when an opening is selected
