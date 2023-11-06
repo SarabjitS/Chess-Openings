@@ -68,6 +68,12 @@ a {
   text-decoration: none;
 }
 
+/*=============== REUSABLE CSS CLASSES ===============*/
+/* .container {
+  max-width: 1440px;
+  margin-inline: auto;
+} */
+
 /* Conversion of px to rem, 1rem = 10px */
 html {
   font-size: 62.5%;
@@ -92,7 +98,13 @@ body {
 }
 
 .header {
+  /* position: fixed;
+  top: 0;
+  left: 0; */
   background-color: var(--header-background);
+  color: var(--header-text);
+  width: 100%;
+  padding: 1rem;
 }
 
 .nav__link {
@@ -140,36 +152,32 @@ body {
 
 .dropdown__link {
   padding: 1.25rem 1.25rem 1.25rem 2.5rem;
-  color: var(--white-color);
-  background-color: var(--black-color-light);
+  color: var(--header-text);
+  background-color: var(--acc-body-bkg);
   display: flex;
   align-items: center;
   column-gap: 0.5rem;
-  font-weight: var(--font-semi-bold);
+  font-weight: 600;
   transition: background-color 0.3s;
 }
 
-.dropdown__link i,
-.dropdown__sublink i {
-  font-size: 1.25rem;
-  font-weight: initial;
+/* .dropdown__menu button {
+  display: inline-block;
+  padding: 0;
+} */
+
+.dropdown__link:hover {
+  background-color: var(--hover-light);
 }
 
-.dropdown__link:hover,
-.dropdown__sublink:hover {
-  background-color: var(--black-color);
-}
-
-.dropdown__menu,
-.dropdown__submenu {
+.dropdown__menu {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease-out;
 }
 
 /* Show dropdown menu & submenu */
-.dropdown__item:hover .dropdown__menu,
-.dropdown__subitem:hover > .dropdown__submenu {
+.dropdown__item:hover .dropdown__menu {
   max-height: 1000px;
   transition: max-height 0.4s ease-in;
 }
@@ -183,11 +191,6 @@ body {
 .dropdown__add {
   margin-left: auto;
 }
-
-.dropdown__sublink {
-  background-color: var(--black-color-lighten);
-}
-
 /* .navbar {
   color: var(--header-text);
   display: flex;
@@ -335,14 +338,14 @@ h1 {
   color: var(--dropdown-hover);
 } */
 
-.size3 {
+.material-symbols-outlined {
   border: none;
   background: none;
 }
 
-.material-icons.md-dark {
+/* .material-icons.md-dark {
   color: rgba(0, 0, 0, 0.54);
-}
+} */
 
 .speed {
   transform: scaleX(-1);
@@ -428,9 +431,6 @@ h1 {
     "accordion  board tutorial";
   margin: 0rem auto;
   justify-content: center;
-
-  /* min-height: 40%; */
-  /* margin: 20rem; */
 }
 
 .choose-opening {
@@ -607,7 +607,7 @@ img {
   color: white;
 }
 
-.material-symbols-outlined {
+.dropdown__menu .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
   color: var(--symbol-color);
 }
@@ -616,7 +616,7 @@ img {
   rotate: 180deg;
 }
 
-.material-symbols-outlined-fill {
+.dropdown__menu .material-symbols-outlined-fill {
   font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   color: var(--symbol-color);
 }
@@ -686,7 +686,7 @@ li {
   padding: 1rem 0 1rem 0;
 }
 
-li:nth-child(even) {
+.tutorial li:nth-child(even) {
   background-color: var(--tutorial-list-item);
 }
 
@@ -740,6 +740,10 @@ li:nth-child(even) {
 
 /* xl */
 @media (max-width: 1280px) {
+  /* .container {
+    max-width: 1280px;
+    margin-inline: 5rem;
+  } */
   .mega-container {
     max-width: 100%;
     grid-template-columns: 32rem 44rem;
@@ -802,7 +806,7 @@ li:nth-child(even) {
     display: none;
   }
 
-  .navbar .hamburger {
+  .hamburger {
     display: flex;
     flex-direction: column;
     justify-content: center;
