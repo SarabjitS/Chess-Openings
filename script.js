@@ -1,6 +1,5 @@
 //enabling strict mode
 "use strict";
-ewf;
 import {
   toiletVariation,
   monkeysbumVariation,
