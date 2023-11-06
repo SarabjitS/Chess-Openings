@@ -107,8 +107,6 @@ document.addEventListener("click", function (e) {
   }
 });
 
-//Listen for click on orientation button
-// orientationBtn.forEach((orientation) => {
 orientationBtn.addEventListener("click", function () {
   isRotated = !isRotated;
   rotateBoard();
@@ -492,16 +490,15 @@ function resetTutorial() {
 // For rotating the chess board
 function rotateBoard() {
   if (isRotated) {
-    // orientationBtn.forEach((orientation) => {
-    orientationBtn.classList.add("material-symbols-outlined-fill");
-    // });
+    document
+      .getElementById("orientation-btn-icon")
+      .classList.add("material-symbols-outlined-fill");
     chessBoard.classList.add("rotate");
-    // removeWhiteNotations();
   } else {
-    // orientationBtn.forEach((orientation) => {
-    orientationBtn.classList.remove("material-symbols-outlined-fill");
-    // });
-    // removeBlackNotations();
+    document
+      .getElementById("orientation-btn-icon")
+      .classList.remove("material-symbols-outlined-fill");
+
     chessBoard.classList.remove("rotate");
   }
   rotatePieces();
