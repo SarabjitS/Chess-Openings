@@ -31,8 +31,6 @@ const bar2 = document.querySelector(".bar2");
 const bar3 = document.querySelector(".bar3");
 const mobileNav = document.querySelector(".mobileNav");
 const darkModeToggle = document.querySelectorAll(".dark-mode-toggle");
-const toggle = document.getElementById(toggleId);
-const nav = document.getElementById(navId);
 
 //variables defined
 let opening = [];
@@ -75,6 +73,8 @@ document.ondblclick = function (e) {
 
 const showMenu = (toggleId, navId) => {
   toggle.addEventListener("click", () => {
+    const toggle = document.getElementById(toggleId);
+    const nav = document.getElementById(navId);
     // Add show-menu class to nav menu
     nav.classList.toggle("show-menu");
 
