@@ -31,6 +31,8 @@ const bar2 = document.querySelector(".bar2");
 const bar3 = document.querySelector(".bar3");
 const mobileNav = document.querySelector(".mobileNav");
 const darkModeToggle = document.querySelectorAll(".dark-mode-toggle");
+const toggle = document.getElementById(toggleId);
+const nav = document.getElementById(navId);
 
 //variables defined
 let opening = [];
@@ -60,16 +62,28 @@ document.ondblclick = function (e) {
 // Adding Event Listeners
 
 //Listen for click on extra-options button
-document.addEventListener("click", (e) => {
-  const isDropdownButton = e.target.matches("[data-dropdown-button]");
-  if (!isDropdownButton && e.target.closest("[data-dropdown]") != null) return;
+// document.addEventListener("click", (e) => {
+//   const isDropdownButton = e.target.matches("[data-dropdown-button]");
+//   if (!isDropdownButton && e.target.closest("[data-dropdown]") != null) return;
 
-  let currentDropdown;
-  if (isDropdownButton) {
-    currentDropdown = e.target.closest("[data-dropdown]");
-    currentDropdown.classList.toggle("active");
-  }
-});
+//   let currentDropdown;
+//   if (isDropdownButton) {
+//     currentDropdown = e.target.closest("[data-dropdown]");
+//     currentDropdown.classList.toggle("active");
+//   }
+// });
+
+const showMenu = (toggleId, navId) => {
+  toggle.addEventListener("click", () => {
+    // Add show-menu class to nav menu
+    nav.classList.toggle("show-menu");
+
+    // Add show-icon to show and hide the menu icon
+    toggle.classList.toggle("show-icon");
+  });
+};
+
+showMenu("nav-toggle", "nav-menu");
 
 //Listen for the opening selected
 document.addEventListener("click", function (e) {
