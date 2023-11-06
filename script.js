@@ -116,28 +116,25 @@ orientationBtn.addEventListener("click", function () {
 });
 // });
 
-//Listen for sound button clicked on/off
-// soundBtn.forEach((soundBtn) => {
 soundBtn.addEventListener("click", function () {
   isAudio = !isAudio;
   if (!isAudio) {
-    soundBtn.textContent = "volume_off";
+    document.getElementById("sound-btn-icon").textContent = "volume_off";
   } else {
-    soundBtn.textContent = "volume_up";
+    document.getElementById("sound-btn-icon").textContent = "volume_up";
   }
   console.log("clicked");
 });
 // });
 
-// speedBtn.forEach((soundBtn) => {
 speedBtn.addEventListener("click", function () {
   isSpeed = !isSpeed;
   if (isSpeed) {
     speed = 800;
-    speedBtn.style = "transform: scaleX(1);";
+    document.getElementById("speed-btn-icon").style = "transform: scaleX(1);";
   } else {
     speed = 1250;
-    speedBtn.style = "transform: scaleX(-1);";
+    document.getElementById("speed-btn-icon").style = "transform: scaleX(-1);";
   }
   console.log("clicked");
 });
