@@ -8,7 +8,7 @@
   --brown-board-dark: #b58863;
   --brown-board-light: #f0d9b5;
 
-  /*===================== COMPONENT COLORS ====================*/
+  /*===================== COMPONENT COLORS ========================*/
   --dark-board-base-green: rgb(22, 101, 52);
   --dark-board-hover-green: rgba(101, 163, 13);
   --dark-board-darkest-green: #052e16;
@@ -73,15 +73,15 @@ html {
   font-size: 62.5%;
 }
 
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1360px;
+  margin-inline: auto;
+}
+
 html,
 body {
   height: 100%;
-}
-
-/*=============== REUSABLE CSS CLASSES ===============*/
-.container {
-  max-width: 1440px;
-  margin-inline: auto;
 }
 
 body {
@@ -130,7 +130,7 @@ body {
 
 .dropdown__arrow {
   font-size: 2.5rem;
-  /* font-weight: initial; */
+  font-weight: initial;
   transition: transform 0.4s;
 }
 
