@@ -1,6 +1,5 @@
 //enabling strict mode
 "use strict";
-
 import {
   toiletVariation,
   monkeysbumVariation,
@@ -14,9 +13,9 @@ import {
 import { chessBoardHTML } from "./chessBoard.js";
 
 //const defined
-const orientationBtn = document.querySelector(".orientation-button");
-const soundBtn = document.querySelector(".sound-button");
-const speedBtn = document.querySelector(".speed-button");
+const orientationBtn = document.getElementById("orientation-button");
+const soundBtn = document.getElementById("sound-button");
+const speedBtn = document.getElementById("speed-button");
 const prevBtn = document.querySelector("#prev-button");
 const playBtn = document.getElementById("play-button");
 const nextBtn = document.querySelector("#next-button");
@@ -31,7 +30,7 @@ const bar1 = document.querySelector(".bar1");
 const bar2 = document.querySelector(".bar2");
 const bar3 = document.querySelector(".bar3");
 const mobileNav = document.querySelector(".mobileNav");
-const darkModeToggle = document.querySelectorAll(".dark-mode-toggle");
+const darkModeToggle = document.querySelector(".dark-mode-toggle");
 
 //variables defined
 let opening = [];
@@ -61,16 +60,30 @@ document.ondblclick = function (e) {
 // Adding Event Listeners
 
 //Listen for click on extra-options button
-document.addEventListener("click", (e) => {
-  const isDropdownButton = e.target.matches("[data-dropdown-button]");
-  if (!isDropdownButton && e.target.closest("[data-dropdown]") != null) return;
+// document.addEventListener("click", (e) => {
+//   const isDropdownButton = e.target.matches("[data-dropdown-button]");
+//   if (!isDropdownButton && e.target.closest("[data-dropdown]") != null) return;
 
-  let currentDropdown;
-  if (isDropdownButton) {
-    currentDropdown = e.target.closest("[data-dropdown]");
-    currentDropdown.classList.toggle("active");
-  }
-});
+//   let currentDropdown;
+//   if (isDropdownButton) {
+//     currentDropdown = e.target.closest("[data-dropdown]");
+//     currentDropdown.classList.toggle("active");
+//   }
+// });
+
+// const showMenu = (toggleId, navId) => {
+//   const toggle = document.getElementById(toggleId);
+//   const nav = document.getElementById(navId);
+//   toggle.addEventListener("click", () => {
+//     // Add show-menu class to nav menu
+//     nav.classList.toggle("show-menu");
+
+//     // Add show-icon to show and hide the menu icon
+//     toggle.classList.toggle("show-icon");
+//   });
+// };
+
+// showMenu("nav-toggle", "nav-menu");
 
 //Listen for the opening selected
 document.addEventListener("click", function (e) {
@@ -94,8 +107,6 @@ document.addEventListener("click", function (e) {
   }
 });
 
-//Listen for click on orientation button
-// orientationBtn.forEach((orientation) => {
 orientationBtn.addEventListener("click", function () {
   isRotated = !isRotated;
   rotateBoard();
@@ -103,28 +114,25 @@ orientationBtn.addEventListener("click", function () {
 });
 // });
 
-//Listen for sound button clicked on/off
-// soundBtn.forEach((soundBtn) => {
 soundBtn.addEventListener("click", function () {
   isAudio = !isAudio;
   if (!isAudio) {
-    soundBtn.textContent = "volume_off";
+    document.getElementById("sound-btn-icon").textContent = "volume_off";
   } else {
-    soundBtn.textContent = "volume_up";
+    document.getElementById("sound-btn-icon").textContent = "volume_up";
   }
   console.log("clicked");
 });
 // });
 
-// speedBtn.forEach((soundBtn) => {
 speedBtn.addEventListener("click", function () {
   isSpeed = !isSpeed;
   if (isSpeed) {
     speed = 800;
-    speedBtn.style = "transform: scaleX(1);";
+    document.getElementById("speed-btn-icon").style = "transform: scaleX(1);";
   } else {
     speed = 1250;
-    speedBtn.style = "transform: scaleX(-1);";
+    document.getElementById("speed-btn-icon").style = "transform: scaleX(-1);";
   }
   console.log("clicked");
 });
@@ -482,16 +490,15 @@ function resetTutorial() {
 // For rotating the chess board
 function rotateBoard() {
   if (isRotated) {
-    // orientationBtn.forEach((orientation) => {
-    orientationBtn.classList.add("material-symbols-outlined-fill");
-    // });
+    document
+      .getElementById("orientation-btn-icon")
+      .classList.add("material-symbols-outlined-fill");
     chessBoard.classList.add("rotate");
-    // removeWhiteNotations();
   } else {
-    // orientationBtn.forEach((orientation) => {
-    orientationBtn.classList.remove("material-symbols-outlined-fill");
-    // });
-    // removeBlackNotations();
+    document
+      .getElementById("orientation-btn-icon")
+      .classList.remove("material-symbols-outlined-fill");
+
     chessBoard.classList.remove("rotate");
   }
   rotatePieces();
@@ -544,10 +551,8 @@ const enableDarkMode = () => {
 const disableDarkMode = () => {
   // 1. Remove the class from the body
   document.body.classList.remove("darkmode");
-  document.querySelector(".accordion-item").classList.remove("darkmode");
-
   // 2. Update darkMode in localStorage
-  localStorage.removeItem("darkMode");
+  localStorage.setItem("darkMode", null);
 };
 
 // If the user already visited and enabled darkMode
@@ -557,19 +562,17 @@ if (darkMode === "enabled") {
 }
 
 // When someone clicks the button
-darkModeToggle.forEach((darkMode1) => {
-  darkMode1.addEventListener("click", () => {
-    // get their darkMode setting
-    darkMode = localStorage.getItem("darkMode");
+darkModeToggle.addEventListener("click", () => {
+  // get their darkMode setting
+  darkMode = localStorage.getItem("darkMode");
 
-    // if it not current enabled, enable it
-    if (darkMode !== "enabled") {
-      enableDarkMode();
-      // if it has been enabled, turn it off
-    } else {
-      disableDarkMode();
-    }
-  });
+  // if it not current enabled, enable it
+  if (darkMode !== "enabled") {
+    enableDarkMode();
+    // if it has been enabled, turn it off
+  } else {
+    disableDarkMode();
+  }
 });
 
 // For rendering the chess board at start, when an opening is selected

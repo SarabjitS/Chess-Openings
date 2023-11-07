@@ -39,92 +39,104 @@
       crossorigin="anonymous"
     ></script>
 
-    <header class="navbar">
-      <div class="navbar-left">
-        <h1 class="font-large">CHESS OPENINGS</h1>
-      </div>
-      <div class="navbar-right">
-        <div class="dropdown" data-dropdown>
-          <button class="link font-medium" data-dropdown-button>
-            Extra Options
-          </button>
-          <div class="dropdown-menu information-grid">
-            <button
-              class="material-symbols-outlined size3 orientation-button"
-              id="orientation-button"
-            >
-              chess
-            </button>
-            <button
-              class="material-symbols-outlined size3 sound-button"
-              id="sound-button"
-            >
-              volume_up
-            </button>
-            <button
-              class="speed material-symbols-outlined size3 speed-button"
-              id="speed-button"
-            >
-              speed
-            </button>
+    <!--=============== HEADER ===============-->
+
+    <header class="header">
+      <nav class="nav container">
+        <div class="nav__data">
+          <h1 class="font-large">CHESS OPENINGS</h1>
+          <div class="hamburger nav_toggle">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
           </div>
         </div>
-        <button id="dark-mode-toggle" class="dark-mode-toggle">
-          <svg
-            width="100%"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 496 496"
-          >
-            <path
-              fill="currentColor"
-              d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z"
-              transform="translate(-8 -8)"
-            />
-          </svg>
-        </button>
-      </div>
-      <div class="hamburger">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </div>
+
+        <!--=============== NAV MENU ===============-->
+
+        <div class="navbar-right">
+          <ul class="nav__list">
+            <li class="dropdown__item">
+              <div class="nav__link font-medium">
+                Extra Options
+                <span class="material-symbols-outlined dropdown__arrow">
+                  expand_more
+                </span>
+              </div>
+
+              <ul class="dropdown__menu font-medium">
+                <li>
+                  <button class="dropdown__link" id="orientation-button">
+                    <i
+                      class="material-symbols-outlined"
+                      id="orientation-btn-icon"
+                      >chess</i
+                    >
+                    Orientation
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown__link" id="sound-button">
+                    <i class="material-symbols-outlined" id="sound-btn-icon"
+                      >volume_up</i
+                    >
+                    Volume
+                  </button>
+                </li>
+                <li>
+                  <button class="dropdown__link" id="speed-button">
+                    <i class="material-symbols-outlined" id="speed-btn-icon"
+                      >speed</i
+                    >
+                    Speed
+                  </button>
+                </li>
+                <!-- <li>
+                  <button
+                    class="material-symbols-outlined dropdown__link"
+                    id="sound-button"
+                  >
+                    volume_up</button
+                  >Volume
+                </li> -->
+
+                <!-- <li>
+                  <button
+                    class="speed material-symbols-outlined dropdown__link"
+                    id="speed-button"
+                  >
+                    speed</button
+                  >Speed
+                </li> -->
+              </ul>
+            </li>
+            <li class="nav__link">
+              <button id="dark-mode-toggle" class="dark-mode-toggle">
+                <svg
+                  width="100%"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 496 496"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z"
+                    transform="translate(-8 -8)"
+                  />
+                </svg>
+              </button>
+            </li>
+          </ul>
+          <!-- <div class="dropdown" data-dropdown>
+            <button class="link font-medium" data-dropdown-button>
+              Extra Options
+            </button>
+            <div class="dropdown-menu information-grid"></div>
+          </div> -->
+        </div>
+      </nav>
     </header>
 
-    <nav class="mobileNav">
-      <button
-        class="material-symbols-outlined size3 orientation-button"
-        id="orientation-button-mob"
-      >
-        chess
-      </button>
-      <button
-        class="material-symbols-outlined size3 sound-button"
-        id="sound-button-mob"
-      >
-        volume_up
-      </button>
-      <button
-        class="speed material-symbols-outlined size3 speed-button"
-        id="speed-button-mob"
-      >
-        speed
-      </button>
-      <button id="dark-mode-toggle-mob" class="dark-mode-toggle">
-        <svg
-          width="100%"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 496 496"
-        >
-          <path
-            fill="currentColor"
-            d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z"
-            transform="translate(-8 -8)"
-          />
-        </svg>
-      </button>
-    </nav>
-
-    <main>
+    <main class="container">
       <dialog class="dialog" id="dialog"></dialog>
 
       <div class="mega-container">
