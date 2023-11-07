@@ -824,15 +824,15 @@ dialog {
     left: 0;
     top: 2.5rem;
     width: 100%;
-    height: calc(100vh - 3.5rem);
-    overflow: auto;
+    /* height: calc(100vh - 3.5rem); */
+    /* overflow: auto; */
     pointer-events: none;
     opacity: 0;
     transition: top 0.4s, opacity 0.3s;
   }
-  .nav__menu::-webkit-scrollbar {
+  /* .nav__menu::-webkit-scrollbar {
     width: 0;
-  }
+  } */
   .nav__list {
     background-color: var(--black-color);
     padding-top: 1rem;
