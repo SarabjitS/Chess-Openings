@@ -166,23 +166,26 @@ body {
 }
 
 /* Show dropdown menu & submenu */
-.dropdown__item:hover .dropdown__menu,
-.dropdown__item:active .dropdown__menu {
+body.hasHover .dropdown__item:hover .dropdown__menu {
   max-height: 1000px;
   transition: max-height 0.4s ease-in;
 }
-
-/* @media (hover: hover) and (pointer: fine) {
-.dropdown__item:hover .dropdown__menu {
-  max-height: 1000px;
-  transition: max-height 0.4s ease-in;
-}
-} */
 
 /* Rotate dropdown icon */
-.dropdown__item:hover .dropdown__arrow {
+body.hasHover .dropdown__item:hover .dropdown__arrow {
   transform: rotate(180deg);
 }
+
+.active-menu {
+  max-height: 1000px;
+  transition: max-height 0.4s ease-in;
+}
+
+.active-arrow {
+  transform: rotate(180deg);
+}
+
+/* body.hasTouch  */
 
 /*=============== DROPDOWN SUBMENU ===============*/
 .dropdown__add {

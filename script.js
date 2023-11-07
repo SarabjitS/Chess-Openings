@@ -80,6 +80,54 @@ hamburger.addEventListener("click", () => {
   // mobileNav.classList.toggle("openDrawer");
 });
 
+function watchForHover() {
+  // lastTouchTime is used for ignoring emulated mousemove events
+  // that are fired after touchstart events. Since they're
+  // indistinguishable from real events, we use the fact that they're
+  // fired a few milliseconds after touchstart to filter them.
+  let lastTouchTime = 0;
+
+  function enableHover() {
+    if (new Date() - lastTouchTime < 500) return;
+    document.body.classList.add("hasHover");
+  }
+
+  function disableHover() {
+    document.body.classList.remove("hasHover");
+  }
+
+  function updateLastTouchTime() {
+    lastTouchTime = new Date();
+  }
+
+  document.addEventListener("touchstart", updateLastTouchTime, true);
+  document.addEventListener("touchstart", disableHover, true);
+  document.addEventListener("mousemove", enableHover, true);
+
+  enableHover();
+}
+
+watchForHover();
+
+//Listen for click on extra-options button
+document.addEventListener("touchstart", (e) => {
+  // console.log("clicked");
+  // const isDropdownButton = e.target.matches("dropdown__item");
+  // if (!isDropdownButton && e.target.closest("[data-dropdown]") != null) return;
+
+  // let currentDropdown;
+  // if (isDropdownButton) {
+  //   currentDropdown = e.target.closest("[data-dropdown]");
+  //   currentDropdown.classList.toggle("active");
+  // }
+  // isDropdownButton.classList.toggle("active");
+  if (e.target.matches(".nav__link")) {
+    console.log("clicked");
+    document.querySelector(".dropdown__menu").classList.toggle("active-menu");
+    document.querySelector(".dropdown__arrow").classList.toggle("active-arrow");
+  }
+});
+
 //Listen for the opening selected
 document.addEventListener("click", function (e) {
   if (
