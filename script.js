@@ -49,6 +49,7 @@ let id;
 let isPlay = false;
 let speed = 1250;
 let isSpeed = false;
+let isDropdownOpen = false;
 
 //Creating chess board
 renderBoard();
@@ -111,21 +112,30 @@ watchForHover();
 
 //Listen for click on extra-options button
 document.addEventListener("touchstart", (e) => {
-  // console.log("clicked");
-  // const isDropdownButton = e.target.matches("dropdown__item");
-  // if (!isDropdownButton && e.target.closest("[data-dropdown]") != null) return;
-
-  // let currentDropdown;
-  // if (isDropdownButton) {
-  //   currentDropdown = e.target.closest("[data-dropdown]");
-  //   currentDropdown.classList.toggle("active");
-  // }
-  // isDropdownButton.classList.toggle("active");
   if (e.target.matches(".nav__link") || e.target.matches(".dropdown__arrow")) {
-    console.log("clicked");
+    console.log("clicked1");
     document.querySelector(".dropdown__menu").classList.toggle("active-menu");
     document.querySelector(".dropdown__arrow").classList.toggle("active-arrow");
+    isDropdownOpen = true;
   }
+  // if (isDropdownOpen) {
+  //   const dropdownMenuDimensions = document
+  //     .querySelector(".dropdown__menu")
+  //     .getBoundingClientRect();
+  //   if (
+  //     e.clientX < dropdownMenuDimensions.left ||
+  //     e.clientX > dropdownMenuDimensions.right ||
+  //     e.clientY < dropdownMenuDimensions.top ||
+  //     e.clientY > dropdownMenuDimensions.bottom
+  //   ) {
+  //     document.querySelector(".dropdown__menu").classList.toggle("active-menu");
+  //     document
+  //       .querySelector(".dropdown__arrow")
+  //       .classList.toggle("active-arrow");
+  //   } else {
+  //     console.log("clicked2");
+  //   }
+  // }
 });
 
 //Listen for the opening selected
@@ -153,7 +163,6 @@ document.addEventListener("click", function (e) {
 orientationBtn.addEventListener("click", function () {
   isRotated = !isRotated;
   rotateBoard();
-  console.log("clicked");
 });
 // });
 
@@ -164,7 +173,6 @@ soundBtn.addEventListener("click", function () {
   } else {
     document.getElementById("sound-btn-icon").textContent = "volume_up";
   }
-  console.log("clicked");
 });
 // });
 
@@ -360,8 +368,6 @@ hintBtn.addEventListener("click", function () {
 
 //Listens for clicks on chess board after testStart() has started
 chessBoard.addEventListener("click", function (e) {
-  console.log("started");
-
   if (!isHint && isTestMode) {
     if (i < openingSourceMoves.length) {
       if (square) {

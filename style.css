@@ -270,13 +270,25 @@ body.hasHover .dropdown__item:hover .dropdown__arrow {
     padding-inline: 1rem 3.5rem;
   }
   /* Show dropdown menu */
-  .dropdown__item:hover .dropdown__menu {
+  .dropdown__item:hover .dropdown__menu hasHover {
     opacity: 1;
     top: 5rem;
     pointer-events: initial;
     transition: top 0.3s;
     z-index: 10;
   }
+
+  .active-menu {
+    opacity: 1;
+    top: 5rem;
+    pointer-events: initial;
+    transition: top 0.3s;
+    z-index: 10;
+  }
+
+  /* .active-arrow {
+  transform: rotate(180deg);
+} */
 }
 
 .nav__menu ol,
