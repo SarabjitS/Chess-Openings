@@ -187,6 +187,7 @@ body.hasHover .dropdown__item:hover .dropdown__arrow,
   margin: 0;
   /* padding: 0; */
   font-weight: 700;
+  font-size: 3rem;
 }
 
 @media screen and (min-width: 769px) {
