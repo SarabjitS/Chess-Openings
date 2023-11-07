@@ -14,7 +14,7 @@
   --light-board-darkest-brown: rgb(55, 38, 27);
   --light-board-dark-brown: rgb(158, 109, 64, 1);
   --light-board-acc-body-brown: rgba(240, 217, 181, 1);
-  --darkest-brown-light-shade: rgb(55, 38, 27, 0.8);
+  /* --darkest-brown-light-shade: rgb(55, 38, 27, 0.9); */
   --eerie-black: hsla(60, 5%, 12%, 1);
 
   /* Light mode */
@@ -38,7 +38,8 @@
   --hover-btn-group: var(--darkest-brown-light-shade);
   --accordion-border: var(--light-board-darkest-brown);
   --notation-clr: var(--light-board-darkest-brown);
-  --dropdown-hover: var(--darkest-brown-light-shade);
+  /* Need to work on dropdown hover */
+  /* --dropdown-hover: var(--darkest-brown-light-shade); */
   --symbol-color: var(--acc-body-color);
 
   /* Dark mode */
