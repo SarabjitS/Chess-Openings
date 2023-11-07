@@ -1,14 +1,14 @@
 /*=============== VARIABLES CSS ===============*/
 :root {
-  /* --header-height: 3.5rem; */
+  --header-height: 3.5rem;
 
-  /* Chess Board colors */
+  /*============== CHESS BOARD COLORS =====================*/
   --green-board-light: #eeeed2;
   --green-board-dark: #769656;
   --brown-board-dark: #b58863;
   --brown-board-light: #f0d9b5;
 
-  /*===================== COMPONENT COLORS ========================*/
+  /*===================== COMPONENT COLORS ====================*/
   --dark-board-base-green: rgb(22, 101, 52);
   --dark-board-hover-green: rgba(101, 163, 13);
   --dark-board-darkest-green: #052e16;
@@ -20,7 +20,7 @@
   /* --darkest-brown-light-shade: rgb(55, 38, 27, 0.9); */
   --eerie-black: hsla(60, 5%, 12%, 1);
 
-  /* Light mode */
+  /*==============LIGHT/DARK MODE VARIABLES================= */
   --hover-light: rgb(158, 109, 64, 0.8);
   --background: var(--body-light);
   --body-light: url("wood.png");
@@ -65,6 +65,7 @@ ul,
 dl {
   padding: 0rem;
   list-style: none;
+  margin: 0rem;
 }
 
 /* Conversion of px to rem, 1rem = 10px */
@@ -72,20 +73,20 @@ html {
   font-size: 62.5%;
 }
 
-/*=============== REUSABLE CSS CLASSES ===============*/
-.container {
-  max-width: 1360px;
-  margin-inline: auto;
-}
-
 html,
 body {
   height: 100%;
 }
 
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
 body {
   line-height: 1;
-  color: var(--foreground);
+  /* color: var(--foreground); */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   /* The text of the element and its sub-elements is not selectable. */
@@ -129,7 +130,7 @@ body {
 
 .dropdown__arrow {
   font-size: 2.5rem;
-  font-weight: initial;
+  /* font-weight: initial; */
   transition: transform 0.4s;
 }
 
@@ -164,29 +165,64 @@ body {
 }
 
 /* Show dropdown menu & submenu */
-body.hasHover .dropdown__item:hover .dropdown__menu,
-.active-menu {
+body.hasHover .dropdown__item:hover .dropdown__menu {
   max-height: 1000px;
   transition: max-height 0.4s ease-in;
 }
 
 /* Rotate dropdown icon */
-body.hasHover .dropdown__item:hover .dropdown__arrow,
+body.hasHover .dropdown__item:hover .dropdown__arrow {
+  transform: rotate(180deg);
+}
+
+.active-menu {
+  max-height: 1000px;
+  transition: max-height 0.4s ease-in;
+}
+
 .active-arrow {
   transform: rotate(180deg);
 }
+
+/* body.hasTouch  */
 
 /*=============== DROPDOWN SUBMENU ===============*/
 .dropdown__add {
   margin-left: auto;
 }
+/* .navbar {
+  color: var(--header-text);
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--header-background);
+  padding: 1.25rem;
+  width: 100%;
+}
+
+.navbar .hamburger:hover {
+  cursor: pointer;
+}
+
+
+
+.mobileNav {
+  display: none;
+}
+
+.openDrawer {
+  transform: translateX(-160px);
+}
+*/
+
+/* .nav {
+  height: var(--header-height);
+} */
 
 .title {
   letter-spacing: 1.5px;
   margin: 0;
   /* padding: 0; */
   font-weight: 700;
-  font-size: 3rem;
 }
 
 @media screen and (min-width: 769px) {
@@ -194,7 +230,6 @@ body.hasHover .dropdown__item:hover .dropdown__arrow,
     height: calc(var(--header-height) + 2rem);
     display: flex;
     justify-content: space-between;
-    align-items: center;
   }
   .nav_toggle {
     display: none;
@@ -234,7 +269,7 @@ body.hasHover .dropdown__item:hover .dropdown__arrow,
     padding-inline: 1rem 3.5rem;
   }
   /* Show dropdown menu */
-  body.hasHover .dropdown__item:hover .dropdown__menu {
+  .dropdown__item:hover .dropdown__menu {
     opacity: 1;
     top: 5rem;
     pointer-events: initial;
@@ -249,9 +284,17 @@ body.hasHover .dropdown__item:hover .dropdown__arrow,
     transition: top 0.3s;
     z-index: 10;
   }
-  .nav .hamburger {
-    display: none;
-  }
+
+  /* .active-arrow {
+  transform: rotate(180deg);
+} */
+}
+
+.nav__menu ol,
+ul,
+dl {
+  padding: 0rem;
+  list-style: none;
 }
 
 .material-symbols-outlined {
@@ -287,6 +330,10 @@ body.hasHover .dropdown__item:hover .dropdown__arrow,
   margin: 3px;
   border-radius: 10px;
 }
+
+/* .navbar .hamburger {
+  display: none;
+} */
 
 .animateBar1 {
   animation: flipBar1 1s;
@@ -875,9 +922,5 @@ dialog {
   .chess-board {
     grid-template-columns: repeat(8, 3.75rem);
     grid-template-rows: repeat(8, 3.75rem);
-  }
-
-  .title {
-    font-size: 2.5rem;
   }
 }
