@@ -42,10 +42,11 @@
     <!--=============== HEADER ===============-->
 
     <header class="header">
-      <nav class="nav container">
+      <nav class="nav">
         <div class="nav__data">
-          <h1 class="font-large">CHESS OPENINGS</h1>
-          <div class="hamburger nav_toggle">
+          <a href="#" class="font-large title">CHESS OPENINGS</a>
+
+          <div class="hamburger nav-toggle" id="nav-toggle">
             <div class="bar1"></div>
             <div class="bar2"></div>
             <div class="bar3"></div>
@@ -54,7 +55,7 @@
 
         <!--=============== NAV MENU ===============-->
 
-        <div class="navbar-right">
+        <div class="nav__menu" id="nav-menu">
           <ul class="nav__list">
             <li class="dropdown__item">
               <div class="nav__link font-medium">
@@ -111,7 +112,7 @@
               </ul>
             </li>
             <li class="nav__link">
-              <button id="dark-mode-toggle" class="dark-mode-toggle">
+              <a id="dark-mode-toggle" class="dark-mode-toggle">
                 <svg
                   width="100%"
                   xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +124,7 @@
                     transform="translate(-8 -8)"
                   />
                 </svg>
-              </button>
+              </a>
             </li>
           </ul>
           <!-- <div class="dropdown" data-dropdown>
@@ -136,7 +137,7 @@
       </nav>
     </header>
 
-    <main class="container">
+    <main>
       <dialog class="dialog" id="dialog"></dialog>
 
       <div class="mega-container">
