@@ -208,11 +208,7 @@ body {
   cursor: pointer;
 }
 
-.navbar-right {
-  display: flex;
-  justify-content: space-between;
-  width: 20rem;
-}
+
 
 .mobileNav {
   display: none;
@@ -220,7 +216,8 @@ body {
 
 .openDrawer {
   transform: translateX(-160px);
-} */
+}
+*/
 
 /* .nav {
   height: var(--header-height);
