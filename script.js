@@ -121,7 +121,7 @@ document.addEventListener("touchstart", (e) => {
   //   currentDropdown.classList.toggle("active");
   // }
   // isDropdownButton.classList.toggle("active");
-  if (e.target.matches(".nav__link")) {
+  if (e.target.matches(".nav__link") || e.target.matches(".dropdown__arrow")) {
     console.log("clicked");
     document.querySelector(".dropdown__menu").classList.toggle("active-menu");
     document.querySelector(".dropdown__arrow").classList.toggle("active-arrow");
