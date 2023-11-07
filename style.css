@@ -1,5 +1,6 @@
+/*=============== VARIABLES CSS ===============*/
 :root {
-  --header-height: 3.5rem;
+  /* --header-height: 3.5rem; */
 
   /* Chess Board colors */
   --green-board-light: #eeeed2;
@@ -7,7 +8,7 @@
   --brown-board-dark: #b58863;
   --brown-board-light: #f0d9b5;
 
-  /* Component colors */
+  /*===================== COMPONENT COLORS ========================*/
   --dark-board-base-green: rgb(22, 101, 52);
   --dark-board-hover-green: rgba(101, 163, 13);
   --dark-board-darkest-green: #052e16;
@@ -59,25 +60,22 @@
   padding: 0;
 }
 
-ul {
+ol,
+ul,
+dl {
+  padding: 0rem;
   list-style: none;
-  /* Color highlighting when pressed on mobile devices */
-  /*-webkit-tap-highlight-color: transparent;*/
-}
-
-a {
-  text-decoration: none;
-}
-
-/*=============== REUSABLE CSS CLASSES ===============*/
-.container {
-  max-width: 1440px;
-  margin-inline: auto;
 }
 
 /* Conversion of px to rem, 1rem = 10px */
 html {
   font-size: 62.5%;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1360px;
+  margin-inline: auto;
 }
 
 html,
@@ -236,7 +234,14 @@ body.hasHover .dropdown__item:hover .dropdown__arrow,
     padding-inline: 1rem 3.5rem;
   }
   /* Show dropdown menu */
-  .dropdown__item:hover .dropdown__menu hasHover,
+  body.hasHover .dropdown__item:hover .dropdown__menu {
+    opacity: 1;
+    top: 5rem;
+    pointer-events: initial;
+    transition: top 0.3s;
+    z-index: 10;
+  }
+
   .active-menu {
     opacity: 1;
     top: 5rem;
@@ -244,24 +249,9 @@ body.hasHover .dropdown__item:hover .dropdown__arrow,
     transition: top 0.3s;
     z-index: 10;
   }
-
-  /* .active-menu {
-    opacity: 1;
-    top: 5rem;
-    pointer-events: initial;
-    transition: top 0.3s;
-    z-index: 10;
-  } */
   .nav .hamburger {
     display: none;
   }
-}
-
-.nav__menu ol,
-ul,
-dl {
-  padding: 0rem;
-  list-style: none;
 }
 
 .material-symbols-outlined {
@@ -885,5 +875,9 @@ dialog {
   .chess-board {
     grid-template-columns: repeat(8, 3.75rem);
     grid-template-rows: repeat(8, 3.75rem);
+  }
+
+  .title {
+    font-size: 2.5rem;
   }
 }

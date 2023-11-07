@@ -118,24 +118,6 @@ document.addEventListener("touchstart", (e) => {
     document.querySelector(".dropdown__arrow").classList.toggle("active-arrow");
     isDropdownOpen = true;
   }
-  // if (isDropdownOpen) {
-  //   const dropdownMenuDimensions = document
-  //     .querySelector(".dropdown__menu")
-  //     .getBoundingClientRect();
-  //   if (
-  //     e.clientX < dropdownMenuDimensions.left ||
-  //     e.clientX > dropdownMenuDimensions.right ||
-  //     e.clientY < dropdownMenuDimensions.top ||
-  //     e.clientY > dropdownMenuDimensions.bottom
-  //   ) {
-  //     document.querySelector(".dropdown__menu").classList.toggle("active-menu");
-  //     document
-  //       .querySelector(".dropdown__arrow")
-  //       .classList.toggle("active-arrow");
-  //   } else {
-  //     console.log("clicked2");
-  //   }
-  // }
 });
 
 //Listen for the opening selected
