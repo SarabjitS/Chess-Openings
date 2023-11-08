@@ -250,7 +250,7 @@ body.hasHover .dropdown__item:hover .dropdown__arrow,
   body.hasHover .dropdown__item:hover .dropdown__menu,
   .active-menu {
     opacity: 1;
-    top: 5.5rem;
+    top: 7.5rem;
     pointer-events: initial;
     transition: top 0.3s;
     z-index: 10;
