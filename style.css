@@ -266,6 +266,10 @@ body.hasHover .dropdown__item:hover .dropdown__arrow,
   .nav .hamburger {
     display: none;
   }
+
+  /* .mega-container {
+    margin-top: 50rem;
+  } */
 }
 
 .material-symbols-outlined {
@@ -348,7 +352,7 @@ body.hasHover .dropdown__item:hover .dropdown__arrow,
   display: grid;
   grid-template-columns: minmax(30rem, 38rem) 42rem 34rem;
   grid-template-rows: 4rem 1fr;
-  padding: 10rem 4rem 7rem 4rem;
+  padding: 20rem 4rem 7rem 4rem;
   column-gap: 7rem;
   row-gap: 6rem;
   position: relative;
