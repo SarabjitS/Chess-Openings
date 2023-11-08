@@ -44,7 +44,7 @@
   --accordion-border: var(--light-board-darkest-brown);
   --notation-clr: var(--light-board-darkest-brown);
   /* Need to work on dropdown hover */
-  --dropdown-hover: var(--darkest-brown-light-shade);
+  --dropdown-hover: var(--brown-board-dark);
   /* --symbol-color: var(--acc-body-color); */
 
   /* Dark mode */
@@ -219,6 +219,7 @@ body.hasHover .dropdown__item:hover .dropdown__arrow,
     display: flex;
     column-gap: 5rem;
   }
+
   .nav__link {
     height: 100%;
     padding: 0;
@@ -794,7 +795,7 @@ dialog {
   .nav__menu {
     position: absolute;
     left: 0;
-    top: 2.5rem;
+    top: 4.5rem;
     width: 100%;
     /* height: calc(100vh - 3.5rem); */
     /* overflow: auto; */
