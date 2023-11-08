@@ -1,6 +1,6 @@
 /*=============== VARIABLES CSS ===============*/
 :root {
-  --header-height: 3.5rem;
+  --header-height: 5.5rem;
 
   /*============== CHESS BOARD COLORS =====================*/
   --green-board-light: #eeeed2;
@@ -74,10 +74,10 @@ html {
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
-/* .container {
+.container {
   max-width: 1360px;
   margin-inline: auto;
-} */
+}
 
 html,
 body {
@@ -728,17 +728,10 @@ dialog {
 /* Hamburger origin */
 
 @media (max-width: 768px) {
-  /* .nav__data {
-    height: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-  } */
-  /* .container {
+  .nav__container {
     max-width: 768px;
-    margin-inline: auto;
-  } */
+    margin-inline: 1.5rem;
+  }
   .hamburger {
     display: flex;
     flex-direction: column;
@@ -805,7 +798,7 @@ dialog {
 /* Show menu */
 .show-menu {
   opacity: 1;
-  top: 3.5rem;
+  top: 5.5rem;
   pointer-events: initial;
 }
 
