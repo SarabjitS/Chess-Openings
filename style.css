@@ -13,6 +13,7 @@
   --dark-board-hover-green: rgba(101, 163, 13);
   --dark-board-darkest-green: #052e16;
   --dark-board-lightest-green: #f0fdf4;
+  --dark-board-lighter-green: #dcfce7;
   --dark-board-lightest-green-opaque: rgb(240, 253, 244, 0.6);
   --light-board-darkest-brown: rgb(55, 38, 27);
   --light-board-dark-brown: rgb(158, 109, 64, 1);
@@ -43,7 +44,7 @@
   --accordion-border: var(--light-board-darkest-brown);
   --notation-clr: var(--light-board-darkest-brown);
   /* Need to work on dropdown hover */
-  /* --dropdown-hover: var(--darkest-brown-light-shade); */
+  --dropdown-hover: var(--darkest-brown-light-shade);
   /* --symbol-color: var(--acc-body-color); */
 
   /* Dark mode */
@@ -159,11 +160,11 @@ body {
   border: none;
   width: 100%;
   color: var(--acc-body-color);
-  background-color: var(--tutorial-list-item);
+  background-color: var(--acc-body-bkg);
 }
 
 .dropdown__link:hover {
-  background-color: var(--hover-light);
+  background-color: var(--dropdown-hover);
 }
 
 .dropdown__menu {
@@ -377,8 +378,10 @@ body.hasHover .dropdown__item:hover .dropdown__arrow,
 }
 
 .chess-board {
-  display: grid;
   border-radius: 0.5rem;
+  overflow: hidden;
+  display: grid;
+
   grid-template-columns: repeat(8, 5.25rem);
   grid-template-rows: repeat(8, 5.25rem);
   box-shadow: var(--shadow-elevation-high);
@@ -507,7 +510,7 @@ img {
 
 .choose-opening,
 .tutorial,
-#accordionFlushExample .accordion-item {
+.accordion-item {
   border-radius: 0.5rem;
   overflow: hidden;
 }
@@ -589,13 +592,14 @@ dialog {
   --header-text: white;
   --test-yourself: var(--dark-board-base-green);
   --hover-btn-group: rgba(101, 163, 13, 0.9);
-  --tutorial-list-item: var(--dark-board-lightest-green);
-  --acc-body-bkg: rgb(22, 101, 52, 0.2);
+  --tutorial-list-item: #dcfce7;
+  --acc-body-bkg: var(--dark-board-lightest-green);
   --acc-body-color: var(--dark-board-darkest-green);
   --light-board-dropdown-bkg: var(--dark-board-lightest-green-opaque);
   --notation-clr: var(--dark-board-darkest-green);
-  --dropdown-hover: var(--dark-board-lightest-green);
+  --dropdown-hover: var(--dark-board-lighter-green);
   --test-yourself-disabled: var(--hover-light);
+  /* --dropdown-menu-bkg: var(--dark-board-lightest-green); */
 }
 
 #tutorial-text {
@@ -650,6 +654,7 @@ dialog {
 .h2-tutorial,
 .btn.choose-opening:active,
 .btn.choose-opening:hover {
+  border: none;
   border-bottom: 0.2rem solid var(--accordion-border);
 }
 
