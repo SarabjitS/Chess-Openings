@@ -611,7 +611,8 @@ dialog {
 }
 
 .tutorial li {
-  padding: 1rem 0 1rem 0;
+  padding: 1rem 0 1rem 0rem;
+  margin: 0 1.5rem;
 }
 
 .tutorial li:nth-child(even) {
