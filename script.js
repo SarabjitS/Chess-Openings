@@ -112,7 +112,7 @@ watchForHover();
 
 //Listen for click on extra-options button
 document.addEventListener("touchstart", (e) => {
-  if (e.target.matches(".nav__link") || e.target.matches(".dropdown__arrow")) {
+  if (e.target.matches("#nav-link-1") || e.target.matches(".dropdown__arrow")) {
     console.log("clicked1");
     document.querySelector(".dropdown__menu").classList.toggle("active-menu");
     document.querySelector(".dropdown__arrow").classList.toggle("active-arrow");
