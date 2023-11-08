@@ -68,7 +68,7 @@ const showMenu = (toggleId, navId) => {
     nav.classList.toggle("show-menu");
 
     // Add show-icon to show and hide the menu icon
-    toggle.classList.toggle("show-icon");
+    // toggle.classList.toggle("show-icon");
   });
 };
 
