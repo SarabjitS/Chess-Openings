@@ -113,7 +113,6 @@ watchForHover();
 //Listen for click on extra-options button
 document.addEventListener("touchstart", (e) => {
   if (e.target.matches("#nav-link-1") || e.target.matches(".dropdown__arrow")) {
-    console.log("clicked1");
     document.querySelector(".dropdown__menu").classList.toggle("active-menu");
     document.querySelector(".dropdown__arrow").classList.toggle("active-arrow");
     isDropdownOpen = true;
@@ -167,7 +166,6 @@ speedBtn.addEventListener("click", function () {
     speed = 1250;
     document.getElementById("speed-btn-icon").style = "transform: scaleX(-1);";
   }
-  console.log("clicked");
 });
 // });
 
@@ -474,7 +472,6 @@ function nextHandler(sourceMove, destinationMove) {
       document.getElementById(sourceMove).children[0],
       document.getElementById(destinationMove).firstChild
     );
-  console.log(document.getElementById(destinationMove).children[1]);
   if (document.getElementById(destinationMove).children[1]) {
     document.getElementById(destinationMove).children[1].style.display = "none";
   }
