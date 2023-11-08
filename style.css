@@ -74,7 +74,7 @@ html {
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
-.container {
+.nav__container {
   max-width: 1360px;
   margin-inline: auto;
 }
@@ -662,12 +662,19 @@ dialog {
 
 /* Media queries */
 
+@media (max-width: 1400px) {
+  .nav__container {
+    max-width: 1400px;
+    margin-inline: 2.5rem;
+  }
+}
+
 /* xl */
 @media (max-width: 1280px) {
-  /* .container {
+  .nav__container {
     max-width: 1280px;
-    margin-inline: 5rem;
-  } */
+    margin-inline: 2.5rem;
+  }
   .mega-container {
     max-width: 100%;
     grid-template-columns: 32rem 44rem;
@@ -696,6 +703,10 @@ dialog {
 
 /* lg */
 @media (max-width: 1024px) {
+  .nav__container {
+    max-width: 1024px;
+    margin-inline: 2rem;
+  }
   .mega-container {
     max-width: 100%;
     justify-content: center;
