@@ -121,8 +121,6 @@ body {
 }
 
 .nav__link {
-  color: var(--header-text);
-  background-color: var(--header-background);
   font-weight: 600;
   padding: 1.25rem 1.5rem;
   display: flex;
@@ -745,6 +743,10 @@ dialog {
 /* Hamburger origin */
 
 @media (max-width: 768px) {
+  .nav__link {
+    color: var(--header-text);
+    background-color: var(--header-background);
+  }
   .nav__container {
     max-width: 768px;
     margin-inline: 1.5rem;
@@ -806,10 +808,10 @@ dialog {
   /* .nav__menu::-webkit-scrollbar {
     width: 0;
   } */
-  .nav__list {
+
+  /* .nav__list {
     background-color: var(--black-color);
-    /* padding-top: 1rem; */
-  }
+  } */
 }
 
 /* Show menu */
