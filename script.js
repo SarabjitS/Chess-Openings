@@ -61,10 +61,6 @@ document.ondblclick = function (e) {
 hamburger.addEventListener("click", () => {
   document.getElementById("nav-menu").classList.toggle("show-menu");
   toggleAnimateBars();
-  // bar1.classList.toggle("animateBar1");
-  // bar2.classList.toggle("animateBar2");
-  // bar3.classList.toggle("animateBar3");
-  // Close the dropdown if they are open
   if (
     document
       .querySelector(".dropdown__menu")
@@ -82,7 +78,10 @@ document.addEventListener("touchstart", (e) => {
     document.querySelector(".dropdown__menu").classList.toggle("active-menu");
     document.querySelector(".dropdown__arrow").classList.toggle("active-arrow");
   } else if (
-    document.querySelector(".dropdown__menu").classList.contains("active-menu")
+    document
+      .querySelector(".dropdown__menu")
+      .classList.contains("active-menu") ||
+    document.querySelector("#nav-menu").classList.contains("show-menu")
   )
     if (!document.querySelector(".nav__container").contains(e.target)) {
       // Close the dropdown menu and toggle bar if the user clicks anywhere else on the board
