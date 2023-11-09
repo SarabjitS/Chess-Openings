@@ -59,23 +59,11 @@ document.ondblclick = function (e) {
   e.preventDefault();
 };
 
-const showMenu = (toggleId, navId) => {
-  const toggle = document.getElementById(toggleId),
-    nav = document.getElementById(navId);
-
-  toggle.addEventListener("click", () => {
-    // Add show-menu class to nav menu
-    nav.classList.toggle("show-menu");
-  });
-};
-
-showMenu("nav-toggle", "nav-menu");
-
 hamburger.addEventListener("click", () => {
+  document.getElementById("nav-menu").classList.toggle("show-menu");
   bar1.classList.toggle("animateBar1");
   bar2.classList.toggle("animateBar2");
   bar3.classList.toggle("animateBar3");
-  // mobileNav.classList.toggle("openDrawer");
 });
 
 //EventListener for touch on extra-options button
