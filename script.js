@@ -66,9 +66,6 @@ const showMenu = (toggleId, navId) => {
   toggle.addEventListener("click", () => {
     // Add show-menu class to nav menu
     nav.classList.toggle("show-menu");
-
-    // Add show-icon to show and hide the menu icon
-    // toggle.classList.toggle("show-icon");
   });
 };
 
@@ -79,6 +76,26 @@ hamburger.addEventListener("click", () => {
   bar2.classList.toggle("animateBar2");
   bar3.classList.toggle("animateBar3");
   // mobileNav.classList.toggle("openDrawer");
+});
+
+//EventListener for touch on extra-options button
+document.addEventListener("touchstart", (e) => {
+  if (e.target.matches("#nav-link-1") || e.target.matches(".dropdown__arrow")) {
+    document.querySelector(".dropdown__menu").classList.toggle("active-menu");
+    document.querySelector(".dropdown__arrow").classList.toggle("active-arrow");
+  } else if (
+    document.querySelector(".dropdown__menu").classList.contains("active-menu")
+  )
+    if (
+      !document.querySelector(".dropdown__menu").contains(e.target) &&
+      !document.querySelector(".dropdown__arrow").contains(e.target)
+    ) {
+      // For closing the dropdown menu if the user clicks anywhere else on the board
+      document.querySelector(".dropdown__menu").classList.remove("active-menu");
+      document
+        .querySelector(".dropdown__arrow")
+        .classList.toggle("active-arrow");
+    }
 });
 
 function watchForHover() {
@@ -109,15 +126,6 @@ function watchForHover() {
 }
 
 watchForHover();
-
-//Listen for click on extra-options button
-document.addEventListener("touchstart", (e) => {
-  if (e.target.matches("#nav-link-1") || e.target.matches(".dropdown__arrow")) {
-    document.querySelector(".dropdown__menu").classList.toggle("active-menu");
-    document.querySelector(".dropdown__arrow").classList.toggle("active-arrow");
-    isDropdownOpen = true;
-  }
-});
 
 //Listen for the opening selected
 document.addEventListener("click", function (e) {
