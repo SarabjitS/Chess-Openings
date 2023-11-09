@@ -43,13 +43,7 @@
   --hover-btn-group: var(--darkest-brown-light-shade);
   --accordion-border: var(--light-board-darkest-brown);
   --notation-clr: var(--light-board-darkest-brown);
-  /* Need to work on dropdown hover */
   --dropdown-hover: var(--brown-board-dark);
-  /* --symbol-color: var(--acc-body-color); */
-
-  /* Dark mode */
-  --dark-board-btn-grp: var(--dark-board-hover-green);
-  --tutorial-text: var(--dark-board-darkest-green);
   --body-dark: var(--eerie-black);
 }
 
@@ -404,6 +398,7 @@ body.hasHover .dropdown__item:hover .dropdown__arrow,
   position: absolute;
   font-size: 1.5em;
   font-weight: 700;
+  color: var(--acc-body-color);
 }
 
 .number {
@@ -591,7 +586,7 @@ dialog {
   --accordion-border: var(--dark-board-darkest-green);
   --hover-light: rgba(101, 163, 13);
   --tutorial-heading: var(--dark-board-base-green);
-  --grp-btn: var(--dark-board-btn-grp);
+  --grp-btn: var(--dark-board-hover-green);
   --header-background: var(--dark-board-darkest-green);
   --header-text: white;
   --test-yourself: var(--dark-board-base-green);
@@ -610,7 +605,7 @@ dialog {
   display: flex;
   list-style-type: none;
   flex-direction: column;
-  color: var(--tutorial-text);
+  color: var(--acc-body-color);
   align-items: start;
 }
 
