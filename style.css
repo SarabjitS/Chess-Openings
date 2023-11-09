@@ -42,7 +42,6 @@
   --test-yourself-disabled: var(--hover-light);
   --hover-btn-group: var(--darkest-brown-light-shade);
   --accordion-border: var(--light-board-darkest-brown);
-  --notation-clr: var(--light-board-darkest-brown);
   --dropdown-hover: var(--brown-board-dark);
   --body-dark: var(--eerie-black);
 }
@@ -595,7 +594,6 @@ dialog {
   --acc-body-bkg: var(--dark-board-lightest-green);
   --acc-body-color: var(--dark-board-darkest-green);
   --light-board-dropdown-bkg: var(--dark-board-lightest-green-opaque);
-  --notation-clr: var(--dark-board-darkest-green);
   --dropdown-hover: var(--dark-board-lighter-green);
   --test-yourself-disabled: var(--hover-light);
   /* --dropdown-menu-bkg: var(--dark-board-lightest-green); */
