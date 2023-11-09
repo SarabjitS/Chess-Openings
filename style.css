@@ -73,6 +73,7 @@ body {
 .nav__container {
   max-width: 1360px;
   margin-inline: auto;
+  height: var(--header-height);
 }
 
 .font-medium,
@@ -119,9 +120,6 @@ body {
   justify-content: space-between;
   align-items: center;
   /* width: 100%; */
-}
-.nav__bar {
-  height: var(--header-height);
 }
 
 .nav__link {
@@ -496,7 +494,7 @@ img {
 
 /* Large screens which don't have hamburger */
 @media screen and (min-width: 769px) {
-  .nav__bar {
+  .nav__container {
     height: calc(var(--header-height) + 2rem);
     display: flex;
     justify-content: space-between;

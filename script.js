@@ -64,6 +64,18 @@ hamburger.addEventListener("click", () => {
   bar1.classList.toggle("animateBar1");
   bar2.classList.toggle("animateBar2");
   bar3.classList.toggle("animateBar3");
+  // Close the dropdown if they are open
+  if (
+    document
+      .querySelector(".dropdown__menu")
+      .classList.contains("active-menu") ||
+    document
+      .querySelector(".dropdown__arrow")
+      .classList.contains("active-arrow")
+  ) {
+    document.querySelector(".dropdown__menu").classList.remove("active-menu");
+    document.querySelector(".dropdown__arrow").classList.remove("active-arrow");
+  }
 });
 
 //EventListener for touch on extra-options button
