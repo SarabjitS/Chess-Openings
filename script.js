@@ -290,13 +290,13 @@ testBtn.addEventListener("click", function () {
       makeTutorialHeading();
       testStart();
       buttonsOnTestMode();
-      testBtn.classList.add("add-border");
+      testBtn.classList.add("add-color");
       console.log(testBtn.classList);
     } else {
       disableButton(hintBtn);
       isTestMode = false;
       renderBoard();
-      testBtn.classList.remove("add-border");
+      testBtn.classList.remove("add-color");
     }
   }
 });
@@ -382,7 +382,7 @@ chessBoard.addEventListener("click", function (e) {
             isTestMode = false;
             makeTutorialHeading();
             buttonsOnTestMode();
-            testBtn.classList.remove("btn-danger");
+            // testBtn.classList.remove("btn-danger");
             disableButton(hintBtn);
           }
         } else {
@@ -626,7 +626,8 @@ function renderBoard() {
   clearInterval(id);
 
   //Bring to the original layout
-  testBtn.classList.remove("btn-danger");
+  // testBtn.classList.remove("btn-danger");
+  testBtn.classList.remove("add-color");
   disableButton(hintBtn);
   makeTutorialHeading();
   resetTutorial();

@@ -10,7 +10,8 @@
 
   /*===================== COMPONENT COLORS ========================*/
   --dark-board-base-green: rgb(22, 101, 52);
-  --dark-board-hover-green: rgba(101, 163, 13);
+  --dark-board-bi-green: rgba(101, 163, 13);
+  --dark-board-hover-green: rgba(101, 163, 13, 0.8);
   --dark-board-darkest-green: #052e16;
   --dark-board-lightest-green: #f0fdf4;
   --dark-board-lighter-green: #dcfce7;
@@ -77,6 +78,12 @@ body {
   height: 100%;
 }
 
+.font-medium,
+.accordion-button,
+.accordion-body {
+  font-size: 2rem;
+}
+
 body {
   line-height: 1;
   /* color: var(--foreground); */
@@ -97,8 +104,14 @@ body {
   background-color: var(--header-background);
   color: var(--header-text);
   width: 100%;
-  /* padding: 1rem; */
   z-index: 100;
+}
+
+.title {
+  letter-spacing: 1.5px;
+  margin: 0;
+  font-weight: 700;
+  font-size: 3rem;
 }
 
 .nav__data {
@@ -166,7 +179,12 @@ body {
   transition: max-height 0.4s ease-out;
 }
 
-/* Show dropdown menu & submenu */
+/* For speed button */
+.rotate {
+  rotate: 180deg;
+}
+
+/* Show dropdown menu */
 body.hasHover .dropdown__item:hover .dropdown__menu,
 .active-menu {
   max-height: 1000px;
@@ -177,19 +195,6 @@ body.hasHover .dropdown__item:hover .dropdown__menu,
 body.hasHover .dropdown__item:hover .dropdown__arrow,
 .active-arrow {
   transform: rotate(180deg);
-}
-
-/*=============== DROPDOWN SUBMENU ===============*/
-.dropdown__add {
-  margin-left: auto;
-}
-
-.title {
-  letter-spacing: 1.5px;
-  margin: 0;
-  /* padding: 0; */
-  font-weight: 700;
-  font-size: 3rem;
 }
 
 @media screen and (min-width: 769px) {
@@ -238,6 +243,7 @@ body.hasHover .dropdown__item:hover .dropdown__arrow,
   .dropdown__link {
     padding-inline: 1rem 3.5rem;
   }
+
   /* Show dropdown menu */
   body.hasHover .dropdown__item:hover .dropdown__menu,
   .active-menu {
@@ -438,28 +444,6 @@ img {
   flex-direction: column;
 }
 
-.test-yourself,
-.hint {
-  width: 10rem;
-  height: 7rem;
-  margin-left: 1.5rem;
-}
-
-.font-large {
-  font-size: 3rem;
-}
-
-.font-medium,
-.accordion-button,
-.accordion-body {
-  font-size: 2rem;
-}
-
-.test-yourself[disabled] {
-  background-color: var(--test-yourself-disabled);
-  color: white;
-}
-
 .play-controls {
   margin-right: 0.5rem;
   border: none;
@@ -468,16 +452,33 @@ img {
 .bi {
   color: var(--grp-btn);
   font-size: 5.25rem;
+  /* background-color: white; */
 }
 
 .bi:hover {
   color: var(--hover-btn-group);
 }
 
+.test-yourself,
+.hint {
+  width: 10rem;
+  height: 7rem;
+  margin-left: 1.5rem;
+}
+
 .test-yourself {
   background-color: var(--test-yourself);
   color: white;
   border-style: none;
+}
+
+.add-color {
+  background-color: var(--grp-btn);
+}
+
+.test-yourself[disabled] {
+  background-color: var(--test-yourself-disabled);
+  color: white;
 }
 
 .choose-opening {
@@ -529,13 +530,53 @@ img {
   color: white;
 }
 
+.accordion-button:focus,
+.choose-opening:focus,
+.test-yourself:focus {
+  box-shadow: none;
+  /* border-color: rgba(0, 0, 0, 1); */
+}
+
+.accordion-button:hover,
+.btn.test-yourself:hover,
+.btn.choose-opening:hover,
+.accordion-button:active,
+.btn.test-yourself:active,
+.btn.choose-opening:active {
+  background-color: var(--hover-light);
+  color: white;
+}
+
+/* .btn.test-yourself:focus,
+.btn.test-yourself:active {
+  background-color: var(--hover-light);
+  color: red;
+} */
+
+/* .btn.test-yourself:hover,
+.btn.choose-opening:hover,
+.btn.test-yourself:active,
+.btn.choose-opening:active {
+  color: white;
+} */
+
+.accordion-item,
+.choose-opening,
+.h2-tutorial,
+.btn.choose-opening:active,
+.btn.choose-opening:hover {
+  border: none;
+  border-bottom: 0.2rem solid var(--acc-body-color);
+}
+
+.accordion-button:not(.collapsed) {
+  color: var(--accordion-not-collapsed-color);
+  background-color: var(--accordion-not-collapsed-bg);
+}
+
 .dropdown__menu .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
   color: var(--acc-body-color);
-}
-
-.rotate {
-  rotate: 180deg;
 }
 
 .dropdown__menu .material-symbols-outlined-fill {
@@ -568,7 +609,6 @@ dialog {
 }
 
 .highlight {
-  /* border: 3px solid blue; */
   box-shadow: 0px 0px 0px 4px blue inset;
 }
 
@@ -580,9 +620,9 @@ dialog {
   /* --accordion-not-collapsed-color: var(--dark-board-base-green); */
   --accordion-not-collapsed-bg: var(--dark-board-base-green);
   /* Needs work on this */
-  --hover-light: rgba(101, 163, 13);
+  --hover-light: var(--dark-board-hover-green);
   --tutorial-heading: var(--dark-board-base-green);
-  --grp-btn: var(--dark-board-hover-green);
+  --grp-btn: var(--dark-board-bi-green);
   --header-background: var(--dark-board-darkest-green);
   --header-text: white;
   --test-yourself: var(--dark-board-base-green);
@@ -611,43 +651,6 @@ dialog {
 
 .tutorial li:nth-child(even) {
   background-color: var(--tutorial-list-item);
-}
-
-.accordion-button:focus,
-.choose-opening:focus,
-.test-yourself:focus {
-  box-shadow: none;
-  border-color: rgba(0, 0, 0, 0.125);
-}
-
-.accordion-button:hover,
-.btn.test-yourself:hover,
-.btn.choose-opening:hover,
-.accordion-button:active,
-.btn.test-yourself:active,
-.btn.choose-opening:active {
-  background-color: var(--hover-light);
-}
-
-.btn.test-yourself:hover,
-.btn.choose-opening:hover,
-.btn.test-yourself:active,
-.btn.choose-opening:active {
-  color: white;
-}
-
-.accordion-item,
-.choose-opening,
-.h2-tutorial,
-.btn.choose-opening:active,
-.btn.choose-opening:hover {
-  border: none;
-  border-bottom: 0.2rem solid var(--acc-body-color);
-}
-
-.accordion-button:not(.collapsed) {
-  color: var(--accordion-not-collapsed-color);
-  background-color: var(--accordion-not-collapsed-bg);
 }
 
 /* Media queries */
@@ -865,9 +868,5 @@ dialog {
 
   .title {
     font-size: 2.5rem;
-  }
-
-  .add-border {
-    box-shadow: 0px 0px 0px 4px red inset;
   }
 }
