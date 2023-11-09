@@ -290,10 +290,13 @@ testBtn.addEventListener("click", function () {
       makeTutorialHeading();
       testStart();
       buttonsOnTestMode();
+      testBtn.classList.add("add-border");
+      console.log(testBtn.classList);
     } else {
       disableButton(hintBtn);
       isTestMode = false;
       renderBoard();
+      testBtn.classList.remove("add-border");
     }
   }
 });
@@ -333,7 +336,9 @@ hintBtn.addEventListener("click", function () {
   isHint = !isHint;
 
   if (isHint) {
-    showDialog("Please click on Go Back button to go back to test");
+    showDialog(
+      "After seeing hint in tutorial, click Go Back to go back to test"
+    );
     moveIndex++;
     resetTutorial();
     generateTutorial(opening[moveIndex][2]); //Provides the hint text
