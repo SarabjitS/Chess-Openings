@@ -37,10 +37,8 @@
   --accordion-not-collapsed-bg: rgb(158, 109, 64, 0.95);
   --grp-btn: var(--light-board-darkest-brown);
   --accordion-button: var(--light-board-dark-brown);
-  --tutorial-heading: var(--light-board-dark-brown);
   --acc-body-color: var(--light-board-darkest-brown);
-  --test-yourself: var(--light-board-dark-brown);
-  --test-yourself-disabled: var(--hover-light);
+  /* --test-yourself: var(--light-board-dark-brown); */
   --hover-btn-group: var(--darkest-brown-light-shade);
   --dropdown-hover: var(--brown-board-dark);
   --body-dark: var(--eerie-black);
@@ -402,7 +400,7 @@ img {
 }
 
 .test-yourself {
-  background-color: var(--test-yourself);
+  background-color: var(--accordion-not-collapsed-bg);
   color: white;
   border-style: none;
 }
@@ -412,7 +410,7 @@ img {
 }
 
 .test-yourself[disabled] {
-  background-color: var(--test-yourself-disabled);
+  background-color: var(--hover-light);
   color: white;
 }
 
@@ -427,13 +425,11 @@ img {
   align-self: start;
   justify-self: center;
   background-color: #fff;
-  /* To make the border-radius work */
-  /* overflow: hidden; */
 }
 
 .h2-tutorial {
   text-align: center;
-  background-color: var(--tutorial-heading);
+  background-color: var(--accordion-not-collapsed-bg);
   color: white;
   padding: 1rem;
   margin-bottom: 2rem;
@@ -552,23 +548,17 @@ dialog {
   --light-color-board: var(--green-board-light);
   --dark-color-board: var(--green-board-dark);
   --accordion-button: var(--dark-board-base-green);
-  /* --accordion-not-collapsed-color: var(--dark-board-base-green); */
   --accordion-not-collapsed-bg: var(--dark-board-base-green);
-  /* Needs work on this */
   --hover-light: var(--dark-board-hover-green);
-  --tutorial-heading: var(--dark-board-base-green);
   --grp-btn: var(--dark-board-bi-green);
   --header-background: var(--dark-board-darkest-green);
   --header-text: white;
-  --test-yourself: var(--dark-board-base-green);
   --hover-btn-group: rgba(101, 163, 13, 0.9);
   --tutorial-list-item: #dcfce7;
   --acc-body-bkg: var(--dark-board-lightest-green);
   --acc-body-color: var(--dark-board-darkest-green);
   --light-board-dropdown-bkg: var(--dark-board-lightest-green-opaque);
   --dropdown-hover: var(--dark-board-lighter-green);
-  --test-yourself-disabled: var(--hover-light);
-  /* --dropdown-menu-bkg: var(--dark-board-lightest-green); */
 }
 
 #tutorial-text {

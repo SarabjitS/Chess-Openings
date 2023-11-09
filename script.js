@@ -94,7 +94,7 @@ document.addEventListener("touchstart", (e) => {
       document.querySelector(".dropdown__menu").classList.remove("active-menu");
       document
         .querySelector(".dropdown__arrow")
-        .classList.toggle("active-arrow");
+        .classList.remove("active-arrow");
     }
 });
 
@@ -626,7 +626,6 @@ function renderBoard() {
   clearInterval(id);
 
   //Bring to the original layout
-  // testBtn.classList.remove("btn-danger");
   testBtn.classList.remove("add-color");
   disableButton(hintBtn);
   makeTutorialHeading();
