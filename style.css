@@ -294,6 +294,56 @@ body.hasHover .dropdown__item:hover .dropdown__arrow,
   justify-content: center;
 }
 
+/* For increasing size of accordion */
+.accordion-body {
+  background-color: var(--acc-body-bkg);
+  color: var(--acc-body-color);
+}
+
+.accordion {
+  grid-area: accordion;
+  align-self: start;
+  justify-self: center;
+  min-width: 100%;
+}
+
+.accordion-button,
+.choose-opening {
+  background-color: var(--accordion-button);
+  color: white;
+}
+
+.accordion-button:focus,
+.choose-opening:focus,
+.test-yourself:focus {
+  box-shadow: none;
+  /* border-color: rgba(0, 0, 0, 1); */
+}
+
+.accordion-button:hover,
+.btn.test-yourself:hover,
+.btn.choose-opening:hover,
+.accordion-button:active,
+.btn.test-yourself:active,
+.btn.choose-opening:active {
+  background-color: var(--hover-light);
+  color: white;
+}
+
+.accordion-item,
+.choose-opening,
+.h2-tutorial,
+.btn.choose-opening:active,
+.btn.choose-opening:hover {
+  border: none;
+  border-bottom: 0.2rem solid var(--acc-body-color);
+}
+
+.accordion-button:not(.collapsed) {
+  color: var(--accordion-not-collapsed-color);
+  background-color: var(--accordion-not-collapsed-bg);
+}
+
 .choose-opening {
   grid-area: btn;
   min-width: 20rem;
@@ -442,69 +492,6 @@ img {
   overflow: hidden;
 }
 
-/* For increasing size of accordion */
-.accordion-body {
-  background-color: var(--acc-body-bkg);
-  color: var(--acc-body-color);
-}
-
-.accordion {
-  grid-area: accordion;
-  align-self: start;
-  justify-self: center;
-  min-width: 100%;
-}
-
-.accordion-button,
-.choose-opening {
-  background-color: var(--accordion-button);
-  color: white;
-}
-
-.accordion-button:focus,
-.choose-opening:focus,
-.test-yourself:focus {
-  box-shadow: none;
-  /* border-color: rgba(0, 0, 0, 1); */
-}
-
-.accordion-button:hover,
-.btn.test-yourself:hover,
-.btn.choose-opening:hover,
-.accordion-button:active,
-.btn.test-yourself:active,
-.btn.choose-opening:active {
-  background-color: var(--hover-light);
-  color: white;
-}
-
-/* .btn.test-yourself:focus,
-.btn.test-yourself:active {
-  background-color: var(--hover-light);
-  color: red;
-} */
-
-/* .btn.test-yourself:hover,
-.btn.choose-opening:hover,
-.btn.test-yourself:active,
-.btn.choose-opening:active {
-  color: white;
-} */
-
-.accordion-item,
-.choose-opening,
-.h2-tutorial,
-.btn.choose-opening:active,
-.btn.choose-opening:hover {
-  border: none;
-  border-bottom: 0.2rem solid var(--acc-body-color);
-}
-
-.accordion-button:not(.collapsed) {
-  color: var(--accordion-not-collapsed-color);
-  background-color: var(--accordion-not-collapsed-bg);
-}
-
 .dropdown__menu .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
   color: var(--acc-body-color);
@@ -571,7 +558,7 @@ dialog {
 
 .tutorial li {
   padding: 1rem 0 1rem 0rem;
-  margin: 0 1.5rem;
+  margin: 0 auto;
 }
 
 .tutorial li:nth-child(even) {
@@ -591,12 +578,12 @@ dialog {
 /* xl */
 @media (max-width: 1280px) {
   .nav__container {
-    max-width: 1280px;
-    margin-inline: 2.5rem;
+    max-width: 100%;
   }
+
   .mega-container {
     max-width: 100%;
-    grid-template-columns: 32rem 44rem;
+    grid-template-columns: minmax(32rem, 48rem) 44rem;
     grid-template-rows: 4rem 1fr 40rem;
     grid-template-areas:
       "btn board"
@@ -621,14 +608,12 @@ dialog {
 /* lg */
 @media (max-width: 1024px) {
   .nav__container {
-    max-width: 1024px;
     margin-inline: 2rem;
   }
 
   .mega-container {
-    max-width: 100%;
     justify-content: center;
-    grid-template-columns: 27rem 36rem;
+    grid-template-columns: minmax(27rem, 40rem) 36rem;
     grid-template-rows: 4rem 45rem 40rem;
     grid-template-areas:
       "btn board"
@@ -714,7 +699,6 @@ dialog {
   }
 
   .nav__container {
-    max-width: 768px;
     margin-inline: 1.5rem;
   }
 
@@ -740,7 +724,7 @@ dialog {
 
   .mega-container {
     /* justify-content: center; */
-    grid-template-columns: 40rem;
+    grid-template-columns: minmax(40rem, 50rem);
     grid-template-rows: 4em 1fr 58rem 50rem;
     grid-template-areas:
       "btn"
@@ -754,6 +738,7 @@ dialog {
 
   .tutorial {
     grid-column-start: 1;
+    min-width: 40rem;
   }
 
   .chess-board {
@@ -812,6 +797,10 @@ dialog {
   .sq-notation-black {
     font-size: 1.25em;
   }
+
+  .tutorial {
+    min-width: 34rem;
+  }
 }
 
 /* xs */
@@ -828,5 +817,9 @@ dialog {
 
   .title {
     font-size: 2.5rem;
+  }
+
+  .tutorial {
+    min-width: 30rem;
   }
 }
