@@ -19,7 +19,6 @@
   --light-board-darkest-brown: rgb(55, 38, 27);
   --light-board-dark-brown: rgb(158, 109, 64, 1);
   --light-board-acc-body-brown: rgba(240, 217, 181, 1);
-  /* --darkest-brown-light-shade: rgb(55, 38, 27, 0.9); */
   --eerie-black: hsla(60, 5%, 12%, 1);
 
   /*==============LIGHT/DARK MODE VARIABLES================= */
@@ -65,15 +64,15 @@ html {
   font-size: 62.5%;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 /*=============== REUSABLE CSS CLASSES ===============*/
 .nav__container {
   max-width: 1360px;
   margin-inline: auto;
-}
-
-html,
-body {
-  height: 100%;
 }
 
 .font-medium,
@@ -94,6 +93,8 @@ body {
   background-attachment: fixed;
   background-size: cover;
 }
+
+/*======================== HEADER ======================*/
 
 .header {
   position: fixed;
@@ -132,10 +133,6 @@ body {
   transition: background-color 0.3s;
 }
 
-/* .nav__link:hover {
-  background-color: var(--acc-body-bkg);
-} */
-
 /*=============== DROPDOWN ===============*/
 .dropdown__item {
   cursor: pointer;
@@ -169,17 +166,10 @@ body {
 }
 
 .dropdown__menu {
-  /* max-width: 100%; */
   background-color: var(--acc-body-bkg);
-
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease-out;
-}
-
-/* For speed button */
-.rotate {
-  rotate: 180deg;
 }
 
 /* Show dropdown menu */
@@ -194,6 +184,315 @@ body.hasHover .dropdown__item:hover .dropdown__arrow,
 .active-arrow {
   transform: rotate(180deg);
 }
+
+.dropdown__menu .material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  color: var(--acc-body-color);
+}
+
+.dropdown__menu .material-symbols-outlined-fill {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  color: var(--acc-body-color);
+}
+
+.speed {
+  transform: scaleX(-1);
+}
+
+.material-symbols-outlined {
+  border: none;
+  background: none;
+}
+
+.dark-mode-toggle {
+  color: var(--foreground);
+  border: 0.2rem solid currentColor;
+  padding: 0.4rem;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+}
+
+.darkmode {
+  background: var(--body-dark);
+  --light-color-board: var(--green-board-light);
+  --dark-color-board: var(--green-board-dark);
+  --accordion-button: var(--dark-board-base-green);
+  --accordion-not-collapsed-bg: var(--dark-board-base-green);
+  --hover-light: var(--dark-board-hover-green);
+  --grp-btn: var(--dark-board-bi-green);
+  --header-background: var(--dark-board-darkest-green);
+  --header-text: white;
+  --hover-btn-group: rgba(101, 163, 13, 0.9);
+  --tutorial-list-item: #dcfce7;
+  --acc-body-bkg: var(--dark-board-lightest-green);
+  --acc-body-color: var(--dark-board-darkest-green);
+  --light-board-dropdown-bkg: var(--dark-board-lightest-green-opaque);
+  --dropdown-hover: var(--dark-board-lighter-green);
+}
+
+/*================= MAIN =======================*/
+
+dialog {
+  z-index: 20;
+  background: grey;
+  border: none;
+  border-radius: 1rem;
+  font-size: 2rem;
+  color: white;
+  margin: auto;
+  padding: 1.5rem;
+}
+
+.dialog {
+  user-select: none;
+}
+
+.mega-container {
+  display: grid;
+  grid-template-columns: minmax(30rem, 38rem) 42rem 34rem;
+  grid-template-rows: 4rem 1fr;
+  padding: 20rem 4rem 7rem 4rem;
+  column-gap: 7rem;
+  row-gap: 6rem;
+  position: relative;
+  grid-template-areas:
+    "btn board tutorial"
+    "accordion  board tutorial";
+  margin: 0rem auto;
+  justify-content: center;
+}
+
+.choose-opening {
+  grid-area: btn;
+  min-width: 20rem;
+  align-self: start;
+  justify-self: center;
+}
+
+.accordion {
+  grid-area: accordion;
+  align-self: start;
+  justify-self: center;
+  min-width: 100%;
+}
+
+.accordion-body {
+  background-color: var(--acc-body-bkg);
+  color: var(--acc-body-color);
+}
+
+.accordion-button,
+.choose-opening {
+  background-color: var(--accordion-button);
+  color: white;
+}
+
+.accordion-button:focus,
+.choose-opening:focus,
+.test-yourself:focus {
+  box-shadow: none;
+}
+
+.accordion-button:hover,
+.btn.test-yourself:hover,
+.btn.choose-opening:hover,
+.accordion-button:active,
+.btn.test-yourself:active,
+.btn.choose-opening:active {
+  background-color: var(--hover-light);
+  color: white;
+}
+
+.accordion-item,
+.choose-opening,
+.h2-tutorial,
+.btn.choose-opening:active,
+.btn.choose-opening:hover {
+  border: none;
+  border-bottom: 0.2rem solid var(--acc-body-color);
+}
+
+.accordion-button:not(.collapsed) {
+  color: var(--accordion-not-collapsed-color);
+  background-color: var(--accordion-not-collapsed-bg);
+}
+
+.extended-chess-board {
+  grid-area: board;
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  justify-self: center;
+  gap: 2rem;
+  position: relative;
+}
+
+.chess-board {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(8, 5.25rem);
+  grid-template-rows: repeat(8, 5.25rem);
+}
+
+.sq {
+  width: 100%;
+  height: 100%;
+}
+
+.sq-block {
+  position: relative;
+}
+
+.sq-notation-white,
+.sq-notation-black {
+  position: absolute;
+  font-size: 1.5em;
+  font-weight: 700;
+  color: var(--acc-body-color);
+}
+
+.rotate {
+  rotate: 180deg;
+}
+
+.number {
+  top: 1px;
+  left: 1px;
+}
+
+.character {
+  bottom: 1px;
+  right: 1px;
+}
+
+.chess-board {
+  background-color: var(--light-color-board);
+}
+
+.chess-board :nth-child(n):nth-child(even):nth-child(-n + 8),
+.chess-board :nth-child(n + 9):nth-child(odd):nth-child(-n + 16),
+.chess-board :nth-child(n + 17):nth-child(even):nth-child(-n + 24),
+.chess-board :nth-child(n + 25):nth-child(odd):nth-child(-n + 32),
+.chess-board :nth-child(n + 33):nth-child(even):nth-child(-n + 40),
+.chess-board :nth-child(n + 41):nth-child(odd):nth-child(-n + 48),
+.chess-board :nth-child(n + 49):nth-child(even):nth-child(-n + 56),
+.chess-board :nth-child(n + 57):nth-child(odd):nth-child(-n + 64) {
+  background-color: var(--dark-color-board);
+}
+
+.sq-block :nth-child(n):nth-child(even):nth-child(-n + 8) {
+  background-color: inherit;
+}
+
+img {
+  width: 100%;
+}
+
+.container3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.play-controls {
+  margin-right: 0.5rem;
+  border: none;
+}
+
+.bi {
+  color: var(--grp-btn);
+  font-size: 5.25rem;
+}
+
+.bi:hover {
+  color: var(--hover-btn-group);
+}
+
+.test-yourself,
+.hint {
+  width: 10rem;
+  height: 7rem;
+  margin-left: 1.5rem;
+}
+
+.test-yourself {
+  background-color: var(--accordion-not-collapsed-bg);
+  color: white;
+  border-style: none;
+}
+
+.add-color {
+  background-color: var(--grp-btn);
+}
+
+.test-yourself[disabled] {
+  background-color: var(--hover-light);
+  color: white;
+}
+
+.choose-opening {
+  border-style: none;
+}
+
+.tutorial {
+  grid-area: tutorial;
+  min-height: 100%;
+  min-width: 100%;
+  align-self: start;
+  justify-self: center;
+  background-color: #fff;
+}
+
+.h2-tutorial {
+  text-align: center;
+  background-color: var(--accordion-not-collapsed-bg);
+  color: white;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.choose-opening,
+.tutorial,
+#accordionFlushExample .accordion-item {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+.question {
+  box-shadow: 0px 0px 0px 4px red inset;
+}
+
+.highlight {
+  box-shadow: 0px 0px 0px 4px blue inset;
+}
+
+#tutorial-text {
+  display: flex;
+  list-style-type: none;
+  flex-direction: column;
+  color: var(--acc-body-color);
+  align-items: start;
+}
+
+.tutorial li {
+  padding: 1rem 0 1rem 0rem;
+  margin: 0 2rem;
+}
+
+.tutorial li:nth-child(even) {
+  background-color: var(--tutorial-list-item);
+}
+
+/*=============== MEDIA QUERIES===================== */
 
 /* Large screens which don't have hamburger */
 @media screen and (min-width: 769px) {
@@ -254,318 +553,6 @@ body.hasHover .dropdown__item:hover .dropdown__arrow,
     display: none;
   }
 }
-
-.material-symbols-outlined {
-  border: none;
-  background: none;
-}
-
-/* .material-icons.md-dark {
-  color: rgba(0, 0, 0, 0.54);
-} */
-
-.speed {
-  transform: scaleX(-1);
-}
-
-.dark-mode-toggle {
-  color: var(--foreground);
-  border: 0.2rem solid currentColor;
-  padding: 0.4rem;
-  background: transparent;
-  cursor: pointer;
-  border-radius: 0.5rem;
-  width: 3rem;
-  height: 3rem;
-}
-
-.mega-container {
-  display: grid;
-  grid-template-columns: minmax(30rem, 38rem) 42rem 34rem;
-  grid-template-rows: 4rem 1fr;
-  padding: 20rem 4rem 7rem 4rem;
-  column-gap: 7rem;
-  row-gap: 6rem;
-  position: relative;
-  grid-template-areas:
-    "btn board tutorial"
-    "accordion  board tutorial";
-  margin: 0rem auto;
-  justify-content: center;
-}
-
-/* For increasing size of accordion */
-.accordion-body {
-  background-color: var(--acc-body-bkg);
-  color: var(--acc-body-color);
-}
-
-.accordion {
-  grid-area: accordion;
-  align-self: start;
-  justify-self: center;
-  min-width: 100%;
-}
-
-.accordion-button,
-.choose-opening {
-  background-color: var(--accordion-button);
-  color: white;
-}
-
-.accordion-button:focus,
-.choose-opening:focus,
-.test-yourself:focus {
-  box-shadow: none;
-  /* border-color: rgba(0, 0, 0, 1); */
-}
-
-.accordion-button:hover,
-.btn.test-yourself:hover,
-.btn.choose-opening:hover,
-.accordion-button:active,
-.btn.test-yourself:active,
-.btn.choose-opening:active {
-  background-color: var(--hover-light);
-  color: white;
-}
-
-.accordion-item,
-.choose-opening,
-.h2-tutorial,
-.btn.choose-opening:active,
-.btn.choose-opening:hover {
-  border: none;
-  border-bottom: 0.2rem solid var(--acc-body-color);
-}
-
-.accordion-button:not(.collapsed) {
-  color: var(--accordion-not-collapsed-color);
-  background-color: var(--accordion-not-collapsed-bg);
-}
-
-.choose-opening {
-  grid-area: btn;
-  min-width: 20rem;
-  align-self: start;
-  justify-self: center;
-}
-
-.extended-chess-board {
-  grid-area: board;
-  display: flex;
-  flex-direction: column;
-  align-self: start;
-  justify-self: center;
-  gap: 2rem;
-  position: relative;
-}
-
-.chess-board {
-  border-radius: 0.5rem;
-  overflow: hidden;
-  display: grid;
-
-  grid-template-columns: repeat(8, 5.25rem);
-  grid-template-rows: repeat(8, 5.25rem);
-}
-
-.sq {
-  width: 100%;
-  height: 100%;
-}
-
-.sq-block {
-  position: relative;
-}
-
-.sq-notation-white,
-.sq-notation-black {
-  position: absolute;
-  font-size: 1.5em;
-  font-weight: 700;
-  color: var(--acc-body-color);
-}
-
-.number {
-  top: 1px;
-  left: 1px;
-}
-
-.character {
-  bottom: 1px;
-  right: 1px;
-}
-
-.chess-board {
-  background-color: var(--light-color-board);
-}
-
-.chess-board :nth-child(n):nth-child(even):nth-child(-n + 8),
-.chess-board :nth-child(n + 9):nth-child(odd):nth-child(-n + 16),
-.chess-board :nth-child(n + 17):nth-child(even):nth-child(-n + 24),
-.chess-board :nth-child(n + 25):nth-child(odd):nth-child(-n + 32),
-.chess-board :nth-child(n + 33):nth-child(even):nth-child(-n + 40),
-.chess-board :nth-child(n + 41):nth-child(odd):nth-child(-n + 48),
-.chess-board :nth-child(n + 49):nth-child(even):nth-child(-n + 56),
-.chess-board :nth-child(n + 57):nth-child(odd):nth-child(-n + 64) {
-  background-color: var(--dark-color-board);
-}
-
-.sq-block :nth-child(n):nth-child(even):nth-child(-n + 8) {
-  background-color: inherit;
-}
-
-img {
-  width: 100%;
-}
-
-.container3 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-}
-
-.play-controls {
-  margin-right: 0.5rem;
-  border: none;
-}
-
-.bi {
-  color: var(--grp-btn);
-  font-size: 5.25rem;
-  /* background-color: white; */
-}
-
-.bi:hover {
-  color: var(--hover-btn-group);
-}
-
-.test-yourself,
-.hint {
-  width: 10rem;
-  height: 7rem;
-  margin-left: 1.5rem;
-}
-
-.test-yourself {
-  background-color: var(--accordion-not-collapsed-bg);
-  color: white;
-  border-style: none;
-}
-
-.add-color {
-  background-color: var(--grp-btn);
-}
-
-.test-yourself[disabled] {
-  background-color: var(--hover-light);
-  color: white;
-}
-
-.choose-opening {
-  border-style: none;
-}
-
-.tutorial {
-  grid-area: tutorial;
-  min-height: 100%;
-  min-width: 100%;
-  align-self: start;
-  justify-self: center;
-  background-color: #fff;
-}
-
-.h2-tutorial {
-  text-align: center;
-  background-color: var(--accordion-not-collapsed-bg);
-  color: white;
-  padding: 1rem;
-  margin-bottom: 2rem;
-}
-
-.choose-opening,
-.tutorial,
-#accordionFlushExample .accordion-item {
-  border-radius: 0.5rem;
-  overflow: hidden;
-}
-
-.dropdown__menu .material-symbols-outlined {
-  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
-  color: var(--acc-body-color);
-}
-
-.dropdown__menu .material-symbols-outlined-fill {
-  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
-  color: var(--acc-body-color);
-}
-
-.hidden {
-  display: none;
-}
-
-dialog {
-  z-index: 20;
-  background: grey;
-  border: none;
-  border-radius: 1rem;
-  font-size: 2rem;
-  color: white;
-  margin: auto;
-  padding: 1.5rem;
-}
-
-.dialog {
-  user-select: none;
-}
-
-.question {
-  /* border: 3px solid red; */
-  box-shadow: 0px 0px 0px 4px red inset;
-}
-
-.highlight {
-  box-shadow: 0px 0px 0px 4px blue inset;
-}
-
-.darkmode {
-  background: var(--body-dark);
-  --light-color-board: var(--green-board-light);
-  --dark-color-board: var(--green-board-dark);
-  --accordion-button: var(--dark-board-base-green);
-  --accordion-not-collapsed-bg: var(--dark-board-base-green);
-  --hover-light: var(--dark-board-hover-green);
-  --grp-btn: var(--dark-board-bi-green);
-  --header-background: var(--dark-board-darkest-green);
-  --header-text: white;
-  --hover-btn-group: rgba(101, 163, 13, 0.9);
-  --tutorial-list-item: #dcfce7;
-  --acc-body-bkg: var(--dark-board-lightest-green);
-  --acc-body-color: var(--dark-board-darkest-green);
-  --light-board-dropdown-bkg: var(--dark-board-lightest-green-opaque);
-  --dropdown-hover: var(--dark-board-lighter-green);
-}
-
-#tutorial-text {
-  display: flex;
-  list-style-type: none;
-  flex-direction: column;
-  color: var(--acc-body-color);
-  align-items: start;
-}
-
-.tutorial li {
-  padding: 1rem 0 1rem 0rem;
-  margin: 0 auto;
-}
-
-.tutorial li:nth-child(even) {
-  background-color: var(--tutorial-list-item);
-}
-
-/* Media queries */
 
 /* xxl */
 @media (max-width: 1400px) {
@@ -766,7 +753,7 @@ dialog {
 
 /* sm */
 @media only screen and (max-width: 480px) {
-  .font-large {
+  .title {
     font-size: 2.5rem;
   }
 
@@ -821,5 +808,18 @@ dialog {
 
   .tutorial {
     min-width: 30rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .font-medium,
+  .accordion-button {
+    font-size: 1.5rem;
+  }
+
+  .accordion-body {
+    font-size: 1.25rem;
   }
 }
