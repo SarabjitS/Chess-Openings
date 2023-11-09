@@ -29,7 +29,6 @@ const hamburger = document.querySelector(".hamburger");
 const bar1 = document.querySelector(".bar1");
 const bar2 = document.querySelector(".bar2");
 const bar3 = document.querySelector(".bar3");
-const mobileNav = document.querySelector(".mobileNav");
 const darkModeToggle = document.querySelector(".dark-mode-toggle");
 
 //variables defined
@@ -61,9 +60,10 @@ document.ondblclick = function (e) {
 
 hamburger.addEventListener("click", () => {
   document.getElementById("nav-menu").classList.toggle("show-menu");
-  bar1.classList.toggle("animateBar1");
-  bar2.classList.toggle("animateBar2");
-  bar3.classList.toggle("animateBar3");
+  toggleAnimateBars();
+  // bar1.classList.toggle("animateBar1");
+  // bar2.classList.toggle("animateBar2");
+  // bar3.classList.toggle("animateBar3");
   // Close the dropdown if they are open
   if (
     document
@@ -72,10 +72,8 @@ hamburger.addEventListener("click", () => {
     document
       .querySelector(".dropdown__arrow")
       .classList.contains("active-arrow")
-  ) {
-    document.querySelector(".dropdown__menu").classList.remove("active-menu");
-    document.querySelector(".dropdown__arrow").classList.remove("active-arrow");
-  }
+  )
+    removeDropdownMenuArrow();
 });
 
 //EventListener for touch on extra-options button
@@ -86,22 +84,24 @@ document.addEventListener("touchstart", (e) => {
   } else if (
     document.querySelector(".dropdown__menu").classList.contains("active-menu")
   )
-    if (
-      !document.querySelector(".dropdown__menu").contains(e.target) &&
-      !document.querySelector(".dropdown__arrow").contains(e.target) &&
-      !hamburger.contains(e.target)
-    ) {
-      // For closing the dropdown menu and toggle bar if the user clicks anywhere else on the board
-      document.querySelector(".dropdown__menu").classList.remove("active-menu");
-      document
-        .querySelector(".dropdown__arrow")
-        .classList.remove("active-arrow");
-      document.getElementById("nav-menu").classList.toggle("show-menu");
-      bar1.classList.toggle("animateBar1");
-      bar2.classList.toggle("animateBar2");
-      bar3.classList.toggle("animateBar3");
+    if (!document.querySelector(".nav__container").contains(e.target)) {
+      // Close the dropdown menu and toggle bar if the user clicks anywhere else on the board
+      removeDropdownMenuArrow();
+      toggleAnimateBars();
     }
 });
+
+function toggleAnimateBars() {
+  bar1.classList.toggle("animateBar1");
+  bar2.classList.toggle("animateBar2");
+  bar3.classList.toggle("animateBar3");
+}
+
+function removeDropdownMenuArrow() {
+  document.querySelector(".dropdown__menu").classList.remove("active-menu");
+  document.querySelector(".dropdown__arrow").classList.remove("active-arrow");
+  document.getElementById("nav-menu").classList.toggle("show-menu");
+}
 
 function watchForHover() {
   // lastTouchTime is used for ignoring emulated mousemove events
