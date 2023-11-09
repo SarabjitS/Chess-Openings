@@ -76,7 +76,8 @@ document.addEventListener("touchstart", (e) => {
   )
     if (
       !document.querySelector(".dropdown__menu").contains(e.target) &&
-      !document.querySelector(".dropdown__arrow").contains(e.target)
+      !document.querySelector(".dropdown__arrow").contains(e.target) &&
+      !hamburger.contains(e.target)
     ) {
       // For closing the dropdown menu and toggle bar if the user clicks anywhere else on the board
       document.querySelector(".dropdown__menu").classList.remove("active-menu");
