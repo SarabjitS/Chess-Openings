@@ -637,15 +637,15 @@ img {
   }
 
   .animateBar1 {
-    animation: flipBar1 1s;
+    animation: flipBar1 0.2s;
     animation-fill-mode: forwards;
   }
   .animateBar2 {
-    animation: fadeBar2 1s;
+    animation: fadeBar2 0.2s;
     animation-fill-mode: forwards;
   }
   .animateBar3 {
-    animation: flipBar3 1s;
+    animation: flipBar3 0.2s;
     animation-fill-mode: forwards;
   }
 

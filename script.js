@@ -59,8 +59,14 @@ document.ondblclick = function (e) {
 };
 
 hamburger.addEventListener("click", () => {
+  isDropdownOpen = !isDropdownOpen;
+  if (isDropdownOpen) {
+    addAnimateBars();
+  }
+  if (!isDropdownOpen) {
+    removeAnimateBars();
+  }
   document.getElementById("nav-menu").classList.toggle("show-menu");
-  toggleAnimateBars();
   if (
     document
       .querySelector(".dropdown__menu")
@@ -68,8 +74,10 @@ hamburger.addEventListener("click", () => {
     document
       .querySelector(".dropdown__arrow")
       .classList.contains("active-arrow")
-  )
+  ) {
     removeDropdownMenuArrow();
+    removeAnimateBars();
+  }
 });
 
 //EventListener for touch on extra-options button
@@ -86,50 +94,29 @@ document.addEventListener("touchstart", (e) => {
     if (!document.querySelector(".nav__container").contains(e.target)) {
       // Close the dropdown menu and toggle bar if the user clicks anywhere else on the board
       removeDropdownMenuArrow();
-      toggleAnimateBars();
+      removeAnimateBars();
     }
 });
 
-function toggleAnimateBars() {
-  bar1.classList.toggle("animateBar1");
-  bar2.classList.toggle("animateBar2");
-  bar3.classList.toggle("animateBar3");
+function addAnimateBars() {
+  bar1.classList.add("animateBar1");
+  bar2.classList.add("animateBar2");
+  bar3.classList.add("animateBar3");
+  isDropdownOpen = true;
+}
+
+function removeAnimateBars() {
+  bar1.classList.remove("animateBar1");
+  bar2.classList.remove("animateBar2");
+  bar3.classList.remove("animateBar3");
+  isDropdownOpen = false;
 }
 
 function removeDropdownMenuArrow() {
   document.querySelector(".dropdown__menu").classList.remove("active-menu");
   document.querySelector(".dropdown__arrow").classList.remove("active-arrow");
-  document.getElementById("nav-menu").classList.toggle("show-menu");
+  document.getElementById("nav-menu").classList.remove("show-menu");
 }
-
-function watchForHover() {
-  // lastTouchTime is used for ignoring emulated mousemove events
-  // that are fired after touchstart events. Since they're
-  // indistinguishable from real events, we use the fact that they're
-  // fired a few milliseconds after touchstart to filter them.
-  let lastTouchTime = 0;
-
-  function enableHover() {
-    if (new Date() - lastTouchTime < 500) return;
-    document.body.classList.add("hasHover");
-  }
-
-  function disableHover() {
-    document.body.classList.remove("hasHover");
-  }
-
-  function updateLastTouchTime() {
-    lastTouchTime = new Date();
-  }
-
-  document.addEventListener("touchstart", updateLastTouchTime, true);
-  document.addEventListener("touchstart", disableHover, true);
-  document.addEventListener("mousemove", enableHover, true);
-
-  enableHover();
-}
-
-watchForHover();
 
 //Listen for the opening selected
 document.addEventListener("click", function (e) {
@@ -317,6 +304,35 @@ dialog.addEventListener("click", (e) => {
     dialog.close();
   }
 });
+
+function watchForHover() {
+  // lastTouchTime is used for ignoring emulated mousemove events
+  // that are fired after touchstart events. Since they're
+  // indistinguishable from real events, we use the fact that they're
+  // fired a few milliseconds after touchstart to filter them.
+  let lastTouchTime = 0;
+
+  function enableHover() {
+    if (new Date() - lastTouchTime < 500) return;
+    document.body.classList.add("hasHover");
+  }
+
+  function disableHover() {
+    document.body.classList.remove("hasHover");
+  }
+
+  function updateLastTouchTime() {
+    lastTouchTime = new Date();
+  }
+
+  document.addEventListener("touchstart", updateLastTouchTime, true);
+  document.addEventListener("touchstart", disableHover, true);
+  document.addEventListener("mousemove", enableHover, true);
+
+  enableHover();
+}
+
+watchForHover();
 
 //Starts the test
 function testStart() {
