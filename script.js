@@ -47,7 +47,7 @@ let i = 0;
 let isHint = false;
 let id;
 let isPlay = false;
-let speed = 1250;
+let speed = 750;
 let isSpeed = false;
 let isDropdownOpen = false;
 let clickEvent = (function () {
@@ -95,10 +95,10 @@ soundBtn.addEventListener("click", function () {
 speedBtn.addEventListener("click", function () {
   isSpeed = !isSpeed;
   if (isSpeed) {
-    speed = 800;
+    speed = 750;
     document.getElementById("speed-btn-icon").style = "transform: scaleX(1);";
   } else {
-    speed = 1250;
+    speed = 1000;
     document.getElementById("speed-btn-icon").style = "transform: scaleX(-1);";
   }
 });
