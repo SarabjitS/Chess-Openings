@@ -32,15 +32,6 @@ const bar2 = document.querySelector(".bar2");
 const bar3 = document.querySelector(".bar3");
 const darkModeToggle = document.querySelector(".dark-mode-toggle");
 const tooltipTriggerList = document.querySelector('[data-bs-toggle="tooltip"]');
-let tooltipList = new bootstrap.Tooltip(tooltipTriggerList, {
-  trigger: "hover",
-});
-
-// const tooltip = bootstrap.Tooltip.getInstance("toolTiplist"); // Returns a Bootstrap tooltip instance
-
-// setContent example
-// tooltipList.setContent({ ".tooltip-inner": "another title" });
-//Variables defined
 
 let opening = [];
 let moveIndex = -1;
@@ -59,6 +50,9 @@ let isPlay = false;
 let speed = 750;
 let isSpeed = false;
 let isDropdownOpen = false;
+let toolTip = new bootstrap.Tooltip(tooltipTriggerList, {
+  trigger: "hover",
+});
 let clickEvent = (function () {
   if ("ontouchstart" in document.documentElement === true) return "touchstart";
   else return "click";
@@ -145,9 +139,6 @@ darkModeToggle.addEventListener("click", () => {
 });
 
 hamburger.addEventListener("click", () => {
-  // tooltipList = new bootstrap.Tooltip(tooltipTriggerList, {
-  //   trigger: "hover",
-  // });
   isDropdownOpen = !isDropdownOpen;
   if (isDropdownOpen) {
     addAnimateBars();
@@ -340,7 +331,6 @@ testBtn.addEventListener("click", function () {
       testStart();
       buttonsOnTestMode();
       testBtn.classList.add("add-color");
-      console.log(testBtn.classList);
     } else {
       disableButton(hintBtn);
       isTestMode = false;
@@ -397,7 +387,7 @@ function removeDropdownMenuArrow() {
   document.getElementById("nav-menu").classList.remove("show-menu");
   // tooltipList.hide();
   // document.querySelector(".tt").classList.add("hidden");
-  tooltipList.hide();
+  toolTip.hide();
 }
 
 // Shows the modal to select opening
