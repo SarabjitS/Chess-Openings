@@ -1,5 +1,6 @@
 //enabling strict mode
 "use strict";
+
 import {
   toiletVariation,
   monkeysbumVariation,
