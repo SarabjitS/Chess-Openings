@@ -109,47 +109,10 @@ body {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   /* The text of the element and its sub-elements is not selectable. */
   user-select: none;
-  /* background-image: var(--background);
+  background-image: var(--background);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover; */
-}
-
-/* .img {
-  background: var(--background);
-  background-position: center;
-  background-repeat: no-repeat;
   background-size: cover;
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-}
-
-.content {
-  position: absolute;
-  left: 50%;
-  margin-top: 5rem;
-  transform: translateX(-50%);
-  width: 80%;
-} */
-
-.content {
-  position: relative;
-}
-
-.content::before {
-  content: "";
-  position: fixed;
-  z-index: -1;
-  display: block;
-  top: 0px;
-  left: 0px;
-  bottom: 0px;
-  right: 0px;
-  background: var(--background);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center top;
 }
 
 /*======================== HEADER ======================*/
@@ -272,7 +235,7 @@ body.hasTouch .active-arrow {
 }
 
 .darkmode {
-  --background: var(--body-dark);
+  background: var(--body-dark);
   --shadow-color: 145deg 100% 0%;
 
   --light-color-board: var(--green-board-light);
