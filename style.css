@@ -262,7 +262,7 @@ dialog {
   background: grey;
   border: none;
   border-radius: 1rem;
-  font-size: 2rem;
+  /* font-size: 2rem; */
   color: white;
   margin: auto;
   padding: 1.5rem;
