@@ -31,17 +31,17 @@ const bar1 = document.querySelector(".bar1");
 const bar2 = document.querySelector(".bar2");
 const bar3 = document.querySelector(".bar3");
 const darkModeToggle = document.querySelector(".dark-mode-toggle");
-const tooltipTriggerList = document.querySelectorAll(
-  '[data-bs-toggle="tooltip"]'
-);
-const tooltipList = [...tooltipTriggerList].map(
-  (tooltipTriggerEl) =>
-    new bootstrap.Tooltip(tooltipTriggerEl, {
-      trigger: "hover",
-    })
-);
+const tooltipTriggerList = document.querySelector('[data-bs-toggle="tooltip"]');
+const tooltipList = new bootstrap.Tooltip(tooltipTriggerList, {
+  trigger: "hover",
+});
 
+// const tooltip = bootstrap.Tooltip.getInstance("toolTiplist"); // Returns a Bootstrap tooltip instance
+
+// setContent example
+// tooltipList.setContent({ ".tooltip-inner": "another title" });
 //Variables defined
+
 let opening = [];
 let moveIndex = -1;
 let isRotated = false;
@@ -392,7 +392,9 @@ function removeDropdownMenuArrow() {
   document.querySelector(".dropdown__menu").classList.remove("active-menu");
   document.querySelector(".dropdown__arrow").classList.remove("active-arrow");
   document.getElementById("nav-menu").classList.remove("show-menu");
-  tooltipList.forEach((tooltips) => (tooltips.style.display = "none"));
+  // tooltipList.hide();
+  // document.querySelector(".tt").classList.add("hidden");
+  tooltipList.dispose();
 }
 
 // Shows the modal to select opening
