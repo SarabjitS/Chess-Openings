@@ -37,10 +37,29 @@
   --grp-btn: var(--light-board-darkest-brown);
   --accordion-button: var(--light-board-dark-brown);
   --acc-body-color: var(--light-board-darkest-brown);
-  /* --test-yourself: var(--light-board-dark-brown); */
+  --test-yourself: var(--accordion-not-collapsed-bg);
   --hover-btn-group: var(--darkest-brown-light-shade);
   --dropdown-hover: var(--brown-board-dark);
   --body-dark: var(--eerie-black);
+
+  --shadow-color: 24deg 52% 4%;
+  --shadow-elevation-low: 0.1px 0.2px 0.2px hsl(var(--shadow-color) / 0.55),
+    0.2px 0.4px 0.5px -1.4px hsl(var(--shadow-color) / 0.51),
+    0.6px 1.1px 1.4px -2.7px hsl(var(--shadow-color) / 0.48);
+  --shadow-elevation-medium: 0.1px 0.2px 0.2px hsl(var(--shadow-color) / 0.46),
+    0.4px 0.7px 0.9px -0.7px hsl(var(--shadow-color) / 0.44),
+    0.8px 1.4px 1.8px -1.4px hsl(var(--shadow-color) / 0.43),
+    1.6px 2.9px 3.6px -2.1px hsl(var(--shadow-color) / 0.41),
+    3.2px 5.7px 7.1px -2.7px hsl(var(--shadow-color) / 0.39);
+  --shadow-elevation-high: 0.1px 0.2px 0.2px hsl(var(--shadow-color) / 0.47),
+    0.9px 1.5px 1.9px -0.3px hsl(var(--shadow-color) / 0.46),
+    1.6px 2.9px 3.6px -0.7px hsl(var(--shadow-color) / 0.45),
+    2.6px 4.7px 5.8px -1px hsl(var(--shadow-color) / 0.44),
+    4.1px 7.3px 9.1px -1.4px hsl(var(--shadow-color) / 0.43),
+    6.3px 11.1px 13.9px -1.7px hsl(var(--shadow-color) / 0.43),
+    9.3px 16.5px 20.6px -2.1px hsl(var(--shadow-color) / 0.42),
+    13.5px 23.9px 29.9px -2.4px hsl(var(--shadow-color) / 0.41),
+    19.1px 33.8px 42.2px -2.7px hsl(var(--shadow-color) / 0.4);
 }
 
 /*=============== BASE ===============*/
@@ -105,6 +124,7 @@ body {
   color: var(--header-text);
   width: 100%;
   z-index: 100;
+  box-shadow: var(--shadow-elevation-low);
 }
 
 .title {
@@ -215,6 +235,8 @@ body.hasHover .dropdown__item:hover .dropdown__arrow,
 
 .darkmode {
   background: var(--body-dark);
+  --shadow-color: 145deg 100% 0%;
+
   --light-color-board: var(--green-board-light);
   --dark-color-board: var(--green-board-dark);
   --accordion-button: var(--dark-board-base-green);
@@ -229,6 +251,7 @@ body.hasHover .dropdown__item:hover .dropdown__arrow,
   --acc-body-color: var(--dark-board-darkest-green);
   --light-board-dropdown-bkg: var(--dark-board-lightest-green-opaque);
   --dropdown-hover: var(--dark-board-lighter-green);
+  --test-yourself: var(--accordion-not-collapsed-bg);
 }
 
 /*================= MAIN =======================*/
@@ -269,6 +292,7 @@ dialog {
   align-self: start;
   justify-self: center;
   border-style: none;
+  box-shadow: var(--shadow-elevation-medium);
 }
 
 .accordion {
@@ -276,6 +300,7 @@ dialog {
   align-self: start;
   justify-self: center;
   min-width: 100%;
+  /* box-shadow: var(--shadow-elevation-low); */
 }
 
 .accordion-body {
@@ -287,12 +312,6 @@ dialog {
 .choose-opening {
   background-color: var(--accordion-button);
   color: white;
-}
-
-.accordion-button:focus,
-.choose-opening:focus,
-.test-yourself:focus {
-  box-shadow: none;
 }
 
 .accordion-button:hover,
@@ -308,10 +327,16 @@ dialog {
 .accordion-item,
 .choose-opening,
 .h2-tutorial,
-.btn.choose-opening:active,
-.btn.choose-opening:hover {
+.btn.choose-opening:hover,
+.btn.choose-opening:active {
   border: none;
   border-bottom: 0.2rem solid var(--acc-body-color);
+}
+
+.accordion-button:focus,
+.choose-opening:focus,
+.test-yourself:focus {
+  box-shadow: var(--shadow-elevation-medium);
 }
 
 .accordion-button:not(.collapsed) {
@@ -335,6 +360,7 @@ dialog {
   display: grid;
   grid-template-columns: repeat(8, 5.25rem);
   grid-template-rows: repeat(8, 5.25rem);
+  box-shadow: var(--shadow-elevation-medium);
 }
 
 .sq {
@@ -406,6 +432,7 @@ img {
 .bi {
   color: var(--grp-btn);
   font-size: 5.25rem;
+  /* box-shadow: var(--shadow-elevation-low); */
 }
 
 .bi:hover {
@@ -416,17 +443,28 @@ img {
 .hint {
   width: 10rem;
   height: 7rem;
+  box-shadow: var(--shadow-elevation-medium);
+}
+
+.hint {
   margin-left: 1.5rem;
 }
 
 .test-yourself {
-  background-color: var(--accordion-not-collapsed-bg);
+  background-color: var(--test-yourself);
   color: white;
   border-style: none;
 }
 
-.add-color {
+.btn.test-yourself:hover.add-color {
+  background-color: var(--hover-light);
+}
+
+.btn.test-yourself:focus.add-color,
+.btn.test-yourself:active.add-color,
+.btn.test-yourself.add-color {
   background-color: var(--grp-btn);
+  box-shadow: var(--shadow-elevation-medium);
 }
 
 .test-yourself[disabled] {
@@ -441,6 +479,7 @@ img {
   align-self: start;
   justify-self: center;
   background-color: #fff;
+  box-shadow: var(--shadow-elevation-medium);
 }
 
 .h2-tutorial {
