@@ -49,95 +49,94 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <div class="img">
+      <div class="content">
+        <!--=============== HEADER ===============-->
 
-    <!--=============== HEADER ===============-->
+        <header class="header">
+          <div class="nav__container">
+            <div class="nav__data">
+              <h1 class="title">CHESS OPENINGS</h1>
 
-    <header class="header">
-      <div class="nav__container">
-        <div class="nav__data">
-          <h1 class="title">CHESS OPENINGS</h1>
-
-          <div class="hamburger nav-toggle" id="nav-toggle">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-          </div>
-        </div>
-
-        <!--=============== NAV MENU ===============-->
-
-        <div class="nav__menu" id="nav-menu">
-          <ul class="nav__list">
-            <li class="dropdown__item">
-              <div class="nav__link font-medium" id="nav-link-1">
-                Extra Options
-                <span class="material-symbols-outlined dropdown__arrow">
-                  expand_more
-                </span>
+              <div class="hamburger nav-toggle" id="nav-toggle">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
               </div>
+            </div>
 
-              <ul class="dropdown__menu font-medium">
-                <li>
-                  <button class="dropdown__link" id="orientation-button">
-                    <i
-                      class="material-symbols-outlined"
-                      id="orientation-btn-icon"
-                      >chess</i
-                    >
-                    Orientation
-                  </button>
-                </li>
-                <li>
-                  <button class="dropdown__link" id="sound-button">
-                    <i class="material-symbols-outlined" id="sound-btn-icon"
-                      >volume_up</i
-                    >
-                    Volume
-                  </button>
-                </li>
-                <li>
-                  <span
-                    class="tt"
-                    data-bs-placement="bottom"
-                    data-bs-toggle="tooltip"
-                    title="For Play Mode Only"
-                  >
-                    <button class="dropdown__link" id="speed-button">
-                      <i
-                        class="material-symbols-outlined speed"
-                        id="speed-btn-icon"
-                        >speed</i
+            <!--=============== NAV MENU ===============-->
+
+            <div class="nav__menu" id="nav-menu">
+              <ul class="nav__list">
+                <li class="dropdown__item">
+                  <div class="nav__link font-medium" id="nav-link-1">
+                    Extra Options
+                    <span class="material-symbols-outlined dropdown__arrow">
+                      expand_more
+                    </span>
+                  </div>
+
+                  <ul class="dropdown__menu font-medium">
+                    <li>
+                      <button class="dropdown__link" id="orientation-button">
+                        <i
+                          class="material-symbols-outlined"
+                          id="orientation-btn-icon"
+                          >chess</i
+                        >
+                        Orientation
+                      </button>
+                    </li>
+                    <li>
+                      <button class="dropdown__link" id="sound-button">
+                        <i class="material-symbols-outlined" id="sound-btn-icon"
+                          >volume_up</i
+                        >
+                        Volume
+                      </button>
+                    </li>
+                    <li>
+                      <span
+                        class="tt"
+                        data-bs-placement="bottom"
+                        data-bs-toggle="tooltip"
+                        title="For Play Mode Only"
                       >
+                        <button class="dropdown__link" id="speed-button">
+                          <i
+                            class="material-symbols-outlined speed"
+                            id="speed-btn-icon"
+                            >speed</i
+                          >
 
-                      Speed
-                    </button>
-                  </span>
+                          Speed
+                        </button>
+                      </span>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav__link" id="nav-link-2">
+                  <a id="dark-mode-toggle" class="dark-mode-toggle">
+                    <svg
+                      width="100%"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 496 496"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z"
+                        transform="translate(-8 -8)"
+                      />
+                    </svg>
+                  </a>
                 </li>
               </ul>
-            </li>
-            <li class="nav__link" id="nav-link-2">
-              <a id="dark-mode-toggle" class="dark-mode-toggle">
-                <svg
-                  width="100%"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 496 496"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z"
-                    transform="translate(-8 -8)"
-                  />
-                </svg>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </header>
+            </div>
+          </div>
+        </header>
 
-    <main>
-      <div class="img">
-        <div class="content">
+        <main>
           <!--=========================== DIALOG =========================-->
           <dialog class="dialog font-medium" id="dialog"></dialog>
 
@@ -397,9 +396,9 @@
               <div><ol class="font-medium" id="tutorial-text"></ol></div>
             </article>
           </div>
-        </div>
+        </main>
+        <script src="./script.js" type="module"></script>
       </div>
-    </main>
-    <script src="./script.js" type="module"></script>
+    </div>
   </body>
 </html>
