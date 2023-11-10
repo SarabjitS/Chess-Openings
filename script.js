@@ -145,9 +145,9 @@ darkModeToggle.addEventListener("click", () => {
 });
 
 hamburger.addEventListener("click", () => {
-  tooltipList = new bootstrap.Tooltip(tooltipTriggerList, {
-    trigger: "hover",
-  });
+  // tooltipList = new bootstrap.Tooltip(tooltipTriggerList, {
+  //   trigger: "hover",
+  // });
   isDropdownOpen = !isDropdownOpen;
   if (isDropdownOpen) {
     addAnimateBars();
