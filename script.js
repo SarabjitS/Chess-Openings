@@ -38,7 +38,6 @@ const tooltipList = [...tooltipTriggerList].map(
   (tooltipTriggerEl) =>
     new bootstrap.Tooltip(tooltipTriggerEl, {
       trigger: "hover",
-      title: "For Play Mode Only",
     })
 );
 
@@ -393,6 +392,7 @@ function removeDropdownMenuArrow() {
   document.querySelector(".dropdown__menu").classList.remove("active-menu");
   document.querySelector(".dropdown__arrow").classList.remove("active-arrow");
   document.getElementById("nav-menu").classList.remove("show-menu");
+  tooltipList.forEach((tooltips) => (tooltips.style.display = "none"));
 }
 
 // Shows the modal to select opening
