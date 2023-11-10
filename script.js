@@ -38,6 +38,7 @@ const tooltipList = [...tooltipTriggerList].map(
   (tooltipTriggerEl) =>
     new bootstrap.Tooltip(tooltipTriggerEl, {
       trigger: "hover",
+      title: "For Play Mode Only",
     })
 );
 
