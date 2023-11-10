@@ -93,6 +93,7 @@ body {
   max-width: 1360px;
   margin-inline: auto;
   height: var(--header-height);
+  box-shadow: var(--shadow-elevation-low);
 }
 
 .font-medium,
@@ -124,7 +125,6 @@ body {
   color: var(--header-text);
   width: 100%;
   z-index: 100;
-  box-shadow: var(--shadow-elevation-low);
 }
 
 .title {
