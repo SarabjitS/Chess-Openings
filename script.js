@@ -32,9 +32,6 @@ const bar2 = document.querySelector(".bar2");
 const bar3 = document.querySelector(".bar3");
 const darkModeToggle = document.querySelector(".dark-mode-toggle");
 const tooltipTriggerList = document.querySelector('[data-bs-toggle="tooltip"]');
-const tooltipList = new bootstrap.Tooltip(tooltipTriggerList, {
-  trigger: "hover",
-});
 
 // const tooltip = bootstrap.Tooltip.getInstance("toolTiplist"); // Returns a Bootstrap tooltip instance
 
@@ -145,6 +142,9 @@ darkModeToggle.addEventListener("click", () => {
 });
 
 hamburger.addEventListener("click", () => {
+  const tooltipList = new bootstrap.Tooltip(tooltipTriggerList, {
+    trigger: "hover",
+  });
   isDropdownOpen = !isDropdownOpen;
   if (isDropdownOpen) {
     addAnimateBars();
