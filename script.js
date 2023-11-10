@@ -58,6 +58,11 @@ document.ondblclick = function (e) {
   e.preventDefault();
 };
 
+let clickEvent = (function () {
+  if ("ontouchstart" in document.documentElement === true) return "touchstart";
+  else return "click";
+})();
+
 hamburger.addEventListener("click", () => {
   isDropdownOpen = !isDropdownOpen;
   if (isDropdownOpen) {
@@ -81,7 +86,7 @@ hamburger.addEventListener("click", () => {
 });
 
 //EventListener for touch on extra-options button
-document.addEventListener("touchstart", (e) => {
+document.addEventListener(clickEvent, (e) => {
   if (e.target.matches("#nav-link-1") || e.target.matches(".dropdown__arrow")) {
     document.querySelector(".dropdown__menu").classList.toggle("active-menu");
     document.querySelector(".dropdown__arrow").classList.toggle("active-arrow");
