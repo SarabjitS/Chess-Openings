@@ -31,6 +31,15 @@ const bar1 = document.querySelector(".bar1");
 const bar2 = document.querySelector(".bar2");
 const bar3 = document.querySelector(".bar3");
 const darkModeToggle = document.querySelector(".dark-mode-toggle");
+const tooltipTriggerList = document.querySelectorAll(
+  '[data-bs-toggle="tooltip"]'
+);
+const tooltipList = [...tooltipTriggerList].map(
+  (tooltipTriggerEl) =>
+    new bootstrap.Tooltip(tooltipTriggerEl, {
+      trigger: "hover",
+    })
+);
 
 //Variables defined
 let opening = [];
@@ -364,13 +373,6 @@ hintBtn.addEventListener("click", function () {
     }
   }
 });
-
-const tooltipTriggerList = document.querySelectorAll(
-  '[data-bs-toggle="tooltip"]'
-);
-const tooltipList = [...tooltipTriggerList].map(
-  (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
-);
 
 function addAnimateBars() {
   bar1.classList.add("animateBar1");
