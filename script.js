@@ -225,7 +225,7 @@ chessBoard.addEventListener("click", function (e) {
             isTestMode = false;
             makeTutorialHeading();
             buttonsOnTestMode();
-            // testBtn.classList.remove("btn-danger");
+            testBtn.classList.remove("add-color");
             disableButton(hintBtn);
           }
         } else {
@@ -656,13 +656,11 @@ function buttonsOnTestMode() {
 }
 
 function disableButton(btn) {
-  // btn.classList.add("disabled");
   btn.setAttribute("disabled", "");
   btn.setAttribute("aria-disabled", true);
 }
 
 function enableButton(btn) {
-  // btn.classList.remove("disabled");
   btn.removeAttribute("disabled");
   btn.setAttribute("aria-disabled", false);
 }
@@ -692,7 +690,6 @@ function renderBoard() {
 
   // Enable all buttons of btn-group class(playBtn, nextBtn and prevBtn) if disabled
   for (const child of document.querySelector(".btn-group").children) {
-    // if (child.classList.contains("disabled")) enableButton(child);
     if (child.hasAttribute("disabled")) {
       enableButton(child);
     }
