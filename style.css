@@ -183,7 +183,8 @@ body {
   background-color: var(--dropdown-hover);
 }
 
-.dropdown__menu {
+.dropdown__menu,
+body.hasTouch .dropdown__menu {
   background-color: var(--acc-body-bkg);
   max-height: 0;
   overflow: hidden;
@@ -192,14 +193,14 @@ body {
 
 /* Show dropdown menu */
 body.hasHover .dropdown__item:hover .dropdown__menu,
-.active-menu {
+body.hasTouch .active-menu {
   max-height: 1000px;
   transition: max-height 0.4s ease-in;
 }
 
 /* Rotate dropdown icon */
 body.hasHover .dropdown__item:hover .dropdown__arrow,
-.active-arrow {
+body.hasTouch .active-arrow {
   transform: rotate(180deg);
 }
 
@@ -577,7 +578,7 @@ img {
 
   /* Show dropdown menu */
   body.hasHover .dropdown__item:hover .dropdown__menu,
-  .active-menu {
+  body.hasTouch .active-menu {
     opacity: 1;
     top: 7.5rem;
     pointer-events: initial;

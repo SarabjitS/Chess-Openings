@@ -470,10 +470,12 @@ function watchForHover() {
 
   function enableHover() {
     if (new Date() - lastTouchTime < 500) return;
+    document.body.classList.remove("hasTouch");
     document.body.classList.add("hasHover");
   }
 
   function disableHover() {
+    document.body.classList.add("hasTouch");
     document.body.classList.remove("hasHover");
   }
 
