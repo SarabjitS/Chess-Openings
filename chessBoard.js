@@ -1,3 +1,5 @@
+// HTML code of chess board exported as JavaScript variable
+
 const chessBoardHTML = `
 <div class="sq-block">
   <div class="sq" id="a8">
