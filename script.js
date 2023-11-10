@@ -31,7 +31,7 @@ const bar2 = document.querySelector(".bar2");
 const bar3 = document.querySelector(".bar3");
 const darkModeToggle = document.querySelector(".dark-mode-toggle");
 
-//variables defined
+//Variables defined
 let opening = [];
 let moveIndex = -1;
 let isRotated = false;
@@ -49,6 +49,12 @@ let isPlay = false;
 let speed = 1250;
 let isSpeed = false;
 let isDropdownOpen = false;
+let clickEvent = (function () {
+  if ("ontouchstart" in document.documentElement === true) return "touchstart";
+  else return "click";
+})();
+// check for saved 'darkMode' in localStorage
+let darkMode = localStorage.getItem("darkMode");
 
 //Creating chess board
 renderBoard();
@@ -58,10 +64,75 @@ document.ondblclick = function (e) {
   e.preventDefault();
 };
 
-let clickEvent = (function () {
-  if ("ontouchstart" in document.documentElement === true) return "touchstart";
-  else return "click";
-})();
+// Close the dialogue
+dialog.addEventListener("click", (e) => {
+  const dialogDimensions = dialog.getBoundingClientRect();
+  if (
+    e.clientX < dialogDimensions.left ||
+    e.clientX > dialogDimensions.right ||
+    e.clientY < dialogDimensions.top ||
+    e.clientY > dialogDimensions.bottom
+  ) {
+    dialog.close();
+  }
+});
+
+orientationBtn.addEventListener("click", function () {
+  isRotated = !isRotated;
+  rotateBoard();
+});
+
+soundBtn.addEventListener("click", function () {
+  isAudio = !isAudio;
+  if (!isAudio) {
+    document.getElementById("sound-btn-icon").textContent = "volume_off";
+  } else {
+    document.getElementById("sound-btn-icon").textContent = "volume_up";
+  }
+});
+
+speedBtn.addEventListener("click", function () {
+  isSpeed = !isSpeed;
+  if (isSpeed) {
+    speed = 800;
+    document.getElementById("speed-btn-icon").style = "transform: scaleX(1);";
+  } else {
+    speed = 1250;
+    document.getElementById("speed-btn-icon").style = "transform: scaleX(-1);";
+  }
+});
+
+//EventListener for touch on extra-options button
+document.addEventListener(clickEvent, (e) => {
+  if (e.target.matches("#nav-link-1") || e.target.matches(".dropdown__arrow")) {
+    document.querySelector(".dropdown__menu").classList.toggle("active-menu");
+    document.querySelector(".dropdown__arrow").classList.toggle("active-arrow");
+  } else if (
+    document
+      .querySelector(".dropdown__menu")
+      .classList.contains("active-menu") ||
+    document.querySelector("#nav-menu").classList.contains("show-menu")
+  )
+    if (!document.querySelector(".nav__container").contains(e.target)) {
+      // Close the dropdown menu and toggle bar if the user clicks anywhere else on the board
+      removeDropdownMenuArrow();
+      removeAnimateBars();
+    }
+});
+
+// When someone clicks the button
+darkModeToggle.addEventListener("click", () => {
+  // get their darkMode setting
+  darkMode = localStorage.getItem("darkMode");
+
+  // if it not current enabled, enable it
+  if (darkMode !== "enabled") {
+    enableDarkMode();
+    // if it has been enabled, turn it off
+  } else {
+    disableDarkMode();
+  }
+});
 
 hamburger.addEventListener("click", () => {
   isDropdownOpen = !isDropdownOpen;
@@ -84,74 +155,6 @@ hamburger.addEventListener("click", () => {
     removeAnimateBars();
   }
 });
-
-//EventListener for touch on extra-options button
-document.addEventListener(clickEvent, (e) => {
-  if (e.target.matches("#nav-link-1") || e.target.matches(".dropdown__arrow")) {
-    document.querySelector(".dropdown__menu").classList.toggle("active-menu");
-    document.querySelector(".dropdown__arrow").classList.toggle("active-arrow");
-  } else if (
-    document
-      .querySelector(".dropdown__menu")
-      .classList.contains("active-menu") ||
-    document.querySelector("#nav-menu").classList.contains("show-menu")
-  )
-    if (!document.querySelector(".nav__container").contains(e.target)) {
-      // Close the dropdown menu and toggle bar if the user clicks anywhere else on the board
-      removeDropdownMenuArrow();
-      removeAnimateBars();
-    }
-});
-
-//Listen for the opening selected
-document.addEventListener("click", function (e) {
-  if (
-    e.target.dataset.name === "opening1" ||
-    e.target.dataset.name === "opening2" ||
-    e.target.dataset.name === "opening3" ||
-    e.target.dataset.name === "opening4" ||
-    e.target.dataset.name === "opening5" ||
-    e.target.dataset.name === "opening6" ||
-    e.target.dataset.name === "opening7"
-  ) {
-    isTestMode = false;
-    renderBoard();
-    //When opening is clicked again to close, Bootstrap adds .collapsed class
-    if (!e.target.classList.contains("collapsed")) {
-      playMove(e.target.innerText);
-    } else {
-      opening = [];
-    }
-  }
-});
-
-orientationBtn.addEventListener("click", function () {
-  isRotated = !isRotated;
-  rotateBoard();
-});
-// });
-
-soundBtn.addEventListener("click", function () {
-  isAudio = !isAudio;
-  if (!isAudio) {
-    document.getElementById("sound-btn-icon").textContent = "volume_off";
-  } else {
-    document.getElementById("sound-btn-icon").textContent = "volume_up";
-  }
-});
-// });
-
-speedBtn.addEventListener("click", function () {
-  isSpeed = !isSpeed;
-  if (isSpeed) {
-    speed = 800;
-    document.getElementById("speed-btn-icon").style = "transform: scaleX(1);";
-  } else {
-    speed = 1250;
-    document.getElementById("speed-btn-icon").style = "transform: scaleX(-1);";
-  }
-});
-// });
 
 //Choose between the traditional and funny openings
 chooseBtn.addEventListener("click", function () {
@@ -176,6 +179,63 @@ chooseBtn.addEventListener("click", function () {
   }
 });
 
+//Listen for the opening selected
+document.addEventListener("click", function (e) {
+  if (
+    e.target.dataset.name === "opening1" ||
+    e.target.dataset.name === "opening2" ||
+    e.target.dataset.name === "opening3" ||
+    e.target.dataset.name === "opening4" ||
+    e.target.dataset.name === "opening5" ||
+    e.target.dataset.name === "opening6" ||
+    e.target.dataset.name === "opening7"
+  ) {
+    isTestMode = false;
+    renderBoard();
+    //When opening is clicked again to close, Bootstrap adds .collapsed class
+    if (!e.target.classList.contains("collapsed")) {
+      playMove(e.target.innerText);
+    } else {
+      opening = [];
+    }
+  }
+});
+
+//Listens for clicks on chess board after testStart() has started
+chessBoard.addEventListener("click", function (e) {
+  if (!isHint && isTestMode) {
+    if (i < openingSourceMoves.length) {
+      if (square) {
+        square.classList.remove("highlight");
+      }
+      if (e.target.closest(".sq")) {
+        square = e.target.closest(".sq");
+        if (square.getAttribute("id") === openingDestinationMoves[i]) {
+          removeSourceMoveHighlight(i);
+          moveIndex++;
+          nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
+          generateTutorial(opening[moveIndex][2]);
+          i++;
+          tutorialHeading.textContent = "correct";
+          if (i <= openingSourceMoves.length - 1) {
+            makeSourceMoveHighlight(i);
+          } else {
+            isSucessful = true;
+            isTestMode = false;
+            makeTutorialHeading();
+            buttonsOnTestMode();
+            // testBtn.classList.remove("btn-danger");
+            disableButton(hintBtn);
+          }
+        } else {
+          square.classList.add("highlight");
+          tutorialHeading.textContent = "Incorrect";
+        }
+      }
+    }
+  }
+});
+
 //Listen for next button click
 nextBtn.addEventListener("click", function () {
   if (opening.length === 0) {
@@ -195,6 +255,22 @@ nextBtn.addEventListener("click", function () {
         disableButton(nextBtn);
         disableButton(playBtn);
       }
+    }
+  }
+});
+
+//Listen for play button click
+playBtn.addEventListener("click", function () {
+  isPlay = !isPlay;
+  if (opening.length === 0) {
+    showDialog("Please select an opening first");
+  } else {
+    if (isPlay) {
+      id = setInterval(playBtnHandler, speed);
+      replacePlaytoPause();
+    } else {
+      clearInterval(id);
+      replacePauseToPlay();
     }
   }
 });
@@ -237,22 +313,6 @@ prevBtn.addEventListener("click", function () {
   }
 });
 
-//Listen for play button click
-playBtn.addEventListener("click", function () {
-  isPlay = !isPlay;
-  if (opening.length === 0) {
-    showDialog("Please select an opening first");
-  } else {
-    if (isPlay) {
-      id = setInterval(playBtnHandler, speed);
-      replacePlaytoPause();
-    } else {
-      clearInterval(id);
-      replacePauseToPlay();
-    }
-  }
-});
-
 //Listen for test yourself button click
 testBtn.addEventListener("click", function () {
   //If no opening selected
@@ -276,64 +336,6 @@ testBtn.addEventListener("click", function () {
     }
   }
 });
-
-// Close the dialogue
-dialog.addEventListener("click", (e) => {
-  const dialogDimensions = dialog.getBoundingClientRect();
-  if (
-    e.clientX < dialogDimensions.left ||
-    e.clientX > dialogDimensions.right ||
-    e.clientY < dialogDimensions.top ||
-    e.clientY > dialogDimensions.bottom
-  ) {
-    dialog.close();
-  }
-});
-
-function watchForHover() {
-  // lastTouchTime is used for ignoring emulated mousemove events
-  // that are fired after touchstart events. Since they're
-  // indistinguishable from real events, we use the fact that they're
-  // fired a few milliseconds after touchstart to filter them.
-  let lastTouchTime = 0;
-
-  function enableHover() {
-    if (new Date() - lastTouchTime < 500) return;
-    document.body.classList.add("hasHover");
-  }
-
-  function disableHover() {
-    document.body.classList.remove("hasHover");
-  }
-
-  function updateLastTouchTime() {
-    lastTouchTime = new Date();
-  }
-
-  document.addEventListener("touchstart", updateLastTouchTime, true);
-  document.addEventListener("touchstart", disableHover, true);
-  document.addEventListener("mousemove", enableHover, true);
-
-  enableHover();
-}
-
-watchForHover();
-
-//Starts the test
-function testStart() {
-  //Makes an array of only the opening source moves
-  opening.forEach((moves) =>
-    openingSourceMoves.push(moves.slice(0, 1).toString())
-  );
-
-  //Makes an array of only the opening source moves
-  opening.forEach((moves) =>
-    openingDestinationMoves.push(moves.slice(1, -1).toString())
-  );
-
-  //Highlights the first source move piece
-  makeSourceMoveHighlight(i);
-}
 
 //Listens to hintBtn
 hintBtn.addEventListener("click", function () {
@@ -364,41 +366,6 @@ hintBtn.addEventListener("click", function () {
   }
 });
 
-//Listens for clicks on chess board after testStart() has started
-chessBoard.addEventListener("click", function (e) {
-  if (!isHint && isTestMode) {
-    if (i < openingSourceMoves.length) {
-      if (square) {
-        square.classList.remove("highlight");
-      }
-      if (e.target.closest(".sq")) {
-        square = e.target.closest(".sq");
-        if (square.getAttribute("id") === openingDestinationMoves[i]) {
-          removeSourceMoveHighlight(i);
-          moveIndex++;
-          nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
-          generateTutorial(opening[moveIndex][2]);
-          i++;
-          tutorialHeading.textContent = "correct";
-          if (i <= openingSourceMoves.length - 1) {
-            makeSourceMoveHighlight(i);
-          } else {
-            isSucessful = true;
-            isTestMode = false;
-            makeTutorialHeading();
-            buttonsOnTestMode();
-            // testBtn.classList.remove("btn-danger");
-            disableButton(hintBtn);
-          }
-        } else {
-          square.classList.add("highlight");
-          tutorialHeading.textContent = "Incorrect";
-        }
-      }
-    }
-  }
-});
-
 function addAnimateBars() {
   bar1.classList.add("animateBar1");
   bar2.classList.add("animateBar2");
@@ -419,46 +386,38 @@ function removeDropdownMenuArrow() {
   document.getElementById("nav-menu").classList.remove("show-menu");
 }
 
-function playBtnHandler() {
-  moveIndex++;
-  if (moveIndex <= opening.length - 1) {
-    enableButton(prevBtn);
-    nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
-    playSound();
-    generateTutorial(opening[moveIndex][2]);
-    if (moveIndex === opening.length - 1) {
-      disableButton(nextBtn);
-      clearInterval(id);
-      replacePauseToPlay();
-      disableButton(playBtn);
-    }
+// Shows the modal to select opening
+function showDialog(text) {
+  dialog.textContent = text;
+  dialog.showModal();
+}
+
+// Plays sound if isAudio is true
+function playSound() {
+  if (isAudio) {
+    let audio = new Audio("move.mp3");
+    audio.play();
   }
 }
 
-function replacePauseToPlay() {
-  document
-    .querySelector(".play-btn-icon")
-    .classList.replace("bi-pause-circle-fill", "bi-play-circle-fill");
-}
+const enableDarkMode = () => {
+  // 1. Add the class to the body
+  document.body.classList.add("darkmode");
+  // 2. Update darkMode in localStorage
+  localStorage.setItem("darkMode", "enabled");
+};
 
-function replacePlaytoPause() {
-  document
-    .querySelector(".play-btn-icon")
-    .classList.replace("bi-play-circle-fill", "bi-pause-circle-fill");
-}
+const disableDarkMode = () => {
+  // 1. Remove the class from the body
+  document.body.classList.remove("darkmode");
+  // 2. Update darkMode in localStorage
+  localStorage.setItem("darkMode", null);
+};
 
-// Stops playBtnHandler() execution if next or prev button is clicked
-function stopPlayBtn() {
-  clearInterval(id);
-  replacePauseToPlay();
-  isPlay = !isPlay;
-}
-function makeSourceMoveHighlight(i) {
-  document.getElementById(openingSourceMoves[i]).classList.add("question");
-}
-
-function removeSourceMoveHighlight(i) {
-  document.getElementById(openingSourceMoves[i]).classList.remove("question");
+// If the user already visited and enabled darkMode
+// start things off with it on
+if (darkMode === "enabled") {
+  enableDarkMode();
 }
 
 //Changes the value of opening based on accordian option selected
@@ -487,63 +446,47 @@ function playMove(title) {
   }
 }
 
-// Shows the modal to select opening
-function showDialog(text) {
-  dialog.textContent = text;
-  dialog.showModal();
+//Starts the test
+function testStart() {
+  //Makes an array of only the opening source moves
+  opening.forEach((moves) =>
+    openingSourceMoves.push(moves.slice(0, 1).toString())
+  );
+
+  //Makes an array of only the opening source moves
+  opening.forEach((moves) =>
+    openingDestinationMoves.push(moves.slice(1, -1).toString())
+  );
+
+  //Highlights the first source move piece
+  makeSourceMoveHighlight(i);
 }
 
-// Plays sound if isAudio is true
-function playSound() {
-  if (isAudio) {
-    let audio = new Audio("move.mp3");
-    audio.play();
+function watchForHover() {
+  // lastTouchTime is used for ignoring emulated mousemove events
+  // that are fired after touchstart events. Since they're
+  // indistinguishable from real events, we use the fact that they're
+  // fired a few milliseconds after touchstart to filter them.
+  let lastTouchTime = 0;
+
+  function enableHover() {
+    if (new Date() - lastTouchTime < 500) return;
+    document.body.classList.add("hasHover");
   }
-}
 
-// Makes the next move
-function nextHandler(sourceMove, destinationMove) {
-  playSound();
-  document
-    .getElementById(destinationMove)
-    .insertBefore(
-      document.getElementById(sourceMove).children[0],
-      document.getElementById(destinationMove).firstChild
-    );
-  if (document.getElementById(destinationMove).children[1]) {
-    document.getElementById(destinationMove).children[1].style.display = "none";
+  function disableHover() {
+    document.body.classList.remove("hasHover");
   }
-}
 
-// For executing prevBtn moves
-function prevHandler(destinationMove, sourceMove) {
-  if (document.getElementById(sourceMove).children[1]) {
-    document.getElementById(sourceMove).children[1].style.display = "block";
+  function updateLastTouchTime() {
+    lastTouchTime = new Date();
   }
-  document
-    .getElementById(destinationMove)
-    .append(document.getElementById(sourceMove).children[0]);
-}
 
-// For generating tutorial text list item
-function generateTutorial(text) {
-  const listItem = document.createElement("li");
-  listItem.textContent = text;
-  document.getElementById("tutorial-text").appendChild(listItem);
-}
+  document.addEventListener("touchstart", updateLastTouchTime, true);
+  document.addEventListener("touchstart", disableHover, true);
+  document.addEventListener("mousemove", enableHover, true);
 
-// For removing tutorial text list item
-function removeTutorial() {
-  const list = document.querySelectorAll("ol li");
-  const lastItem = list[list.length - 1];
-  if (lastItem) {
-    lastItem.parentNode.removeChild(lastItem);
-  }
-}
-
-// For resetting the tutorial text completely
-function resetTutorial() {
-  document.getElementById("tutorial-text").textContent = "";
+  enableHover();
 }
 
 // For rotating the chess board
@@ -597,42 +540,131 @@ function removeWhiteNotations() {
   });
 }
 
-// check for saved 'darkMode' in localStorage
-let darkMode = localStorage.getItem("darkMode");
-
-const enableDarkMode = () => {
-  // 1. Add the class to the body
-  document.body.classList.add("darkmode");
-  // 2. Update darkMode in localStorage
-  localStorage.setItem("darkMode", "enabled");
-};
-
-const disableDarkMode = () => {
-  // 1. Remove the class from the body
-  document.body.classList.remove("darkmode");
-  // 2. Update darkMode in localStorage
-  localStorage.setItem("darkMode", null);
-};
-
-// If the user already visited and enabled darkMode
-// start things off with it on
-if (darkMode === "enabled") {
-  enableDarkMode();
+function playBtnHandler() {
+  moveIndex++;
+  if (moveIndex <= opening.length - 1) {
+    enableButton(prevBtn);
+    nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
+    playSound();
+    generateTutorial(opening[moveIndex][2]);
+    if (moveIndex === opening.length - 1) {
+      disableButton(nextBtn);
+      clearInterval(id);
+      replacePauseToPlay();
+      disableButton(playBtn);
+    }
+  }
 }
 
-// When someone clicks the button
-darkModeToggle.addEventListener("click", () => {
-  // get their darkMode setting
-  darkMode = localStorage.getItem("darkMode");
+function replacePauseToPlay() {
+  document
+    .querySelector(".play-btn-icon")
+    .classList.replace("bi-pause-circle-fill", "bi-play-circle-fill");
+}
 
-  // if it not current enabled, enable it
-  if (darkMode !== "enabled") {
-    enableDarkMode();
-    // if it has been enabled, turn it off
-  } else {
-    disableDarkMode();
+function replacePlaytoPause() {
+  document
+    .querySelector(".play-btn-icon")
+    .classList.replace("bi-play-circle-fill", "bi-pause-circle-fill");
+}
+
+// Stops playBtnHandler() execution if next or prev button is clicked
+function stopPlayBtn() {
+  clearInterval(id);
+  replacePauseToPlay();
+  isPlay = !isPlay;
+}
+function makeSourceMoveHighlight(i) {
+  document.getElementById(openingSourceMoves[i]).classList.add("question");
+}
+
+function removeSourceMoveHighlight(i) {
+  document.getElementById(openingSourceMoves[i]).classList.remove("question");
+}
+
+// Makes the next move
+function nextHandler(sourceMove, destinationMove) {
+  playSound();
+  document
+    .getElementById(destinationMove)
+    .insertBefore(
+      document.getElementById(sourceMove).children[0],
+      document.getElementById(destinationMove).firstChild
+    );
+  if (document.getElementById(destinationMove).children[1]) {
+    document.getElementById(destinationMove).children[1].style.display = "none";
   }
-});
+}
+
+// For executing prevBtn moves
+function prevHandler(destinationMove, sourceMove) {
+  if (document.getElementById(sourceMove).children[1]) {
+    document.getElementById(sourceMove).children[1].style.display = "block";
+  }
+  document
+    .getElementById(destinationMove)
+    .append(document.getElementById(sourceMove).children[0]);
+}
+
+// For generating tutorial text list item
+function generateTutorial(text) {
+  const listItem = document.createElement("li");
+  listItem.textContent = text;
+  document.getElementById("tutorial-text").appendChild(listItem);
+}
+
+// For removing tutorial text list item
+function removeTutorial() {
+  const list = document.querySelectorAll("ol li");
+  const lastItem = list[list.length - 1];
+  if (lastItem) {
+    lastItem.parentNode.removeChild(lastItem);
+  }
+}
+
+// For resetting the tutorial text completely
+function resetTutorial() {
+  document.getElementById("tutorial-text").textContent = "";
+}
+
+function makeTutorialHeading() {
+  if (isTestMode) {
+    tutorialHeading.textContent = "Where should the highlighted piece go?";
+  } else if (isSucessful) {
+    tutorialHeading.textContent = "Congratulations!!";
+  } else {
+    tutorialHeading.textContent = "Tutorial";
+  }
+}
+
+// Target all buttons of btn-group; ie, playBtn, nextBtn and prevBtn
+function buttonsOnTestMode() {
+  if (isTestMode) {
+    for (const child of document.querySelector(".btn-group").children) {
+      disableButton(child);
+    }
+  } else {
+    for (const child of document.querySelector(".btn-group").children) {
+      // Not including next button and playBtn as there are no moves left
+      if (child === nextBtn || child === playBtn) {
+        continue;
+      }
+      enableButton(child);
+    }
+  }
+}
+
+function disableButton(btn) {
+  // btn.classList.add("disabled");
+  btn.setAttribute("disabled", "");
+  btn.setAttribute("aria-disabled", true);
+}
+
+function enableButton(btn) {
+  // btn.classList.remove("disabled");
+  btn.removeAttribute("disabled");
+  btn.setAttribute("aria-disabled", false);
+}
 
 // For rendering the chess board at start, when an opening is selected
 // and when  testBtn is turned on/off
@@ -684,43 +716,5 @@ function renderBoard() {
   if (isRotated) {
     rotatePieces();
   }
-}
-
-function makeTutorialHeading() {
-  if (isTestMode) {
-    tutorialHeading.textContent = "Where should the highlighted piece go?";
-  } else if (isSucessful) {
-    tutorialHeading.textContent = "Congratulations!!";
-  } else {
-    tutorialHeading.textContent = "Tutorial";
-  }
-}
-
-// Target all buttons of btn-group; ie, playBtn, nextBtn and prevBtn
-function buttonsOnTestMode() {
-  if (isTestMode) {
-    for (const child of document.querySelector(".btn-group").children) {
-      disableButton(child);
-    }
-  } else {
-    for (const child of document.querySelector(".btn-group").children) {
-      // Not including next button and playBtn as there are no moves left
-      if (child === nextBtn || child === playBtn) {
-        continue;
-      }
-      enableButton(child);
-    }
-  }
-}
-
-function disableButton(btn) {
-  // btn.classList.add("disabled");
-  btn.setAttribute("disabled", "");
-  btn.setAttribute("aria-disabled", true);
-}
-
-function enableButton(btn) {
-  // btn.classList.remove("disabled");
-  btn.removeAttribute("disabled");
-  btn.setAttribute("aria-disabled", false);
+  watchForHover();
 }
