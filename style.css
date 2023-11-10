@@ -282,7 +282,8 @@ dialog {
   grid-template-areas:
     "btn board tutorial"
     "accordion  board tutorial";
-  margin: 14.1rem auto 4rem auto;
+  margin: 14.1rem auto 0rem auto;
+  padding: 4rem;
   justify-content: center;
 }
 
@@ -830,7 +831,7 @@ img {
   .mega-container {
     grid-template-columns: 30rem;
     grid-template-rows: 3.6rem 1fr 48rem 40rem;
-    /* padding: 20rem 0rem 7rem 0rem; */
+    padding: 4rem 1rem;
   }
 
   .chess-board {
