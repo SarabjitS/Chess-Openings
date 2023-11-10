@@ -103,26 +103,6 @@ document.addEventListener(clickEvent, (e) => {
     }
 });
 
-function addAnimateBars() {
-  bar1.classList.add("animateBar1");
-  bar2.classList.add("animateBar2");
-  bar3.classList.add("animateBar3");
-  isDropdownOpen = true;
-}
-
-function removeAnimateBars() {
-  bar1.classList.remove("animateBar1");
-  bar2.classList.remove("animateBar2");
-  bar3.classList.remove("animateBar3");
-  isDropdownOpen = false;
-}
-
-function removeDropdownMenuArrow() {
-  document.querySelector(".dropdown__menu").classList.remove("active-menu");
-  document.querySelector(".dropdown__arrow").classList.remove("active-arrow");
-  document.getElementById("nav-menu").classList.remove("show-menu");
-}
-
 //Listen for the opening selected
 document.addEventListener("click", function (e) {
   if (
@@ -418,6 +398,26 @@ chessBoard.addEventListener("click", function (e) {
     }
   }
 });
+
+function addAnimateBars() {
+  bar1.classList.add("animateBar1");
+  bar2.classList.add("animateBar2");
+  bar3.classList.add("animateBar3");
+  isDropdownOpen = true;
+}
+
+function removeAnimateBars() {
+  bar1.classList.remove("animateBar1");
+  bar2.classList.remove("animateBar2");
+  bar3.classList.remove("animateBar3");
+  isDropdownOpen = false;
+}
+
+function removeDropdownMenuArrow() {
+  document.querySelector(".dropdown__menu").classList.remove("active-menu");
+  document.querySelector(".dropdown__arrow").classList.remove("active-arrow");
+  document.getElementById("nav-menu").classList.remove("show-menu");
+}
 
 function playBtnHandler() {
   moveIndex++;
