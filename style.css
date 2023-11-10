@@ -462,10 +462,9 @@ img {
   background-color: var(--hover-light);
 }
 
+.btn.test-yourself.add-color,
 .btn.test-yourself:focus.add-color,
-.btn.test-yourself:active.add-color,
-.btn.test-yourself:target.add-color,
-.btn.test-yourself.add-color {
+.btn.test-yourself:active.add-color {
   background-color: var(--grp-btn);
   box-shadow: var(--shadow-elevation-medium);
 }
