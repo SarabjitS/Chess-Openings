@@ -32,6 +32,9 @@ const bar2 = document.querySelector(".bar2");
 const bar3 = document.querySelector(".bar3");
 const darkModeToggle = document.querySelector(".dark-mode-toggle");
 const tooltipTriggerList = document.querySelector('[data-bs-toggle="tooltip"]');
+let tooltipList = new bootstrap.Tooltip(tooltipTriggerList, {
+  trigger: "hover",
+});
 
 // const tooltip = bootstrap.Tooltip.getInstance("toolTiplist"); // Returns a Bootstrap tooltip instance
 
@@ -142,7 +145,7 @@ darkModeToggle.addEventListener("click", () => {
 });
 
 hamburger.addEventListener("click", () => {
-  const tooltipList = new bootstrap.Tooltip(tooltipTriggerList, {
+  tooltipList = new bootstrap.Tooltip(tooltipTriggerList, {
     trigger: "hover",
   });
   isDropdownOpen = !isDropdownOpen;
@@ -394,7 +397,7 @@ function removeDropdownMenuArrow() {
   document.getElementById("nav-menu").classList.remove("show-menu");
   // tooltipList.hide();
   // document.querySelector(".tt").classList.add("hidden");
-  tooltipList.dispose();
+  tooltipList.hide();
 }
 
 // Shows the modal to select opening
