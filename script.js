@@ -584,6 +584,9 @@ function stopPlayBtn() {
 }
 function makeSourceMoveHighlight(i) {
   document.getElementById(openingSourceMoves[i]).classList.add("question");
+  if (i == 0) {
+    showDialog("TEST MODE - click or touch on the destination square");
+  }
 }
 
 function removeSourceMoveHighlight(i) {
