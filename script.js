@@ -400,6 +400,8 @@ function showDialog(text) {
 function playSound() {
   if (isAudio) {
     let audio = new Audio("move.mp3");
+    audio.autoplay = true;
+
     audio.play();
   }
 }
