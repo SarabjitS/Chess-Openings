@@ -551,7 +551,7 @@ function playBtnHandler() {
   if (moveIndex <= opening.length - 1) {
     enableButton(prevBtn);
     nextHandler(opening[moveIndex][0], opening[moveIndex][1]);
-    playSound();
+    // playSound();
     generateTutorial(opening[moveIndex][2]);
     if (moveIndex === opening.length - 1) {
       disableButton(nextBtn);
