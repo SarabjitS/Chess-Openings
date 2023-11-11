@@ -47,7 +47,7 @@ let i = 0;
 let isHint = false;
 let id;
 let isPlay = false;
-let speed = 750;
+let speed = 600;
 let isSpeed = false;
 let isDropdownOpen = false;
 let toolTip = new bootstrap.Tooltip(tooltipTriggerList, {
@@ -98,7 +98,7 @@ soundBtn.addEventListener("click", function () {
 speedBtn.addEventListener("click", function () {
   isSpeed = !isSpeed;
   if (isSpeed) {
-    speed = 750;
+    speed = 600;
     document.getElementById("speed-btn-icon").style = "transform: scaleX(1);";
   } else {
     speed = 1000;
@@ -401,7 +401,6 @@ function playSound() {
   if (isAudio) {
     let audio = new Audio("move.mp3");
     audio.autoplay = true;
-
     audio.play();
   }
 }
