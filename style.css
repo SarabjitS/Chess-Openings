@@ -457,7 +457,6 @@ img {
 .bi {
   color: var(--grp-btn);
   font-size: 5.25rem;
-  /* box-shadow: var(--shadow-elevation-low); */
 }
 
 .bi:hover {
@@ -769,7 +768,6 @@ img {
   }
 
   .mega-container {
-    /* justify-content: center; */
     grid-template-columns: minmax(40rem, 50rem);
     grid-template-rows: 4em 1fr 58rem 50rem;
     grid-template-areas:
@@ -778,8 +776,6 @@ img {
       "board"
       "tutorial";
     row-gap: 7rem;
-    /* Due to navbar being fixed, extra padding required */
-    /* padding-top: 16.1rem; */
   }
 
   .tutorial {
