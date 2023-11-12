@@ -423,19 +423,15 @@ dialog {
   background-color: var(--light-color-board);
 }
 
-.chess-board :nth-child(n):nth-child(even):nth-child(-n + 8),
-.chess-board :nth-child(n + 9):nth-child(odd):nth-child(-n + 16),
-.chess-board :nth-child(n + 17):nth-child(even):nth-child(-n + 24),
-.chess-board :nth-child(n + 25):nth-child(odd):nth-child(-n + 32),
-.chess-board :nth-child(n + 33):nth-child(even):nth-child(-n + 40),
-.chess-board :nth-child(n + 41):nth-child(odd):nth-child(-n + 48),
-.chess-board :nth-child(n + 49):nth-child(even):nth-child(-n + 56),
-.chess-board :nth-child(n + 57):nth-child(odd):nth-child(-n + 64) {
+.chess-board > :nth-child(n):nth-child(even):nth-child(-n + 8),
+.chess-board > :nth-child(n + 9):nth-child(odd):nth-child(-n + 16),
+.chess-board > :nth-child(n + 17):nth-child(even):nth-child(-n + 24),
+.chess-board > :nth-child(n + 25):nth-child(odd):nth-child(-n + 32),
+.chess-board > :nth-child(n + 33):nth-child(even):nth-child(-n + 40),
+.chess-board > :nth-child(n + 41):nth-child(odd):nth-child(-n + 48),
+.chess-board > :nth-child(n + 49):nth-child(even):nth-child(-n + 56),
+.chess-board > :nth-child(n + 57):nth-child(odd):nth-child(-n + 64) {
   background-color: var(--dark-color-board);
-}
-
-.sq-block :nth-child(n):nth-child(even):nth-child(-n + 8) {
-  background-color: inherit;
 }
 
 img {
