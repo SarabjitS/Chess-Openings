@@ -1,6 +1,6 @@
 # Chess Openings
 
-## [Live Demo Here](https://skanes17.github.io/beat-circle/)
+## [Live Demo Here](https://sarabjits.github.io/Chess-Openings/)
 
 > Select an opening and use arrow/play button to go through the moves. Check if you have learned the opening by clicking the Test button.
 
