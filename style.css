@@ -765,7 +765,7 @@ img {
 
   .mega-container {
     grid-template-columns: minmax(40rem, 50rem);
-    grid-template-rows: 4em 1fr 58rem 50rem;
+    grid-template-rows: 4em 1fr 62rem 50rem;
     grid-template-areas:
       "btn"
       "accordion "
@@ -792,6 +792,10 @@ img {
     pointer-events: none;
     opacity: 0;
     transition: top 0.4s, opacity 0.3s;
+  }
+
+  .extended-chess-board {
+    margin-top: 4rem;
   }
 }
 
