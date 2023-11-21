@@ -301,7 +301,7 @@ dialog {
   grid-template-rows: 4rem 1fr;
   /* padding: 20rem 4rem 7rem 4rem; */
   column-gap: 7rem;
-  row-gap: 6rem;
+  row-gap: 3rem;
   position: relative;
   grid-template-areas:
     "btn board tutorial"
@@ -315,7 +315,7 @@ dialog {
   grid-area: btn;
   min-width: 20rem;
   align-self: start;
-  justify-self: center;
+  justify-self: start;
   border-style: none;
   box-shadow: var(--shadow-elevation-medium);
 }
@@ -631,7 +631,7 @@ img {
       "accordion board"
       "tutorial tutorial";
     column-gap: 10rem;
-    row-gap: 7rem;
+    /* row-gap: 7rem; */
   }
 
   .chess-board {
@@ -655,12 +655,12 @@ img {
   .mega-container {
     justify-content: center;
     grid-template-columns: minmax(27rem, 40rem) 36rem;
-    grid-template-rows: 4rem 45rem 40rem;
+    grid-template-rows: 4rem 47rem 40rem;
     grid-template-areas:
       "btn board"
       "accordion board"
       "tutorial tutorial";
-    gap: 5rem;
+    /* gap: 5rem; */
   }
 
   .chess-board {
@@ -771,7 +771,7 @@ img {
       "accordion "
       "board"
       "tutorial";
-    row-gap: 7rem;
+    row-gap: 3rem;
   }
 
   .tutorial {
