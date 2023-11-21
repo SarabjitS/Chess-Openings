@@ -1,4 +1,8 @@
-# Chess-Openings
+# Chess Openings
+
+## [Live Demo Here](https://skanes17.github.io/beat-circle/)
+
+> Select an opening and use arrow/play button to go through the moves. Check if you have learned the opening by clicking the Test button.
 
 Chess popularity has increased exponentially due to charismatic youtubers taking up the sport for bolstering their intellectual prowess and the incredible fun that comes along playing chess. As other chess enthusiasts, I found that if you want to be better at chess then learning about chess openings is not only mandatory for progress but also makes you faster when playing blitz games.
 
