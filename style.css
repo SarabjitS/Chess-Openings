@@ -99,7 +99,9 @@ body {
 .font-medium,
 .accordion-button,
 .accordion-body {
-  font-size: 2rem;
+  font-size: 1.75rem;
+  line-height: 2rem;
+  letter-spacing: 0.1rem;
 }
 
 #bg {
@@ -318,6 +320,7 @@ dialog {
   justify-self: start;
   border-style: none;
   box-shadow: var(--shadow-elevation-medium);
+  padding: 1.25rem;
 }
 
 .accordion {
