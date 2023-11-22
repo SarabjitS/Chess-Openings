@@ -26,7 +26,7 @@ This chess-opening application reinforces the different opeinings so that the us
 - Testing the user on their knowledge of selected opening
 - Added hint button to help recalling a specific move (when in test mode)
 - Added notations for convenience and better recall
-- Highly responsive including adding mobile navbar
+- Highly responsive including mobile navbar
 
 ## Future Iterations
 
