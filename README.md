@@ -18,28 +18,28 @@
 
 ## Features
 
-🎨 Design and Responsiveness:
+- 🎨 Design and Responsiveness:
 The app boasts a sleek design with a focus on user responsiveness. Whether you're on your laptop or browsing from your mobile device, the interface adapts seamlessly, ensuring an optimal experience across all devices.
 
-🌙 Dark Mode:
+- 🌙 Dark Mode:
 I've added a Dark Mode feature to make those late-night chess sessions easier on the eyes. A simple toggle transforms the interface into a stylish dark aesthetic.
 
-🔊 Sound On/Off:
+- 🔊 Sound On/Off:
 Immersive gaming experience, anyone? With the sound on/off toggle, users can customize their experience based on personal preferences.
 
-🔄 Orientation Switch:
+- 🔄 Orientation Switch:
 Ever wanted to view the chessboard from the opposite side? Now you can! The app allows users to effortlessly switch between the white and black sides of the board.
 
-📚 Learning and Testing:
+- 📚 Learning and Testing:
 One of the standout features is the ability to test your knowledge of selected openings. The app challenges users with questions related to specific openings, providing an engaging way to enhance chess strategy.
 
-🔍 Hint Button:
+- 🔍 Hint Button:
 Stuck on a move during a test? No worries! I've included a handy Hint button to guide users through recalling a specific move, making the learning process more interactive.
 
-📝 Notations for Convenience:
+- 📝 Notations for Convenience:
 To facilitate better recall and understanding, the app includes notations, ensuring users can follow the game with ease.
 
-📲 Mobile Navbar:
+- 📲 Mobile Navbar:
 The application is highly responsive on mobile devices, featuring a streamlined navbar for easy navigation. Chess on the go has never been this accessible!
 
 ## Future Iterations
