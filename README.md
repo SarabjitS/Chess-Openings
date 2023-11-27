@@ -6,27 +6,41 @@
 
 ## General Info
 
-- I wanted my first project to be something that I could use for improving my chess. Working on the app helped me dust-off my development skills and gain confidence.
+- Using a combination of HTML, CSS, and JavaScript, I set out to create a user-friendly web app that not only explores the fascinating world of chess openings but also incorporates some nifty features for a seamless user experience.
+
 
 ## Technologies Used
 
 - HTML5
 - CSS
 - JavaScript (ES6)
-
-<!-- Chess popularity has increased exponentially due to charismatic youtubers taking up the sport for bolstering their intellectual prowess and the incredible fun that comes along playing chess. As other chess enthusiasts, I found that if you want to be better at chess then learning about chess openings is not only mandatory for progress but also makes you faster when playing blitz games.
-
-This chess-opening application reinforces the different opeinings so that the user can enjoy the beautiful game of chess. After the user has studied the moves, they can test their knowledge. As it can be overhelming to remember all the moves at once, the user can take help by clicking the hint button. -->
+  
 
 ## Features
 
-- Dark mode
-- Sound on/off
-- Changing orientation from white to black side of board or vice versa
-- Testing the user on their knowledge of selected opening
-- Added hint button to help recalling a specific move (when in test mode)
-- Added notations for convenience and better recall
-- Highly responsive including mobile navbar
+🎨 Design and Responsiveness:
+The app boasts a sleek design with a focus on user responsiveness. Whether you're on your laptop or browsing from your mobile device, the interface adapts seamlessly, ensuring an optimal experience across all devices.
+
+🌙 Dark Mode:
+I've added a Dark Mode feature to make those late-night chess sessions easier on the eyes. A simple toggle transforms the interface into a stylish dark aesthetic.
+
+🔊 Sound On/Off:
+Immersive gaming experience, anyone? With the sound on/off toggle, users can customize their experience based on personal preferences.
+
+🔄 Orientation Switch:
+Ever wanted to view the chessboard from the opposite side? Now you can! The app allows users to effortlessly switch between the white and black sides of the board.
+
+📚 Learning and Testing:
+One of the standout features is the ability to test your knowledge of selected openings. The app challenges users with questions related to specific openings, providing an engaging way to enhance chess strategy.
+
+🔍 Hint Button:
+Stuck on a move during a test? No worries! I've included a handy Hint button to guide users through recalling a specific move, making the learning process more interactive.
+
+📝 Notations for Convenience:
+To facilitate better recall and understanding, the app includes notations, ensuring users can follow the game with ease.
+
+📲 Mobile Navbar:
+The application is highly responsive on mobile devices, featuring a streamlined navbar for easy navigation. Chess on the go has never been this accessible!
 
 ## Future Iterations
 
